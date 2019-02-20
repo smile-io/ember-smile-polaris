@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import { equal } from '@ember/object/computed';
+import { equal, readOnly } from '@ember/object/computed';
 import { isEmpty } from '@ember/utils';
 import { classify } from '@ember/string';
 import layout from '../templates/components/polaris-icon';
@@ -101,6 +101,7 @@ export default Component.extend(SvgHandling, {
   }),
 
   'data-test-icon': true,
+  'data-test-keep-fills': readOnly('keepFills'),
 
   /**
    * Whether the component should leave space for an icon
