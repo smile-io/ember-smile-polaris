@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { findAll, click, render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
@@ -448,5 +448,26 @@ module('Integration | Component | polaris action list', function(hooks) {
     await click('li button');
     assert.ok(this.get('nestedActionFired'), 'nested action was fired');
     assert.notOk(this.get('formSubmitted'), 'form submit action is not fired');
+  });
+
+  /************************************\
+  | Tests for internal customisations. |
+  \************************************/
+  module('internal customisations', function() {
+    // TODO: implement this
+    skip('removes fills from item icons', async function(assert) {
+      await render(hbs`
+        {{polaris-action-list
+          items=(array
+            (hash
+              text="Action with custom icon"
+              icon="custom/test-icon"
+            )
+          )
+        }}
+      `);
+
+      // Check that `keepFills` is `false` on the item's icon.
+    });
   });
 });
