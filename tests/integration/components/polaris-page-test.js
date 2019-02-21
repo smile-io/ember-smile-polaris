@@ -547,5 +547,24 @@ module('Integration | Component | polaris page', function(hooks) {
 
       assert.dom('[data-test-icon]').exists({ count: 1 });
     });
+
+    test('it removes fills from custom icons in secondary actions', async function(assert) {
+      await render(hbs`
+        {{polaris-page
+          title="Page title"
+          secondaryActions=(array
+            (hash
+              text="Secondary action"
+              icon="custom-icons/my-icon"
+              onAction=(action (mut dummy))
+            )
+          )
+        }}
+      `);
+
+      assert
+        .dom('[data-test-icon]')
+        .doesNotHaveAttribute('data-test-keep-fills');
+    });
   });
 });
