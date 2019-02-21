@@ -36,10 +36,13 @@ export default Component.extend({
 
   /**
    * Label for list of choices
+   * This is just a string in `ember-polaris` but here we
+   * also accept a component definition or hash of
+   * `componentName` and `props`
    *
    * @property title
    * @public
-   * @type {String}
+   * @type {String|Component|Object}
    * @default null
    */
   title: null,

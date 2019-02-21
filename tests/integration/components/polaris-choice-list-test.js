@@ -622,16 +622,32 @@ module('Integration | Component | polaris-choice-list', function(hooks) {
   module('internal customisations', function() {
     test('it renders a custom control component for each option when controlComponent is specified', async function(assert) {
       await render(hbs`
-          {{polaris-choice-list
-            controlComponent=(component "polaris-icon" source="add")
-            choices=(array
-              (hash
-                label="option"
-                value="one"
-              )
+        {{polaris-choice-list
+          controlComponent=(component "polaris-icon" source="add")
+          choices=(array
+            (hash
+              label="option"
+              value="one"
             )
-          }}
-        `);
+          )
+        }}
+      `);
+
+      assert.dom('[data-test-icon]').exists({ count: 1 });
+    });
+
+    test('it accepts a component as the title property', async function(assert) {
+      await render(hbs`
+        {{polaris-choice-list
+          title=(component "polaris-icon" source="add")
+          choices=(array
+            (hash
+              label="option"
+              value="one"
+            )
+          )
+        }}
+      `);
 
       assert.dom('[data-test-icon]').exists({ count: 1 });
     });
