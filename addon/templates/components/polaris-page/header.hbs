@@ -37,15 +37,23 @@
       tagName=(if primaryAction "div" "")
       class=(if primaryAction "Polaris-Page__TitleAndActions")
     }}
-      <div class="Polaris-Page__Title">
-        {{#polaris-display-text tagName="h1" size="large"}}
-          {{title}}
-        {{/polaris-display-text}}
-
-        {{#if titleMetadata}}
-          {{render-content titleMetadata}}
+      {{#polaris-stack alignment="center" spacing="tight" as |stack|}}
+        {{#if beforeTitleComponent}}
+          {{#stack.item}}
+            {{render-content beforeTitleComponent}}
+          {{/stack.item}}
         {{/if}}
-      </div>
+
+        <div class="Polaris-Page__Title">
+          {{#polaris-display-text tagName="h1" size="large"}}
+            {{title}}
+          {{/polaris-display-text}}
+
+          {{#if titleMetadata}}
+            {{render-content titleMetadata}}
+          {{/if}}
+        </div>
+      {{/polaris-stack}}
 
       <div class="Polaris-Page__Actions">
         {{#if primaryAction}}

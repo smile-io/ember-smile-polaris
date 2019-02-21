@@ -75,11 +75,11 @@ module('Integration | Component | polaris page', function(hooks) {
         'does not apply secondary actions class to header'
       );
 
-    const displayTextSelector = buildNestedSelector(
-      headerSelector,
+    const titleSelector = buildNestedSelector(
       'div.Polaris-Page__Title',
       'h1.Polaris-DisplayText.Polaris-DisplayText--sizeLarge'
     );
+    const displayTextSelector = `${headerSelector} ${titleSelector}`;
     const displayTexts = findAll(displayTextSelector);
     assert.equal(
       displayTexts.length,
@@ -534,5 +534,18 @@ module('Integration | Component | polaris page', function(hooks) {
         'Polaris-Button--primary',
         'primary undefined - button is rendered as primary'
       );
+  });
+
+  module('internal customisations', function() {
+    test('it renders a beforeTitleComponent when one is passed', async function(assert) {
+      await render(hbs`
+        {{polaris-page
+          title="Page title"
+          beforeTitleComponent=(component "polaris-icon" source="notes")
+        }}
+      `);
+
+      assert.dom('[data-test-icon]').exists({ count: 1 });
+    });
   });
 });
