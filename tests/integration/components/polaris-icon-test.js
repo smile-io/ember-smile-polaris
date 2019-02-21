@@ -193,3 +193,36 @@ test('it handles placeholder icons correctly', function(assert) {
   const iconPlaceholders = findAll(iconPlaceholderSelector);
   assert.equal(iconPlaceholders.length, 1, 'renders one icon placeholder');
 });
+
+/**
+ * Internal tests
+ */
+test('it removes icon fills when no sourcePath is specified and source does not contain a slash', function(assert) {
+  this.render(hbs`{{polaris-icon source="placeholder"}}`);
+
+  assert.dom(iconSelector).doesNotHaveAttribute('data-test-keep-fills');
+});
+
+test('it removes icon fills when no sourcePath is specified and source contains "polaris/"', function(assert) {
+  this.render(hbs`{{polaris-icon source="polaris/placeholder"}}`);
+
+  assert.dom(iconSelector).doesNotHaveAttribute('data-test-keep-fills');
+});
+
+test('it removes icon fills when sourcePath is specified as "polaris"', function(assert) {
+  this.render(hbs`{{polaris-icon sourcePath="polaris" source="placeholder"}}`);
+
+  assert.dom(iconSelector).doesNotHaveAttribute('data-test-keep-fills');
+});
+
+test('it keeps icon fills when sourcePath is not "polaris"', function(assert) {
+  this.render(hbs`{{polaris-icon sourcePath="custom-icons" source="my-icon"}}`);
+
+  assert.dom(iconSelector).hasAttribute('data-test-keep-fills');
+});
+
+test('it keeps icon fills when no sourcePath is specified and source contains a slash', function(assert) {
+  this.render(hbs`{{polaris-icon source="custom-icons/my-icon"}}`);
+
+  assert.dom(iconSelector).hasAttribute('data-test-keep-fills');
+});
