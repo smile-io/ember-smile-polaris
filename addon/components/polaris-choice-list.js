@@ -140,12 +140,14 @@ export default Component.extend({
 
   /**
    * @private
+   * This is readOnly in `ember-polaris`, but we remove that constraint here
+   * to allow passing custom control components if necessary.
    */
   controlComponent: computed('allowMultiple', function() {
     return this.get('allowMultiple')
       ? 'polaris-checkbox'
       : 'polaris-radio-button';
-  }).readOnly(),
+  }),
 
   /**
    * @private

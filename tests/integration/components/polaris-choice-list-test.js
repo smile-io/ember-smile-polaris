@@ -618,4 +618,22 @@ module('Integration | Component | polaris-choice-list', function(hooks) {
 
     assert.dom(choiceErrorSelector).exists();
   });
+
+  module('internal customisations', function() {
+    test('it renders a custom control component for each option when controlComponent is specified', async function(assert) {
+      await render(hbs`
+          {{polaris-choice-list
+            controlComponent=(component "polaris-icon" source="add")
+            choices=(array
+              (hash
+                label="option"
+                value="one"
+              )
+            )
+          }}
+        `);
+
+      assert.dom('[data-test-icon]').exists({ count: 1 });
+    });
+  });
 });
