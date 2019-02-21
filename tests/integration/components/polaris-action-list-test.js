@@ -1,4 +1,4 @@
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { findAll, click, render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
@@ -454,20 +454,19 @@ module('Integration | Component | polaris action list', function(hooks) {
   | Tests for internal customisations. |
   \************************************/
   module('internal customisations', function() {
-    // TODO: implement this
-    skip('removes fills from item icons', async function(assert) {
+    test('removes fills from item non-Polaris icons', async function(assert) {
       await render(hbs`
         {{polaris-action-list
           items=(array
             (hash
               text="Action with custom icon"
-              icon="custom/test-icon"
+              icon="custom-icons/test-icon"
             )
           )
         }}
       `);
 
-      // Check that `keepFills` is `false` on the item's icon.
+      assert.dom('.Polaris-Icon').doesNotHaveAttribute('data-test-keep-fills');
     });
   });
 });
