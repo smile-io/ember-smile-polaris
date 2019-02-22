@@ -288,3 +288,34 @@ test('it blurs the trigger when the popover is closed', function(assert) {
 
   assert.dom('.ember-basic-dropdown-trigger').isNotFocused();
 });
+
+test('it calls a passed-in onOpen action when opened', function(assert) {
+  this.set('wasOnOpenCalled', false);
+
+  this.on('open', () => {
+    this.set('wasOnOpenCalled', true);
+  });
+
+  this.render(hbs`
+    {{#polaris-popover
+      onOpen=(action "open")
+      as |popover|
+    }}
+      {{#popover.activator}}
+        {{polaris-button text="Toggle popover"}}
+      {{/popover.activator}}
+
+      {{#popover.content}}
+        This is some popover content
+      {{/popover.content}}
+    {{/polaris-popover}}
+  `);
+
+  // open the popover
+  click(activatorSelector);
+
+  assert.ok(
+    this.get('wasOnOpenCalled'),
+    'the passed-in onOpen action is called when popover is opened'
+  );
+});

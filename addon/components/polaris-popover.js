@@ -112,8 +112,8 @@ export default Component.extend({
   fullHeight: false,
 
   /**
-   * Class to be added to the `Polaris-Popover__Content` element.
-   * This is an addition to the base Polaris implementation.
+   * Class to be added to the `Polaris-Popover__Content` element
+   * This is an addition to the base Polaris implementation
    *
    * @property contentClass
    * @type {String}
@@ -121,6 +121,17 @@ export default Component.extend({
    * @public
    */
   contentClass: null,
+
+  /**
+   * Callback when popover is opened
+   * This is an addition to the base Polaris implementation
+   *
+   * @property onOpen
+   * @type {Function}
+   * @default noop
+   * @public
+   */
+  onOpen() {},
 
   /**
    * Callback when popover is closed
@@ -227,6 +238,11 @@ export default Component.extend({
       if (preferredPosition === 'mostSpace') {
         this.set('verticalPosition', this.getMostVerticalSpace());
       }
+
+      // This is an addition to the base ember-polaris implementation
+      // that allows an external action to be triggered when the popover
+      // is opened.
+      this.get('onOpen')();
     },
 
     onClose() {
