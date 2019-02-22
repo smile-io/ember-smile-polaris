@@ -637,4 +637,68 @@ module('Integration | Component | polaris-choice-list', function(hooks) {
 
     assert.dom('.Polaris-RadioButton__Input:checked').hasValue('two');
   });
+
+  /************************************\
+  | Tests for internal customisations. |
+  \************************************/
+  module('internal customisations', function() {
+    test('it renders a custom control component for each option when controlComponent is specified', async function(assert) {
+      await render(hbs`
+        {{polaris-choice-list
+          controlComponent=(component "polaris-icon" source="add")
+          choices=(array
+            (hash
+              label="option"
+              value="one"
+            )
+          )
+        }}
+      `);
+
+      assert.dom('[data-test-icon]').exists({ count: 1 });
+    });
+
+    test('it accepts a component as the title property', async function(assert) {
+      await render(hbs`
+        {{polaris-choice-list
+          title=(component "polaris-icon" source="add")
+          choices=(array
+            (hash
+              label="option"
+              value="one"
+            )
+          )
+        }}
+      `);
+
+      assert.dom('[data-test-icon]').exists({ count: 1 });
+    });
+
+    test('it yields checkedChoices and onChange properties when used in block form', async function(assert) {
+      await render(hbs`
+        {{#polaris-choice-list
+          choices=(array
+            (hash
+              label="option"
+              value="one"
+            )
+          )
+          onChange=(action (mut wasOnChangeFired) true)
+          as |choiceList|
+        }}
+          {{#each choiceList.checkedChoices as |choice|}}
+            <button data-test-block-choice {{action choiceList.onChange choice}}>
+              {{choice.label}}
+            </button>
+          {{/each}}
+        {{/polaris-choice-list}}
+      `);
+
+      assert.dom('[data-test-block-choice]').exists({ count: 1 });
+      assert.dom('[data-test-block-choice]').hasText('option');
+
+      await click('[data-test-block-choice]');
+      assert.ok(this.get('wasOnChangeFired'));
+    });
+  });
 });

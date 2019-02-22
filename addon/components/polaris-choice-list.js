@@ -36,10 +36,13 @@ export default Component.extend({
 
   /**
    * Label for list of choices
+   * This is just a string in `ember-polaris` but here we
+   * also accept a component definition or hash of
+   * `componentName` and `props`
    *
    * @property title
    * @public
-   * @type {String}
+   * @type {String|Component|Object}
    * @default null
    */
   title: null,
@@ -140,12 +143,14 @@ export default Component.extend({
 
   /**
    * @private
+   * This is readOnly in `ember-polaris`, but we remove that constraint here
+   * to allow passing custom control components if necessary.
    */
   controlComponent: computed('allowMultiple', function() {
     return this.get('allowMultiple')
       ? 'polaris-checkbox'
       : 'polaris-radio-button';
-  }).readOnly(),
+  }),
 
   /**
    * @private

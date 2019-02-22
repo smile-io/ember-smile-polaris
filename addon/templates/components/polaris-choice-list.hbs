@@ -1,25 +1,35 @@
 {{#if title}}
   <legend data-test-choice-list-title class="Polaris-ChoiceList__Title">
-    {{title}}
+    {{render-content title}}
   </legend>
 {{/if}}
 
-<ul data-test-choice-list-choices class="Polaris-ChoiceList__Choices">
-  {{#each checkedChoices as |choice|}}
-    <li data-test-choice-list-item>
-      {{component
-        controlComponent
-        label=choice.label
-        value=choice.value
-        helpText=choice.helpText
-        disabled=choice.disabled
-        name=finalName
-        checked=choice.isSelected
-        onChange=(action "updateSelectedChoices" choice)
-      }}
-    </li>
-  {{/each}}
-</ul>
+{{#if hasBlock}}
+  {{yield
+    (hash
+      checkedChoices=checkedChoices
+      name=finalName
+      onChange=(action "updateSelectedChoices")
+    )
+  }}
+{{else}}
+  <ul data-test-choice-list-choices class="Polaris-ChoiceList__Choices">
+    {{#each checkedChoices as |choice|}}
+      <li data-test-choice-list-item>
+        {{component
+          controlComponent
+          label=choice.label
+          value=choice.value
+          helpText=choice.helpText
+          disabled=choice.disabled
+          name=finalName
+          checked=choice.isSelected
+          onChange=(action "updateSelectedChoices" choice)
+        }}
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}
 
 {{#if error}}
   <div data-test-choice-list-error class="Polaris-ChoiceList__ChoiceError">
