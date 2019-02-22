@@ -536,6 +536,9 @@ module('Integration | Component | polaris page', function(hooks) {
       );
   });
 
+  /************************************\
+  | Tests for internal customisations. |
+  \************************************/
   module('internal customisations', function() {
     test('it renders a beforeTitleComponent when one is passed', async function(assert) {
       await render(hbs`
