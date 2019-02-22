@@ -194,9 +194,9 @@ test('it handles placeholder icons correctly', function(assert) {
   assert.equal(iconPlaceholders.length, 1, 'renders one icon placeholder');
 });
 
-/**
- * Internal tests
- */
+/************************************\
+| Tests for internal customisations. |
+\************************************/
 test('it removes icon fills when no sourcePath is specified and source does not contain a slash', function(assert) {
   this.render(hbs`{{polaris-icon source="placeholder"}}`);
 
