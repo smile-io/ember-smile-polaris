@@ -160,6 +160,15 @@ export default Component.extend({
   pagination: null,
 
   /**
+   * Optional component to be rendered before the title text.
+   *
+   * @property beforeTitleComponent
+   * @type {String|Component|Object}
+   * @default null
+   */
+  beforeTitleComponent: null,
+
+  /**
    * Computed properties.
    */
   hasHeaderContent: or(
