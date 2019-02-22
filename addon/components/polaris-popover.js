@@ -3,6 +3,7 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { htmlSafe } from '@ember/string';
 import { warn } from '@ember/debug';
+import { scheduleOnce } from '@ember/runloop';
 import { getRectForNode } from '@shopify/javascript-utilities/geometry';
 import layout from '../templates/components/polaris-popover';
 
@@ -15,7 +16,8 @@ const BELOW = 'below';
  * See https://polaris.shopify.com/components/overlays/popover
  */
 export default Component.extend({
-  tagName: '',
+  // Add a wrapper element so that we can find our trigger element.
+  tagName: 'div',
 
   layout,
 
@@ -211,6 +213,10 @@ export default Component.extend({
     return bottomSpace >= top ? BELOW : ABOVE;
   },
 
+  blurDropdownTrigger() {
+    this.element.querySelector('.ember-basic-dropdown-trigger').blur();
+  },
+
   actions: {
     onOpen() {
       // Check to see if `preferredPosition` is set to `mostSpace`
@@ -221,6 +227,14 @@ export default Component.extend({
       if (preferredPosition === 'mostSpace') {
         this.set('verticalPosition', this.getMostVerticalSpace());
       }
+    },
+
+    onClose() {
+      // This is an addition to the base ember-polaris implementation
+      // which makes closing the popover slightly cleaner visually.
+      this.get('onClose')();
+
+      scheduleOnce('afterRender', this, 'blurDropdownTrigger');
     },
   },
 });
