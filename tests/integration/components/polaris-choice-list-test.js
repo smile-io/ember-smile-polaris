@@ -619,6 +619,9 @@ module('Integration | Component | polaris-choice-list', function(hooks) {
     assert.dom(choiceErrorSelector).exists();
   });
 
+  /************************************\
+  | Tests for internal customisations. |
+  \************************************/
   module('internal customisations', function() {
     test('it renders a custom control component for each option when controlComponent is specified', async function(assert) {
       await render(hbs`
