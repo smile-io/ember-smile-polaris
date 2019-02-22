@@ -449,4 +449,24 @@ module('Integration | Component | polaris action list', function(hooks) {
     assert.ok(this.get('nestedActionFired'), 'nested action was fired');
     assert.notOk(this.get('formSubmitted'), 'form submit action is not fired');
   });
+
+  /************************************\
+  | Tests for internal customisations. |
+  \************************************/
+  module('internal customisations', function() {
+    test('removes fills from item non-Polaris icons', async function(assert) {
+      await render(hbs`
+        {{polaris-action-list
+          items=(array
+            (hash
+              text="Action with custom icon"
+              icon="custom-icons/test-icon"
+            )
+          )
+        }}
+      `);
+
+      assert.dom('.Polaris-Icon').doesNotHaveAttribute('data-test-keep-fills');
+    });
+  });
 });
