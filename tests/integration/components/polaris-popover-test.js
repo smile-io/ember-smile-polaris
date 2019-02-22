@@ -237,3 +237,28 @@ test('it calls a passed-in onClose action when closed', function(assert) {
     'the passed-in onClose action is called when popover is closed'
   );
 });
+
+/************************************\
+| Tests for internal customisations. |
+\************************************/
+test('it applies the supplied contentClass to the content component when popover is open', function(assert) {
+  this.render(hbs`
+    {{#polaris-popover
+      contentClass="test-content-class"
+      as |popover|
+    }}
+      {{#popover.activator}}
+        {{polaris-button text="Toggle popover"}}
+      {{/popover.activator}}
+
+      {{#popover.content}}
+        This is some sectioned popover content
+      {{/popover.content}}
+    {{/polaris-popover}}
+  `);
+
+  // open the popover
+  click(activatorSelector);
+
+  assert.dom(popoverContentSelector).hasClass('test-content-class');
+});

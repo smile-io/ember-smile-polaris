@@ -110,6 +110,17 @@ export default Component.extend({
   fullHeight: false,
 
   /**
+   * Class to be added to the `Polaris-Popover__Content` element.
+   * This is an addition to the base Polaris implementation.
+   *
+   * @property contentClass
+   * @type {String}
+   * @default null
+   * @public
+   */
+  contentClass: null,
+
+  /**
    * Callback when popover is closed
    *
    * @property onClose
