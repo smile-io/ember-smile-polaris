@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import { findAll, click } from 'ember-native-dom-helpers';
+import { find, findAll, click } from 'ember-native-dom-helpers';
 import buildNestedSelector from '../../helpers/build-nested-selector';
 
 moduleForComponent(
@@ -215,4 +215,39 @@ test('it handles actions correctly', function(assert) {
     this.get('secondaryActionFired'),
     'after firing secondary action - secondary action has been fired'
   );
+});
+
+/************************************\
+| Tests for internal customisations. |
+\************************************/
+test('it overrides the image size when illustrationSize is set to "large"', function(assert) {
+  this.render(hbs`
+    {{polaris-callout-card
+      illustration="http://www.somewhere.com/some-image.jpg"
+      illustrationSize="large"
+      primaryAction=(hash
+        text="Primary"
+        onAction=(action (mut dummy))
+      )
+    }}
+  `);
+
+  let illustration = find(calloutCardImageSelector);
+  assert.equal(getComputedStyle(illustration).flexBasis, '30%');
+});
+
+test('it does not override the image size when illustrationSize is set to a random value', function(assert) {
+  this.render(hbs`
+    {{polaris-callout-card
+      illustration="http://www.somewhere.com/some-image.jpg"
+      illustrationSize="unspecified"
+      primaryAction=(hash
+        text="Primary"
+        onAction=(action (mut dummy))
+      )
+    }}
+  `);
+
+  let illustration = find(calloutCardImageSelector);
+  assert.equal(getComputedStyle(illustration).flexBasis, 'auto');
 });

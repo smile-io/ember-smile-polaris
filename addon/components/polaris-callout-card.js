@@ -1,5 +1,10 @@
 import Component from '@ember/component';
+import { computed } from '@ember/object';
 import layout from '../templates/components/polaris-callout-card';
+
+const illustrationSizeClasses = {
+  large: 'illustration-large',
+};
 
 /**
  * Polaris callout card component.
@@ -7,6 +12,7 @@ import layout from '../templates/components/polaris-callout-card';
  */
 export default Component.extend({
   classNames: ['Polaris-Card'],
+  classNameBindings: ['illustrationSizeClass'],
 
   layout,
 
@@ -58,4 +64,24 @@ export default Component.extend({
    * @default null
    */
   secondaryAction: null,
+
+  /**
+   * Allows overriding the illustration size.
+   * This is an addition to the Polaris spec.
+   *
+   * @property illustrationSize
+   * @type {String}
+   * @default null
+   */
+  illustrationSize: null,
+
+  /**
+   * Class name to apply illustration size override.
+   *
+   * @property illustrationSizeClass
+   * @type {String}
+   */
+  illustrationSizeClass: computed('illustrationSize', function() {
+    return illustrationSizeClasses[this.get('illustrationSize')] || null;
+  }).readOnly(),
 });
