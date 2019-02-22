@@ -500,11 +500,11 @@ test('it sets auto width and height on the control wrapper when customWidth is s
   `);
 
   let controlWrapper = find(controlSelector);
-  let style = controlWrapper.style;
 
   // 'auto' width/height values are a bit of a nuisance to detect...
-  assert.equal(controlWrapper.computedStyleMap().get('width').value, 'auto');
-  assert.equal(controlWrapper.computedStyleMap().get('height').value, 'auto');
+  let styleMap = controlWrapper.computedStyleMap();
+  assert.equal(styleMap.get('width').value, 'auto');
+  assert.equal(styleMap.get('height').value, 'auto');
 });
 
 test('it does not set auto width and height on the control wrapper when customWidth is not specified', async function(assert) {
@@ -515,10 +515,10 @@ test('it does not set auto width and height on the control wrapper when customWi
   `);
 
   let controlWrapper = find(controlSelector);
-  let style = controlWrapper.style;
 
-  assert.equal(controlWrapper.computedStyleMap().get('width').value, 16);
-  assert.equal(controlWrapper.computedStyleMap().get('height').value, 16);
+  let styleMap = controlWrapper.computedStyleMap();
+  assert.equal(styleMap.get('width').value, 16);
+  assert.equal(styleMap.get('height').value, 16);
 });
 
 test('it applies the specified choiceClass to the control wrapper', async function(assert) {
