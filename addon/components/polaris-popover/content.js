@@ -73,6 +73,17 @@ export default Component.extend({
    */
   uniqueId: null,
 
+  /**
+   * Class to be added to the `Polaris-Popover__Content` element.
+   * This is an addition to the base Polaris implementation.
+   *
+   * @property contentClass
+   * @type {String}
+   * @default null
+   * @public
+   */
+  contentClass: null,
+
   didRender() {
     this._super(...arguments);
 

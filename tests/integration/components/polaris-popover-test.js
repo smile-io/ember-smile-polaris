@@ -237,3 +237,85 @@ test('it calls a passed-in onClose action when closed', function(assert) {
     'the passed-in onClose action is called when popover is closed'
   );
 });
+
+/************************************\
+| Tests for internal customisations. |
+\************************************/
+test('it applies the supplied contentClass to the content component when popover is open', function(assert) {
+  this.render(hbs`
+    {{#polaris-popover
+      contentClass="test-content-class"
+      as |popover|
+    }}
+      {{#popover.activator}}
+        {{polaris-button text="Toggle popover"}}
+      {{/popover.activator}}
+
+      {{#popover.content}}
+        This is some popover content
+      {{/popover.content}}
+    {{/polaris-popover}}
+  `);
+
+  // open the popover
+  click(activatorSelector);
+
+  assert.dom(popoverContentSelector).hasClass('test-content-class');
+});
+
+// TODO: this seems to pass whether the onClose changes are present or not,
+// but the changes are still needed for our apps to handle this properly ¯\_(ツ)_/¯
+test('it blurs the trigger when the popover is closed', function(assert) {
+  this.render(hbs`
+    {{#polaris-popover
+      as |popover|
+    }}
+      {{#popover.activator}}
+        {{polaris-button text="Toggle popover"}}
+      {{/popover.activator}}
+
+      {{#popover.content}}
+        This is some popover content
+      {{/popover.content}}
+    {{/polaris-popover}}
+  `);
+
+  // open the popover
+  click(activatorSelector);
+
+  // close the popover
+  click(activatorSelector);
+
+  assert.dom('.ember-basic-dropdown-trigger').isNotFocused();
+});
+
+test('it calls a passed-in onOpen action when opened', function(assert) {
+  this.set('wasOnOpenCalled', false);
+
+  this.on('open', () => {
+    this.set('wasOnOpenCalled', true);
+  });
+
+  this.render(hbs`
+    {{#polaris-popover
+      onOpen=(action "open")
+      as |popover|
+    }}
+      {{#popover.activator}}
+        {{polaris-button text="Toggle popover"}}
+      {{/popover.activator}}
+
+      {{#popover.content}}
+        This is some popover content
+      {{/popover.content}}
+    {{/polaris-popover}}
+  `);
+
+  // open the popover
+  click(activatorSelector);
+
+  assert.ok(
+    this.get('wasOnOpenCalled'),
+    'the passed-in onOpen action is called when popover is opened'
+  );
+});

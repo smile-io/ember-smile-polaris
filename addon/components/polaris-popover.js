@@ -3,6 +3,7 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { htmlSafe } from '@ember/string';
 import { warn } from '@ember/debug';
+import { scheduleOnce } from '@ember/runloop';
 import { getRectForNode } from '@shopify/javascript-utilities/geometry';
 import layout from '../templates/components/polaris-popover';
 
@@ -15,7 +16,8 @@ const BELOW = 'below';
  * See https://polaris.shopify.com/components/overlays/popover
  */
 export default Component.extend({
-  tagName: '',
+  // Add a wrapper element so that we can find our trigger element.
+  tagName: 'div',
 
   layout,
 
@@ -110,6 +112,28 @@ export default Component.extend({
   fullHeight: false,
 
   /**
+   * Class to be added to the `Polaris-Popover__Content` element
+   * This is an addition to the base Polaris implementation
+   *
+   * @property contentClass
+   * @type {String}
+   * @default null
+   * @public
+   */
+  contentClass: null,
+
+  /**
+   * Callback when popover is opened
+   * This is an addition to the base Polaris implementation
+   *
+   * @property onOpen
+   * @type {Function}
+   * @default noop
+   * @public
+   */
+  onOpen() {},
+
+  /**
    * Callback when popover is closed
    *
    * @property onClose
@@ -200,6 +224,10 @@ export default Component.extend({
     return bottomSpace >= top ? BELOW : ABOVE;
   },
 
+  blurDropdownTrigger() {
+    this.element.querySelector('.ember-basic-dropdown-trigger').blur();
+  },
+
   actions: {
     onOpen() {
       // Check to see if `preferredPosition` is set to `mostSpace`
@@ -210,6 +238,19 @@ export default Component.extend({
       if (preferredPosition === 'mostSpace') {
         this.set('verticalPosition', this.getMostVerticalSpace());
       }
+
+      // This is an addition to the base ember-polaris implementation
+      // that allows an external action to be triggered when the popover
+      // is opened.
+      this.get('onOpen')();
+    },
+
+    onClose() {
+      // This is an addition to the base ember-polaris implementation
+      // which makes closing the popover slightly cleaner visually.
+      this.get('onClose')();
+
+      scheduleOnce('afterRender', this, 'blurDropdownTrigger');
     },
   },
 });
