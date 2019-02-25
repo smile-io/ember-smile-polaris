@@ -1,12 +1,11 @@
-{{#with
-  (component "polaris-choice/label"
+{{#with (component "polaris-choice/label"
+    class=choiceClass
     inputId=inputId
     label=label
     labelComponent=labelComponent
     labelHidden=labelHidden
     disabled=disabled
-  )
-  as |choiceLabelComponent|
+  ) as |choiceLabelComponent|
 }}
   {{#if hasDescription}}
     <div>

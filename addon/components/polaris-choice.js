@@ -86,6 +86,35 @@ export default Component.extend({
   helpText: null,
 
   /**
+   * Allow overriding the width of the choice component that is rendered
+   * in front of the choice label. This supports using custom components
+   * instead of just radio buttons and checkboxes. Alternatively we allow
+   * passing a `choiceClass` directly if more specific styling of the choice
+   * control is needed.
+   *
+   * @property customWidth
+   * @type {Boolean}
+   * @default: false
+   * @public
+   */
+  customWidth: false,
+
+  /**
+   * Overrideable class to apply to the choice control if specific styling is needed.
+   *
+   * @property choiceClass
+   * @type {String}
+   * @public
+   */
+  choiceClass: computed('customWidth', function() {
+    if (!this.get('customWidth')) {
+      return null;
+    }
+
+    return 'custom-width';
+  }),
+
+  /**
    * @private
    */
   hasDescription: or('error', 'helpText'),
