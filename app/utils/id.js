@@ -1,1 +1,1 @@
-export { default } from '@smile-io/ember-polaris/utils/id';
+export { default } from '@smile-io/ember-smile-polaris/utils/id';

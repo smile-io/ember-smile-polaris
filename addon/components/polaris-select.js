@@ -2,8 +2,8 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { bool } from '@ember/object/computed';
 import { guidFor } from '@ember/object/internals';
-import { errorId, helpTextId } from '@smile-io/ember-polaris/utils/id';
-import { isGroup } from '@smile-io/ember-polaris/helpers/polaris-select/is-group';
+import { errorId, helpTextId } from '@smile-io/ember-smile-polaris/utils/id';
+import { isGroup } from '@smile-io/ember-smile-polaris/helpers/polaris-select/is-group';
 import layout from '../templates/components/polaris-select';
 
 const PLACEHOLDER_VALUE = '';

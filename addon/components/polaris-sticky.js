@@ -4,7 +4,7 @@ import { computed } from '@ember/object';
 import { htmlSafe } from '@ember/string';
 import { getRectForNode } from '@shopify/javascript-utilities/geometry';
 import layout from '../templates/components/polaris-sticky';
-import { computedIdVariation } from '@smile-io/ember-polaris/utils/id';
+import { computedIdVariation } from '@smile-io/ember-smile-polaris/utils/id';
 
 /**
  * Undocumented Polaris sticky component.

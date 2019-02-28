@@ -2,10 +2,10 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, findAll, find, triggerEvent } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { FilterType } from '@smile-io/ember-polaris/components/polaris-resource-list/filter-control/filter-value-selector';
+import { FilterType } from '@smile-io/ember-smile-polaris/components/polaris-resource-list/filter-control/filter-value-selector';
 import DateSelectorComponent, {
   DateFilterOption,
-} from '@smile-io/ember-polaris/components/polaris-resource-list/filter-control/date-selector';
+} from '@smile-io/ember-smile-polaris/components/polaris-resource-list/filter-control/date-selector';
 
 const operators = [
   {

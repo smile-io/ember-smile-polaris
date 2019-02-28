@@ -2,8 +2,8 @@ import Component from '@ember/component';
 import { computed, get } from '@ember/object';
 import { readOnly } from '@ember/object/computed';
 import layout from '../../templates/components/polaris-resource-list/item';
-import { context } from '@smile-io/ember-polaris/components/polaris-resource-list';
-import { computedIdVariation } from '@smile-io/ember-polaris/utils/id';
+import { context } from '@smile-io/ember-smile-polaris/components/polaris-resource-list';
+import { computedIdVariation } from '@smile-io/ember-smile-polaris/utils/id';
 import { SELECT_ALL_ITEMS } from '../polaris-resource-list';
 
 export default Component.extend(context.ConsumerMixin, {

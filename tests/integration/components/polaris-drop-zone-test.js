@@ -6,12 +6,12 @@ import { capitalize, htmlSafe } from '@ember/string';
 import { selectFiles } from 'ember-native-dom-helpers';
 import buildNestedSelector from '../../helpers/build-nested-selector';
 import MockSvgJarComponent from '../../mocks/components/svg-jar';
-import MockEvent from '@smile-io/ember-polaris/test-support/mock-drop-zone-event';
+import MockEvent from '@smile-io/ember-smile-polaris/test-support/mock-drop-zone-event';
 import {
   smallSizeWidthLimit,
   mediumSizeWidthLimit,
   largeSizeWidthLimit,
-} from '@smile-io/ember-polaris/utils/drop-zone';
+} from '@smile-io/ember-smile-polaris/utils/drop-zone';
 
 // NOTE: Doubling the size because of the wrapping #ember-testing container which has a 200% width and
 // transform scale of 0.5

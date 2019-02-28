@@ -1,3 +1,3 @@
 export {
   default,
-} from '@smile-io/ember-polaris/components/polaris-empty-search-result';
+} from '@smile-io/ember-smile-polaris/components/polaris-empty-search-result';

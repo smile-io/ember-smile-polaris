@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { and, not } from '@ember/object/computed';
-import mapEventToAction from '@smile-io/ember-polaris/utils/map-event-to-action';
+import mapEventToAction from '@smile-io/ember-smile-polaris/utils/map-event-to-action';
 import layout from '../../templates/components/polaris-resource-list/checkable-button';
 
 export default Component.extend({

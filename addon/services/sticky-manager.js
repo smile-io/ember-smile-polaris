@@ -4,7 +4,7 @@ import ContextBoundEventListenersMixin from 'ember-lifeline/mixins/dom';
 import ContextBoundTasksMixin from 'ember-lifeline/mixins/run';
 import tokens from '@shopify/polaris-tokens';
 import { getRectForNode } from '@shopify/javascript-utilities/geometry';
-import stackedContent from '@smile-io/ember-polaris/utils/breakpoints';
+import stackedContent from '@smile-io/ember-smile-polaris/utils/breakpoints';
 
 export default Service.extend(
   ContextBoundEventListenersMixin,
