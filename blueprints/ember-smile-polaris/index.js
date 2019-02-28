@@ -11,7 +11,7 @@ module.exports = {
 
   normalizeEntityName() {
     // this prevents an error when the entityName is
-    // not specified when running `ember g ember-polaris`
+    // not specified when running `ember g ember-smile-polaris`
     // (since that doesn't actually matter to us)
   },
 
@@ -26,7 +26,7 @@ module.exports = {
   },
 
   addStyleImportToHostApp() {
-    let importStatement = '\n@import "ember-polaris";\n';
+    let importStatement = '\n@import "ember-smile-polaris";\n';
     let stylePath = path.join('app', 'styles');
     let file = path.join(stylePath, 'app.scss');
 

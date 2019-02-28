@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computedLabelId } from '@smile-io/ember-polaris/utils/id';
+import { computedLabelId } from '@smile-io/ember-smile-polaris/utils/id';
 import layout from '../templates/components/polaris-label';
 
 /**

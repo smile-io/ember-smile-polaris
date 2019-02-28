@@ -9,8 +9,8 @@ import {
   blur,
 } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { DateFilterOption } from '@smile-io/ember-polaris/components/polaris-resource-list/filter-control/date-selector';
-import DatePickerComponent from '@smile-io/ember-polaris/components/polaris-date-picker';
+import { DateFilterOption } from '@smile-io/ember-smile-polaris/components/polaris-resource-list/filter-control/date-selector';
+import DatePickerComponent from '@smile-io/ember-smile-polaris/components/polaris-date-picker';
 
 const textFieldInputSelector = '.Polaris-TextField input';
 const selectedDaySelector = '.Polaris-DatePicker__Day--selected';

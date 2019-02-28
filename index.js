@@ -13,7 +13,7 @@ module.exports = {
       sourceDirs: [
         'public',
         'tests/dummy/public/assets/images/svg',
-        'node_modules/@smile-io/ember-polaris/public',
+        'node_modules/@smile-io/ember-smile-polaris/public',
       ],
     },
   },
@@ -29,7 +29,7 @@ module.exports = {
     let polarisScssFiles = new Funnel(packageRoot, {
       include: ['styles.scss', 'styles/**/*'],
       srcDir: './',
-      destDir: 'ember-polaris',
+      destDir: 'ember-smile-polaris',
       annotation: 'PolarisScssFunnel',
     });
 

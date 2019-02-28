@@ -1,3 +1,3 @@
 export {
   default,
-} from '@smile-io/ember-polaris/components/polaris-color-picker/alpha-picker';
+} from '@smile-io/ember-smile-polaris/components/polaris-color-picker/alpha-picker';

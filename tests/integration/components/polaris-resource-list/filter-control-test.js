@@ -2,9 +2,9 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, fillIn, click, find, triggerEvent } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import FilterCreatorComponent from '@smile-io/ember-polaris/components/polaris-resource-list/filter-control/filter-creator';
-import { FilterType } from '@smile-io/ember-polaris/components/polaris-resource-list/filter-control/filter-value-selector';
-import { DateFilterOption } from '@smile-io/ember-polaris/components/polaris-resource-list/filter-control/date-selector';
+import FilterCreatorComponent from '@smile-io/ember-smile-polaris/components/polaris-resource-list/filter-control/filter-creator';
+import { FilterType } from '@smile-io/ember-smile-polaris/components/polaris-resource-list/filter-control/filter-value-selector';
+import { DateFilterOption } from '@smile-io/ember-smile-polaris/components/polaris-resource-list/filter-control/date-selector';
 
 const mockDefaultContext = {
   selectMode: false,

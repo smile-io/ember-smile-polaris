@@ -1,8 +1,8 @@
 import Component from '@ember/component';
 import { computed, get } from '@ember/object';
 import layout from '../../templates/components/polaris-resource-list/filter-control';
-import { context } from '@smile-io/ember-polaris/components/polaris-resource-list';
-import { FilterType } from '@smile-io/ember-polaris/components/polaris-resource-list/filter-control/filter-value-selector';
+import { context } from '@smile-io/ember-smile-polaris/components/polaris-resource-list';
+import { FilterType } from '@smile-io/ember-smile-polaris/components/polaris-resource-list/filter-control/filter-value-selector';
 
 export default Component.extend(context.ConsumerMixin, {
   tagName: '',
