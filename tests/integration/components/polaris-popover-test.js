@@ -263,9 +263,7 @@ test('it applies the supplied contentClass to the content component when popover
   assert.dom(popoverContentSelector).hasClass('test-content-class');
 });
 
-// TODO: this seems to pass whether the onClose changes are present or not,
-// but the changes are still needed for our apps to handle this properly ¯\_(ツ)_/¯
-test('it blurs the trigger when the popover is closed', function(assert) {
+test('it blurs the trigger when the popover is closed via popover.close action', function(assert) {
   this.render(hbs`
     {{#polaris-popover
       as |popover|
@@ -275,7 +273,9 @@ test('it blurs the trigger when the popover is closed', function(assert) {
       {{/popover.activator}}
 
       {{#popover.content}}
-        This is some popover content
+        <div>This is some popover content</div>
+
+        <button id="close-popover" {{action popover.close}}>Close popover</button>
       {{/popover.content}}
     {{/polaris-popover}}
   `);
@@ -283,8 +283,8 @@ test('it blurs the trigger when the popover is closed', function(assert) {
   // open the popover
   click(activatorSelector);
 
-  // close the popover
-  click(activatorSelector);
+  // close the popover via the popover.close action
+  click('#close-popover');
 
   assert.dom('.ember-basic-dropdown-trigger').isNotFocused();
 });
