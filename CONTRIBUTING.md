@@ -31,4 +31,4 @@ For more information on using ember-cli, visit [https://ember-cli.com/](https://
 # One-time only - add git remote
 git remote add upstream --no-tags git@github.com:smile-io/ember-polaris.git
 ```
-**NOTE:** Make sure you use `--no-tags` when setting it up so we don't pull in tags too.
+**NOTE:** Make sure you use `--no-tags` when adding upstream so that fetching from upstream does not pull in `ember-polaris`'s tags and overwrite this addon's own tags.
