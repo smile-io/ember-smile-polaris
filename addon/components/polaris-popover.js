@@ -123,6 +123,17 @@ export default Component.extend({
   contentClass: null,
 
   /**
+   * Flag to allow inlining popover when we need to adjust styling
+   * This is an addition to the base Polaris implementation
+   *
+   * @property renderInPlace
+   * @type {Boolean}
+   * @default false
+   * @public
+   */
+  renderInPlace: false,
+
+  /**
    * Callback when popover is opened
    * This is an addition to the base Polaris implementation
    *

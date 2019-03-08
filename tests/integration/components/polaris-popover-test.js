@@ -319,3 +319,29 @@ test('it calls a passed-in onOpen action when opened', function(assert) {
     'the passed-in onOpen action is called when popover is opened'
   );
 });
+
+test('it honors the renderInPlace flag', function(assert) {
+  this.render(hbs`
+    {{#polaris-popover
+      renderInPlace=true
+      as |popover|
+    }}
+      {{#popover.activator}}
+        {{polaris-button text="Toggle popover"}}
+      {{/popover.activator}}
+
+      {{#popover.content}}
+        <div data-test-inline-content>This is some popover content</div>
+      {{/popover.content}}
+    {{/polaris-popover}}
+  `);
+
+  // open the popover
+  click(activatorSelector);
+
+  assert
+    .dom(
+      `.ember-basic-dropdown-content-wormhole-origin [data-test-inline-content]`
+    )
+    .exists({ count: 1 });
+});
