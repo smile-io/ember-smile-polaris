@@ -8,8 +8,8 @@
       {{polaris-button
         plain=true
         icon="cancel-small"
-        onClick=(action onDismiss)
         accessibilityLabel="Dismiss card"
+        onClick=(action onDismiss)
       }}
     </div>
   {{/if}}
@@ -30,9 +30,7 @@
         {{/polaris-text-container}}
 
         <div class="Polaris-CalloutCard__Buttons">
-          {{! template-lint-disable attribute-indentation }}
-          {{!-- TODO remove rule above once linter handles this correctly --}}
-          {{#with
+          {{#let
             (component "polaris-button"
               text=primaryAction.text
               accessibilityLabel=primaryAction.accessibilityLabel
@@ -62,7 +60,7 @@
             {{else}}
               {{component primaryButton}}
             {{/if}}
-          {{/with}}
+          {{/let}}
         </div>
       </div>
 
