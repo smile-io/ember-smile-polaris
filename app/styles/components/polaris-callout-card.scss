@@ -5,3 +5,19 @@
     }
   }
 }
+
+// TODO: remove these when we update to Polaris v3.4.0 or later
+// since they'll be included in the Polaris styles at that point.
+.Polaris-__CalloutCard__DismissImage {
+  margin-right: spacing(loose);
+}
+
+.Polaris-CalloutCard__Container {
+  position: relative;
+}
+
+.Polaris-CalloutCard__Dismiss {
+  right: spacing();
+  top: spacing();
+  position: absolute;
+}

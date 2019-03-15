@@ -66,14 +66,26 @@ export default Component.extend({
   secondaryAction: null,
 
   /**
-   * Allows overriding the illustration size.
-   * This is an addition to the Polaris spec.
+   * Allows overriding the illustration size
+   * This is an addition to the Polaris spec
    *
    * @property illustrationSize
    * @type {String}
    * @default null
    */
   illustrationSize: null,
+
+  /**
+   * Callback when banner is dismissed
+   * TODO: Move this into `ember-polaris` when we
+   * update our target Polaris version to v3.4.0
+   * or later
+   *
+   * @property onDismiss
+   * @type {Function}
+   * @default null
+   */
+  onDismiss: null,
 
   /**
    * Class name to apply illustration size override.
