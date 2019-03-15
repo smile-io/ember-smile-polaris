@@ -30,7 +30,7 @@
         {{/polaris-text-container}}
 
         <div class="Polaris-CalloutCard__Buttons">
-          {{#let
+          {{#with
             (component "polaris-button"
               text=primaryAction.text
               accessibilityLabel=primaryAction.accessibilityLabel
@@ -60,7 +60,7 @@
             {{else}}
               {{component primaryButton}}
             {{/if}}
-          {{/let}}
+          {{/with}}
         </div>
       </div>
 
