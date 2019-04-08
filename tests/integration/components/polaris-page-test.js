@@ -83,6 +83,7 @@ module('Integration | Component | polaris page', function(hooks) {
 
     const titleSelector = buildNestedSelector(
       'div.Polaris-Page-Header__Title',
+      'div',
       'h1.Polaris-DisplayText.Polaris-DisplayText--sizeLarge'
     );
     const displayTextSelector = `${headerSelector} ${titleSelector}`;
@@ -551,11 +552,11 @@ module('Integration | Component | polaris page', function(hooks) {
       await render(hbs`
         {{polaris-page
           title="Page title"
-          beforeTitleComponent=(component "polaris-icon" source="notes")
+          beforeTitleComponent=(component "wrapper-element" class="before-title-component")
         }}
       `);
 
-      assert.dom('[data-test-icon]').exists({ count: 1 });
+      assert.dom('.before-title-component').exists({ count: 1 });
     });
 
     test('it removes fills from custom icons in secondary actions', async function(assert) {
