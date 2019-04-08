@@ -66,7 +66,6 @@ export default Component.extend({
   secondaryAction: null,
 
   /**
-<<<<<<< HEAD
    * Allows overriding the illustration size
    * This is an addition to the Polaris spec
    *
