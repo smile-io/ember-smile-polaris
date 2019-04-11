@@ -83,10 +83,9 @@ module('Integration | Component | polaris page', function(hooks) {
 
     const titleSelector = buildNestedSelector(
       'div.Polaris-Page-Header__Title',
-      'div',
-      'h1.Polaris-DisplayText.Polaris-DisplayText--sizeLarge'
+      'div'
     );
-    const displayTextSelector = `${headerSelector} ${titleSelector}`;
+    const displayTextSelector = `${headerSelector} ${titleSelector} h1.Polaris-DisplayText.Polaris-DisplayText--sizeLarge`;
     const displayTexts = findAll(displayTextSelector);
     assert.equal(
       displayTexts.length,

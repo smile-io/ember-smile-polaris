@@ -47,27 +47,27 @@
         class=(if primaryAction "Polaris-Page-Header__TitleAndActions")
       }}
         <div class="Polaris-Page-Header__TitleAndRollup">
-          {{#polaris-stack alignment="center" spacing="tight" as |stack|}}
-            {{#if beforeTitleComponent}}
-              {{#stack.item}}
-                {{render-content beforeTitleComponent}}
-              {{/stack.item}}
-            {{/if}}
+          <div class="Polaris-Page-Header__Title">
+            <div>
+              {{#polaris-stack alignment="baseline" spacing="tight" as |stack|}}
+                {{#if beforeTitleComponent}}
+                  {{#stack.item}}
+                    {{render-content beforeTitleComponent}}
+                  {{/stack.item}}
+                {{/if}}
 
-            <div class="Polaris-Page-Header__Title">
-              <div>
                 {{#polaris-display-text tagName="h1" size="large"}}
                   {{title}}
                 {{/polaris-display-text}}
-              </div>
-
-              <div>
-                {{#if titleMetadata}}
-                  {{render-content titleMetadata}}
-                {{/if}}
-              </div>
+              {{/polaris-stack}}
             </div>
-          {{/polaris-stack}}
+
+            <div>
+              {{#if titleMetadata}}
+                {{render-content titleMetadata}}
+              {{/if}}
+            </div>
+          </div>
 
           {{#unless hasBreadcrumbs}}
             {{component rollupComponent}}
