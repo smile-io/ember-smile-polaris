@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, triggerEvent, settled } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
@@ -1200,7 +1200,8 @@ module('Integration | Component | polaris-drop-zone', function(hooks) {
       await triggerEvent(dropZoneSelector, 'click', event);
     });
 
-    test('does not call callbacks when not allowed multiple and a file is uploaded', async function(assert) {
+    // TODO: unskip this when a fix is available for https://github.com/Shopify/polaris-react/issues/1229.
+    skip('does not call callbacks when not allowed multiple and a file is uploaded', async function(assert) {
       let expectedAcceptedFiles = uploadedFiles.slice(0, 1);
       let expectedRejectedFiles = uploadedFiles.slice(1, 3);
 

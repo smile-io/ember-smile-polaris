@@ -381,7 +381,9 @@ export default Component.extend(ContextBoundEventListenersMixin, {
     state.setProperties({
       dragging: false,
       error: rejectedFiles.length > 0,
-      numFiles: state.get('numFiles') + acceptedFiles.length,
+      // TODO: uncomment this line when there's a fix for
+      // https://github.com/Shopify/polaris-react/issues/1229.
+      // numFiles: state.get('numFiles') + acceptedFiles.length,
     });
 
     onDrop(files, acceptedFiles, rejectedFiles);
