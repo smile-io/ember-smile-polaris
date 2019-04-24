@@ -1,3 +1,3 @@
 export {
   default,
-} from '@smile-io/ember-polaris/components/polaris-skeleton-thumbnail';
+} from '@smile-io/ember-smile-polaris/components/polaris-skeleton-thumbnail';
