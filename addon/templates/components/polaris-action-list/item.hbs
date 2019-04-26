@@ -1,17 +1,19 @@
+{{!-- TODO: add scroll support here when `polaris-scrollable` is available. --}}
+
 <button
   class={{itemClasses}}
-  disabled={{item.disabled}}
+  disabled={{disabled}}
   onclick={{action onAction}}
 >
   <div class="Polaris-ActionList__Content">
-    {{#if item.icon}}
+    {{#if icon}}
       <div class="Polaris-ActionList__Image">
         {{polaris-icon
           keepFills=false
-          source=item.icon
+          source=icon
         }}
       </div>
-    {{else if item.image}}
+    {{else if image}}
       <div
         role="presentation"
         class="Polaris-ActionList__Image"
@@ -21,7 +23,14 @@
     {{/if}}
 
     <div class="Polaris-ActionList__Text">
-      {{item.text}}
+      {{#if helpText}}
+        <div>
+          <div>{{text}}</div>
+          {{polaris-text-style variation="subdued" text=helpText}}
+        </div>
+      {{else}}
+        {{text}}
+      {{/if}}
     </div>
   </div>
 </button>
