@@ -20,8 +20,8 @@
       }}
     </div>
 
-    {{#if media}}
-      <div class="Polaris-OptionList-Option__Media">{{render-content media}}</div>
+    {{#if @media}}
+      <div class="Polaris-OptionList-Option__Media">{{render-content @media}}</div>
     {{/if}}
 
     {{render-content label}}
@@ -42,8 +42,8 @@
     onfocus={{action "toggleFocus"}}
     onblur={{action "toggleFocus"}}
   >
-    {{#if media}}
-      <div class="Polaris-OptionList-Option__Media">{{render-content media}}</div>
+    {{#if @media}}
+      <div class="Polaris-OptionList-Option__Media">{{render-content @media}}</div>
     {{/if}}
 
     {{render-content label}}

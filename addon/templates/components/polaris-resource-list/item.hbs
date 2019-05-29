@@ -29,7 +29,7 @@
   class="Polaris-ResourceList-Item__Container"
   id={{itemId}}
 >
-  {{#if (or media selectable)}}
+  {{#if (or @media selectable)}}
     <div class="Polaris-ResourceList-Item__Owned">
       {{#if selectable}}
         {{#wrapper-element
@@ -55,9 +55,9 @@
         {{/wrapper-element}}
       {{/if}}
 
-      {{#if media}}
+      {{#if @media}}
         <div class="Polaris-ResourceList-Item__Media" data-test-id="media">
-          {{render-content media}}
+          {{render-content @media}}
         </div>
       {{/if}}
     </div>
