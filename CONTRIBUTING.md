@@ -30,5 +30,18 @@ For more information on using ember-cli, visit [https://ember-cli.com/](https://
 ```shell
 # One-time only - add git remote
 git remote add upstream --no-tags git@github.com:smile-io/ember-polaris.git
+
 ```
 **NOTE:** Make sure you use `--no-tags` when adding upstream so that fetching from upstream does not pull in `ember-polaris`'s tags and overwrite this addon's own tags.
+
+
+### Merging upstream changes
+
+```shell
+git fetch upstream;
+git checkout --track upstream/master ember-polaris-master;
+git checkout master;
+git checkout -b upstream-merge;
+git merge ember-polaris-master --no-ff;
+```
+On the last step among other possible conflicts, you'll notice a conflict in the `package.json` file for the package information. Ensure you keep `ember-smile-polaris'` info as is & resolve any other conflicts on a case by case basis.
