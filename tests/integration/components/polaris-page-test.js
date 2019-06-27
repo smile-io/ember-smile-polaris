@@ -77,13 +77,13 @@ module('Integration | Component | polaris page', function(hooks) {
       'does not apply secondary actions class to header'
     );
 
-    const displayTextSelector = buildNestedSelector(
-      headerSelector,
-      'div.Polaris-Page-Header__TitleAndRollup',
-      'div.Polaris-Page-Header__Title',
-      'div',
-      'h1.Polaris-DisplayText.Polaris-DisplayText--sizeLarge'
-    );
+    const displayTextSelector =
+      buildNestedSelector(
+        headerSelector,
+        'div.Polaris-Page-Header__TitleAndRollup',
+        'div.Polaris-Page-Header__Title'
+      ) + ' h1.Polaris-DisplayText.Polaris-DisplayText--sizeLarge';
+
     const displayTexts = assert.dom(displayTextSelector);
 
     displayTexts.exists(
@@ -491,5 +491,36 @@ module('Integration | Component | polaris page', function(hooks) {
       'Polaris-Button--primary',
       'primary undefined - button is rendered as primary'
     );
+  });
+  /************************************\
+  | Tests for internal customisations. |
+  \************************************/
+
+  test('it renders a beforeTitleComponent when one is passed', async function(assert) {
+    await render(hbs`
+        {{polaris-page
+          title="Page title"
+          beforeTitleComponent=(component "wrapper-element" class="before-title-component")
+        }}
+      `);
+
+    assert.dom('.before-title-component').exists({ count: 1 });
+  });
+
+  test('it removes fills from custom icons in secondary actions', async function(assert) {
+    await render(hbs`
+        {{polaris-page
+          title="Page title"
+          secondaryActions=(array
+            (hash
+              text="Secondary action"
+              icon="custom-icons/my-icon"
+              onAction=(action (mut dummy))
+            )
+          )
+        }}
+      `);
+
+    assert.dom('[data-test-icon]').doesNotHaveAttribute('data-test-keep-fills');
   });
 });
