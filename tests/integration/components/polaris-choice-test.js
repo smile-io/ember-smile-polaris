@@ -453,69 +453,69 @@ module('Integration | Component | polaris choice', function(hooks) {
 
     assert.dom('[data-test-icon]').exists({ count: 1 });
   });
-});
 
-/************************************\
-| Tests for internal customisations. |
-\************************************/
-test('it adds a `custom-width` class to the label when customWidth is set to true', async function(assert) {
-  this.render(hbs`
+  /************************************\
+  | Tests for internal customisations. |
+  \************************************/
+  test('it adds a `custom-width` class to the label when customWidth is set to true', async function(assert) {
+    await render(hbs`
     {{polaris-choice
       inputId="custom-width-test"
       customWidth=true
     }}
   `);
 
-  assert.dom(labelSelector).hasClass('custom-width');
-});
+    assert.dom(labelSelector).hasClass('custom-width');
+  });
 
-test('it does not add a `custom-width` class to the label when customWidth is not specified', async function(assert) {
-  this.render(hbs`
+  test('it does not add a `custom-width` class to the label when customWidth is not specified', async function(assert) {
+    await render(hbs`
     {{polaris-choice
       inputId="custom-width-test"
     }}
   `);
 
-  assert.dom(labelSelector).doesNotHaveClass('custom-width');
-});
+    assert.dom(labelSelector).doesNotHaveClass('custom-width');
+  });
 
-test('it sets auto width and height on the control wrapper when customWidth is set to true', async function(assert) {
-  this.render(hbs`
+  test('it sets auto width and height on the control wrapper when customWidth is set to true', async function(assert) {
+    await render(hbs`
     {{polaris-choice
       inputId="custom-width-test"
       customWidth=true
     }}
   `);
 
-  let controlWrapper = find(controlSelector);
+    let controlWrapper = this.element.querySelector(controlSelector);
 
-  // 'auto' width/height values are a bit of a nuisance to detect...
-  let styleMap = controlWrapper.computedStyleMap();
-  assert.equal(styleMap.get('width').value, 'auto');
-  assert.equal(styleMap.get('height').value, 'auto');
-});
+    // 'auto' width/height values are a bit of a nuisance to detect...
+    let styleMap = controlWrapper.computedStyleMap();
+    assert.equal(styleMap.get('width').value, 'auto');
+    assert.equal(styleMap.get('height').value, 'auto');
+  });
 
-test('it does not set auto width and height on the control wrapper when customWidth is not specified', async function(assert) {
-  this.render(hbs`
+  test('it does not set auto width and height on the control wrapper when customWidth is not specified', async function(assert) {
+    await render(hbs`
     {{polaris-choice
       inputId="custom-width-test"
     }}
   `);
 
-  let controlWrapper = find(controlSelector);
+    let controlWrapper = this.element.querySelector(controlSelector);
 
-  let styleMap = controlWrapper.computedStyleMap();
-  assert.equal(styleMap.get('width').value, 16);
-  assert.equal(styleMap.get('height').value, 16);
-});
+    let styleMap = controlWrapper.computedStyleMap();
+    assert.equal(styleMap.get('width').value, 16);
+    assert.equal(styleMap.get('height').value, 16);
+  });
 
-test('it applies the specified choiceClass to the control wrapper', async function(assert) {
-  this.render(hbs`
+  test('it applies the specified choiceClass to the control wrapper', async function(assert) {
+    await render(hbs`
     {{polaris-choice
       inputId="custom-width-test"
       choiceClass="my-custom-choice-class"
     }}
   `);
 
-  assert.dom(labelSelector).hasClass('my-custom-choice-class');
+    assert.dom(labelSelector).hasClass('my-custom-choice-class');
+  });
 });

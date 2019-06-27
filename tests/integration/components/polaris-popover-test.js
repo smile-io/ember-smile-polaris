@@ -243,13 +243,12 @@ module('Integration | Component | polaris popover', function(hooks) {
       'the passed-in onClose action is called when popover is closed'
     );
   });
-});
 
-/************************************\
-| Tests for internal customisations. |
-\************************************/
-test('it applies the supplied contentClass to the content component when popover is open', function(assert) {
-  this.render(hbs`
+  /************************************\
+  | Tests for internal customisations. |
+  \************************************/
+  test('it applies the supplied contentClass to the content component when popover is open', async function(assert) {
+    await render(hbs`
     {{#polaris-popover
       contentClass="test-content-class"
       as |popover|
@@ -264,14 +263,14 @@ test('it applies the supplied contentClass to the content component when popover
     {{/polaris-popover}}
   `);
 
-  // open the popover
-  click(activatorSelector);
+    // open the popover
+    await click(activatorSelector);
 
-  assert.dom(popoverContentSelector).hasClass('test-content-class');
-});
+    assert.dom(popoverContentSelector).hasClass('test-content-class');
+  });
 
-test('it blurs the trigger when the popover is closed via popover.close action', function(assert) {
-  this.render(hbs`
+  test('it blurs the trigger when the popover is closed via popover.close action', async function(assert) {
+    await render(hbs`
     {{#polaris-popover
       as |popover|
     }}
@@ -287,25 +286,21 @@ test('it blurs the trigger when the popover is closed via popover.close action',
     {{/polaris-popover}}
   `);
 
-  // open the popover
-  click(activatorSelector);
+    // open the popover
+    await click(activatorSelector);
 
-  // close the popover via the popover.close action
-  click('#close-popover');
+    // close the popover via the popover.close action
+    await click('#close-popover');
 
-  assert.dom('.ember-basic-dropdown-trigger').isNotFocused();
-});
-
-test('it calls a passed-in onOpen action when opened', function(assert) {
-  this.set('wasOnOpenCalled', false);
-
-  this.on('open', () => {
-    this.set('wasOnOpenCalled', true);
+    assert.dom('.ember-basic-dropdown-trigger').isNotFocused();
   });
 
-  this.render(hbs`
+  test('it calls a passed-in onOpen action when opened', async function(assert) {
+    this.set('wasOnOpenCalled', false);
+
+    await render(hbs`
     {{#polaris-popover
-      onOpen=(action "open")
+      onOpen=(action (mut wasOnOpenCalled) true)
       as |popover|
     }}
       {{#popover.activator}}
@@ -318,17 +313,17 @@ test('it calls a passed-in onOpen action when opened', function(assert) {
     {{/polaris-popover}}
   `);
 
-  // open the popover
-  click(activatorSelector);
+    // open the popover
+    await click(activatorSelector);
 
-  assert.ok(
-    this.get('wasOnOpenCalled'),
-    'the passed-in onOpen action is called when popover is opened'
-  );
-});
+    assert.ok(
+      this.get('wasOnOpenCalled'),
+      'the passed-in onOpen action is called when popover is opened'
+    );
+  });
 
-test('it honors the renderInPlace flag', function(assert) {
-  this.render(hbs`
+  test('it honors the renderInPlace flag', async function(assert) {
+    await render(hbs`
     {{#polaris-popover
       renderInPlace=true
       as |popover|
@@ -343,12 +338,13 @@ test('it honors the renderInPlace flag', function(assert) {
     {{/polaris-popover}}
   `);
 
-  // open the popover
-  click(activatorSelector);
+    // open the popover
+    await click(activatorSelector);
 
-  assert
-    .dom(
-      `.ember-basic-dropdown-content-wormhole-origin [data-test-inline-content]`
-    )
-    .exists({ count: 1 });
+    assert
+      .dom(
+        `.ember-basic-dropdown-content-wormhole-origin [data-test-inline-content]`
+      )
+      .exists({ count: 1 });
+  });
 });
