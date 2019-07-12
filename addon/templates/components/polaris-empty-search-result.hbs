@@ -21,13 +21,11 @@
     {{#stack.item}}
       {{yield}}
     {{/stack.item}}
-  {{else}}
-    {{#if description}}
-      {{#stack.item}}
-        {{#polaris-text-style variation="subdued"}}
-          <p>{{description}}</p>
-        {{/polaris-text-style}}
-      {{/stack.item}}
-    {{/if}}
+  {{else if description}}
+    {{#stack.item}}
+      {{#polaris-text-style variation="subdued"}}
+        <p>{{description}}</p>
+      {{/polaris-text-style}}
+    {{/stack.item}}
   {{/if}}
 {{/polaris-stack}}
