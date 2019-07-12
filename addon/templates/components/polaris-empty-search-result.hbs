@@ -15,16 +15,19 @@
     {{/stack.item}}
   {{/if}}
 
-  {{polaris-display-text
-    size="small"
-    text=title
-  }}
+  {{polaris-display-text size="small" text=title}}
 
-  {{#if description}}
+  {{#if (has-block)}}
     {{#stack.item}}
-      {{#polaris-text-style variation="subdued"}}
-        <p>{{description}}</p>
-      {{/polaris-text-style}}
+      {{yield}}
     {{/stack.item}}
+  {{else}}
+    {{#if description}}
+      {{#stack.item}}
+        {{#polaris-text-style variation="subdued"}}
+          <p>{{description}}</p>
+        {{/polaris-text-style}}
+      {{/stack.item}}
+    {{/if}}
   {{/if}}
 {{/polaris-stack}}
