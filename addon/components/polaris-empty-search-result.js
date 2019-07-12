@@ -15,7 +15,7 @@ export default Component.extend({
   title: null,
 
   /**
-   * @type {String}
+   * @type {String|Component|Object}
    * @default null
    * @property description
    * @public

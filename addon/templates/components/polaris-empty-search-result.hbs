@@ -15,15 +15,12 @@
     {{/stack.item}}
   {{/if}}
 
-  {{polaris-display-text
-    size="small"
-    text=title
-  }}
+  {{polaris-display-text size="small" text=title}}
 
   {{#if description}}
     {{#stack.item}}
       {{#polaris-text-style variation="subdued"}}
-        <p>{{description}}</p>
+        <p>{{render-content description}}</p>
       {{/polaris-text-style}}
     {{/stack.item}}
   {{/if}}
