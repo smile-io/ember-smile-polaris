@@ -2,7 +2,7 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { notEmpty } from '@ember/object/computed';
 import layout from '../templates/components/render-content';
-import { isComponentDefinition } from '@smile-io/ember-polaris/helpers/is-component-definition';
+import { isComponentDefinition } from '@smile-io/ember-smile-polaris/helpers/is-component-definition';
 
 export default Component.extend({
   tagName: '',
