@@ -5,14 +5,18 @@
   {{#if showSecondaryActions}}
     {{#polaris-button-group}}
       {{#each secondaryActions as |secondaryAction|}}
-        {{polaris-button
-          text=secondaryAction.text
-          disabled=secondaryAction.disabled
-          loading=secondaryAction.loading
-          destructive=secondaryAction.destructive
-          icon=secondaryAction.icon
-          onClick=(action "fireAction" secondaryAction)
-        }}
+        {{#if (is-component-definition secondaryAction)}}
+          {{component secondaryAction}}
+        {{else}}
+          {{polaris-button
+            text=secondaryAction.text
+            disabled=secondaryAction.disabled
+            loading=secondaryAction.loading
+            destructive=secondaryAction.destructive
+            icon=secondaryAction.icon
+            onClick=(action "fireAction" secondaryAction)
+          }}
+        {{/if}}
       {{/each}}
     {{/polaris-button-group}}
   {{/if}}
