@@ -6,7 +6,8 @@ export function isComponentDefinition([content]) {
     return false;
   }
 
-  let contentConstructorName = content.constructor.name || '';
+  let contentConstructorName =
+    (content.constructor && content.constructor.name) || '';
   return contentConstructorName.indexOf('ComponentDefinition') > -1;
 }
 
