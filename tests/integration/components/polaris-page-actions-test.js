@@ -2,8 +2,14 @@ import { module, test } from 'qunit';
 import { click, find, findAll, render } from '@ember/test-helpers';
 import { setupRenderingTest } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import Component from '@ember/component';
 import buildNestedSelector from '../../helpers/build-nested-selector';
 import MockSvgJarComponent from '../../mocks/components/svg-jar';
+
+const dummyComponentClass = 'dummy-component';
+const dummyComponent = Component.extend({
+  classNames: [dummyComponentClass],
+});
 
 module('Integration | Component | polaris page actions', function(hooks) {
   setupRenderingTest(hooks);
@@ -16,6 +22,7 @@ module('Integration | Component | polaris page actions', function(hooks) {
 
   hooks.beforeEach(function() {
     this.owner.register('component:svg-jar', MockSvgJarComponent);
+    this.owner.register('component:dummy-component', dummyComponent);
   });
 
   const pageActionsSelector = 'div.Polaris-PageActions';
@@ -506,5 +513,28 @@ module('Integration | Component | polaris page actions', function(hooks) {
       this.get('secondaryAction2Fired'),
       'after clicking second secondary button - second secondary action fired'
     );
+  });
+
+  /************************************\
+  | Tests for internal customisations. |
+  \************************************/
+  test('it allows passing component definitions as secondary actions', async function(assert) {
+    await render(hbs`
+      {{polaris-page-actions
+        primaryAction=(hash
+          text="Primary"
+          onAction=(action (mut dummy))
+        )
+        secondaryActions=(array
+          (hash
+            text="Secondary 1"
+            onAction=(action (mut dummy))
+          )
+          (component "dummy-component")
+        )
+      }}
+    `);
+
+    assert.dom(`.${dummyComponentClass}`).exists({ count: 1 });
   });
 });
