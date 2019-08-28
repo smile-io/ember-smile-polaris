@@ -39,6 +39,6 @@ module.exports = {
   },
 
   isDevelopingAddon() {
-    return process.env.SMILE_DEV;
+    return Boolean(process.env.SMILE_DEV);
   },
 };
