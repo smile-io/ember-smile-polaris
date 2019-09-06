@@ -2,10 +2,11 @@
   <div class="Polaris-Page-Header__Rollup">
     {{#polaris-popover as |popover|}}
       {{#popover.activator}}
-        {{polaris-button
-          plain=true
-          icon="horizontal-dots"
-        }}
+        {{#if (media "isMobile")}}
+          <PolarisButton @text="Actions" @disclosure={{true}} />
+        {{else}}
+          <PolarisButton @plain={{true}} @icon="horizontal-dots" />
+        {{/if}}
       {{/popover.activator}}
 
       {{#popover.content}}
