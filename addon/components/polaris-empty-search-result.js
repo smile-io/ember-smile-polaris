@@ -29,4 +29,13 @@ export default Component.extend({
    * @public
    */
   withIllustration: false,
+
+  /**
+   * Use a custom empty search result illustration.
+   * This is an addition to the Polaris spec
+   *
+   * @type {String}
+   * @default null
+   */
+  illustrationSrc: null,
 });
