@@ -1,3 +1,1 @@
-export {
-  default,
-} from '@smile-io/ember-smile-polaris/components/key-event-listener';
+export { default } from '@smile-io/ember-smile-polaris/components/key-event-listener';

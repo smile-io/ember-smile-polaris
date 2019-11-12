@@ -1,3 +1,1 @@
-export {
-  default,
-} from '@smile-io/ember-smile-polaris/components/polaris-page/header/rollup';
+export { default } from '@smile-io/ember-smile-polaris/components/polaris-page/header/rollup';

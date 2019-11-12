@@ -1,3 +1,1 @@
-export {
-  default,
-} from '@smile-io/ember-smile-polaris/components/polaris-popover/content';
+export { default } from '@smile-io/ember-smile-polaris/components/polaris-popover/content';

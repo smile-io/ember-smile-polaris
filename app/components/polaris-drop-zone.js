@@ -1,3 +1,1 @@
-export {
-  default,
-} from '@smile-io/ember-smile-polaris/components/polaris-drop-zone';
+export { default } from '@smile-io/ember-smile-polaris/components/polaris-drop-zone';

@@ -1,3 +1,1 @@
-export {
-  default,
-} from '@smile-io/ember-smile-polaris/components/polaris-data-table/row';
+export { default } from '@smile-io/ember-smile-polaris/components/polaris-data-table/row';
