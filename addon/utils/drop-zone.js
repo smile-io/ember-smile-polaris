@@ -58,5 +58,8 @@ function isDragEvent(event) {
 function isChangeEvent(event) {
   // NOTE: Polaris only checks `event.hasOwnProperty('target')` but that fails
   // for some strange reason...
-  return event.hasOwnProperty('target') || typeof event.target !== 'undefined';
+  return (
+    Object.prototype.hasOwnProperty.call(event, 'target') ||
+    typeof event.target !== 'undefined'
+  );
 }
