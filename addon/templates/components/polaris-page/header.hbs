@@ -47,7 +47,7 @@
         class=(if primaryAction "Polaris-Page-Header__TitleAndActions")
       }}
         <div class="Polaris-Page-Header__TitleAndRollup">
-          <div class="Polaris-Page-Header__Title">
+          <div class="Polaris-Page-Header__Title {{if (eq titleAlignment "center") "Polaris-Page-Header__Title--alignmentCenter"}}">
             <div>
               {{#polaris-stack alignment="baseline" spacing="tight" as |stack|}}
                 {{#if beforeTitleComponent}}
