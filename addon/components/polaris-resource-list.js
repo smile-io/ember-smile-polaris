@@ -213,6 +213,26 @@ export default Component.extend(
     idForItem: null,
 
     /**
+     * Whether or not to render the Polaris "empty search results" illustration
+     *
+     * @property shouldRenderEmptyStateIllustration
+     * @type {Boolean}
+     * @default true
+     * @public
+     */
+    shouldRenderEmptyStateIllustration: true,
+
+    /**
+     * Optional description for empty search results
+     *
+     * @property emptyStateDescription
+     * @type {String}
+     * @default 'Try changing the filters or search term'
+     * @public
+     */
+    emptyStateDescription: 'Try changing the filters or search term',
+
+    /**
      * Callback when sort option is changed
      *
      * @property onSortChange

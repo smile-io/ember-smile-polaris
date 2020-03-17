@@ -139,8 +139,8 @@
       {{else if showEmptyState}}
         <div class="Polaris-ResourceList__EmptySearchResultWrapper">
           {{polaris-empty-search-result
-            withIllustration=true
-            description="Try changing the filters or search term"
+            withIllustration=shouldRenderEmptyStateIllustration
+            description=emptyStateDescription
             title=emptySearchResultTitle
           }}
         </div>
