@@ -1,8 +1,10 @@
+<span {{did-insert this.setRef}}></span>
+
 <BasicDropdown
   @verticalPosition={{this.verticalPosition}}
   @renderInPlace={{@renderInPlace}}
-  @onOpen={{fn this.onOpen}}
-  @onClose={{fn (or @onClose this.onClose)}}
+  @onOpen={{this.open}}
+  @onClose={{this.close}}
   as |dd|
 >
   {{yield

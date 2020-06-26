@@ -130,7 +130,7 @@ export default class PolarisPopover extends Component {
    * @default noop
    * @public
    */
-  // onOpen() {}
+  onOpen() {}
 
   /**
    * Callback when popover is closed
@@ -139,7 +139,7 @@ export default class PolarisPopover extends Component {
    * @default noop
    * @public
    */
-  // onClose() {}
+  onClose() {}
 
   /**
    * @private
@@ -220,7 +220,7 @@ export default class PolarisPopover extends Component {
   }
 
   @action
-  onOpen() {
+  open() {
     // Check to see if `preferredPosition` is set to `mostSpace`
     // onOpen, since user could have scrolled vertically since
     // the time the component originally rendered.
@@ -237,14 +237,23 @@ export default class PolarisPopover extends Component {
   }
 
   @action
-  onClose() {
+  close() {
     // This is an addition to the base ember-polaris implementation
     // which makes closing the popover slightly cleaner visually.
     this.onClose();
     scheduleOnce('afterRender', this, 'blurDropdownTrigger');
   }
 
+  @action
+  setRef(element) {
+    this.set(
+      'dropdownTriggerElement',
+      element.parentElement.querySelector('.ember-basic-dropdown-trigger')
+    );
+  }
+
+  @action
   blurDropdownTrigger() {
-    this.element.querySelector('.ember-basic-dropdown-trigger').blur();
+    this.dropdownTriggerElement?.blur();
   }
 }
