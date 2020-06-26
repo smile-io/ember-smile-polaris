@@ -1,6 +1,5 @@
 {{#let
   (component "polaris-choice/label"
-    class=(or @choiceClass this.choiceClass)
     inputId=@inputId
     label=@label
     labelHidden=this.labelHidden
@@ -10,7 +9,7 @@
 }}
   {{#if this.hasDescription}}
     <div>
-      <ChoiceLabel ...attributes>
+      <ChoiceLabel class={{or @choiceClass this.choiceClass}} ...attributes>
         {{yield}}
       </ChoiceLabel>
 
@@ -29,7 +28,7 @@
       </div>
     </div>
   {{else}}
-    <ChoiceLabel ...attributes>
+    <ChoiceLabel class={{or @choiceClass this.choiceClass}} ...attributes>
       {{yield}}
     </ChoiceLabel>
   {{/if}}

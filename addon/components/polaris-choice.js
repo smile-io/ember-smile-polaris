@@ -73,7 +73,7 @@ export default class PolarisChoice extends Component {
    * control is needed.
    *
    * @type {Boolean}
-   * @default: false
+   * @default false
    * @public
    * @extends ember-polaris
    */
