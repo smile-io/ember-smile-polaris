@@ -5,7 +5,7 @@ import {
   rgbaToHsb,
   rgbaToHex,
   hexToRgb,
-} from '@smile-io/ember-polaris/utils/color';
+} from '@smile-io/ember-smile-polaris/utils/color';
 
 module('Unit | Utility | color', function() {
   test('rgbaString() correctly converts an RGB(a) object color to string', function(assert) {

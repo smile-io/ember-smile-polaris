@@ -12,8 +12,8 @@ const defaultSize = 'large';
 const allowedSizes = ['small', defaultSize];
 
 const spinnerSVGSources = {
-  small: '/@smile-io/ember-polaris/images/spinner-small.svg',
-  large: '/@smile-io/ember-polaris/images/spinner-large.svg',
+  small: '/@smile-io/ember-smile-polaris/images/spinner-small.svg',
+  large: '/@smile-io/ember-smile-polaris/images/spinner-large.svg',
 };
 
 @tagName('')

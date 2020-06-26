@@ -28,9 +28,13 @@ export default class PolarisChoiceList extends Component {
   /**
    * Label for list of choices
    *
-   * @type {String}
+   * This is just a string in `ember-polaris` but here we also accept a component definition or hash
+   * of `componentName` and `props`
+   *
+   * @type {String|Component|Object}
    * @default null
    * @public
+   * @extends ember-polaris
    */
   title = null;
 
@@ -118,6 +122,10 @@ export default class PolarisChoiceList extends Component {
     return errorId(this.finalName);
   }
 
+  /**
+   * We allow to overwrite this as opposed to ember-polaris
+   * @extends ember-polaris
+   */
   @computed('allowMultiple')
   get controlComponent() {
     return this.allowMultiple ? 'polaris-checkbox' : 'polaris-radio-button';

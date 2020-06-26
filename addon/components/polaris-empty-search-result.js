@@ -13,7 +13,7 @@ export default class PolarisEmptySearchResult extends Component {
   title = null;
 
   /**
-   * @type {String}
+   * @type {String|Component|Object}
    * @default null
    * @public
    */
@@ -25,4 +25,14 @@ export default class PolarisEmptySearchResult extends Component {
    * @public
    */
   withIllustration = false;
+
+  /**
+   * Use a custom empty search result illustration.
+   * This is an addition to the Polaris spec
+   *
+   * @type {String}
+   * @default null
+   * @extends ember-polaris
+   */
+  illustrationSrc = null;
 }

@@ -1,1 +1,1 @@
-export { default } from '@smile-io/ember-polaris/components/polaris-color-picker/hue-picker';
+export { default } from '@smile-io/ember-smile-polaris/components/polaris-color-picker/hue-picker';

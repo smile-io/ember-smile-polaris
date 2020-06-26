@@ -475,4 +475,24 @@ module('Integration | Component | polaris action list', function(hooks) {
       .dom(`${actionListItemSelector} [data-test-text-style]`)
       .hasText(`Yay I'm helping!`);
   });
+
+  /************************************\
+  | Tests for internal customisations. |
+  \************************************/
+  module('internal customisations', function() {
+    test('removes fills from item non-Polaris icons', async function(assert) {
+      await render(hbs`
+        {{polaris-action-list
+          items=(array
+            (hash
+              text="Action with custom icon"
+              icon="custom-icons/test-icon"
+            )
+          )
+        }}
+      `);
+
+      assert.dom('.Polaris-Icon').doesNotHaveAttribute('data-test-keep-fills');
+    });
+  });
 });

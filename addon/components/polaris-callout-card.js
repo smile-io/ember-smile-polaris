@@ -1,6 +1,11 @@
 import Component from '@ember/component';
+import { computed } from '@ember/object';
 import { tagName, layout } from '@ember-decorators/component';
 import template from '../templates/components/polaris-callout-card';
+
+const illustrationSizeClasses = {
+  large: 'illustration-large',
+};
 
 /**
  * Polaris callout card component.
@@ -54,10 +59,33 @@ export default class PolarisCalloutCard extends Component {
   secondaryAction = null;
 
   /**
+   * Allows overriding the illustration size
+   * This is an addition to the Polaris spec
+   *
+   * @property illustrationSize
+   * @type {String}
+   * @default null
+   * @extends ember-polaris
+   */
+  illustrationSize = null;
+
+  /**
    * Callback when banner is dismissed
    *
    * @type {Function}
    * @default null
    */
   onDismiss = null;
+
+  /**
+   * Class name to apply illustration size override.
+   *
+   * @property illustrationSizeClass
+   * @type {String}
+   * @extends ember-polaris
+   */
+  @computed('illustrationSize')
+  get illustrationSizeClasses() {
+    return illustrationSizeClasses[this.illustrationSize] || null;
+  }
 }

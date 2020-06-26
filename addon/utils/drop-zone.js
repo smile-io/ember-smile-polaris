@@ -56,6 +56,10 @@ function isDragEvent(event) {
 }
 
 function isChangeEvent(event) {
-  // eslint-disable-next-line no-prototype-builtins
-  return event.hasOwnProperty('target') || Boolean(event.target);
+  // NOTE: Polaris only checks `event.hasOwnProperty('target')` but that fails
+  // for some strange reason...
+  return (
+    Object.prototype.hasOwnProperty.call(event, 'target') ||
+    Boolean(event.target)
+  );
 }

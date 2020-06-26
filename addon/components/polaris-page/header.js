@@ -107,6 +107,15 @@ export default class HeaderComponent extends Component {
    */
   pagination = null;
 
+  /**
+   * Optional component to be rendered before the title text.
+   *
+   * @type {String|Component|Object}
+   * @default null
+   * @extends ember-polaris
+   */
+  beforeTitleComponent = null;
+
   @gt('breadcrumbs.length', 0)
   hasBreadcrumbs;
 

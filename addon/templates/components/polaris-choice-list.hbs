@@ -8,38 +8,48 @@
 >
   {{#if @title}}
     <legend data-test-choice-list-title class="Polaris-ChoiceList__Title">
-      {{@title}}
+      {{render-content @title}}
     </legend>
   {{/if}}
 
-  <ul data-test-choice-list-choices class="Polaris-ChoiceList__Choices">
-    {{#each this.checkedChoices as |choice|}}
-      <li data-test-choice-list-item>
-        {{#let this.controlComponent as |Control|}}
-          <Control
-            @label={{choice.label}}
-            @value={{choice.value}}
-            @helpText={{choice.helpText}}
-            @disabled={{choice.disabled}}
-            @checked={{choice.isSelected}}
-            @name={{this.finalName}}
-            @onChange={{fn this.updateSelectedChoices choice}}
-          />
-        {{/let}}
+  {{#if hasBlock}}
+    {{yield
+      (hash
+        checkedChoices=this.checkedChoices
+        name=this.finalName
+        onChange=(this.updateSelectedChoices)
+      )
+    }}
+  {{else}}
+    <ul data-test-choice-list-choices class="Polaris-ChoiceList__Choices">
+      {{#each this.checkedChoices as |choice|}}
+        <li data-test-choice-list-item>
+          {{#let (or @controlComponent this.controlComponent) as |Control|}}
+            <Control
+              @label={{choice.label}}
+              @value={{choice.value}}
+              @helpText={{choice.helpText}}
+              @disabled={{choice.disabled}}
+              @checked={{choice.isSelected}}
+              @name={{this.finalName}}
+              @onChange={{fn this.updateSelectedChoices choice}}
+            />
+          {{/let}}
 
-        {{#if
-          (and
-            choice.childComponent
-            (or choice.isSelected choice.alwaysRenderChildComponent)
-          )
-        }}
-          <div class="Polaris-ChoiceList__ChoiceChildren">
-            {{component choice.childComponent}}
-          </div>
-        {{/if}}
-      </li>
-    {{/each}}
-  </ul>
+          {{#if
+            (and
+              choice.childComponent
+              (or choice.isSelected choice.alwaysRenderChildComponent)
+            )
+          }}
+            <div class="Polaris-ChoiceList__ChoiceChildren">
+              {{component choice.childComponent}}
+            </div>
+          {{/if}}
+        </li>
+      {{/each}}
+    </ul>
+  {{/if}}
 
   {{#if @error}}
     <div data-test-choice-list-error class="Polaris-ChoiceList__ChoiceError">

@@ -371,7 +371,9 @@ export default class PolarisDropZoneComponent extends Component.extend(
     setProperties(state, {
       dragging: false,
       error: rejectedFiles.length > 0,
-      numFiles: state.numFiles + acceptedFiles.length,
+      // TODO: uncomment this line when there's a fix for
+      // https://github.com/Shopify/polaris-react/issues/1229.
+      // numFiles: state.numFiles + acceptedFiles.length,
     });
 
     onDrop(files, acceptedFiles, rejectedFiles);

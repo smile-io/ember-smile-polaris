@@ -67,6 +67,33 @@ export default class PolarisIcon extends Component.extend(SvgHandling) {
   showPlaceholder;
 
   /**
+   * Shopify removes all SVG fills from icons. In order to use this component
+   * for our icons too, we need to be able to keep their fills.
+   * This won't remove fills for anything other than Polaris icons by default,
+   * but passing `keepFills=false` will remove them for non-Polaris icons too.
+   *
+   * @type {Boolean}
+   * @public
+   * @extends emmber-polaris
+   */
+  @computed('sourcePath', 'source')
+  get keepFills() {
+    // If not Polaris icons, keep fills by default
+    if (this.sourcePath !== 'polaris') {
+      return true;
+    }
+
+    let { source } = this;
+    // If source does not have a slash OR has a slash and contains `polaris`, remove fills
+    if (source.indexOf('/') === -1 || source.indexOf('polaris/') !== -1) {
+      return false;
+    }
+
+    // Else, it's clearly not a Polaris icon, so keep them
+    return true;
+  }
+
+  /**
    * Whether a color has been specified for the icon
    *
    * @type {Boolean}
@@ -114,5 +141,14 @@ export default class PolarisIcon extends Component.extend(SvgHandling) {
         until: '7.0.0',
       }
     );
+  }
+
+  removeSvgFills() {
+    // Don't remove SVG fills for this icon unless instructed to.
+    if (this.keepFills) {
+      return;
+    }
+
+    super.removeSvgFills(...arguments);
   }
 }

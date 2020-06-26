@@ -146,6 +146,25 @@ export default class PolarisPageComponent extends Component {
    */
   forceRender = false;
 
+  /**
+   * Optional component to be rendered before the title text.
+   *
+   * @type {String|Component|Object}
+   * @default null
+   * @extends ember-polaris
+   */
+  beforeTitleComponent = null;
+
+  /**
+   * Title alignment.
+   * Supported values: 'center'
+   *
+   * @type {String}
+   * @default null
+   * @extends ember-polaris
+   */
+  titleAlignment = null;
+
   @or(
     'title',
     'primaryAction',

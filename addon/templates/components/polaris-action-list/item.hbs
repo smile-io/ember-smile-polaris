@@ -9,7 +9,7 @@
     <div class="Polaris-ActionList__Content">
       {{#if @icon}}
         <div class="Polaris-ActionList__Image">
-          <PolarisIcon @source={{@icon}} />
+          <PolarisIcon @keepFills={{false}} @source={{@icon}} />
         </div>
       {{else if @image}}
         <div

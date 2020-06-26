@@ -65,8 +65,38 @@ export default class PolarisChoice extends Component {
    */
   helpText = null;
 
+  /**
+   * Allow overriding the width of the choice component that is rendered
+   * in front of the choice label. This supports using custom components
+   * instead of just radio buttons and checkboxes. Alternatively we allow
+   * passing a `choiceClass` directly if more specific styling of the choice
+   * control is needed.
+   *
+   * @type {Boolean}
+   * @default: false
+   * @public
+   * @extends ember-polaris
+   */
+  customWidth = false;
+
   @or('error', 'helpText')
   hasDescription;
+
+  /**
+   * Overrideable class to apply to the choice control if specific styling is needed.
+   *
+   * @type {String}
+   * @public
+   * @extends ember-polaris
+   */
+  @computed('customWidth')
+  get choiceClass() {
+    if (!this.customWidth) {
+      return null;
+    }
+
+    return 'custom-width';
+  }
 
   @computed('error')
   get shouldRenderError() {

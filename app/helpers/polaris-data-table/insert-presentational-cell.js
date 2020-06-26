@@ -1,4 +1,4 @@
 export {
   default,
   polarisDataTableInsertPresentationalCell,
-} from '@smile-io/ember-polaris/helpers/polaris-data-table/insert-presentational-cell';
+} from '@smile-io/ember-smile-polaris/helpers/polaris-data-table/insert-presentational-cell';

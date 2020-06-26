@@ -1,5 +1,6 @@
 <BasicDropdown
   @verticalPosition={{this.verticalPosition}}
+  @renderInPlace={{@renderInPlace}}
   @onOpen={{fn this.onOpen}}
   @onClose={{fn (or @onClose this.onClose)}}
   as |dd|
@@ -9,6 +10,7 @@
       activator=(component dd.trigger style=this.triggerStyle)
       content=(component "polaris-popover/content"
         contentComponent=dd.content
+        contentClass=@contentClass
         uniqueId=dd.uniqueId
         sectioned=@sectioned
         fullWidth=@fullWidth

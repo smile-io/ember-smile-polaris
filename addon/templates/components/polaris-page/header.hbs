@@ -35,13 +35,21 @@
       {{! Add a "title and actions" wrapper div if we have a primary action. }}
       <TitleAndActions class="Polaris-Page-Header__TitleAndActions">
         <div class="Polaris-Page-Header__TitleAndRollup">
-          <div class="Polaris-Page-Header__Title">
+          <div class="Polaris-Page-Header__Title {{if (eq titleAlignment "center") "Polaris-Page-Header__Title--alignmentCenter"}}">
             <div>
-              <PolarisDisplayText
-                @htmlTag="h1"
-                @size="large"
-                @text={{@title}}
-              />
+              <PolarisStack @alignment="baseline" @spacing="tight" as |stack|>
+                {{#if @beforeTitleComponent}}
+                  {{#stack.item}}
+                    {{render-content @beforeTitleComponent}}
+                  {{/stack.item}}
+                {{/if}}
+
+                <PolarisDisplayText
+                  @htmlTag="h1"
+                  @size="large"
+                  @text={{@title}}
+                />
+              </PolarisStack>
             </div>
 
             <div>

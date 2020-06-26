@@ -1,1 +1,1 @@
-export { default } from '@smile-io/ember-polaris/components/polaris-subheading';
+export { default } from '@smile-io/ember-smile-polaris/components/polaris-subheading';

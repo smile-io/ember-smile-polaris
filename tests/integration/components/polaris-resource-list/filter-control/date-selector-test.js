@@ -10,8 +10,8 @@ import {
   waitUntil,
 } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { DateFilterOption } from '@smile-io/ember-polaris/components/polaris-resource-list/filter-control/date-selector';
-import DatePickerComponent from '@smile-io/ember-polaris/components/polaris-date-picker';
+import { DateFilterOption } from '@smile-io/ember-smile-polaris/components/polaris-resource-list/filter-control/date-selector';
+import DatePickerComponent from '@smile-io/ember-smile-polaris/components/polaris-date-picker';
 import { setUpAttributeCaptureOnComponent } from '../../../../helpers/component-attribute-capture';
 
 const textFieldInputSelector = '.Polaris-TextField input';

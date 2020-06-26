@@ -3,7 +3,7 @@ import { computed } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { deprecate } from '@ember/application/deprecations';
 import { tagName, layout } from '@ember-decorators/component';
-import { computedHelpTextId } from '@smile-io/ember-polaris/utils/id';
+import { computedHelpTextId } from '@smile-io/ember-smile-polaris/utils/id';
 import template from '../templates/components/polaris-labelled';
 
 /**

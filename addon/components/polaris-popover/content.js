@@ -68,4 +68,14 @@ export default class Content extends Component {
    * @public
    */
   uniqueId = null;
+
+  /**
+   * Class to be added to the `Polaris-Popover__Content` element
+   *
+   * @type {String}
+   * @default null
+   * @public
+   * @extends ember-polaris
+   */
+  contentClass = null;
 }

@@ -1,4 +1,4 @@
 export {
   default,
   polarisSelectIsGroup,
-} from '@smile-io/ember-polaris/helpers/polaris-select/is-group';
+} from '@smile-io/ember-smile-polaris/helpers/polaris-select/is-group';

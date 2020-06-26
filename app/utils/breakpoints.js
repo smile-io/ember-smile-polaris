@@ -1,1 +1,1 @@
-export { default } from '@smile-io/ember-polaris/utils/breakpoints';
+export { default } from '@smile-io/ember-smile-polaris/utils/breakpoints';

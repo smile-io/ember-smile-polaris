@@ -218,4 +218,39 @@ module('Integration | Component | polaris callout card', function(hooks) {
     await click('.Polaris-Button');
     assert.ok(this.get('wasOnDismissCalled'));
   });
+
+  /************************************\
+  | Tests for internal customisations. |
+  \************************************/
+  test('it overrides the image size when illustrationSize is set to "large"', async function(assert) {
+    await render(hbs`
+    {{polaris-callout-card
+      illustration="http://www.somewhere.com/some-image.jpg"
+      illustrationSize="large"
+      primaryAction=(hash
+        text="Primary"
+        onAction=(action (mut dummy))
+      )
+    }}
+  `);
+
+    let illustration = this.element.querySelector(calloutCardImageSelector);
+    assert.equal(getComputedStyle(illustration).flexBasis, '30%');
+  });
+
+  test('it does not override the image size when illustrationSize is set to a random value', async function(assert) {
+    await render(hbs`
+    {{polaris-callout-card
+      illustration="http://www.somewhere.com/some-image.jpg"
+      illustrationSize="unspecified"
+      primaryAction=(hash
+        text="Primary"
+        onAction=(action (mut dummy))
+      )
+    }}
+  `);
+
+    let illustration = this.element.querySelector(calloutCardImageSelector);
+    assert.equal(getComputedStyle(illustration).flexBasis, 'auto');
+  });
 });

@@ -6,8 +6,8 @@ import { tagName, layout } from '@ember-decorators/component';
 import template from '../../templates/components/polaris-drop-zone/file-upload';
 
 const iconDragDrop = 'drag-drop';
-const fileUpload = '/@smile-io/ember-polaris/images/file-upload.svg';
-const imageUpload = '/@smile-io/ember-polaris/images/image-upload.svg';
+const fileUpload = '/@smile-io/ember-smile-polaris/images/file-upload.svg';
+const imageUpload = '/@smile-io/ember-smile-polaris/images/image-upload.svg';
 
 const fileUploadStrings = {
   actionTitleFile: 'Add file',

@@ -4,8 +4,8 @@ import { render, click, find, triggerEvent } from '@ember/test-helpers';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import hbs from 'htmlbars-inline-precompile';
-import BulkActionsComponent from '@smile-io/ember-polaris/components/polaris-resource-list/bulk-actions';
-import SelectComponent from '@smile-io/ember-polaris/components/polaris-select';
+import BulkActionsComponent from '@smile-io/ember-smile-polaris/components/polaris-resource-list/bulk-actions';
+import SelectComponent from '@smile-io/ember-smile-polaris/components/polaris-select';
 import { setUpAttributeCaptureOnComponent } from '../../helpers/component-attribute-capture';
 
 const itemsNoID = [{ url: 'item 1' }, { url: 'item 2' }];

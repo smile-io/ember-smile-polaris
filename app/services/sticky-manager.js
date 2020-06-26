@@ -1,1 +1,1 @@
-export { default } from '@smile-io/ember-polaris/services/sticky-manager';
+export { default } from '@smile-io/ember-smile-polaris/services/sticky-manager';

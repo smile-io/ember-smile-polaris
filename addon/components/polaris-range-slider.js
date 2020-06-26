@@ -4,7 +4,7 @@ import { guidFor } from '@ember/object/internals';
 import { dasherize, htmlSafe } from '@ember/string';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import { assign } from '@ember/polyfills';
-import { errorId, helpTextId } from '@smile-io/ember-polaris/utils/id';
+import { errorId, helpTextId } from '@smile-io/ember-smile-polaris/utils/id';
 import layout from '../templates/components/polaris-range-slider';
 
 function invertNumber(number) {

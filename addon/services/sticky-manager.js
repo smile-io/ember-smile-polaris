@@ -3,7 +3,7 @@ import ContextBoundEventListenersMixin from 'ember-lifeline/mixins/dom';
 import { throttleTask, runDisposables } from 'ember-lifeline';
 import tokens from '@shopify/polaris-tokens';
 import { getRectForNode } from '@shopify/javascript-utilities/geometry';
-import stackedContent from '@smile-io/ember-polaris/utils/breakpoints';
+import stackedContent from '@smile-io/ember-smile-polaris/utils/breakpoints';
 
 export default class StickyManager extends Service.extend(
   ContextBoundEventListenersMixin

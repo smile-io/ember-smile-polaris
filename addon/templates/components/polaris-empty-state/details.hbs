@@ -13,7 +13,7 @@
     </div>
   </PolarisTextContainer>
 
-  {{#if action}}
+  {{#if @action}}
     <div class="Polaris-EmptyState__Actions">
       <PolarisStack
         data-test-empty-state-actions={{true}}
@@ -24,6 +24,8 @@
           @primary={{true}}
           @size="large"
           @text={{@action.text}}
+          @disabled={{@action.disabled}}
+          @loading={{@action.loading}}
           @onClick={{@action.onAction}}
         />
 

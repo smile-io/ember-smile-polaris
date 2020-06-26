@@ -1,7 +1,7 @@
 {
-  "name": "@smile-io/ember-polaris",
-  "version": "6.0.0-rc.0",
-  "description": "Ember components for Shopify's Polaris design system.",
+  "name": "@smile-io/ember-smile-polaris",
+  "version": "1.5.0",
+  "description": "Smile extensions and customisations to ember-polaris components.",
   "keywords": [
     "component library",
     "components",
@@ -11,13 +11,13 @@
     "polaris",
     "shopify"
   ],
-  "homepage": "https://github.com/smile-io/ember-polaris#readme",
+  "homepage": "https://github.com/smile-io/ember-smile-polaris#readme",
   "bugs": {
-    "url": "https://github.com/smile-io/ember-polaris/issues"
+    "url": "https://github.com/smile-io/ember-smile-polaris/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/smile-io/ember-polaris.git"
+    "url": "https://github.com/smile-io/ember-smile-polaris.git"
   },
   "license": "MIT",
   "author": "Smile.io <devs@smile.io>",

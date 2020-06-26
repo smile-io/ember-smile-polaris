@@ -3,6 +3,7 @@ import { action, computed } from '@ember/object';
 import Ember from 'ember';
 import { htmlSafe } from '@ember/string';
 import { warn } from '@ember/debug';
+import { scheduleOnce } from '@ember/runloop';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import { getRectForNode } from '@shopify/javascript-utilities/geometry';
 import layout from '../templates/components/polaris-popover';
@@ -109,6 +110,37 @@ export default class PolarisPopover extends Component {
   fullHeight = false;
 
   /**
+   * Class to be added to the `Polaris-Popover__Content` element
+   *
+   * @type {String}
+   * @default null
+   * @public
+   * @extends ember-polaris
+   */
+  contentClass = null;
+
+  /**
+   * Flag to allow inlining popover when we need to adjust styling
+   *
+   * @type {Boolean}
+   * @default false
+   * @public
+   * @extends ember-polaris
+   */
+  renderInPlace = false;
+
+  /**
+   * Callback when popover is opened
+   * This is an addition to the base Polaris implementation
+   *
+   * @property onOpen
+   * @type {Function}
+   * @default noop
+   * @public
+   */
+  // onOpen() {}
+
+  /**
    * Callback when popover is closed
    *
    * @property onClose
@@ -116,7 +148,7 @@ export default class PolarisPopover extends Component {
    * @default noop
    * @public
    */
-  onClose() {}
+  // onClose() {}
 
   /**
    * @private
@@ -204,5 +236,24 @@ export default class PolarisPopover extends Component {
     if (this.preferredPosition === 'mostSpace') {
       this.set('verticalPosition', this.getMostVerticalSpace());
     }
+
+    // This is an addition to the base ember-polaris implementation
+    // that allows an external action to be triggered when the popover
+    // is opened.
+    if (this.onOpen) {
+      this.onOpen();
+    }
+  }
+
+  @action
+  onClose() {
+    // This is an addition to the base ember-polaris implementation
+    // which makes closing the popover slightly cleaner visually.
+    this.onClose();
+    scheduleOnce('afterRender', this, 'blurDropdownTrigger');
+  }
+
+  blurDropdownTrigger() {
+    this.element.querySelector('.ember-basic-dropdown-trigger').blur();
   }
 }

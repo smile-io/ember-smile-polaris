@@ -194,4 +194,41 @@ module('Integration | Component | polaris icon', function(hooks) {
       .dom(iconPlaceholderSelector)
       .exists({ count: 1 }, 'renders one icon placeholder');
   });
+
+  /************************************\
+  | Tests for internal customisations. |
+  \************************************/
+  test('it removes icon fills when no sourcePath is specified and source does not contain a slash', async function(assert) {
+    await render(hbs`{{polaris-icon source="placeholder"}}`);
+
+    assert.dom(iconSelector).doesNotHaveAttribute('data-test-keep-fills');
+  });
+
+  test('it removes icon fills when no sourcePath is specified and source contains "polaris/"', async function(assert) {
+    await render(hbs`{{polaris-icon source="polaris/placeholder"}}`);
+
+    assert.dom(iconSelector).doesNotHaveAttribute('data-test-keep-fills');
+  });
+
+  test('it removes icon fills when sourcePath is specified as "polaris"', async function(assert) {
+    await render(
+      hbs`{{polaris-icon sourcePath="polaris" source="placeholder"}}`
+    );
+
+    assert.dom(iconSelector).doesNotHaveAttribute('data-test-keep-fills');
+  });
+
+  test('it keeps icon fills when sourcePath is not "polaris"', async function(assert) {
+    await render(
+      hbs`{{polaris-icon sourcePath="custom-icons" source="my-icon"}}`
+    );
+
+    assert.dom(iconSelector).hasAttribute('data-test-keep-fills');
+  });
+
+  test('it keeps icon fills when no sourcePath is specified and source contains a slash', async function(assert) {
+    await render(hbs`{{polaris-icon source="custom-icons/my-icon"}}`);
+
+    assert.dom(iconSelector).hasAttribute('data-test-keep-fills');
+  });
 });
