@@ -85,7 +85,7 @@ export default class PolarisCalloutCard extends Component {
    * @extends ember-polaris
    */
   @computed('illustrationSize')
-  get illustrationSizeClasses() {
+  get illustrationSizeClass() {
     return illustrationSizeClasses[this.illustrationSize] || null;
   }
 }
