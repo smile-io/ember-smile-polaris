@@ -1,6 +1,6 @@
 {
   "name": "@smile-io/ember-smile-polaris",
-  "version": "2.0.0-rc.1",
+  "version": "2.0.0-rc.2",
   "description": "Smile extensions and customisations to ember-polaris components.",
   "keywords": [
     "component library",
