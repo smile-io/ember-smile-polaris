@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { tagName, layout } from '@ember-decorators/component';
 import template from '../templates/components/polaris-callout-card';
+import TaglessCssDeprecation from '../mixins/tagless-css-deprecation';
 
 const illustrationSizeClasses = {
   large: 'illustration-large',
@@ -13,7 +14,9 @@ const illustrationSizeClasses = {
  */
 @tagName('')
 @layout(template)
-export default class PolarisCalloutCard extends Component {
+export default class PolarisCalloutCard extends Component.extend(
+  TaglessCssDeprecation
+) {
   /**
    * The content to display inside the callout card.
    *
