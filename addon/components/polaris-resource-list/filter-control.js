@@ -7,7 +7,7 @@ import { FilterType } from '@smile-io/ember-smile-polaris/components/polaris-res
 
 @tagName('')
 @templateLayout(layout)
-export default class FilterControl extends Component.extend(
+export default class PolarisResourceListFilterControl extends Component.extend(
   context.ConsumerMixin
 ) {
   /**
