@@ -3,7 +3,7 @@ import { action } from '@ember/object';
 import { deprecate } from '@ember/application/deprecations';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import layout from '../templates/components/polaris-subheading';
-import TaglessCssDeprecation from '../mixins/tagless-css-deprecation';
+import deprecateClassArgument from '../utils/deprecate-class-argument';
 
 /**
  * Polaris subheading component.
@@ -19,11 +19,10 @@ import TaglessCssDeprecation from '../mixins/tagless-css-deprecation';
  *     This is an underlined subheading
  *   {{/polaris-subheading}}
  */
+@deprecateClassArgument
 @tagName('')
 @templateLayout(layout)
-export default class PolarisSubheading extends Component.extend(
-  TaglessCssDeprecation
-) {
+export default class PolarisSubheading extends Component {
   /**
    * The content to display inside the heading
    *
@@ -41,7 +40,7 @@ export default class PolarisSubheading extends Component.extend(
     super.init(...arguments);
 
     deprecate(
-      `[polaris-subheading] Passing 'tagName' argument is deprecated! Use '@htmlTag' instead`,
+      `[PolarisSubheading] Passing 'tagName' argument is deprecated! Use '@htmlTag' instead`,
       !this.tagName,
       {
         id: 'ember-polaris.polaris-subheading.tagName-arg',
