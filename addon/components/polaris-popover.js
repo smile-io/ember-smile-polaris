@@ -1,9 +1,10 @@
-import Ember from 'ember';
 import Component from '@ember/component';
-import { computed } from '@ember/object';
+import { action, computed } from '@ember/object';
+import Ember from 'ember';
 import { htmlSafe } from '@ember/string';
 import { warn } from '@ember/debug';
 import { scheduleOnce } from '@ember/runloop';
+import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import { getRectForNode } from '@shopify/javascript-utilities/geometry';
 import layout from '../templates/components/polaris-popover';
 
@@ -15,12 +16,9 @@ const BELOW = 'below';
  * Polaris popover component.
  * See https://polaris.shopify.com/components/overlays/popover
  */
-export default Component.extend({
-  // Add a wrapper element so that we can find our trigger element.
-  tagName: 'div',
-
-  layout,
-
+@tagName('')
+@templateLayout(layout)
+export default class PolarisPopover extends Component {
   /**
    * The content to display inside the popover
    *
@@ -28,110 +26,100 @@ export default Component.extend({
    * in which case the block content will be used
    * instead of `text`
    *
-   * @property text
    * @type {String}
    * @default null
    * @public
    */
-  text: null,
+  text = null;
 
   /**
    * The preferred direction to open the popover
    *
-   * @property preferredPosition
    * @type {String}
    * @default 'below'
    * @public
    */
-  preferredPosition: BELOW,
+  preferredPosition = BELOW;
 
   /**
    * Show or hide the Popover
    *
    * TODO: not implemented
    *
-   * @property active
    * @type {Boolean}
    * @default false
    * @public
    */
-  active: false,
+  active = false;
 
   /**
    * The element type to wrap the activator with
    *
    * TODO: not implemented
    *
-   * @property activatorWrapper
    * @type {String}
    * @default null
    * @public
    */
-  activatorWrapper: null,
+  activatorWrapper = null;
 
   /**
    * Prevent automatic focus of the first field on activation
    *
    * TODO: not implemented
    *
-   * @property preventAutofocus
    * @type {Boolean}
    * @default false
    * @public
    */
-  preventAutofocus: false,
+  preventAutofocus = false;
 
   /**
    * Automatically add wrap content in a section
    *
-   * @property sectioned
    * @type {Boolean}
    * @default false
    * @public
    */
-  sectioned: false,
+  sectioned = false;
 
   /**
    * Allow popover to stretch to the full width of its activator
    *
-   * @property fullWidth
    * @type {Boolean}
    * @default false
    * @public
    */
-  fullWidth: false,
+  fullWidth = false;
 
   /**
    * Allow popover to stretch to fit content vertically
    *
-   * @property fullHeight
    * @type {Boolean}
    * @default false
    * @public
    */
-  fullHeight: false,
+  fullHeight = false;
 
   /**
    * Class to be added to the `Polaris-Popover__Content` element
-   * This is an addition to the base Polaris implementation
    *
-   * @property contentClass
    * @type {String}
    * @default null
    * @public
+   * @extends ember-polaris
    */
-  contentClass: null,
+  contentClass = null;
 
   /**
    * Flag to allow inlining popover when we need to adjust styling
-   * This is an addition to the base Polaris implementation
    *
-   * @property renderInPlace
    * @type {Boolean}
    * @default false
    * @public
+   * @extends ember-polaris
    */
-  renderInPlace: false,
+  renderInPlace = false;
 
   /**
    * Callback when popover is opened
@@ -142,68 +130,57 @@ export default Component.extend({
    * @default noop
    * @public
    */
-  onOpen() {},
+  onOpen() {}
 
   /**
    * Callback when popover is closed
    *
-   * @property onClose
    * @type {Function}
    * @default noop
    * @public
    */
-  onClose() {},
+  onClose() {}
 
-  /**
-   * @private
-   */
-  verticalPosition: computed('preferredPosition', {
+  triggerStyle = htmlSafe(`
+    display: inline-block;
+    overflow: inherit;
+    border: none;
+  `);
+
+  @computed('preferredPosition')
+  get verticalPosition() {
     // If `preferredPosition` is set to `mostSpace`, the value
     // will be calculated and set when the user opens the popover.
     // The only allowed values are 'above' and 'below', so we
     // return null for anything other than those values and let
     // ember-basic-dropdown use its default value.
-    get() {
-      let preferredPosition = this.get('preferredPosition');
+    let { preferredPosition } = this;
 
-      if (preferredPosition === ABOVE || preferredPosition === BELOW) {
-        return preferredPosition;
-      }
+    if (preferredPosition === ABOVE || preferredPosition === BELOW) {
+      return preferredPosition;
+    }
 
-      return null;
-    },
+    return null;
+  }
 
-    set(key, value) {
-      if (value === ABOVE || value === BELOW) {
-        return value;
-      }
+  set verticalPosition(value) {
+    if (value === ABOVE || value === BELOW) {
+      return value;
+    }
 
-      return null;
-    },
-  }),
-
-  /**
-   * @private
-   */
-  triggerStyle: computed(function() {
-    return htmlSafe(`
-      display: inline-block;
-      overflow: inherit;
-      border: none;
-    `);
-  }).readOnly(),
+    return null;
+  }
 
   /**
    * Checks the dropdown activator's location on
    * screen to determine which vertical direction
    * has more space to open the dropdown.
-   * @private
    */
   getMostVerticalSpace() {
     let component;
 
     // Hack to get the component's container
-    // element since this component uses `tagName: ''`
+    // element since this component is tagless
     // https://github.com/emberjs/rfcs/issues/168#issue-178381310
     if (ViewUtils && ViewUtils.getViewBounds) {
       component = ViewUtils.getViewBounds(this).parentElement;
@@ -233,35 +210,43 @@ export default Component.extend({
 
     // Use `below` if distance is equal
     return bottomSpace >= top ? BELOW : ABOVE;
-  },
+  }
 
+  @action
+  open() {
+    // Check to see if `preferredPosition` is set to `mostSpace`
+    // onOpen, since user could have scrolled vertically since
+    // the time the component originally rendered.
+    if (this.preferredPosition === 'mostSpace') {
+      this.set('verticalPosition', this.getMostVerticalSpace());
+    }
+
+    // This is an addition to the base ember-polaris implementation
+    // that allows an external action to be triggered when the popover
+    // is opened.
+    if (this.onOpen) {
+      this.onOpen();
+    }
+  }
+
+  @action
+  close() {
+    // This is an addition to the base ember-polaris implementation
+    // which makes closing the popover slightly cleaner visually.
+    this.onClose();
+    scheduleOnce('afterRender', this, 'blurDropdownTrigger');
+  }
+
+  @action
+  setRef(element) {
+    this.set(
+      'dropdownTriggerElement',
+      element.parentElement.querySelector('.ember-basic-dropdown-trigger')
+    );
+  }
+
+  @action
   blurDropdownTrigger() {
-    this.element.querySelector('.ember-basic-dropdown-trigger').blur();
-  },
-
-  actions: {
-    onOpen() {
-      // Check to see if `preferredPosition` is set to `mostSpace`
-      // onOpen, since user could have scrolled vertically since
-      // the time the component originally rendered.
-      let preferredPosition = this.get('preferredPosition');
-
-      if (preferredPosition === 'mostSpace') {
-        this.set('verticalPosition', this.getMostVerticalSpace());
-      }
-
-      // This is an addition to the base ember-polaris implementation
-      // that allows an external action to be triggered when the popover
-      // is opened.
-      this.get('onOpen')();
-    },
-
-    onClose() {
-      // This is an addition to the base ember-polaris implementation
-      // which makes closing the popover slightly cleaner visually.
-      this.get('onClose')();
-
-      scheduleOnce('afterRender', this, 'blurDropdownTrigger');
-    },
-  },
-});
+    this.dropdownTriggerElement?.blur();
+  }
+}

@@ -1,34 +1,30 @@
 import Component from '@ember/component';
+import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import layout from '../templates/components/polaris-empty-search-result';
 
-export default Component.extend({
-  tagName: '',
-
-  layout,
-
+@tagName('')
+@templateLayout(layout)
+export default class PolarisEmptySearchResult extends Component {
   /**
    * @type {String}
    * @default null
-   * @property title
    * @public
    */
-  title: null,
+  title = null;
 
   /**
    * @type {String|Component|Object}
    * @default null
-   * @property description
    * @public
    */
-  description: null,
+  description = null;
 
   /**
    * @type {Boolean}
    * @default false
-   * @property withIllustration
    * @public
    */
-  withIllustration: false,
+  withIllustration = false;
 
   /**
    * Use a custom empty search result illustration.
@@ -36,6 +32,7 @@ export default Component.extend({
    *
    * @type {String}
    * @default null
+   * @extends ember-polaris
    */
-  illustrationSrc: null,
-});
+  illustrationSrc = null;
+}

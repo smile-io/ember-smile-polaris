@@ -1,6 +1,8 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import layout from '../templates/components/polaris-callout-card';
+import { tagName, layout } from '@ember-decorators/component';
+import template from '../templates/components/polaris-callout-card';
+import deprecateClassArgument from '../utils/deprecate-class-argument';
 
 const illustrationSizeClasses = {
   large: 'illustration-large',
@@ -10,12 +12,10 @@ const illustrationSizeClasses = {
  * Polaris callout card component.
  * See https://polaris.shopify.com/components/structure/callout-card
  */
-export default Component.extend({
-  classNames: ['Polaris-Card'],
-  classNameBindings: ['illustrationSizeClass'],
-
-  layout,
-
+@deprecateClassArgument
+@tagName('')
+@layout(template)
+export default class PolarisCalloutCard extends Component {
   /**
    * The content to display inside the callout card.
    *
@@ -23,47 +23,42 @@ export default Component.extend({
    * in which case the block content will be used
    * instead of `text`
    *
-   * @property text
    * @type {String}
    * @default null
    */
-  text: null,
+  text = null;
 
   /**
    * The title of the card
    *
-   * @property title
    * @type {String}
    * @default null
    */
-  title: null,
+  title = null;
 
   /**
    * URL to the card illustration
    *
-   * @property illustration
    * @type {String}
    * @default null
    */
-  illustration: null,
+  illustration = null;
 
   /**
    * Primary action for the card
    *
-   * @property primaryAction
    * @type {Object}
    * @default null
    */
-  primaryAction: null,
+  primaryAction = null;
 
   /**
    * Secondary action for the card
    *
-   * @property secondaryAction
    * @type {Object}
    * @default null
    */
-  secondaryAction: null,
+  secondaryAction = null;
 
   /**
    * Allows overriding the illustration size
@@ -72,25 +67,27 @@ export default Component.extend({
    * @property illustrationSize
    * @type {String}
    * @default null
+   * @extends ember-polaris
    */
-  illustrationSize: null,
+  illustrationSize = null;
 
   /**
    * Callback when banner is dismissed
    *
-   * @property onDismiss
    * @type {Function}
    * @default null
    */
-  onDismiss: null,
+  onDismiss = null;
 
   /**
    * Class name to apply illustration size override.
    *
    * @property illustrationSizeClass
    * @type {String}
+   * @extends ember-polaris
    */
-  illustrationSizeClass: computed('illustrationSize', function() {
-    return illustrationSizeClasses[this.get('illustrationSize')] || null;
-  }).readOnly(),
-});
+  @computed('illustrationSize')
+  get illustrationSizeClass() {
+    return illustrationSizeClasses[this.illustrationSize] || null;
+  }
+}

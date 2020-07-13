@@ -281,7 +281,7 @@ module('Integration | Component | polaris popover', function(hooks) {
       {{#popover.content}}
         <div>This is some popover content</div>
 
-        <button id="close-popover" {{action popover.close}}>Close popover</button>
+        <button type="button" id="close-popover" {{action popover.close}}>Close popover</button>
       {{/popover.content}}
     {{/polaris-popover}}
   `);

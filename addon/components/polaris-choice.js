@@ -1,89 +1,69 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { or } from '@ember/object/computed';
-import layout from '../templates/components/polaris-choice';
+import { tagName, layout } from '@ember-decorators/component';
+import template from '../templates/components/polaris-choice';
 
 /**
  * Polaris choice component.
  * Wrapper for checkbox and radiobutton components.
  */
-export default Component.extend({
-  // Tagless component since sometimes we need to wrap the label in a div.
-  tagName: '',
-
-  layout,
-
+@tagName('')
+@layout(template)
+export default class PolarisChoice extends Component {
   /**
    * A unique identifier for the choice
    *
-   * @property inputId
    * @type {String}
-   * @default: null
+   * @default null
    * @public
    */
-  inputId: null,
+  inputId = null;
 
   /**
    * Label for the choice
    *
-   * @property label
    * @type {String|Component}
-   * @default: null
-   * @public
-   */
-  label: null,
-
-  /**
-   * Component to render for the choice's label
-   *
-   * DEPRECATED: pass the component as `label` instead.
-   *
-   * @property labelComponent
-   * @type {String | Component}
    * @default null
    * @public
    */
-  labelComponent: null,
+  label = null;
 
   /**
    * Whether the associated form control is disabled
    *
-   * @property disabled
    * @type {Boolean}
-   * @default: null
+   * @default null
    * @public
    */
-  disabled: null,
+  disabled = null;
 
   /**
    * Display an error message
    *
-   * @property error
    * @type {String|Boolean}
-   * @default: null
+   * @default null
    * @public
    */
-  error: null,
+  error = null;
 
   /**
    * Visually hide the label
    *
-   * @property labelHidden
    * @type {boolean}
-   * @default: false
+   * @default false
    * @public
    */
-  labelHidden: false,
+  labelHidden = false;
 
   /**
    * Additional text to aide in use
    *
-   * @property helpText
    * @type {String|Component|Object}
-   * @default: null
+   * @default null
    * @public
    */
-  helpText: null,
+  helpText = null;
 
   /**
    * Allow overriding the width of the choice component that is rendered
@@ -92,46 +72,40 @@ export default Component.extend({
    * passing a `choiceClass` directly if more specific styling of the choice
    * control is needed.
    *
-   * @property customWidth
    * @type {Boolean}
-   * @default: false
+   * @default false
    * @public
+   * @extends ember-polaris
    */
-  customWidth: false,
+  customWidth = false;
+
+  @or('error', 'helpText')
+  hasDescription;
 
   /**
    * Overrideable class to apply to the choice control if specific styling is needed.
    *
-   * @property choiceClass
    * @type {String}
    * @public
+   * @extends ember-polaris
    */
-  choiceClass: computed('customWidth', function() {
-    if (!this.get('customWidth')) {
+  @computed('customWidth')
+  get choiceClass() {
+    if (!this.customWidth) {
       return null;
     }
 
     return 'custom-width';
-  }),
+  }
 
-  /**
-   * @private
-   */
-  hasDescription: or('error', 'helpText'),
-
-  /**
-   * @private
-   */
-  shouldRenderError: computed('error', function() {
-    let error = this.get('error');
-
+  @computed('error')
+  get shouldRenderError() {
+    let { error } = this;
     return error && typeof error !== 'boolean';
-  }),
+  }
 
-  /**
-   * @private
-   */
-  helpTextId: computed('inputId', function() {
-    return `${this.get('inputId')}HelpText`;
-  }).readOnly(),
-});
+  @computed('inputId')
+  get helpTextId() {
+    return `${this.inputId}HelpText`;
+  }
+}

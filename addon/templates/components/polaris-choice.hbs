@@ -1,38 +1,35 @@
-{{#with (component "polaris-choice/label"
-    class=choiceClass
-    inputId=inputId
-    label=label
-    labelComponent=labelComponent
-    labelHidden=labelHidden
-    disabled=disabled
-  ) as |choiceLabelComponent|
+{{#let
+  (component "polaris-choice/label"
+    inputId=@inputId
+    label=@label
+    labelHidden=this.labelHidden
+    disabled=this.disabled
+  )
+  as |ChoiceLabel|
 }}
-  {{#if hasDescription}}
+  {{#if this.hasDescription}}
     <div>
-      {{#component choiceLabelComponent}}
+      <ChoiceLabel class={{or @choiceClass this.choiceClass}} ...attributes>
         {{yield}}
-      {{/component}}
+      </ChoiceLabel>
 
       <div class="Polaris-Choice__Descriptions">
-        {{#if shouldRenderError}}
+        {{#if this.shouldRenderError}}
           <div class="Polaris-Choice__Error">
-            {{polaris-inline-error
-              fieldID=inputId
-              message=error
-            }}
+            <PolarisInlineError @fieldID={{@inputId}} @message={{@error}} />
           </div>
         {{/if}}
 
         {{#if helpText}}
-          <div data-test-choice-help-text class="Polaris-Choice__HelpText" id={{helpTextId}}>
-            {{render-content helpText}}
+          <div data-test-choice-help-text class="Polaris-Choice__HelpText" id={{this.helpTextId}}>
+            {{render-content @helpText}}
           </div>
         {{/if}}
       </div>
     </div>
   {{else}}
-    {{#component choiceLabelComponent}}
+    <ChoiceLabel class={{or @choiceClass this.choiceClass}} ...attributes>
       {{yield}}
-    {{/component}}
+    </ChoiceLabel>
   {{/if}}
-{{/with}}
+{{/let}}

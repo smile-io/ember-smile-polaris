@@ -60,6 +60,6 @@ function isChangeEvent(event) {
   // for some strange reason...
   return (
     Object.prototype.hasOwnProperty.call(event, 'target') ||
-    typeof event.target !== 'undefined'
+    Boolean(event.target)
   );
 }
