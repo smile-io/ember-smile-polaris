@@ -39,9 +39,9 @@
             <div>
               <PolarisStack @alignment="baseline" @spacing="tight" as |stack|>
                 {{#if @beforeTitleComponent}}
-                  {{#stack.item}}
+                  <stack.item>
                     {{render-content @beforeTitleComponent}}
-                  {{/stack.item}}
+                  </stack.item>
                 {{/if}}
 
                 <PolarisDisplayText
@@ -58,6 +58,12 @@
               {{/if}}
             </div>
           </div>
+
+          {{#if @afterTitleComponent}}
+            <div>
+              {{render-content @afterTitleComponent}}
+            </div>
+          {{/if}}
 
           {{#unless this.hasBreadcrumbs}}
             <Rollup />

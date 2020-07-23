@@ -532,6 +532,17 @@ module('Integration | Component | polaris page', function(hooks) {
     assert.dom('.before-title-component').exists({ count: 1 });
   });
 
+  test('it renders a afterTitleComponent when one is passed', async function(assert) {
+    await render(hbs`
+        <PolarisPage
+          @title="Page title"
+          @afterTitleComponent={{component "wrapper-element" class="after-title-component"}}
+        />
+      `);
+
+    assert.dom('.after-title-component').exists({ count: 1 });
+  });
+
   test('it removes fills from custom icons in secondary actions', async function(assert) {
     await render(hbs`
         {{polaris-page
