@@ -39,7 +39,7 @@ git remote add upstream --no-tags git@github.com:smile-io/ember-polaris.git
 
 ```shell
 git fetch upstream;
-git checkout --track upstream/master ember-polaris-master;
+git switch -c ember-polaris-master --track upstream/master;
 git checkout master;
 git checkout -b upstream-merge;
 git merge ember-polaris-master --no-ff;
