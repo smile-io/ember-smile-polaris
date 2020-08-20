@@ -14,13 +14,13 @@ const dummyComponent = Component.extend({
 module('Integration | Component | polaris page actions', function(hooks) {
   setupRenderingTest(hooks);
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(function () {
     this.actions = {};
     this.send = (actionName, ...args) =>
       this.actions[actionName].apply(this, args);
   });
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(function () {
     this.owner.register('component:svg-jar', MockSvgJarComponent);
     this.owner.register('component:dummy-component', dummyComponent);
   });
@@ -42,7 +42,7 @@ module('Integration | Component | polaris page actions', function(hooks) {
   );
   const iconSelector = buildNestedSelector('span.Polaris-Icon', 'svg');
 
-  test('it renders the correct HTML when primary and secondary actions are supplied', async function(assert) {
+  test('it renders the correct HTML when primary and secondary actions are supplied', async function (assert) {
     await render(hbs`
       {{polaris-page-actions
         primaryAction=(hash
@@ -107,7 +107,7 @@ module('Integration | Component | polaris page actions', function(hooks) {
       );
   });
 
-  test('it renders the correct HTML when primary action is supplied with empty secondary actions list', async function(assert) {
+  test('it renders the correct HTML when primary action is supplied with empty secondary actions list', async function (assert) {
     await render(hbs`
       {{polaris-page-actions
         primaryAction=(hash
@@ -163,7 +163,7 @@ module('Integration | Component | polaris page actions', function(hooks) {
     );
   });
 
-  test('it renders the correct HTML when only a primary action is supplied', async function(assert) {
+  test('it renders the correct HTML when only a primary action is supplied', async function (assert) {
     await render(hbs`
       {{polaris-page-actions
         primaryAction=(hash
@@ -216,7 +216,7 @@ module('Integration | Component | polaris page actions', function(hooks) {
     );
   });
 
-  test('it renders the correct HTML when only a secondary action is supplied', async function(assert) {
+  test('it renders the correct HTML when only a secondary action is supplied', async function (assert) {
     await render(hbs`
       {{polaris-page-actions
         secondaryActions=(array (hash
@@ -271,7 +271,7 @@ module('Integration | Component | polaris page actions', function(hooks) {
       );
   });
 
-  test('it renders the correct HTML when the primary action is disabled', async function(assert) {
+  test('it renders the correct HTML when the primary action is disabled', async function (assert) {
     await render(hbs`
       {{polaris-page-actions
         primaryAction=(hash
@@ -290,7 +290,7 @@ module('Integration | Component | polaris page actions', function(hooks) {
     assert.ok(primaryButton.disabled, 'primary button is disabled');
   });
 
-  test('it renders the correct HTML when the primary action is loading', async function(assert) {
+  test('it renders the correct HTML when the primary action is loading', async function (assert) {
     await render(hbs`
       {{polaris-page-actions
         primaryAction=(hash
@@ -315,7 +315,7 @@ module('Integration | Component | polaris page actions', function(hooks) {
       );
   });
 
-  test('it renders the correct HTML when secondary actions have complex properties', async function(assert) {
+  test('it renders the correct HTML when secondary actions have complex properties', async function (assert) {
     await render(hbs`
       {{polaris-page-actions
         secondaryActions=(array
@@ -431,7 +431,7 @@ module('Integration | Component | polaris page actions', function(hooks) {
     );
   });
 
-  test('it handles item actions correctly', async function(assert) {
+  test('it handles item actions correctly', async function (assert) {
     const initState = () =>
       this.setProperties({
         primaryActionFired: false,
