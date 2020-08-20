@@ -130,7 +130,8 @@ module(
         let accessibilityLabel = 'test-aria-label';
 
         this.setProperties({
-          label: accessibilityLabel,
+          label,
+          accessibilityLabel,
           disabled: true,
         });
 
