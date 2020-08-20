@@ -46,10 +46,10 @@ const colors = [
   'purple',
 ];
 
-module('Integration | Component | polaris icon', function(hooks) {
+module('Integration | Component | polaris icon', function (hooks) {
   setupRenderingTest(hooks);
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(function () {
     this.owner.register('component:svg-jar', MockSvgJarComponent);
   });
 
@@ -60,7 +60,7 @@ module('Integration | Component | polaris icon', function(hooks) {
     'svg.Polaris-Icon__Svg'
   );
 
-  test('it renders the specified icon correctly', async function(assert) {
+  test('it renders the specified icon correctly', async function (assert) {
     await render(hbs`{{polaris-icon source="notes"}}`);
 
     assert.dom(iconSelector).exists({ count: 1 }, 'renders one icon component');
@@ -85,7 +85,7 @@ module('Integration | Component | polaris icon', function(hooks) {
     );
   });
 
-  test('it applies colors correctly', async function(assert) {
+  test('it applies colors correctly', async function (assert) {
     assert.expect(2 + colors.length * 3);
 
     await render(hbs`{{polaris-icon source="add" color=color}}`);
@@ -137,7 +137,7 @@ module('Integration | Component | polaris icon', function(hooks) {
     });
   });
 
-  test('it handles backdrop correctly', async function(assert) {
+  test('it handles backdrop correctly', async function (assert) {
     await render(hbs`{{polaris-icon source="add" backdrop=backdrop}}`);
 
     // Check default setting.
@@ -162,7 +162,7 @@ module('Integration | Component | polaris icon', function(hooks) {
     );
   });
 
-  test('it handles accessibilityLabel correctly', async function(assert) {
+  test('it handles accessibilityLabel correctly', async function (assert) {
     await render(
       hbs`{{polaris-icon source="add" accessibilityLabel=accessibilityLabel}}`
     );
@@ -183,7 +183,7 @@ module('Integration | Component | polaris icon', function(hooks) {
     );
   });
 
-  test('it handles placeholder icons correctly', async function(assert) {
+  test('it handles placeholder icons correctly', async function (assert) {
     await render(hbs`{{polaris-icon source="placeholder"}}`);
 
     const iconPlaceholderSelector = buildNestedSelector(
@@ -198,19 +198,19 @@ module('Integration | Component | polaris icon', function(hooks) {
   /************************************\
   | Tests for internal customisations. |
   \************************************/
-  test('it removes icon fills when no sourcePath is specified and source does not contain a slash', async function(assert) {
+  test('it removes icon fills when no sourcePath is specified and source does not contain a slash', async function (assert) {
     await render(hbs`{{polaris-icon source="placeholder"}}`);
 
     assert.dom(iconSelector).doesNotHaveAttribute('data-test-keep-fills');
   });
 
-  test('it removes icon fills when no sourcePath is specified and source contains "polaris/"', async function(assert) {
+  test('it removes icon fills when no sourcePath is specified and source contains "polaris/"', async function (assert) {
     await render(hbs`{{polaris-icon source="polaris/placeholder"}}`);
 
     assert.dom(iconSelector).doesNotHaveAttribute('data-test-keep-fills');
   });
 
-  test('it removes icon fills when sourcePath is specified as "polaris"', async function(assert) {
+  test('it removes icon fills when sourcePath is specified as "polaris"', async function (assert) {
     await render(
       hbs`{{polaris-icon sourcePath="polaris" source="placeholder"}}`
     );
@@ -218,7 +218,7 @@ module('Integration | Component | polaris icon', function(hooks) {
     assert.dom(iconSelector).doesNotHaveAttribute('data-test-keep-fills');
   });
 
-  test('it keeps icon fills when sourcePath is not "polaris"', async function(assert) {
+  test('it keeps icon fills when sourcePath is not "polaris"', async function (assert) {
     await render(
       hbs`{{polaris-icon sourcePath="custom-icons" source="my-icon"}}`
     );
@@ -226,7 +226,7 @@ module('Integration | Component | polaris icon', function(hooks) {
     assert.dom(iconSelector).hasAttribute('data-test-keep-fills');
   });
 
-  test('it keeps icon fills when no sourcePath is specified and source contains a slash', async function(assert) {
+  test('it keeps icon fills when no sourcePath is specified and source contains a slash', async function (assert) {
     await render(hbs`{{polaris-icon source="custom-icons/my-icon"}}`);
 
     assert.dom(iconSelector).hasAttribute('data-test-keep-fills');
