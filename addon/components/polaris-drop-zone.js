@@ -444,7 +444,7 @@ export default class PolarisDropZone extends Component.extend(
   adjustSize() {
     throttle(
       this,
-      function () {
+      function() {
         let {
           node,
           state: { size },
