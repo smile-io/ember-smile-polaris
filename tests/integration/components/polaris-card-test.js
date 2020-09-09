@@ -469,4 +469,30 @@ module('Integration | Component | polaris card', function (hooks) {
     this.set('cancelAction.loading', true);
     assert.dom(`${secondaryBtn} .Polaris-Button__Spinner`).exists();
   });
+
+  /************************************\
+  | Tests for internal customisations. |
+  \************************************/
+  test('it renders card sections in a horizontal row when sectionDirection is set to "row"', async function (assert) {
+    await render(hbs`
+      <PolarisCard @sectionDirection="row" as |card|>
+        <card.section @title="Section 1" @text="Section 1 content" />
+        <card.section @text="Section 2 content" />
+      </PolarisCard>
+    `);
+
+    assert.dom(sectionSelector).exists({ count: 2 });
+
+    let sections = findAll(sectionSelector);
+    let [section1Rect, section2Rect] = sections.map((section) => {
+      return section.getBoundingClientRect();
+    });
+
+    assert.equal(section1Rect.top, section2Rect.top);
+    assert.equal(section1Rect.right, section2Rect.left);
+
+    let section2Style = getComputedStyle(sections[1]);
+    assert.ok(section2Style.borderTop.match(/^0px.*/));
+    assert.ok(section2Style.borderLeft.match(/^1px.*/));
+  });
 });
