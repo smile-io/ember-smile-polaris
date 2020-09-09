@@ -1,0 +1,15 @@
+.Polaris-Card {
+  &.Polaris-Card--rowSections {
+    display: flex;
+    flex-direction: row;
+
+    & > .Polaris-Card__Section {
+      flex: 1 1 auto;
+
+      & + .Polaris-Card__Section {
+        border-top: none;
+        border-left: border();
+      }
+    }
+  }
+}

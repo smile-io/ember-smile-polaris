@@ -75,4 +75,15 @@ export default class PolarisCard extends Component {
    * @default null
    */
   secondaryFooterAction = null;
+
+  /**
+   * Allows card sections to be arranged horizontally instead of vertically
+   * This is an addition to the Polaris spec
+   *
+   * @property rowSections
+   * @type {Boolean}
+   * @default null
+   * @extends ember-polaris
+   */
+  rowSections = null;
 }
