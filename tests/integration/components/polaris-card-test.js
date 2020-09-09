@@ -473,9 +473,9 @@ module('Integration | Component | polaris card', function (hooks) {
   /************************************\
   | Tests for internal customisations. |
   \************************************/
-  test('it renders card sections in a horizontal row when rowSections is truthy', async function (assert) {
+  test('it renders card sections in a horizontal row when sectionDirection is set to "row"', async function (assert) {
     await render(hbs`
-      <PolarisCard @rowSections={{true}} as |card|>
+      <PolarisCard @sectionDirection="row" as |card|>
         <card.section @title="Section 1" @text="Section 1 content" />
         <card.section @text="Section 2 content" />
       </PolarisCard>
