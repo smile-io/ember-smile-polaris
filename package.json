@@ -47,8 +47,8 @@
     }
   },
   "dependencies": {
-    "@ember/render-modifiers": "^1.0.0",
     "@ember-decorators/component": "^6.0.1",
+    "@ember/render-modifiers": "^1.0.0",
     "@shopify/javascript-utilities": "^2.4.0",
     "@shopify/polaris": "3.10.0",
     "@shopify/polaris-tokens": "^1.3.1",
@@ -58,15 +58,14 @@
     "ember-array-contains-helper": "^2.0.0",
     "ember-auto-import": "^1.6.0",
     "ember-basic-dropdown": "^1.1.3",
-    "ember-cli-babel": "^7.19.0",
-    "ember-cli-htmlbars": "^5.0.0",
+    "ember-cli-babel": "^7.22.1",
+    "ember-cli-htmlbars": "^5.3.1",
     "ember-cli-sass": "^10.0.1",
     "ember-context": "^0.1.0",
     "ember-decorators": "^6.1.1",
     "ember-element-helper": "^0.3.1",
     "ember-event-helpers": "^0.1.0",
-    "ember-invoke-action": "^1.5.1",
-    "ember-keyboard": "^5.0.0",
+    "ember-keyboard": "^6.0.1",
     "ember-lifeline": "^4.1.5",
     "ember-render-detector": "^1.0.0",
     "ember-svg-jar": "^2.2.3",
@@ -77,8 +76,7 @@
     "rsvp": "^4.8.5"
   },
   "devDependencies": {
-    "@ember/jquery": "1.1.0",
-    "@ember/optional-features": "1.3.0",
+    "@ember/optional-features": "2.0.0",
     "@glimmer/component": "1.0.1",
     "@glimmer/tracking": "1.0.1",
     "@smile-io/changelog-generator": "2.1.0",
@@ -86,7 +84,7 @@
     "babel-eslint": "10.1.0",
     "broccoli-asset-rev": "3.0.0",
     "ember-array-helper": "5.1.0",
-    "ember-cli": "3.20.0",
+    "ember-cli": "3.21.0",
     "ember-cli-code-coverage": "1.0.0-beta.9",
     "ember-cli-dependency-checker": "3.2.0",
     "ember-cli-deprecation-workflow": "1.0.1",
@@ -101,14 +99,14 @@
     "ember-qunit": "4.6.0",
     "ember-resolver": "8.0.2",
     "ember-responsive": "^3.0.5",
-    "ember-source": "3.20.4",
+    "ember-source": "3.21.1",
     "ember-source-channel-url": "3.0.0",
-    "ember-template-lint": "2.9.1",
+    "ember-template-lint": "2.12.1",
     "ember-test-selectors": "4.1.0",
     "ember-try": "1.4.0",
-    "eslint": "7.5.0",
+    "eslint": "7.9.0",
     "eslint-config-prettier": "6.11.0",
-    "eslint-plugin-ember": "8.9.2",
+    "eslint-plugin-ember": "8.14.0",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-smile-ember": "7.1.0",
@@ -129,7 +127,7 @@
     "configPath": "tests/dummy/config"
   },
   "volta": {
-    "node": "12.18.2",
+    "node": "12.18.3",
     "yarn": "1.22.4"
   }
 }
