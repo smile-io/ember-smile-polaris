@@ -1,7 +1,7 @@
 {
   "name": "@smile-io/ember-smile-polaris",
-  "version": "2.3.2",
-  "description": "Smile extensions and customisations to ember-polaris components.",
+  "version": "2.4.0",
+  "description": "Smile extensions and customizations to ember-polaris components.",
   "keywords": [
     "component library",
     "components",
@@ -99,7 +99,7 @@
     "ember-qunit": "4.6.0",
     "ember-resolver": "8.0.2",
     "ember-responsive": "^3.0.5",
-    "ember-source": "3.23.0",
+    "ember-source": "3.23.1",
     "ember-source-channel-url": "3.0.0",
     "ember-template-lint": "2.14.0",
     "ember-test-selectors": "5.0.0",
@@ -127,7 +127,7 @@
     "configPath": "tests/dummy/config"
   },
   "volta": {
-    "node": "12.19.1",
+    "node": "12.20.0",
     "yarn": "1.22.10"
   }
 }
