@@ -19,7 +19,6 @@ module.exports = {
     this.ui.writeLine('Adding `ember-cli-sass` to application');
     return this.addPackagesToProject([
       { name: 'ember-cli-sass', target: 'latest' },
-      { name: 'node-sass', target: '^6.0.1' },
     ]).then(() => {
       this.ui.writeLine('Adding Polaris styles to application');
       return this.addStyleImportToHostApp();
