@@ -52,16 +52,7 @@ $color-palette-data: map-extend(
   @if type-of($fetched-color) == color {
     @return $fetched-color;
   } @else {
-    // stylelint-disable string-no-newline
-    // prettier-ignore
-    $error: "
-Color `#{$hue}, #{$value}` not found. Make sure arguments are strings.
-GOOD: color('yellow')
-BAD: color(yellow)
-
-Available options: #{available-names($color-palette-data)}
-";
-    // stylelint-enable
+    $error: "Color `#{$hue}, #{$value}` not found. Make sure arguments are strings.\n GOOD: color('yellow')\n BAD: color(yellow)\n\n Available options: #{available-names($color-palette-data)}";
 
     @error $error;
   }
@@ -125,16 +116,7 @@ $ms-high-contrast-color-data: (
   @if ($fetched-color) {
     @return $fetched-color;
   } @else {
-    // stylelint-disable string-no-newline
-    // prettier-ignore
-    $error: "
-Color `#{$color}` not found. Make sure argument is a string.
-GOOD: ms-high-contrast-color('selected-text')
-BAD: ms-high-contrast-color(selected-text).
-
-Available options: #{available-names($ms-high-contrast-color-data)}
-";
-    // stylelint-enable
+    $error: "Color `#{$color}` not found. Make sure argument is a string.\n GOOD: ms-high-contrast-color('selected-text')\n BAD: ms-high-contrast-color(selected-text).\n\n Available options: #{available-names($ms-high-contrast-color-data)}";
 
     @error $error;
   }
