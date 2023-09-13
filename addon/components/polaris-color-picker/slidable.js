@@ -1,3 +1,4 @@
+/* eslint-disable ember/no-jquery, ember/jquery-ember-run */
 import Component from '@ember/component';
 import { computed, action } from '@ember/object';
 import { isNone, typeOf } from '@ember/utils';
