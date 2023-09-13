@@ -31,8 +31,6 @@ module.exports = {
     'ember/require-tagless-components': 'off',
     'ember/no-computed-properties-in-native-classes': 'off',
     'ember/no-component-lifecycle-hooks': 'off',
-    // These are a lil broken right now (eslint-plugin-ember also disabled these)
-    'smile-ember/order-in-components': 'off',
   },
   overrides: [
     // node files
