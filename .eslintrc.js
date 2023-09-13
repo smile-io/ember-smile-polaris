@@ -11,16 +11,14 @@ module.exports = {
       legacyDecorators: true,
     },
   },
-  plugins: [
-    'ember'
-  ],
+  plugins: ['ember'],
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended',
     'plugin:prettier/recommended',
   ],
   env: {
-    browser: true
+    browser: true,
   },
   rules: {
     // Temporary while upgrading to Ember Octane & Glimmer components
@@ -36,7 +34,6 @@ module.exports = {
     // These are a lil broken right now (eslint-plugin-ember also disabled these)
     'smile-ember/order-in-components': 'off',
   },
-  ],
   overrides: [
     // node files
     {
