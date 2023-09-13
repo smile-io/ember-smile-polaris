@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-color-picker/hue-picker.hbs",
+  "ruleId": "no-action",
+  "range": {
+    "start": { "line": 8, "column": 28 },
+    "end": { "line": 8, "column": 28 }
+  },
+  "source": "e8c65951e71490b255039014188606b684cebe2e",
+  "originalLintResult": {
+    "rule": "no-action",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-color-picker/hue-picker.hbs",
+    "line": 8,
+    "column": 28,
+    "endLine": 8,
+    "endColumn": 63,
+    "source": "{{action (mut this.draggerHeight)}}",
+    "message": "Do not use `action` as {{action ...}}. Instead, use the `on` modifier and `fn` helper."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

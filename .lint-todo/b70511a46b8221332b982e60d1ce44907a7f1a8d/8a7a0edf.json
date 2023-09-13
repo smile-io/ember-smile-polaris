@@ -1,0 +1,26 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/render-content.hbs",
+  "ruleId": "no-curly-component-invocation",
+  "range": {
+    "start": { "line": 2, "column": 2 },
+    "end": { "line": 2, "column": 2 }
+  },
+  "source": "9b9397b2ebeaec0ccf024fecb6dcb1b2212c9923",
+  "originalLintResult": {
+    "rule": "no-curly-component-invocation",
+    "severity": 2,
+    "filePath": "addon/templates/components/render-content.hbs",
+    "line": 2,
+    "column": 2,
+    "endLine": 2,
+    "endColumn": 77,
+    "source": "{{component-proxy componentName=content.componentName props=content.props}}",
+    "message": "You are using the component {{component-proxy}} with curly component syntax. You should use <ComponentProxy> instead. If it is actually a helper you must manually add it to the 'no-curly-component-invocation' rule configuration, e.g. `'no-curly-component-invocation': { allow: ['component-proxy'] }`.",
+    "isFixable": false
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

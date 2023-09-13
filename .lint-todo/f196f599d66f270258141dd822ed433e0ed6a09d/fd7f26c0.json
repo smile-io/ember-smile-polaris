@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "tests/dummy/app/templates/components/resource-list/filtering.hbs",
+  "ruleId": "no-action",
+  "range": {
+    "start": { "line": 30, "column": 19 },
+    "end": { "line": 30, "column": 19 }
+  },
+  "source": "75cf05cc92363afdf3edbc79bb2b6b3a0bb01818",
+  "originalLintResult": {
+    "rule": "no-action",
+    "severity": 2,
+    "filePath": "tests/dummy/app/templates/components/resource-list/filtering.hbs",
+    "line": 30,
+    "column": 19,
+    "endLine": 30,
+    "endColumn": 45,
+    "source": "(action (mut searchValue))",
+    "message": "Do not use `action` as (action ...). Instead, use the `on` modifier and `fn` helper."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-drop-zone.hbs",
+  "ruleId": "no-action",
+  "range": {
+    "start": { "line": 83, "column": 23 },
+    "end": { "line": 83, "column": 23 }
+  },
+  "source": "2d233cefd71326ad6168f0e4da8572afabc94d12",
+  "originalLintResult": {
+    "rule": "no-action",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-drop-zone.hbs",
+    "line": 83,
+    "column": 23,
+    "endLine": 83,
+    "endColumn": 56,
+    "source": "(action (mut this.fileInputNode))",
+    "message": "Do not use `action` as (action ...). Instead, use the `on` modifier and `fn` helper."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "tests/dummy/app/templates/components/resource-list/bulk-actions.hbs",
+  "ruleId": "no-implicit-this",
+  "range": {
+    "start": { "line": 11, "column": 19 },
+    "end": { "line": 11, "column": 19 }
+  },
+  "source": "8975e596bba62e737ca0d5504ae8905de88c8341",
+  "originalLintResult": {
+    "rule": "no-implicit-this",
+    "severity": 2,
+    "filePath": "tests/dummy/app/templates/components/resource-list/bulk-actions.hbs",
+    "line": 11,
+    "column": 19,
+    "endLine": 11,
+    "endColumn": 32,
+    "source": "selectedItems",
+    "message": "Ambiguous path 'selectedItems' is not allowed. Use '@selectedItems' if it is a named argument or 'this.selectedItems' if it is a property on 'this'. If it is a helper or component that has no arguments, you must either convert it to an angle bracket invocation or manually add it to the 'no-implicit-this' rule configuration, e.g. 'no-implicit-this': { allow: ['selectedItems'] }."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

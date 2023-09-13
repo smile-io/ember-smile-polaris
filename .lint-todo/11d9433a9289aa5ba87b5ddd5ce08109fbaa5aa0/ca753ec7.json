@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-choice.hbs",
+  "ruleId": "no-implicit-this",
+  "range": {
+    "start": { "line": 23, "column": 14 },
+    "end": { "line": 23, "column": 14 }
+  },
+  "source": "536afc0592d4430eab9f65d42a346c48e9973a67",
+  "originalLintResult": {
+    "rule": "no-implicit-this",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-choice.hbs",
+    "line": 23,
+    "column": 14,
+    "endLine": 23,
+    "endColumn": 22,
+    "source": "helpText",
+    "message": "Ambiguous path 'helpText' is not allowed. Use '@helpText' if it is a named argument or 'this.helpText' if it is a property on 'this'. If it is a helper or component that has no arguments, you must either convert it to an angle bracket invocation or manually add it to the 'no-implicit-this' rule configuration, e.g. 'no-implicit-this': { allow: ['helpText'] }."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

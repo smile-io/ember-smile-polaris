@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "tests/dummy/app/templates/dropzone.hbs",
+  "ruleId": "no-implicit-this",
+  "range": {
+    "start": { "line": 9, "column": 20 },
+    "end": { "line": 9, "column": 20 }
+  },
+  "source": "e6f23bf72d74207c7f061712839d2e8fec62c9db",
+  "originalLintResult": {
+    "rule": "no-implicit-this",
+    "severity": 2,
+    "filePath": "tests/dummy/app/templates/dropzone.hbs",
+    "line": 9,
+    "column": 20,
+    "endLine": 9,
+    "endColumn": 32,
+    "source": "openDropzone",
+    "message": "Ambiguous path 'openDropzone' is not allowed. Use '@openDropzone' if it is a named argument or 'this.openDropzone' if it is a property on 'this'. If it is a helper or component that has no arguments, you must either convert it to an angle bracket invocation or manually add it to the 'no-implicit-this' rule configuration, e.g. 'no-implicit-this': { allow: ['openDropzone'] }."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

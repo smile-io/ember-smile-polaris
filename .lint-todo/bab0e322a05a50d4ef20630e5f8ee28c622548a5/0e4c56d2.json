@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "tests/dummy/app/templates/layout/annotated-layout.hbs",
+  "ruleId": "no-action",
+  "range": {
+    "start": { "line": 10, "column": 22 },
+    "end": { "line": 10, "column": 22 }
+  },
+  "source": "9df6d064feb85f834c3f47a0026dbb391e3e58c4",
+  "originalLintResult": {
+    "rule": "no-action",
+    "severity": 2,
+    "filePath": "tests/dummy/app/templates/layout/annotated-layout.hbs",
+    "line": 10,
+    "column": 22,
+    "endLine": 10,
+    "endColumn": 48,
+    "source": "{{action (mut firstName)}}",
+    "message": "Do not use `action` as {{action ...}}. Instead, use the `on` modifier and `fn` helper."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

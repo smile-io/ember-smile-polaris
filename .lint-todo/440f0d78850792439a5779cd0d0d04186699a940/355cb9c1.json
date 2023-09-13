@@ -1,0 +1,26 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "tests/dummy/app/templates/components/resource-list/persist-actions/item.hbs",
+  "ruleId": "no-curly-component-invocation",
+  "range": {
+    "start": { "line": 19, "column": 7 },
+    "end": { "line": 19, "column": 7 }
+  },
+  "source": "5d38d1686f2709e01dbbebe188dfb49b5a3e94a7",
+  "originalLintResult": {
+    "rule": "no-curly-component-invocation",
+    "severity": 2,
+    "filePath": "tests/dummy/app/templates/components/resource-list/persist-actions/item.hbs",
+    "line": 19,
+    "column": 7,
+    "endLine": 19,
+    "endColumn": 24,
+    "source": "{{item.location}}",
+    "message": "You are using the component {{item.location}} with curly component syntax. You should use <Item.Location> instead. If it is actually a helper you must manually add it to the 'no-curly-component-invocation' rule configuration, e.g. `'no-curly-component-invocation': { allow: ['item.location'] }`.",
+    "isFixable": false
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

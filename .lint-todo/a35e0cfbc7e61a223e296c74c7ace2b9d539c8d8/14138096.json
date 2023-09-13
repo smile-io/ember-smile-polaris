@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "tests/dummy/app/templates/components/resource-list/simple/item.hbs",
+  "ruleId": "no-implicit-this",
+  "range": {
+    "start": { "line": 4, "column": 24 },
+    "end": { "line": 4, "column": 24 }
+  },
+  "source": "461bf73587d1596a2eabcb5029db53fc87153fb3",
+  "originalLintResult": {
+    "rule": "no-implicit-this",
+    "severity": 2,
+    "filePath": "tests/dummy/app/templates/components/resource-list/simple/item.hbs",
+    "line": 4,
+    "column": 24,
+    "endLine": 4,
+    "endColumn": 42,
+    "source": "accessibilityLabel",
+    "message": "Ambiguous path 'accessibilityLabel' is not allowed. Use '@accessibilityLabel' if it is a named argument or 'this.accessibilityLabel' if it is a property on 'this'. If it is a helper or component that has no arguments, you must either convert it to an angle bracket invocation or manually add it to the 'no-implicit-this' rule configuration, e.g. 'no-implicit-this': { allow: ['accessibilityLabel'] }."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

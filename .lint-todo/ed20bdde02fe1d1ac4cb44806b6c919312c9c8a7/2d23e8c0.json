@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "tests/dummy/app/templates/index.hbs",
+  "ruleId": "no-implicit-this",
+  "range": {
+    "start": { "line": 10, "column": 51 },
+    "end": { "line": 10, "column": 51 }
+  },
+  "source": "7d5794373fa836c9078e4459e8f65d1d4bc812f6",
+  "originalLintResult": {
+    "rule": "no-implicit-this",
+    "severity": 2,
+    "filePath": "tests/dummy/app/templates/index.hbs",
+    "line": 10,
+    "column": 51,
+    "endLine": 10,
+    "endColumn": 68,
+    "source": "secondary2Clicked",
+    "message": "Ambiguous path 'secondary2Clicked' is not allowed. Use '@secondary2Clicked' if it is a named argument or 'this.secondary2Clicked' if it is a property on 'this'. If it is a helper or component that has no arguments, you must either convert it to an angle bracket invocation or manually add it to the 'no-implicit-this' rule configuration, e.g. 'no-implicit-this': { allow: ['secondary2Clicked'] }."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

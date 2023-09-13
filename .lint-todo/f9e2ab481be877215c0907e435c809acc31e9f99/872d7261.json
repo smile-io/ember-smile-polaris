@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-text-field.hbs",
+  "ruleId": "builtin-component-arguments",
+  "range": {
+    "start": { "line": 29, "column": 10 },
+    "end": { "line": 29, "column": 10 }
+  },
+  "source": "7ed8f129256b9cc8bc78b27b93e42efd4c934aff",
+  "originalLintResult": {
+    "rule": "builtin-component-arguments",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-text-field.hbs",
+    "line": 29,
+    "column": 10,
+    "endLine": 29,
+    "endColumn": 51,
+    "source": "type={{unless @multiline this.inputType}}",
+    "message": "Setting the `type` attribute on the builtin <Input> component is not allowed. Did you mean `@type`?"
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

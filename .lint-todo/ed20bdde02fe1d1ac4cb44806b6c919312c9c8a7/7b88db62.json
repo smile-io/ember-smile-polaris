@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "tests/dummy/app/templates/index.hbs",
+  "ruleId": "no-implicit-this",
+  "range": {
+    "start": { "line": 17, "column": 60 },
+    "end": { "line": 17, "column": 60 }
+  },
+  "source": "a7c5d2132bcabb800afe3714ded84372c8517c09",
+  "originalLintResult": {
+    "rule": "no-implicit-this",
+    "severity": 2,
+    "filePath": "tests/dummy/app/templates/index.hbs",
+    "line": 17,
+    "column": 60,
+    "endLine": 17,
+    "endColumn": 80,
+    "source": "group1Button2Clicked",
+    "message": "Ambiguous path 'group1Button2Clicked' is not allowed. Use '@group1Button2Clicked' if it is a named argument or 'this.group1Button2Clicked' if it is a property on 'this'. If it is a helper or component that has no arguments, you must either convert it to an angle bracket invocation or manually add it to the 'no-implicit-this' rule configuration, e.g. 'no-implicit-this': { allow: ['group1Button2Clicked'] }."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

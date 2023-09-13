@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "tests/dummy/app/templates/index.hbs",
+  "ruleId": "no-action",
+  "range": {
+    "start": { "line": 9, "column": 38 },
+    "end": { "line": 9, "column": 38 }
+  },
+  "source": "a9d1f625b92d75a419469503cd7b02bb2caabc83",
+  "originalLintResult": {
+    "rule": "no-action",
+    "severity": 2,
+    "filePath": "tests/dummy/app/templates/index.hbs",
+    "line": 9,
+    "column": 38,
+    "endLine": 9,
+    "endColumn": 75,
+    "source": "(action (mut secondary1Clicked) true)",
+    "message": "Do not use `action` as (action ...). Instead, use the `on` modifier and `fn` helper."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

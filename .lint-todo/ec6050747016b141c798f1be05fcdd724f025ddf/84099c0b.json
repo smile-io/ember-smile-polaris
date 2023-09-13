@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-data-table/cell.hbs",
+  "ruleId": "no-implicit-this",
+  "range": {
+    "start": { "line": 10, "column": 12 },
+    "end": { "line": 10, "column": 12 }
+  },
+  "source": "7aa2b34b4d86438f614a996fd44c89e2c38c82ea",
+  "originalLintResult": {
+    "rule": "no-implicit-this",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-data-table/cell.hbs",
+    "line": 10,
+    "column": 12,
+    "endLine": 10,
+    "endColumn": 20,
+    "source": "sortable",
+    "message": "Ambiguous path 'sortable' is not allowed. Use '@sortable' if it is a named argument or 'this.sortable' if it is a property on 'this'. If it is a helper or component that has no arguments, you must either convert it to an angle bracket invocation or manually add it to the 'no-implicit-this' rule configuration, e.g. 'no-implicit-this': { allow: ['sortable'] }."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

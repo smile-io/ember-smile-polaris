@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "tests/dummy/app/templates/application.hbs",
+  "ruleId": "no-implicit-this",
+  "range": {
+    "start": { "line": 5, "column": 10 },
+    "end": { "line": 5, "column": 10 }
+  },
+  "source": "e8d5dfb7ee6a7abc297049ff052272796edec4af",
+  "originalLintResult": {
+    "rule": "no-implicit-this",
+    "severity": 2,
+    "filePath": "tests/dummy/app/templates/application.hbs",
+    "line": 5,
+    "column": 10,
+    "endLine": 5,
+    "endColumn": 26,
+    "source": "hideMagicSection",
+    "message": "Ambiguous path 'hideMagicSection' is not allowed. Use '@hideMagicSection' if it is a named argument or 'this.hideMagicSection' if it is a property on 'this'. If it is a helper or component that has no arguments, you must either convert it to an angle bracket invocation or manually add it to the 'no-implicit-this' rule configuration, e.g. 'no-implicit-this': { allow: ['hideMagicSection'] }."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "tests/dummy/app/templates/resource-list.hbs",
+  "ruleId": "no-implicit-this",
+  "range": {
+    "start": { "line": 18, "column": 8 },
+    "end": { "line": 18, "column": 8 }
+  },
+  "source": "d48fce79929cbfccd4e33ad4f3268da65688d22a",
+  "originalLintResult": {
+    "rule": "no-implicit-this",
+    "severity": 2,
+    "filePath": "tests/dummy/app/templates/resource-list.hbs",
+    "line": 18,
+    "column": 8,
+    "endLine": 18,
+    "endColumn": 19,
+    "source": "exampleType",
+    "message": "Ambiguous path 'exampleType' is not allowed. Use '@exampleType' if it is a named argument or 'this.exampleType' if it is a property on 'this'. If it is a helper or component that has no arguments, you must either convert it to an angle bracket invocation or manually add it to the 'no-implicit-this' rule configuration, e.g. 'no-implicit-this': { allow: ['exampleType'] }."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

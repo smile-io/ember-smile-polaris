@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "tests/dummy/app/templates/dropzone.hbs",
+  "ruleId": "no-action",
+  "range": {
+    "start": { "line": 11, "column": 10 },
+    "end": { "line": 11, "column": 10 }
+  },
+  "source": "6c7e5a8b26919074c2b6945c745e666db516486d",
+  "originalLintResult": {
+    "rule": "no-action",
+    "severity": 2,
+    "filePath": "tests/dummy/app/templates/dropzone.hbs",
+    "line": 11,
+    "column": 10,
+    "endLine": 11,
+    "endColumn": 27,
+    "source": "{{action \"drop\"}}",
+    "message": "Do not use `action` as {{action ...}}. Instead, use the `on` modifier and `fn` helper."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

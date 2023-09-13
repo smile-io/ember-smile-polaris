@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-range-slider.hbs",
+  "ruleId": "no-duplicate-id",
+  "range": {
+    "start": { "line": 26, "column": 8 },
+    "end": { "line": 26, "column": 8 }
+  },
+  "source": "097d431ed9d907bfd4ac3fecdade8d5e284e21d1",
+  "originalLintResult": {
+    "rule": "no-duplicate-id",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-range-slider.hbs",
+    "line": 26,
+    "column": 8,
+    "endLine": 26,
+    "endColumn": 29,
+    "source": "id={{or @id this.id}}",
+    "message": "ID attribute values must be unique"
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

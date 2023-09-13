@@ -1,0 +1,26 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-popover.hbs",
+  "ruleId": "no-redundant-fn",
+  "range": {
+    "start": { "line": 23, "column": 13 },
+    "end": { "line": 23, "column": 13 }
+  },
+  "source": "00bcf12afad25a21ebe7c62c83d2b0984c6d744c",
+  "originalLintResult": {
+    "rule": "no-redundant-fn",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-popover.hbs",
+    "line": 23,
+    "column": 13,
+    "endLine": 23,
+    "endColumn": 35,
+    "source": "(fn dd.actions.toggle)",
+    "message": "`fn` helpers without additional arguments are not allowed",
+    "isFixable": true
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

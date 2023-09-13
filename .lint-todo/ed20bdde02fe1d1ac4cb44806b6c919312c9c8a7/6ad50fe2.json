@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "tests/dummy/app/templates/index.hbs",
+  "ruleId": "no-implicit-this",
+  "range": {
+    "start": { "line": 6, "column": 26 },
+    "end": { "line": 6, "column": 26 }
+  },
+  "source": "990236c7844dcdb92bbef8c5c684b45260920ec1",
+  "originalLintResult": {
+    "rule": "no-implicit-this",
+    "severity": 2,
+    "filePath": "tests/dummy/app/templates/index.hbs",
+    "line": 6,
+    "column": 26,
+    "endLine": 6,
+    "endColumn": 40,
+    "source": "primaryClicked",
+    "message": "Ambiguous path 'primaryClicked' is not allowed. Use '@primaryClicked' if it is a named argument or 'this.primaryClicked' if it is a property on 'this'. If it is a helper or component that has no arguments, you must either convert it to an angle bracket invocation or manually add it to the 'no-implicit-this' rule configuration, e.g. 'no-implicit-this': { allow: ['primaryClicked'] }."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}
