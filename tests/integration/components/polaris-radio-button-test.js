@@ -160,7 +160,7 @@ module('Integration | Component | polaris radio button', function (hooks) {
 
     await click(radioButtonInputSelector);
     assert.notOk(this.get('blurFired'), 'after click - onBlur not fired');
-    assert.equal(
+    assert.strictEqual(
       this.get('selectedValue'),
       'clicked',
       'after click - selected value has updated',

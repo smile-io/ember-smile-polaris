@@ -60,10 +60,18 @@ module('Integration | Component | polaris page actions', function (hooks) {
     `);
 
     const pageActions = findAll(pageActionsSelector);
-    assert.equal(pageActions.length, 1, 'renders one page actions component');
+    assert.strictEqual(
+      pageActions.length,
+      1,
+      'renders one page actions component',
+    );
 
     const pageActionsStacks = findAll(pageActionsStackSelector);
-    assert.equal(pageActionsStacks.length, 1, 'renders one stack component');
+    assert.strictEqual(
+      pageActionsStacks.length,
+      1,
+      'renders one stack component',
+    );
     const pageActionsStack = pageActionsStacks[0];
     assert
       .dom(pageActionsStack)
@@ -76,14 +84,18 @@ module('Integration | Component | polaris page actions', function (hooks) {
       );
 
     const pageActionsStackItems = findAll(pageActionsStackItemSelector);
-    assert.equal(pageActionsStackItems.length, 2, 'renders two stack items');
+    assert.strictEqual(
+      pageActionsStackItems.length,
+      2,
+      'renders two stack items',
+    );
 
     const primaryButtonSelector = buildNestedSelector(
       pageActionsStackItemSelector,
       'button.Polaris-Button.Polaris-Button--primary',
     );
     const primaryButtons = findAll(primaryButtonSelector);
-    assert.equal(primaryButtons.length, 1, 'renders one primary button');
+    assert.strictEqual(primaryButtons.length, 1, 'renders one primary button');
     assert
       .dom(primaryButtons[0])
       .hasText(
@@ -92,7 +104,11 @@ module('Integration | Component | polaris page actions', function (hooks) {
       );
 
     const secondaryButtons = findAll(secondaryButtonSelector);
-    assert.equal(secondaryButtons.length, 2, 'renders two secondary button');
+    assert.strictEqual(
+      secondaryButtons.length,
+      2,
+      'renders two secondary button',
+    );
     assert
       .dom(secondaryButtons[0])
       .hasText(
@@ -118,10 +134,18 @@ module('Integration | Component | polaris page actions', function (hooks) {
     `);
 
     const pageActions = findAll(pageActionsSelector);
-    assert.equal(pageActions.length, 1, 'renders one page actions component');
+    assert.strictEqual(
+      pageActions.length,
+      1,
+      'renders one page actions component',
+    );
 
     const pageActionsStacks = findAll(pageActionsStackSelector);
-    assert.equal(pageActionsStacks.length, 1, 'renders one stack component');
+    assert.strictEqual(
+      pageActionsStacks.length,
+      1,
+      'renders one stack component',
+    );
     const pageActionsStack = pageActionsStacks[0];
     assert
       .dom(pageActionsStack)
@@ -134,14 +158,18 @@ module('Integration | Component | polaris page actions', function (hooks) {
       );
 
     const pageActionsStackItems = findAll(pageActionsStackItemSelector);
-    assert.equal(pageActionsStackItems.length, 2, 'renders two stack items');
+    assert.strictEqual(
+      pageActionsStackItems.length,
+      2,
+      'renders two stack items',
+    );
 
     const primaryButtonSelector = buildNestedSelector(
       pageActionsStackItemSelector,
       'button.Polaris-Button.Polaris-Button--primary',
     );
     const primaryButtons = findAll(primaryButtonSelector);
-    assert.equal(primaryButtons.length, 1, 'renders one primary button');
+    assert.strictEqual(primaryButtons.length, 1, 'renders one primary button');
     assert
       .dom(primaryButtons[0])
       .hasText(
@@ -156,7 +184,7 @@ module('Integration | Component | polaris page actions', function (hooks) {
       'button.Polaris-Button',
     );
     const secondaryButtons = findAll(secondaryButtonSelector);
-    assert.equal(
+    assert.strictEqual(
       secondaryButtons.length,
       0,
       'does not render any secondary buttons',
@@ -173,10 +201,18 @@ module('Integration | Component | polaris page actions', function (hooks) {
     `);
 
     const pageActions = findAll(pageActionsSelector);
-    assert.equal(pageActions.length, 1, 'renders one page actions component');
+    assert.strictEqual(
+      pageActions.length,
+      1,
+      'renders one page actions component',
+    );
 
     const pageActionsStacks = findAll(pageActionsStackSelector);
-    assert.equal(pageActionsStacks.length, 1, 'renders one stack component');
+    assert.strictEqual(
+      pageActionsStacks.length,
+      1,
+      'renders one stack component',
+    );
     const pageActionsStack = pageActionsStacks[0];
     assert
       .dom(pageActionsStack)
@@ -189,14 +225,18 @@ module('Integration | Component | polaris page actions', function (hooks) {
       );
 
     const pageActionsStackItems = findAll(pageActionsStackItemSelector);
-    assert.equal(pageActionsStackItems.length, 1, 'renders one stack item');
+    assert.strictEqual(
+      pageActionsStackItems.length,
+      1,
+      'renders one stack item',
+    );
 
     const primaryButtonSelector = buildNestedSelector(
       pageActionsStackItemSelector,
       'button.Polaris-Button.Polaris-Button--primary',
     );
     const primaryButtons = findAll(primaryButtonSelector);
-    assert.equal(primaryButtons.length, 1, 'renders one primary button');
+    assert.strictEqual(primaryButtons.length, 1, 'renders one primary button');
     assert
       .dom(primaryButtons[0])
       .hasText(
@@ -209,7 +249,7 @@ module('Integration | Component | polaris page actions', function (hooks) {
       'div.Polaris-ButtonGroup',
     );
     const secondaryButtons = findAll(secondaryButtonGroupSelector);
-    assert.equal(
+    assert.strictEqual(
       secondaryButtons.length,
       0,
       'does not render a secondary button group',
@@ -226,10 +266,18 @@ module('Integration | Component | polaris page actions', function (hooks) {
     `);
 
     const pageActions = findAll(pageActionsSelector);
-    assert.equal(pageActions.length, 1, 'renders one page actions component');
+    assert.strictEqual(
+      pageActions.length,
+      1,
+      'renders one page actions component',
+    );
 
     const pageActionsStacks = findAll(pageActionsStackSelector);
-    assert.equal(pageActionsStacks.length, 1, 'renders one stack component');
+    assert.strictEqual(
+      pageActionsStacks.length,
+      1,
+      'renders one stack component',
+    );
     const pageActionsStack = pageActionsStacks[0];
     assert
       .dom(pageActionsStack)
@@ -242,14 +290,22 @@ module('Integration | Component | polaris page actions', function (hooks) {
       );
 
     const pageActionsStackItems = findAll(pageActionsStackItemSelector);
-    assert.equal(pageActionsStackItems.length, 1, 'renders one stack item');
+    assert.strictEqual(
+      pageActionsStackItems.length,
+      1,
+      'renders one stack item',
+    );
 
     const primaryButtonSelector = buildNestedSelector(
       pageActionsStackItemSelector,
       'button.Polaris-Button.Polaris-Button--primary',
     );
     const primaryButtons = findAll(primaryButtonSelector);
-    assert.equal(primaryButtons.length, 0, 'does not render a primary button');
+    assert.strictEqual(
+      primaryButtons.length,
+      0,
+      'does not render a primary button',
+    );
 
     const secondaryButtonGroupSelector = buildNestedSelector(
       pageActionsStackItemSelector,
@@ -258,7 +314,7 @@ module('Integration | Component | polaris page actions', function (hooks) {
       'button.Polaris-Button',
     );
     const secondaryButtons = findAll(secondaryButtonGroupSelector);
-    assert.equal(
+    assert.strictEqual(
       secondaryButtons.length,
       1,
       'renders one secondary button group',
@@ -460,7 +516,7 @@ module('Integration | Component | polaris page actions', function (hooks) {
     `);
 
     const secondaryButtonGroupItems = findAll('div.Polaris-ButtonGroup__Item');
-    assert.equal(
+    assert.strictEqual(
       secondaryButtonGroupItems.length,
       2,
       'renders both secondary buttons',

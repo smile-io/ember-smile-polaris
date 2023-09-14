@@ -130,7 +130,7 @@ module('Integration | Component | polaris color picker', function (hooks) {
 
     const getTransform = (elem) => find(elem.target).style.transform;
 
-    assert.equal(
+    assert.strictEqual(
       getTransform(colorDraggers),
       'translate3d(112px, 112px, 0px)',
       'renders color dragger in the correct position',
@@ -145,7 +145,7 @@ module('Integration | Component | polaris color picker', function (hooks) {
 
     hueDraggers.exists({ count: 1 }, 'renders one dragger for the hue picker');
 
-    assert.equal(
+    assert.strictEqual(
       getTransform(hueDraggers),
       'translate3d(0px, 93.25px, 0px)',
       'renders hue dragger in the correct position',
@@ -165,7 +165,7 @@ module('Integration | Component | polaris color picker', function (hooks) {
       'renders one dragger for the alpha picker',
     );
 
-    assert.equal(
+    assert.strictEqual(
       getTransform(alphaDraggers),
       'translate3d(0px, 33.25px, 0px)',
       'renders alpha dragger in the correct position',
@@ -199,7 +199,7 @@ module('Integration | Component | polaris color picker', function (hooks) {
       name,
       label,
     ) {
-      assert.equal(
+      assert.strictEqual(
         getTransform(dragger),
         `translate3d(${expectedX}px, ${expectedY}px, 0px)`,
         `${label} - renders ${name} dragger in the correct position`,
@@ -209,22 +209,22 @@ module('Integration | Component | polaris color picker', function (hooks) {
     const assertHsbaColor = function (color, colorValue, label) {
       let { hue, saturation, brightness, alpha } = colorValue;
 
-      assert.equal(
+      assert.strictEqual(
         parseInt(color.hue),
         parseInt(hue),
         `${label} - has the correct hue`,
       );
-      assert.equal(
+      assert.strictEqual(
         parseInt(color.saturation),
         parseInt(saturation),
         `${label} - has the correct saturation`,
       );
-      assert.equal(
+      assert.strictEqual(
         parseInt(color.brightness),
         parseInt(brightness),
         `${label} - has the correct brightness`,
       );
-      assert.equal(
+      assert.strictEqual(
         parseInt(color.alpha),
         parseInt(alpha),
         `${label} - has the correct alpha`,

@@ -201,7 +201,7 @@ module(
               operators[1].key,
             );
 
-            assert.equal(this.get('newFilterValue'), newFilterValue);
+            assert.strictEqual(this.get('newFilterValue'), newFilterValue);
           });
         },
       );
@@ -321,7 +321,7 @@ module(
               newOperator,
             );
 
-            assert.equal(this.get('newFilterKey'), newOperator);
+            assert.strictEqual(this.get('newFilterKey'), newOperator);
           });
 
           test('calls onChange with filter value when operator is changed and filter value is set', async function (assert) {
@@ -346,7 +346,7 @@ module(
               operators[1].key,
             );
 
-            assert.equal(this.get('newFilterValue'), newFilterValue);
+            assert.strictEqual(this.get('newFilterValue'), newFilterValue);
           });
         },
       );

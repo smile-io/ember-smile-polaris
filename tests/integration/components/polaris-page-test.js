@@ -254,7 +254,11 @@ module('Integration | Component | polaris page', function (hooks) {
     );
 
     const secondaryButtons = findAll(secondaryActionsButtonSelector);
-    assert.equal(secondaryButtons.length, 2, 'renders two secondary buttons');
+    assert.strictEqual(
+      secondaryButtons.length,
+      2,
+      'renders two secondary buttons',
+    );
 
     assert
       .dom(secondaryButtons[0])
@@ -356,12 +360,12 @@ module('Integration | Component | polaris page', function (hooks) {
 
     // TODO: target these using selectors so we can use qunit-dom assertions here.
     const secondaryActionIcons = findAll(secondaryActionIconSelector);
-    assert.equal(
+    assert.strictEqual(
       secondaryActionIcons[0].dataset.iconSource,
       'polaris/add',
       'first secondary action icon - renders the correct icon',
     );
-    assert.equal(
+    assert.strictEqual(
       secondaryActionIcons[1].dataset.iconSource,
       'polaris/cancel',
       'second secondary action icon - renders the correct icon',

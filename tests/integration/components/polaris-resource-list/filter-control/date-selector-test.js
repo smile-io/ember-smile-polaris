@@ -315,7 +315,7 @@ module(
           let selectedDate = null;
           await waitUntil(() => (selectedDate = this.get('selected')));
 
-          assert.equal(
+          assert.strictEqual(
             selectedDate.toISOString(),
             `2019-01-01T0${timezoneOffsetInHours}:00:00.000Z`,
           );
@@ -380,7 +380,7 @@ module(
           let selectedDate = null;
           await waitUntil(() => (selectedDate = this.get('selected')));
 
-          assert.equal(
+          assert.strictEqual(
             selectedDate.toISOString(),
             `2019-01-01T0${timezoneOffsetInHours}:00:00.000Z`,
           );
@@ -423,7 +423,7 @@ module(
 
         await triggerChangeEventWithValue('select', newDateFilter);
 
-        assert.equal(this.get('newDateFilter'), newDateFilter);
+        assert.strictEqual(this.get('newDateFilter'), newDateFilter);
       });
 
       test('gets called with undefined when date filter is updated to filter with minimum date predicate (on or after) and no current date selection', async function (assert) {
@@ -441,7 +441,7 @@ module(
 
         await triggerChangeEventWithValue('select', newDateFilter);
 
-        assert.equal(this.get('newDateFilter'), undefined);
+        assert.strictEqual(this.get('newDateFilter'), undefined);
       });
 
       test('gets called with undefined when date filter is updated to filter with maximum date predicate (on or before) and no current date selection', async function (assert) {
@@ -459,7 +459,7 @@ module(
 
         await triggerChangeEventWithValue('select', newDateFilter);
 
-        assert.equal(this.get('newDateFilter'), undefined);
+        assert.strictEqual(this.get('newDateFilter'), undefined);
       });
 
       skip('gets called with formatted YYYY-MM-DD date when date filter is updated to filter with minimum date predicate (on or after) and current date selection', async function (assert) {
@@ -482,7 +482,7 @@ module(
         await click('.Polaris-DatePicker');
         await triggerChangeEventWithValue('select', newDateFilter);
 
-        assert.equal(this.get('newDateFilter'), '2019-05-28');
+        assert.strictEqual(this.get('newDateFilter'), '2019-05-28');
       });
 
       skip('gets called with formatted YYYY-MM-DD date when date filter is updated to filter with maximum date predicate (on or before) and current date selection', async function (assert) {
@@ -505,7 +505,7 @@ module(
         await click('.Polaris-DatePicker');
         await triggerChangeEventWithValue('select', newDateFilter);
 
-        assert.equal(this.get('newDateFilter'), '2019-05-28');
+        assert.strictEqual(this.get('newDateFilter'), '2019-05-28');
       });
 
       skip('gets called with formatted YYYY-MM-DD date when date is updated in DatePicker', async function (assert) {
@@ -527,7 +527,7 @@ module(
 
         await click('.Polaris-DatePicker');
 
-        assert.equal(this.get('newDateFilter'), '2019-05-28');
+        assert.strictEqual(this.get('newDateFilter'), '2019-05-28');
       });
 
       /**
@@ -556,7 +556,7 @@ module(
         await triggerChangeEventWithValue(textFieldInputSelector, date);
         await blur(textFieldInputSelector, 'blur');
 
-        assert.equal(this.get('newDateFilter'), date);
+        assert.strictEqual(this.get('newDateFilter'), date);
       });
 
       /**
@@ -584,7 +584,7 @@ module(
         await triggerChangeEventWithValue(textFieldInputSelector, invalidDate);
         await blur(textFieldInputSelector, 'blur');
 
-        assert.equal(this.get('newDateFilter'), undefined);
+        assert.strictEqual(this.get('newDateFilter'), undefined);
       });
     });
 
@@ -603,7 +603,7 @@ module(
 
         await triggerChangeEventWithValue('select', DateFilterOption.PastMonth);
 
-        assert.equal(
+        assert.strictEqual(
           this.get('changedFilterKey'),
           this.initialConsumerFilterKey,
         );
@@ -626,7 +626,7 @@ module(
           DateFilterOption.OnOrBefore,
         );
 
-        assert.equal(this.get('changedFilterKey'), this.filterMaxKey);
+        assert.strictEqual(this.get('changedFilterKey'), this.filterMaxKey);
       });
 
       test('gets called with min filter key when date filter is updated to filter with minimum date predicate (on or after)', async function (assert) {
@@ -643,7 +643,7 @@ module(
 
         await triggerChangeEventWithValue('select', DateFilterOption.OnOrAfter);
 
-        assert.equal(this.get('changedFilterKey'), this.filterMinKey);
+        assert.strictEqual(this.get('changedFilterKey'), this.filterMinKey);
       });
     });
 

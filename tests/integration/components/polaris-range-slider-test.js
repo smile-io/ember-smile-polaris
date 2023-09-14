@@ -63,8 +63,8 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
 
   test('it calls `onChange` with the new value when the value is changed', async function (assert) {
     this.set('valueChanged', (newValue, inputId) => {
-      assert.equal(newValue, 40);
-      assert.equal(inputId, 'MyRangeSlider');
+      assert.strictEqual(newValue, 40);
+      assert.strictEqual(inputId, 'MyRangeSlider');
     });
 
     await render(hbs`
@@ -145,7 +145,7 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
     `);
 
     const inputId = find(sliderInputSelector).getAttribute('id');
-    assert.equal(typeof inputId, 'string');
+    assert.strictEqual(typeof inputId, 'string');
     assert.dom(sliderOutputSelector).hasAttribute('for', inputId);
   });
 
@@ -172,7 +172,7 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
     const helpTextId =
       find(sliderInputSelector).getAttribute('aria-describedby');
 
-    assert.equal(typeof helpTextId, 'string');
+    assert.strictEqual(typeof helpTextId, 'string');
     assert.dom(`#${helpTextId}`).hasText('Some help');
   });
 
@@ -216,7 +216,7 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
     `);
     const errorId = find(sliderInputSelector).getAttribute('aria-describedby');
 
-    assert.equal(typeof errorId, 'string');
+    assert.strictEqual(typeof errorId, 'string');
     assert.dom(`#${errorId}`).hasText('Some error');
   });
 
@@ -233,7 +233,7 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
       .getAttribute('aria-describedby')
       .split(' ');
 
-    assert.equal(descriptions.length, 2);
+    assert.strictEqual(descriptions.length, 2);
     assert.dom(`#${descriptions[1]}`).hasText('Some help');
     assert.dom(`#${descriptions[0]}`).hasText('Some error');
   });

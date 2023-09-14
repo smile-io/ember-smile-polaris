@@ -70,7 +70,7 @@ module('Integration | Component | polaris popover', function (hooks) {
 
     // Check the popover renders the correct HTML.
     const popoverChildren = findAll(popoverChildSelector);
-    assert.equal(
+    assert.strictEqual(
       popoverChildren.length,
       4,
       'popover has the correct number of children',
@@ -112,10 +112,10 @@ module('Integration | Component | polaris popover', function (hooks) {
       .exists({ count: 1 }, 'renders one popover content div');
 
     const popoverPanes = findAll(popoverPaneSelector);
-    assert.equal(popoverPanes.length, 1, 'renders one popover pane');
+    assert.strictEqual(popoverPanes.length, 1, 'renders one popover pane');
 
     const popoverPane = popoverPanes[0];
-    assert.equal(
+    assert.strictEqual(
       popoverPane.dataset.polarisScrollable,
       'true',
       'popover pane has data-polaris-scrollable attribute',

@@ -222,7 +222,7 @@ module(
         `);
 
           await click('[data-test-id="item-wrapper"]');
-          assert.equal(this.get('passedItemId'), itemId);
+          assert.strictEqual(this.get('passedItemId'), itemId);
         });
 
         test('calls onClick when clicking on the item when both onClick and url exist', async function (assert) {
@@ -238,7 +238,7 @@ module(
         `);
 
           await click('[data-test-id="item-wrapper"]');
-          assert.equal(this.get('passedItemId'), itemId);
+          assert.strictEqual(this.get('passedItemId'), itemId);
         });
 
         test('calls window.open on metaKey + click', async function (assert) {

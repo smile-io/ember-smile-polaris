@@ -155,7 +155,7 @@ module('Integration | Component | polaris choice', function (hooks) {
     // Check the help text rendering.
     const helpTexts = assert.dom(helpTextSelector);
     helpTexts.exists({ count: 1 }, 'renders one help text');
-    // assert.equal(helpTexts[0].id, 'helpful-test-choiceHelpText'); TODO: figure out why ID isn't being set
+    // assert.strictEqual(helpTexts[0].id, 'helpful-test-choiceHelpText'); TODO: figure out why ID isn't being set
     helpTexts.hasText(
       'This is some help text',
       'renders the correct help text',
@@ -204,7 +204,7 @@ module('Integration | Component | polaris choice', function (hooks) {
     // Check the error rendering.
     const errors = assert.dom(errorSelector);
     errors.exists({ count: 1 }, 'renders one error');
-    // assert.equal(errors[0].id, 'error-test-choiceError'); TODO: figure out why ID isn't being set
+    // assert.strictEqual(errors[0].id, 'error-test-choiceError'); TODO: figure out why ID isn't being set
     errors.hasText(
       'This is an error message',
       'renders the correct error text',
@@ -393,8 +393,8 @@ module('Integration | Component | polaris choice', function (hooks) {
 
     // 'auto' width/height values are a bit of a nuisance to detect...
     let styleMap = controlWrapper.computedStyleMap();
-    assert.equal(styleMap.get('width').value, 'auto');
-    assert.equal(styleMap.get('height').value, 'auto');
+    assert.strictEqual(styleMap.get('width').value, 'auto');
+    assert.strictEqual(styleMap.get('height').value, 'auto');
   });
 
   test('it does not set auto width and height on the control wrapper when customWidth is not specified', async function (assert) {
@@ -407,8 +407,8 @@ module('Integration | Component | polaris choice', function (hooks) {
     let controlWrapper = this.element.querySelector(controlSelector);
 
     let styleMap = controlWrapper.computedStyleMap();
-    assert.equal(styleMap.get('width').value, 16);
-    assert.equal(styleMap.get('height').value, 16);
+    assert.strictEqual(styleMap.get('width').value, 16);
+    assert.strictEqual(styleMap.get('height').value, 16);
   });
 
   test('it applies the specified choiceClass to the control wrapper', async function (assert) {

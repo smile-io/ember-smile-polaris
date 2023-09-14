@@ -47,7 +47,7 @@ module('Integration | Component | polaris badge', function (hooks) {
     // With status unset:
     //  - shouldn't apply any status classes
     //  - shouldn't render any visually hidden components
-    assert.equal(
+    assert.strictEqual(
       badge.className.indexOf('Polaris-Badge--status'),
       -1,
       'status not set - does not apply status classes',
@@ -62,7 +62,7 @@ module('Integration | Component | polaris badge', function (hooks) {
     //  - shouldn't apply any status classes
     //  - should render empty visually hidden component
     this.set('status', 'default');
-    assert.equal(
+    assert.strictEqual(
       badge.className.indexOf('Polaris-Badge--status'),
       -1,
       'status set to default - does not apply status classes',
@@ -176,7 +176,7 @@ module('Integration | Component | polaris badge', function (hooks) {
     // With progress unset:
     //  - shouldn't apply any progress classes
     //  - shouldn't render any visually hidden components
-    assert.equal(
+    assert.strictEqual(
       badge.className.indexOf('Polaris-Badge--progress'),
       -1,
       'progress not set - does not apply progress classes',
@@ -194,7 +194,7 @@ module('Integration | Component | polaris badge', function (hooks) {
     //  - shouldn't apply any progress classes
     //  - shouldn't render any visually hidden components
     this.set('progress', 'default');
-    assert.equal(
+    assert.strictEqual(
       badge.className.indexOf('Polaris-Badge--progress'),
       -1,
       'progress set to default - does not apply progress classes',

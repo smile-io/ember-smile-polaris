@@ -68,10 +68,14 @@ module('Integration | Component | polaris action list', function (hooks) {
     `);
 
     const actionLists = findAll(actionListSelector);
-    assert.equal(actionLists.length, 1, 'renders one action list');
+    assert.strictEqual(actionLists.length, 1, 'renders one action list');
 
     const actionListItems = findAll(actionListItemSelector);
-    assert.equal(actionListItems.length, 2, 'renders two action list items');
+    assert.strictEqual(
+      actionListItems.length,
+      2,
+      'renders two action list items',
+    );
     assert
       .dom(actionListItems[0])
       .hasText(
@@ -103,10 +107,10 @@ module('Integration | Component | polaris action list', function (hooks) {
     `);
 
     const actionLists = findAll(actionListSelector);
-    assert.equal(actionLists.length, 1, 'renders one action list');
+    assert.strictEqual(actionLists.length, 1, 'renders one action list');
 
     const actionListItemContents = findAll(actionListItemContentSelector);
-    assert.equal(
+    assert.strictEqual(
       actionListItemContents.length,
       2,
       'renders two action list items',
@@ -115,7 +119,7 @@ module('Integration | Component | polaris action list', function (hooks) {
     const actionListItemContentImages = findAll(
       actionListItemContentImageSelector,
     );
-    assert.equal(
+    assert.strictEqual(
       actionListItemContentImages.length,
       2,
       'renders two action list item images',
@@ -124,17 +128,17 @@ module('Integration | Component | polaris action list', function (hooks) {
     const actionListItemContentImageIcons = findAll(
       actionListItemContentImageIconSelector,
     );
-    assert.equal(
+    assert.strictEqual(
       actionListItemContentImageIcons.length,
       2,
       'renders two action list item image icons',
     );
-    assert.equal(
+    assert.strictEqual(
       actionListItemContentImageIcons[0].dataset.iconSource,
       'polaris/import',
       'first item image icon - renders the correct icon',
     );
-    assert.equal(
+    assert.strictEqual(
       actionListItemContentImageIcons[1].dataset.iconSource,
       'polaris/export',
       'second item image icon - renders the correct icon',
@@ -143,7 +147,7 @@ module('Integration | Component | polaris action list', function (hooks) {
     const actionListItemContentTexts = findAll(
       actionListItemContentTextSelector,
     );
-    assert.equal(
+    assert.strictEqual(
       actionListItemContentTexts.length,
       2,
       'renders two action list item texts',
@@ -185,7 +189,7 @@ module('Integration | Component | polaris action list', function (hooks) {
     `);
 
     const actionLists = findAll(actionListSelector);
-    assert.equal(actionLists.length, 1, 'renders one action list');
+    assert.strictEqual(actionLists.length, 1, 'renders one action list');
 
     const itemButtons = findAll('li button');
     await click(itemButtons[0]);
@@ -227,7 +231,7 @@ module('Integration | Component | polaris action list', function (hooks) {
     `);
 
     const actionLists = findAll(actionListSelector);
-    assert.equal(actionLists.length, 1, 'renders one action list');
+    assert.strictEqual(actionLists.length, 1, 'renders one action list');
 
     const listItems = findAll('li');
     await click('button', listItems[0]);
@@ -270,7 +274,7 @@ module('Integration | Component | polaris action list', function (hooks) {
 
     const itemButtons = findAll('li button');
     await click(itemButtons[0]);
-    assert.equal(
+    assert.strictEqual(
       this.get('anyItemActionCount'),
       1,
       'after pressing first button - any item action fired once',
@@ -281,7 +285,7 @@ module('Integration | Component | polaris action list', function (hooks) {
     );
 
     await click(itemButtons[1]);
-    assert.equal(
+    assert.strictEqual(
       this.get('anyItemActionCount'),
       2,
       'after pressing second button - any item action fired twice',
@@ -324,11 +328,15 @@ module('Integration | Component | polaris action list', function (hooks) {
     `);
 
     const actionLists = findAll(sectionedActionListSelector);
-    assert.equal(actionLists.length, 1, 'renders one sectioned action list');
+    assert.strictEqual(
+      actionLists.length,
+      1,
+      'renders one sectioned action list',
+    );
 
     // Test sections without any additional items passed in.
     let actionListSections = findAll(sectionedActionListSectionSelector);
-    assert.equal(
+    assert.strictEqual(
       actionListSections.length,
       2,
       'with no items and two sections - renders two action list sections',
@@ -338,7 +346,7 @@ module('Integration | Component | polaris action list', function (hooks) {
     this.set('items', [{ text: 'Section 1 item' }]);
 
     actionListSections = findAll(sectionedActionListSectionSelector);
-    assert.equal(
+    assert.strictEqual(
       actionListSections.length,
       3,
       'with items and two sections - renders three action list sections',
@@ -357,7 +365,7 @@ module('Integration | Component | polaris action list', function (hooks) {
     assert.notOk(sectionTitle, 'first section does not have a title');
 
     let items = section.querySelectorAll(actionListItemButtonSelector);
-    assert.equal(items.length, 1, 'first section has one item');
+    assert.strictEqual(items.length, 1, 'first section has one item');
     assert
       .dom(items[0])
       .hasText('Section 1 item', 'first section item renders the correct text');
@@ -378,7 +386,7 @@ module('Integration | Component | polaris action list', function (hooks) {
       .hasText('Section 2', 'second section renders the correct title text');
 
     items = section.querySelectorAll(actionListItemButtonSelector);
-    assert.equal(items.length, 2, 'second section has two items');
+    assert.strictEqual(items.length, 2, 'second section has two items');
     assert
       .dom(items[0])
       .hasText(
@@ -403,7 +411,7 @@ module('Integration | Component | polaris action list', function (hooks) {
     let item = items[0];
     let itemIcon = item.querySelector(itemIconSelector);
     assert.ok(itemIcon, "second section's first item renders an icon");
-    assert.equal(
+    assert.strictEqual(
       itemIcon.dataset.iconSource,
       'polaris/notes',
       "second section's first item renders the correct icon",
@@ -429,7 +437,7 @@ module('Integration | Component | polaris action list', function (hooks) {
     assert.notOk(sectionTitle, 'third section does not have a title');
 
     items = section.querySelectorAll(actionListItemButtonSelector);
-    assert.equal(items.length, 1, 'third section has one item');
+    assert.strictEqual(items.length, 1, 'third section has one item');
     assert
       .dom(items[0])
       .hasText('Section 3 item', 'third section item renders the correct text');

@@ -98,7 +98,7 @@ module('Integration | Component | polaris text style', function (hooks) {
         'Polaris-TextStyle--variationPositive',
         'positive variation - applies positive class',
       );
-    assert.equal(
+    assert.strictEqual(
       elementTag,
       'SPAN',
       'positive variation - is rendered as a span tag',
@@ -111,7 +111,7 @@ module('Integration | Component | polaris text style', function (hooks) {
         'Polaris-TextStyle--variationNegative',
         'negative variation - applies negative class',
       );
-    assert.equal(
+    assert.strictEqual(
       elementTag,
       'SPAN',
       'negative variation - is rendered as a span tag',
@@ -124,7 +124,7 @@ module('Integration | Component | polaris text style', function (hooks) {
         'Polaris-TextStyle--variationStrong',
         'strong variation - applies strong class',
       );
-    assert.equal(
+    assert.strictEqual(
       find(textStyleSelector).tagName,
       'SPAN',
       'strong variation - is rendered as a span tag',
@@ -137,7 +137,7 @@ module('Integration | Component | polaris text style', function (hooks) {
         'Polaris-TextStyle--variationSubdued',
         'subdued variation - applies subdued class',
       );
-    assert.equal(
+    assert.strictEqual(
       find(textStyleSelector).tagName,
       'SPAN',
       'subdued variation - is rendered as a span tag',
@@ -150,7 +150,7 @@ module('Integration | Component | polaris text style', function (hooks) {
         'Polaris-TextStyle--variationCode',
         'code variation - applies code class',
       );
-    assert.equal(
+    assert.strictEqual(
       find(textStyleSelector).tagName,
       'CODE',
       'code variation - is rendered as a code tag',

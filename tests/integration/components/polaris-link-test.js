@@ -178,7 +178,7 @@ module('Integration | Component | polaris link', function (hooks) {
     `);
 
     await click(linkSelector);
-    assert.equal(
+    assert.strictEqual(
       location.hash,
       '#linkClicked',
       'app navigates to specified URL',
@@ -208,7 +208,7 @@ module('Integration | Component | polaris link', function (hooks) {
     `);
 
     await click(linkSelector);
-    assert.equal(
+    assert.strictEqual(
       location.hash,
       '#linkClicked',
       'app navigates to specified URL',

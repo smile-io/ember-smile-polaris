@@ -130,7 +130,7 @@ module('Integration | Component | polaris callout card', function (hooks) {
       'button.Polaris-Button',
     );
     const buttons = findAll(buttonSelector);
-    assert.equal(buttons.length, 2, 'renders two buttons');
+    assert.strictEqual(buttons.length, 2, 'renders two buttons');
 
     let button = buttons[0];
     assert
@@ -235,7 +235,7 @@ module('Integration | Component | polaris callout card', function (hooks) {
   `);
 
     let illustration = this.element.querySelector(calloutCardImageSelector);
-    assert.equal(getComputedStyle(illustration).flexBasis, '30%');
+    assert.strictEqual(getComputedStyle(illustration).flexBasis, '30%');
   });
 
   test('it does not override the image size when illustrationSize is set to a random value', async function (assert) {
@@ -251,6 +251,6 @@ module('Integration | Component | polaris callout card', function (hooks) {
   `);
 
     let illustration = this.element.querySelector(calloutCardImageSelector);
-    assert.equal(getComputedStyle(illustration).flexBasis, 'auto');
+    assert.strictEqual(getComputedStyle(illustration).flexBasis, 'auto');
   });
 });

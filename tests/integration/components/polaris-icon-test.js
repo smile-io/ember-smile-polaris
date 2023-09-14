@@ -117,7 +117,7 @@ module('Integration | Component | polaris icon', function (hooks) {
         className.includes('Polaris-Icon--color'),
       );
 
-      assert.equal(
+      assert.strictEqual(
         colorClassNames.length,
         1,
         `icon with ${color} color does not add other color classes`,

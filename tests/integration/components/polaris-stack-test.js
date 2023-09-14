@@ -21,10 +21,14 @@ module('Integration | Component | polaris stack', function (hooks) {
     `);
 
     const stacks = findAll(stackSelector);
-    assert.equal(stacks.length, 1, 'renders the correct number of stacks');
+    assert.strictEqual(
+      stacks.length,
+      1,
+      'renders the correct number of stacks',
+    );
 
     const stackItems = findAll(stackItemSelector);
-    assert.equal(
+    assert.strictEqual(
       stackItems.length,
       2,
       'renders the correct number of stack items',
@@ -33,14 +37,14 @@ module('Integration | Component | polaris stack', function (hooks) {
     // Check the first stack item.
     let stackItem = stackItems[0];
     let stackItemChildren = stackItem.children;
-    assert.equal(
+    assert.strictEqual(
       stackItemChildren.length,
       1,
       'first stack item - renders the correct number of children',
     );
 
     let stackItemChild = stackItemChildren[0];
-    assert.equal(
+    assert.strictEqual(
       stackItemChild.tagName.toLowerCase(),
       'p',
       'first stack item - renders the correct child element',
@@ -55,14 +59,14 @@ module('Integration | Component | polaris stack', function (hooks) {
     // Check the second stack item.
     stackItem = stackItems[1];
     stackItemChildren = stackItem.children;
-    assert.equal(
+    assert.strictEqual(
       stackItemChildren.length,
       1,
       'second stack item - renders the correct number of children',
     );
 
     stackItemChild = stackItemChildren[0];
-    assert.equal(
+    assert.strictEqual(
       stackItemChild.tagName.toLowerCase(),
       'div',
       'second stack item - renders the correct child element',
@@ -99,7 +103,7 @@ module('Integration | Component | polaris stack', function (hooks) {
     await render(hbs`{{polaris-stack spacing=spacing}}`);
 
     const stack = find(stackSelector);
-    assert.equal(
+    assert.strictEqual(
       stack.className.indexOf('Polaris-Stack--spacing'),
       -1,
       'spacing=null - does not add any spacing class',
@@ -135,7 +139,7 @@ module('Integration | Component | polaris stack', function (hooks) {
     await render(hbs`{{polaris-stack alignment=alignment}}`);
 
     const stack = find(stackSelector);
-    assert.equal(
+    assert.strictEqual(
       stack.className.indexOf('Polaris-Stack--alignment'),
       -1,
       'alignment=null - does not add any alignment class',
@@ -187,7 +191,7 @@ module('Integration | Component | polaris stack', function (hooks) {
     await render(hbs`{{polaris-stack distribution=distribution}}`);
 
     const stack = find(stackSelector);
-    assert.equal(
+    assert.strictEqual(
       stack.className.indexOf('Polaris-Stack--distribution'),
       -1,
       'distribution=baseline - does not add any distribution class',
@@ -275,7 +279,7 @@ module('Integration | Component | polaris stack', function (hooks) {
     `);
 
     const stackItems = findAll(stackItemSelector);
-    assert.equal(
+    assert.strictEqual(
       stackItems.length,
       3,
       'renders the correct number of stack items',

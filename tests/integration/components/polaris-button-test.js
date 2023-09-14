@@ -288,7 +288,7 @@ module('Integration | Component | polaris-button', function (hooks) {
           {{polaris-button onFocus=(action incrementFocusCount) url="http://google.com"}}
         `);
         await focus('[data-polaris-unstyled]');
-        assert.equal(focusCount, 1);
+        assert.strictEqual(focusCount, 1);
       });
     });
 
@@ -318,7 +318,7 @@ module('Integration | Component | polaris-button', function (hooks) {
         `);
         await focus('[data-polaris-unstyled]');
         await blur('[data-polaris-unstyled]');
-        assert.equal(blurCount, 1);
+        assert.strictEqual(blurCount, 1);
       });
     });
 
@@ -328,7 +328,7 @@ module('Integration | Component | polaris-button', function (hooks) {
           hbs`{{#polaris-button onKeyPress=(action (mut keyEventData))}}Test{{/polaris-button}}`,
         );
         await triggerKeyEvent('button', 'keypress', 'J');
-        assert.equal(this.get('keyEventData.key'), 'J');
+        assert.strictEqual(this.get('keyEventData.key'), 'J');
       });
     });
 
@@ -338,7 +338,7 @@ module('Integration | Component | polaris-button', function (hooks) {
           hbs`{{#polaris-button onKeyUp=(action (mut keyEventData))}}Test{{/polaris-button}}`,
         );
         await triggerKeyEvent('button', 'keyup', 'J');
-        assert.equal(this.get('keyEventData.key'), 'J');
+        assert.strictEqual(this.get('keyEventData.key'), 'J');
       });
     });
 
@@ -348,7 +348,7 @@ module('Integration | Component | polaris-button', function (hooks) {
           hbs`{{#polaris-button onKeyDown=(action (mut keyEventData))}}Test{{/polaris-button}}`,
         );
         await triggerKeyEvent('button', 'keydown', 'J');
-        assert.equal(this.get('keyEventData.key'), 'J');
+        assert.strictEqual(this.get('keyEventData.key'), 'J');
       });
     });
   });

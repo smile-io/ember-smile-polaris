@@ -52,8 +52,8 @@ module(
 
       this.set('onOptionClicked', (optionSection, optionIndex) => {
         const { section, index } = defaultProps;
-        assert.equal(optionSection, section);
-        assert.equal(optionIndex, index);
+        assert.strictEqual(optionSection, section);
+        assert.strictEqual(optionIndex, index);
       });
 
       await render(hbs`
@@ -91,8 +91,8 @@ module(
 
       this.set('onOptionClicked', (optionSection, optionIndex) => {
         const { section, index } = defaultProps;
-        assert.equal(optionSection, section);
-        assert.equal(optionIndex, index);
+        assert.strictEqual(optionSection, section);
+        assert.strictEqual(optionIndex, index);
       });
 
       await render(hbs`

@@ -315,7 +315,7 @@ module(
         await selectFilterKey(filters[1].key);
 
         assert.deepEqual(filterValueSelector.get('filter'), filters[1]);
-        assert.equal(filterValueSelector.get('value'), undefined);
+        assert.strictEqual(filterValueSelector.get('value'), undefined);
       });
 
       test('updates value with provided string when user selects a filter value', async function (assert) {
@@ -363,7 +363,10 @@ module(
 
         filterValueSelector.onFilterKeyChange(newOperatorKey);
 
-        assert.equal(filterValueSelector.get('filterKey'), newOperatorKey);
+        assert.strictEqual(
+          filterValueSelector.get('filterKey'),
+          newOperatorKey,
+        );
       });
     });
 

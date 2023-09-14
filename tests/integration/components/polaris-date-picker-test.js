@@ -285,12 +285,12 @@ module('Integration | Component | polaris date picker', function (hooks) {
       selected: null,
       onMonthChangeActionFired: false,
       onMonthChange: (month, year) => {
-        assert.equal(
+        assert.strictEqual(
           month,
           expectedMonth,
           '`onMonthChange` receives the correct `month` argument',
         );
-        assert.equal(
+        assert.strictEqual(
           year,
           expectedYear,
           '`onMonthChange` receives the correct `year` argument',

@@ -69,12 +69,12 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
     let radioInput = radioInputs[0];
 
     assert.ok(radioInput, 'first choice - renders radio input');
-    assert.equal(
+    assert.strictEqual(
       radioInput.value,
       'one',
       'first choice - radio input has the correct value',
     );
-    assert.equal(
+    assert.strictEqual(
       radioInput.name,
       'test-single-choice-list',
       'first choice - radio input has the correct name',
@@ -90,12 +90,12 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
       .hasText('Second option', 'second choice - has correct label text');
     radioInput = radioInputs[1];
     assert.ok(radioInput, 'second choice - renders radio input');
-    assert.equal(
+    assert.strictEqual(
       radioInput.value,
       'two',
       'second choice - radio input has the correct value',
     );
-    assert.equal(
+    assert.strictEqual(
       radioInput.name,
       'test-single-choice-list',
       'second choice - radio input has the correct name',
@@ -108,12 +108,12 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
       .hasText('Third option', 'third choice - has correct label text');
     radioInput = radioInputs[2];
     assert.ok(radioInput, 'third choice - renders radio input');
-    assert.equal(
+    assert.strictEqual(
       radioInput.value,
       'three',
       'third choice - radio input has the correct value',
     );
-    assert.equal(
+    assert.strictEqual(
       radioInput.name,
       'test-single-choice-list',
       'third choice - radio input has the correct name',
@@ -162,12 +162,12 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
       .hasText('First option', 'first choice - has correct label text');
     let checkboxInput = checkboxInputs[0];
     assert.ok(checkboxInput, 'first choice - renders checkbox input');
-    assert.equal(
+    assert.strictEqual(
       checkboxInput.value,
       'one',
       'first choice - checkbox input has the correct value',
     );
-    assert.equal(
+    assert.strictEqual(
       checkboxInput.name,
       'test-multiple-choice-list[]',
       'first choice - checkbox input has the correct name',
@@ -183,12 +183,12 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
       .hasText('Second option', 'second choice - has correct label text');
     checkboxInput = checkboxInputs[1];
     assert.ok(checkboxInput, 'second choice - renders checkbox input');
-    assert.equal(
+    assert.strictEqual(
       checkboxInput.value,
       'two',
       'second choice - checkbox input has the correct value',
     );
-    assert.equal(
+    assert.strictEqual(
       checkboxInput.name,
       'test-multiple-choice-list[]',
       'second choice - checkbox input has the correct name',
@@ -204,12 +204,12 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
       .hasText('Third option', 'third choice - has correct label text');
     checkboxInput = checkboxInputs[2];
     assert.ok(checkboxInput, 'third choice - renders checkbox input');
-    assert.equal(
+    assert.strictEqual(
       checkboxInput.value,
       'three',
       'third choice - checkbox input has the correct value',
     );
-    assert.equal(
+    assert.strictEqual(
       checkboxInput.name,
       'test-multiple-choice-list[]',
       'third choice - checkbox input has the correct name',
@@ -230,7 +230,7 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
     );
 
     const choiceLists = findAll(choiceListSelector);
-    assert.equal(
+    assert.strictEqual(
       choiceLists.length,
       1,
       'with title set and unhidden - renders one choice list',
@@ -244,7 +244,7 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
       );
 
     let titles = findAll(titleSelector);
-    assert.equal(
+    assert.strictEqual(
       titles.length,
       1,
       'with title set and unhidden - renders one title',
@@ -266,7 +266,7 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
 
     this.set('title', null);
     titles = findAll(titleSelector);
-    assert.equal(
+    assert.strictEqual(
       titles.length,
       0,
       'with title unset - does not render a title',

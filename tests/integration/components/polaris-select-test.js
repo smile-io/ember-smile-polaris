@@ -27,8 +27,8 @@ module('Integration | Component | polaris-select', function (hooks) {
 
       find('select').value = 'two';
       await triggerEvent('select', 'change');
-      assert.equal(this.get('selectedValue'), 'two');
-      assert.equal(this.get('selectId'), 'MySelect');
+      assert.strictEqual(this.get('selectedValue'), 'two');
+      assert.strictEqual(this.get('selectId'), 'MySelect');
     });
   });
 
@@ -128,13 +128,19 @@ module('Integration | Component | polaris-select', function (hooks) {
 
     function testOptions(optionOrGroup, optionOrOptgroupElement, assert) {
       if (typeof optionOrGroup === 'string') {
-        assert.equal(optionOrOptgroupElement.tagName.toLowerCase(), 'option');
+        assert.strictEqual(
+          optionOrOptgroupElement.tagName.toLowerCase(),
+          'option',
+        );
         assert
           .dom(optionOrOptgroupElement)
           .hasAttribute('value', optionOrGroup);
         assert.dom(optionOrOptgroupElement).hasText(optionOrGroup);
       } else {
-        assert.equal(optionOrOptgroupElement.tagName.toLowerCase(), 'optgroup');
+        assert.strictEqual(
+          optionOrOptgroupElement.tagName.toLowerCase(),
+          'optgroup',
+        );
         assert
           .dom(optionOrOptgroupElement)
           .hasAttribute('label', optionOrGroup.title);
@@ -142,7 +148,7 @@ module('Integration | Component | polaris-select', function (hooks) {
 
         optionOrGroup.options.forEach((option, optionIndex) => {
           let optionElement = options[optionIndex];
-          assert.equal(optionElement.tagName.toLowerCase(), 'option');
+          assert.strictEqual(optionElement.tagName.toLowerCase(), 'option');
           assert.dom(optionElement).hasAttribute('value', option);
           assert.dom(optionElement).hasText(option);
         });
@@ -322,7 +328,7 @@ module('Integration | Component | polaris-select', function (hooks) {
       let descriptions = find('select')
         .getAttribute('aria-describedby')
         .split(' ');
-      assert.equal(descriptions.length, 2);
+      assert.strictEqual(descriptions.length, 2);
       assert.dom(`#${descriptions[0]}`).hasText('Some help');
       assert.dom(`#${descriptions[1]}`).hasText('Some error');
     });

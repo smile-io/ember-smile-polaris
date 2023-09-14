@@ -10,10 +10,10 @@ import {
 module('Unit | Utility | color', function () {
   test('rgbaString() correctly converts an RGB(a) object color to string', function (assert) {
     let result = rgbaString({ red: 194, green: 204, blue: 143 });
-    assert.equal(result, 'rgb(194, 204, 143)');
+    assert.strictEqual(result, 'rgb(194, 204, 143)');
 
     result = rgbaString({ red: 194, green: 204, blue: 143, alpha: 0.75 });
-    assert.equal(result, 'rgba(194, 204, 143, 0.75)');
+    assert.strictEqual(result, 'rgba(194, 204, 143, 0.75)');
   });
 
   test('hsbaToRgba() correctly converts HSB(a) colors to RGB(a)', function (assert) {
@@ -24,31 +24,31 @@ module('Unit | Utility | color', function () {
   test('rgbaToHsb() correctly converts RGB(a) colors to HSB(a)', function (assert) {
     let result = rgbaToHsb({ red: 194, green: 204, blue: 143, alpha: 1 });
 
-    assert.equal(result.hue, 70);
+    assert.strictEqual(result.hue, 70);
     // Need to round here to match
-    assert.equal(result.saturation.toFixed(1), 0.3);
-    assert.equal(result.brightness, 0.8);
-    assert.equal(result.alpha, 1);
+    assert.strictEqual(result.saturation.toFixed(1), 0.3);
+    assert.strictEqual(result.brightness, 0.8);
+    assert.strictEqual(result.alpha, 1);
   });
 
   test('rgbaToHex() correctly converts RGB(a) colors to HEX', function (assert) {
     let result = rgbaToHex({ red: 65, green: 131, blue: 196 });
-    assert.equal(result, '4183c4');
+    assert.strictEqual(result, '4183c4');
 
     result = rgbaToHex(65, 131, 196);
-    assert.equal(result, '4183c4');
+    assert.strictEqual(result, '4183c4');
 
     result = rgbaToHex('rgb(40, 42, 54)');
-    assert.equal(result, '282a36');
+    assert.strictEqual(result, '282a36');
 
     result = rgbaToHex(65, 131, 196, 0.2);
-    assert.equal(result, '4183c433');
+    assert.strictEqual(result, '4183c433');
 
     result = rgbaToHex(40, 42, 54, '75%');
-    assert.equal(result, '282a36bf');
+    assert.strictEqual(result, '282a36bf');
 
     result = rgbaToHex('rgba(40, 42, 54, 75%)');
-    assert.equal(result, '282a36bf');
+    assert.strictEqual(result, '282a36bf');
   });
 
   test('hexToRgb() correctly converts HEX colors to RGB', function (assert) {

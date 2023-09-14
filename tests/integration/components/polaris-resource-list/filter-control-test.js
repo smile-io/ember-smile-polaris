@@ -699,7 +699,7 @@ module(
             {{/polaris-resource-list/provider}}
           `);
 
-          assert.equal(receivedFilters, mockFilters);
+          assert.strictEqual(receivedFilters, mockFilters);
         });
       },
     );
@@ -734,7 +734,7 @@ module(
 
         await fillIn('.Polaris-TextField input', newSearchValue);
 
-        assert.equal(this.get('newSearchValue'), newSearchValue);
+        assert.strictEqual(this.get('newSearchValue'), newSearchValue);
       });
     });
 

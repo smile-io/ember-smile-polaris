@@ -35,14 +35,14 @@ module('Integration | Component | polaris layout', function (hooks) {
     await render(hbs`{{polaris-layout text="This is an inline layout"}}`);
 
     let layouts = findAll(layoutSelector);
-    assert.equal(
+    assert.strictEqual(
       layouts.length,
       1,
       'inline without sectioned flag - renders one layout',
     );
 
     let layout = layouts[0];
-    assert.equal(
+    assert.strictEqual(
       layout.children.length,
       0,
       'inline without sectioned flag - layout has no children',
@@ -60,14 +60,14 @@ module('Integration | Component | polaris layout', function (hooks) {
     );
 
     layouts = findAll(layoutSelector);
-    assert.equal(
+    assert.strictEqual(
       layouts.length,
       1,
       'block without sectioned flag - renders one layout',
     );
 
     layout = layouts[0];
-    assert.equal(
+    assert.strictEqual(
       layout.children.length,
       0,
       'block without sectioned flag - layout has no children',
@@ -85,19 +85,19 @@ module('Integration | Component | polaris layout', function (hooks) {
     );
 
     layouts = findAll(layoutSelector);
-    assert.equal(
+    assert.strictEqual(
       layouts.length,
       1,
       'inline with sectioned flag - renders one layout',
     );
-    assert.equal(
+    assert.strictEqual(
       layouts[0].children.length,
       1,
       'inline with sectioned flag - layout has one child',
     );
 
     let layoutSections = findAll(layoutSectionSelector);
-    assert.equal(
+    assert.strictEqual(
       layoutSections.length,
       1,
       'inline with sectioned flag - renders layout section',
@@ -115,19 +115,19 @@ module('Integration | Component | polaris layout', function (hooks) {
     );
 
     layouts = findAll(layoutSelector);
-    assert.equal(
+    assert.strictEqual(
       layouts.length,
       1,
       'block with sectioned flag - renders one layout',
     );
-    assert.equal(
+    assert.strictEqual(
       layouts[0].children.length,
       1,
       'block with sectioned flag - layout has one child',
     );
 
     layoutSections = findAll(layoutSectionSelector);
-    assert.equal(
+    assert.strictEqual(
       layoutSections.length,
       1,
       'inline with sectioned flag - renders layout section',
@@ -160,7 +160,7 @@ module('Integration | Component | polaris layout', function (hooks) {
     `);
 
     const layoutSections = findAll(layoutSectionSelector);
-    assert.equal(layoutSections.length, 6, 'renders six layout sections');
+    assert.strictEqual(layoutSections.length, 6, 'renders six layout sections');
 
     // Check the first section.
     let layoutSection = layoutSections[0];

@@ -56,7 +56,7 @@ module('Integration | Component | polaris-data-table', function (hooks) {
     `);
     const sortableHeadings = findAll('.Polaris-DataTable__Heading--sortable');
 
-    assert.equal(sortableHeadings.length, 0);
+    assert.strictEqual(sortableHeadings.length, 0);
   });
 
   test('initial sort column defaults to first column if not specified', async function (assert) {

@@ -309,7 +309,7 @@ module('Integration | Component | polaris card', function (hooks) {
       'button.Polaris-Button.Polaris-Button--plain',
     );
     const actionButtons = findAll(actionButtonSelector);
-    assert.equal(
+    assert.strictEqual(
       actionButtons.length,
       3,
       'renders the correct number of action buttons',
@@ -369,14 +369,14 @@ module('Integration | Component | polaris card', function (hooks) {
     );
 
     const sectionHeaders = findAll(sectionHeaderSelector);
-    assert.equal(sectionHeaders.length, 1, 'renders one section header');
+    assert.strictEqual(sectionHeaders.length, 1, 'renders one section header');
 
     const sectionHeaderTitleSelector = buildNestedSelector(
       sectionHeaderSelector,
       'h3.Polaris-Subheading',
     );
     const sectionHeaderTitles = findAll(sectionHeaderTitleSelector);
-    assert.equal(
+    assert.strictEqual(
       sectionHeaderTitles.length,
       1,
       'renders one section header title',
@@ -482,8 +482,8 @@ module('Integration | Component | polaris card', function (hooks) {
       return section.getBoundingClientRect();
     });
 
-    assert.equal(section1Rect.top, section2Rect.top);
-    assert.equal(section1Rect.right, section2Rect.left);
+    assert.strictEqual(section1Rect.top, section2Rect.top);
+    assert.strictEqual(section1Rect.right, section2Rect.left);
 
     let section2Style = getComputedStyle(sections[1]);
     assert.ok(section2Style.borderTop.match(/^0px.*/));
