@@ -1,5 +1,8 @@
 <div
-  class="Polaris-Card {{@class}} {{if @subdued "Polaris-Card--subdued"}} {{if (eq @sectionDirection "row") "Polaris-Card--rowSectionDirection"}}"
+  class="Polaris-Card
+    {{@class}}
+    {{if @subdued 'Polaris-Card--subdued'}}
+    {{if (eq @sectionDirection 'row') 'Polaris-Card--rowSectionDirection'}}"
   ...attributes
 >
   {{#if (or @title @headerActions)}}
