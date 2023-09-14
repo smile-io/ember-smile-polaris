@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-date-picker.hbs",
+  "ruleId": "no-down-event-binding",
+  "range": {
+    "start": { "line": 8, "column": 7 },
+    "end": { "line": 8, "column": 7 }
+  },
+  "source": "e82f6aa36fd44bb3dccff09770613eee19380f9b",
+  "originalLintResult": {
+    "rule": "no-down-event-binding",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-date-picker.hbs",
+    "line": 8,
+    "column": 7,
+    "endLine": 8,
+    "endColumn": 16,
+    "source": "\"keydown\"",
+    "message": "Avoid binding to a `down` event; bind to an `up` event instead"
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

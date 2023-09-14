@@ -1,0 +1,26 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-resource-list/filter-control.hbs",
+  "ruleId": "no-redundant-fn",
+  "range": {
+    "start": { "line": 9, "column": 20 },
+    "end": { "line": 9, "column": 20 }
+  },
+  "source": "9183c9b68d596e54fbff7c61eefe04dd58b76c45",
+  "originalLintResult": {
+    "rule": "no-redundant-fn",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-resource-list/filter-control.hbs",
+    "line": 9,
+    "column": 20,
+    "endLine": 9,
+    "endColumn": 45,
+    "source": "(fn this.handleAddFilter)",
+    "message": "`fn` helpers without additional arguments are not allowed",
+    "isFixable": true
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

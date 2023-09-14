@@ -1,0 +1,26 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-color-picker.hbs",
+  "ruleId": "no-redundant-fn",
+  "range": {
+    "start": { "line": 24, "column": 16 },
+    "end": { "line": 24, "column": 16 }
+  },
+  "source": "1df9e8f22363989c18b33282514c1e1653543e87",
+  "originalLintResult": {
+    "rule": "no-redundant-fn",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-color-picker.hbs",
+    "line": 24,
+    "column": 16,
+    "endLine": 24,
+    "endColumn": 45,
+    "source": "{{fn this.handleAlphaChange}}",
+    "message": "`fn` helpers without additional arguments are not allowed",
+    "isFixable": true
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

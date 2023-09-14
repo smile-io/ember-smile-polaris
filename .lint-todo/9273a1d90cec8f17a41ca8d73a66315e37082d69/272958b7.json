@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-text-field/spinner.hbs",
+  "ruleId": "no-down-event-binding",
+  "range": {
+    "start": { "line": 29, "column": 9 },
+    "end": { "line": 29, "column": 9 }
+  },
+  "source": "a158be60fde14211f6abfbac329c94fa5a3b4a46",
+  "originalLintResult": {
+    "rule": "no-down-event-binding",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-text-field/spinner.hbs",
+    "line": 29,
+    "column": 9,
+    "endLine": 29,
+    "endColumn": 20,
+    "source": "\"mousedown\"",
+    "message": "Avoid binding to a `down` event; bind to an `up` event instead"
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

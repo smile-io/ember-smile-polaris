@@ -1,0 +1,26 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-data-table/navigation.hbs",
+  "ruleId": "no-redundant-fn",
+  "range": {
+    "start": { "line": 7, "column": 13 },
+    "end": { "line": 7, "column": 13 }
+  },
+  "source": "daf75e0bcd4413bd72902fd876d30b56fa2f7271",
+  "originalLintResult": {
+    "rule": "no-redundant-fn",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-data-table/navigation.hbs",
+    "line": 7,
+    "column": 13,
+    "endLine": 7,
+    "endColumn": 42,
+    "source": "{{fn this.navigateTableLeft}}",
+    "message": "`fn` helpers without additional arguments are not allowed",
+    "isFixable": true
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

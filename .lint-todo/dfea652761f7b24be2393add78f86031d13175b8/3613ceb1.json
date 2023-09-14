@@ -1,0 +1,26 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-resource-list/item.hbs",
+  "ruleId": "no-redundant-fn",
+  "range": {
+    "start": { "line": 63, "column": 26 },
+    "end": { "line": 63, "column": 26 }
+  },
+  "source": "d0f9636215d7ec4fc8f92fd42bbb59c0ad3ba162",
+  "originalLintResult": {
+    "rule": "no-redundant-fn",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-resource-list/item.hbs",
+    "line": 63,
+    "column": 26,
+    "endLine": 63,
+    "endColumn": 53,
+    "source": "{{fn this.handleSelection}}",
+    "message": "`fn` helpers without additional arguments are not allowed",
+    "isFixable": true
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

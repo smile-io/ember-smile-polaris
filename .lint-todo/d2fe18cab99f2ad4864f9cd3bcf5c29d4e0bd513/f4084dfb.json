@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "tests/dummy/app/templates/components/resource-list/bulk-actions.hbs",
+  "ruleId": "no-action",
+  "range": {
+    "start": { "line": 12, "column": 21 },
+    "end": { "line": 12, "column": 21 }
+  },
+  "source": "a5dc612de5471a7c69329d57e65ef2e4145c8492",
+  "originalLintResult": {
+    "rule": "no-action",
+    "severity": 2,
+    "filePath": "tests/dummy/app/templates/components/resource-list/bulk-actions.hbs",
+    "line": 12,
+    "column": 21,
+    "endLine": 12,
+    "endColumn": 51,
+    "source": "{{action (mut selectedItems)}}",
+    "message": "Do not use `action` as {{action ...}}. Instead, use the `on` modifier and `fn` helper."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

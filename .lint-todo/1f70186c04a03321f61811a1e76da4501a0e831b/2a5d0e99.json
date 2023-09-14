@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-select.hbs",
+  "ruleId": "no-implicit-this",
+  "range": {
+    "start": { "line": 11, "column": 25 },
+    "end": { "line": 11, "column": 25 }
+  },
+  "source": "9d8b4e2c4f0c1339059cece6dceddf99a4ded242",
+  "originalLintResult": {
+    "rule": "no-implicit-this",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-select.hbs",
+    "line": 11,
+    "column": 25,
+    "endLine": 11,
+    "endColumn": 39,
+    "source": "dataTestSelect",
+    "message": "Ambiguous path 'dataTestSelect' is not allowed. Use '@dataTestSelect' if it is a named argument or 'this.dataTestSelect' if it is a property on 'this'. If it is a helper or component that has no arguments, you must either convert it to an angle bracket invocation or manually add it to the 'no-implicit-this' rule configuration, e.g. 'no-implicit-this': { allow: ['dataTestSelect'] }."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

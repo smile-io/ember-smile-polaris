@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/render-content.hbs",
+  "ruleId": "no-implicit-this",
+  "range": {
+    "start": { "line": 2, "column": 34 },
+    "end": { "line": 2, "column": 34 }
+  },
+  "source": "41f52c916c85d60988d5ade51540f6389afea15f",
+  "originalLintResult": {
+    "rule": "no-implicit-this",
+    "severity": 2,
+    "filePath": "addon/templates/components/render-content.hbs",
+    "line": 2,
+    "column": 34,
+    "endLine": 2,
+    "endColumn": 55,
+    "source": "content.componentName",
+    "message": "Ambiguous path 'content.componentName' is not allowed. Use '@content.componentName' if it is a named argument or 'this.content.componentName' if it is a property on 'this'. If it is a helper or component that has no arguments, you must either convert it to an angle bracket invocation or manually add it to the 'no-implicit-this' rule configuration, e.g. 'no-implicit-this': { allow: ['content.componentName'] }."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

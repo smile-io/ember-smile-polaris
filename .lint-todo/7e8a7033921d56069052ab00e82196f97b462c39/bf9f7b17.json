@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-action-list/section.hbs",
+  "ruleId": "no-implicit-this",
+  "range": {
+    "start": { "line": 3, "column": 15 },
+    "end": { "line": 3, "column": 15 }
+  },
+  "source": "68000667d35d57a474a8df668e88c3d4d8292114",
+  "originalLintResult": {
+    "rule": "no-implicit-this",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-action-list/section.hbs",
+    "line": 3,
+    "column": 15,
+    "endLine": 3,
+    "endColumn": 34,
+    "source": "hasMultipleSections",
+    "message": "Ambiguous path 'hasMultipleSections' is not allowed. Use '@hasMultipleSections' if it is a named argument or 'this.hasMultipleSections' if it is a property on 'this'. If it is a helper or component that has no arguments, you must either convert it to an angle bracket invocation or manually add it to the 'no-implicit-this' rule configuration, e.g. 'no-implicit-this': { allow: ['hasMultipleSections'] }."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-select.hbs",
+  "ruleId": "no-duplicate-id",
+  "range": {
+    "start": { "line": 13, "column": 6 },
+    "end": { "line": 13, "column": 6 }
+  },
+  "source": "0aaa5e69a623e2deb9d5aea25bc771622dfb834f",
+  "originalLintResult": {
+    "rule": "no-duplicate-id",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-select.hbs",
+    "line": 13,
+    "column": 6,
+    "endLine": 13,
+    "endColumn": 21,
+    "source": "id={{this._id}}",
+    "message": "ID attribute values must be unique"
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

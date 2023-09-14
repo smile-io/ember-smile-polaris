@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-data-table/total.hbs",
+  "ruleId": "no-implicit-this",
+  "range": {
+    "start": { "line": 6, "column": 45 },
+    "end": { "line": 6, "column": 45 }
+  },
+  "source": "5a537e209151ae5fcccd6326b34b5622bcfb0578",
+  "originalLintResult": {
+    "rule": "no-implicit-this",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-data-table/total.hbs",
+    "line": 6,
+    "column": 45,
+    "endLine": 6,
+    "endColumn": 50,
+    "source": "total",
+    "message": "Ambiguous path 'total' is not allowed. Use '@total' if it is a named argument or 'this.total' if it is a property on 'this'. If it is a helper or component that has no arguments, you must either convert it to an angle bracket invocation or manually add it to the 'no-implicit-this' rule configuration, e.g. 'no-implicit-this': { allow: ['total'] }."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

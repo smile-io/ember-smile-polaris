@@ -1,0 +1,26 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-caption.hbs",
+  "ruleId": "require-has-block-helper",
+  "range": {
+    "start": { "line": 2, "column": 8 },
+    "end": { "line": 2, "column": 8 }
+  },
+  "source": "bf562aead7b96b3369f2f96ff8c838387a268cc0",
+  "originalLintResult": {
+    "rule": "require-has-block-helper",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-caption.hbs",
+    "line": 2,
+    "column": 8,
+    "endLine": 2,
+    "endColumn": 16,
+    "source": "hasBlock",
+    "message": "`hasBlock` is deprecated. Use the `has-block` helper instead.",
+    "isFixable": true
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

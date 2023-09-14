@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "tests/dummy/app/templates/components/resource-list/filtering.hbs",
+  "ruleId": "no-implicit-this",
+  "range": {
+    "start": { "line": 29, "column": 16 },
+    "end": { "line": 29, "column": 16 }
+  },
+  "source": "1632733a49b26de8a4b9e43c679021a303a265a1",
+  "originalLintResult": {
+    "rule": "no-implicit-this",
+    "severity": 2,
+    "filePath": "tests/dummy/app/templates/components/resource-list/filtering.hbs",
+    "line": 29,
+    "column": 16,
+    "endLine": 29,
+    "endColumn": 27,
+    "source": "searchValue",
+    "message": "Ambiguous path 'searchValue' is not allowed. Use '@searchValue' if it is a named argument or 'this.searchValue' if it is a property on 'this'. If it is a helper or component that has no arguments, you must either convert it to an angle bracket invocation or manually add it to the 'no-implicit-this' rule configuration, e.g. 'no-implicit-this': { allow: ['searchValue'] }."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

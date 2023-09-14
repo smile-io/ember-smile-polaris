@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-resource-list/bulk-actions.hbs",
+  "ruleId": "no-action",
+  "range": {
+    "start": { "line": 89, "column": 18 },
+    "end": { "line": 89, "column": 18 }
+  },
+  "source": "215997e819ce6fce84cd9a102ad1f788c6dff132",
+  "originalLintResult": {
+    "rule": "no-action",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-resource-list/bulk-actions.hbs",
+    "line": 89,
+    "column": 18,
+    "endLine": 89,
+    "endColumn": 52,
+    "source": "{{action promotedAction.onAction}}",
+    "message": "Do not use `action` as {{action ...}}. Instead, use the `on` modifier and `fn` helper."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

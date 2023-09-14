@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-drop-zone/file-upload.hbs",
+  "ruleId": "require-valid-alt-text",
+  "range": {
+    "start": { "line": 19, "column": 8 },
+    "end": { "line": 19, "column": 8 }
+  },
+  "source": "06532e72d6e776ef91532bfb12929182ee0772e2",
+  "originalLintResult": {
+    "rule": "require-valid-alt-text",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-drop-zone/file-upload.hbs",
+    "line": 19,
+    "column": 8,
+    "endLine": 19,
+    "endColumn": 73,
+    "source": "<img class={{this.imageClasses}} src={{this.imageUpload}} alt=\"\">",
+    "message": "If the `alt` attribute is present and the value is an empty string, `role=\"presentation\"` or `role=\"none\"` must be present"
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

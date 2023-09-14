@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "tests/dummy/app/templates/index.hbs",
+  "ruleId": "no-action",
+  "range": {
+    "start": { "line": 48, "column": 15 },
+    "end": { "line": 48, "column": 15 }
+  },
+  "source": "d0bf5afd6133e17778d3d536890be82eab67ec3c",
+  "originalLintResult": {
+    "rule": "no-action",
+    "severity": 2,
+    "filePath": "tests/dummy/app/templates/index.hbs",
+    "line": 48,
+    "column": 15,
+    "endLine": 48,
+    "endColumn": 95,
+    "source": "{{action (mut application.hideMagicSection) (not application.hideMagicSection)}}",
+    "message": "Do not use `action` as {{action ...}}. Instead, use the `on` modifier and `fn` helper."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

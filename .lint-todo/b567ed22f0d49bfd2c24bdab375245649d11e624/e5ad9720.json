@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-callout-card.hbs",
+  "ruleId": "require-valid-alt-text",
+  "range": {
+    "start": { "line": 64, "column": 8 },
+    "end": { "line": 64, "column": 8 }
+  },
+  "source": "3c2d4a8fb006cfb42c3dbb18406a1674b78e7775",
+  "originalLintResult": {
+    "rule": "require-valid-alt-text",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-callout-card.hbs",
+    "line": 64,
+    "column": 8,
+    "endLine": 68,
+    "endColumn": 9,
+    "source": "<img\n          alt=\"\"\n          class=\"Polaris-CalloutCard__Image {{if @onDismiss \"Polaris-CalloutCard__DismissImage\"}}\"\n          src={{@illustration}}\n        >",
+    "message": "If the `alt` attribute is present and the value is an empty string, `role=\"presentation\"` or `role=\"none\"` must be present"
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

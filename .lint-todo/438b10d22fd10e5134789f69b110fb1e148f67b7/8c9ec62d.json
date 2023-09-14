@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-progress-bar.hbs",
+  "ruleId": "no-implicit-this",
+  "range": {
+    "start": { "line": 17, "column": 12 },
+    "end": { "line": 17, "column": 12 }
+  },
+  "source": "894f4ecea13acd6500265c4bdcab5f329cd0f93a",
+  "originalLintResult": {
+    "rule": "no-implicit-this",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-progress-bar.hbs",
+    "line": 17,
+    "column": 12,
+    "endLine": 17,
+    "endColumn": 25,
+    "source": "progressStyle",
+    "message": "Ambiguous path 'progressStyle' is not allowed. Use '@progressStyle' if it is a named argument or 'this.progressStyle' if it is a property on 'this'. If it is a helper or component that has no arguments, you must either convert it to an angle bracket invocation or manually add it to the 'no-implicit-this' rule configuration, e.g. 'no-implicit-this': { allow: ['progressStyle'] }."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

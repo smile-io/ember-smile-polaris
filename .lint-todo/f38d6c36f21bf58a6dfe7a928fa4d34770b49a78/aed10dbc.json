@@ -1,0 +1,26 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-breadcrumbs.hbs",
+  "ruleId": "no-redundant-landmark-role",
+  "range": {
+    "start": { "line": 1, "column": 0 },
+    "end": { "line": 1, "column": 0 }
+  },
+  "source": "7acda7af0de98312d7bc8b29750bce1f586bf943",
+  "originalLintResult": {
+    "rule": "no-redundant-landmark-role",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-breadcrumbs.hbs",
+    "line": 1,
+    "column": 0,
+    "endLine": 35,
+    "endColumn": 6,
+    "source": "<nav\n  role=\"navigation\"\n  class={{@class}}\n  data-test-breadcrumbs\n  ...attributes\n>\n  {{#if this.breadcrumb.url}}\n    <PolarisUnstyledLink\n      class=\"Polaris-Breadcrumbs__Breadcrumb\"\n      @url={{this.breadcrumb.url}}\n      @onMouseUp={{this.handleMouseUpByBlurring}}\n    >\n      <span data-test-breadcrumb-icon class=\"Polaris-Breadcrumbs__Icon\">\n        <PolarisIcon @source=\"chevron-left\" />\n      </span>\n      <span data-test-breadcrumb-content class=\"Polaris-Breadcrumbs__Content\">\n        {{this.breadcrumb.content}}\n      </span>\n    </PolarisUnstyledLink>\n  {{else}}\n    <button\n      class=\"Polaris-Breadcrumbs__Breadcrumb\"\n      type=\"button\"\n      {{on \"click\" this.handleClick}}\n      {{on \"mouseup\" this.handleMouseUpByBlurring}}\n    >\n      <span data-test-breadcrumb-icon class=\"Polaris-Breadcrumbs__Icon\">\n        <PolarisIcon @source=\"chevron-left\" />\n      </span>\n      <span data-test-breadcrumb-content class=\"Polaris-Breadcrumbs__Content\">\n        {{this.breadcrumb.content}}\n      </span>\n    </button>\n  {{/if}}\n</nav>",
+    "message": "Use of redundant or invalid role: navigation on <nav> detected. If a landmark element is used, any role provided will either be redundant or incorrect.",
+    "isFixable": true
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

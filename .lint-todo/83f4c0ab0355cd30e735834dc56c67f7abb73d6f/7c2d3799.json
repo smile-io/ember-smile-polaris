@@ -1,0 +1,26 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-avatar.hbs",
+  "ruleId": "no-redundant-fn",
+  "range": {
+    "start": { "line": 33, "column": 14 },
+    "end": { "line": 33, "column": 14 }
+  },
+  "source": "77a897383dc802a98c8ec962021a2ff6717be228",
+  "originalLintResult": {
+    "rule": "no-redundant-fn",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-avatar.hbs",
+    "line": 33,
+    "column": 14,
+    "endLine": 33,
+    "endColumn": 37,
+    "source": "{{fn this.handleError}}",
+    "message": "`fn` helpers without additional arguments are not allowed",
+    "isFixable": true
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "tests/dummy/app/templates/components/resource-list/filtering.hbs",
+  "ruleId": "no-implicit-this",
+  "range": {
+    "start": { "line": 28, "column": 33 },
+    "end": { "line": 28, "column": 33 }
+  },
+  "source": "bb68d7968e80383e80a66358dde771becc9474e1",
+  "originalLintResult": {
+    "rule": "no-implicit-this",
+    "severity": 2,
+    "filePath": "tests/dummy/app/templates/components/resource-list/filtering.hbs",
+    "line": 28,
+    "column": 33,
+    "endLine": 28,
+    "endColumn": 47,
+    "source": "appliedFilters",
+    "message": "Ambiguous path 'appliedFilters' is not allowed. Use '@appliedFilters' if it is a named argument or 'this.appliedFilters' if it is a property on 'this'. If it is a helper or component that has no arguments, you must either convert it to an angle bracket invocation or manually add it to the 'no-implicit-this' rule configuration, e.g. 'no-implicit-this': { allow: ['appliedFilters'] }."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

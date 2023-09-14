@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/key-event-listener.hbs",
+  "ruleId": "no-yield-only",
+  "range": {
+    "start": { "line": 1, "column": 0 },
+    "end": { "line": 1, "column": 0 }
+  },
+  "source": "a5fa6e8c1e0f03fb31b5cd17770e4368d44932e4",
+  "originalLintResult": {
+    "rule": "no-yield-only",
+    "severity": 2,
+    "filePath": "addon/templates/components/key-event-listener.hbs",
+    "line": 1,
+    "column": 0,
+    "endLine": 1,
+    "endColumn": 9,
+    "source": "{{yield}}",
+    "message": "{{yield}}-only templates are not allowed"
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

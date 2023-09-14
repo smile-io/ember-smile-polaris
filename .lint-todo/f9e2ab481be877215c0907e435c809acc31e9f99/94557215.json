@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-text-field.hbs",
+  "ruleId": "require-input-label",
+  "range": {
+    "start": { "line": 27, "column": 8 },
+    "end": { "line": 27, "column": 8 }
+  },
+  "source": "f50b1a4b02477fc83375c6668362d7c5c869ab54",
+  "originalLintResult": {
+    "rule": "require-input-label",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-text-field.hbs",
+    "line": 27,
+    "column": 8,
+    "endLine": 62,
+    "endColumn": 10,
+    "source": "<Input\n          data-test-text-field-input\n          type={{unless @multiline this.inputType}}\n          style={{if @multiline this.heightStyle}}\n          name={{@name}}\n          id={{this.id}}\n          disabled={{@disabled}}\n          readonly={{@readOnly}}\n          role={{@role}}\n          autofocus={{@autoFocus}}\n          placeholder={{@placeholder}}\n          autocomplete={{this.autoCompleteInputs}}\n          max={{@max}}\n          min={{@min}}\n          step={{@step}}\n          minlength={{@minLength}}\n          maxlength={{@maxLength}}\n          spellcheck={{@spellCheck}}\n          value={{this.normalizedValue}}\n          class={{this.inputClassName}}\n          aria-multiline={{if @multiline \"true\" \"false\"}}\n          aria-describedby={{this.ariaDescribedBy}}\n          aria-label={{@label}}\n          aria-labelledby={{this.ariaLabelledBy}}\n          aria-invalid={{if this.ariaInvalid \"true\" \"false\"}}\n          aria-owns={{@ariaOwns}}\n          aria-activedescendant={{@ariaActiveDescendant}}\n          aria-autocomplete={{@ariaAutocomplete}}\n          aria-controls={{@ariaControls}}\n          {{did-insert this.setInput}}\n          {{did-update this.handleFocusChange @focused}}\n          {{on \"input\" this.handleChange}}\n          {{on \"focus\" this.onFocus}}\n          {{on \"blur\" this.onBlur}}\n          {{on \"keypress\" this.handleKeyPress}}\n        />",
+    "message": "form elements should not have multiple labels."
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}

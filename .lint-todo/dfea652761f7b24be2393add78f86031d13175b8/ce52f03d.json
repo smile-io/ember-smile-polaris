@@ -1,0 +1,25 @@
+{
+  "engine": "ember-template-lint",
+  "filePath": "addon/templates/components/polaris-resource-list/item.hbs",
+  "ruleId": "no-down-event-binding",
+  "range": {
+    "start": { "line": 9, "column": 7 },
+    "end": { "line": 9, "column": 7 }
+  },
+  "source": "a158be60fde14211f6abfbac329c94fa5a3b4a46",
+  "originalLintResult": {
+    "rule": "no-down-event-binding",
+    "severity": 2,
+    "filePath": "addon/templates/components/polaris-resource-list/item.hbs",
+    "line": 9,
+    "column": 7,
+    "endLine": 9,
+    "endColumn": 18,
+    "source": "\"mousedown\"",
+    "message": "Avoid binding to a `down` event; bind to an `up` event instead"
+  },
+  "fileFormat": 2,
+  "createdDate": 1694563200000,
+  "warnDate": 1697155200000,
+  "errorDate": 1699750800000
+}
