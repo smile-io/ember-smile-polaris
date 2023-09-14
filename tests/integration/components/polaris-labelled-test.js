@@ -13,7 +13,7 @@ module('Integration | Component | polaris-labelled', function (hooks) {
       'component:my-component',
       Component.extend({
         classNames: ['my-component'],
-      })
+      }),
     );
   });
 
@@ -27,7 +27,7 @@ module('Integration | Component | polaris-labelled', function (hooks) {
 
   test('renders error markup when provided with a value', async function (assert) {
     await render(
-      hbs`{{polaris-labelled id="my-labelled" label="Label" error="Error message"}}`
+      hbs`{{polaris-labelled id="my-labelled" label="Label" error="Error message"}}`,
     );
 
     assert.dom('#my-labelledError').hasText('Error message');
@@ -35,7 +35,7 @@ module('Integration | Component | polaris-labelled', function (hooks) {
 
   test('renders no error markup when provided with a boolean value', async function (assert) {
     await render(
-      hbs`{{polaris-labelled id="my-labelled" label="Label" error=true}}`
+      hbs`{{polaris-labelled id="my-labelled" label="Label" error=true}}`,
     );
 
     assert.dom('.Polaris-InlineError').doesNotExist();
@@ -58,7 +58,7 @@ module('Integration | Component | polaris-labelled', function (hooks) {
       onAction: () => this.set('actionFired', true),
     });
     await render(
-      hbs`{{polaris-labelled id="MyLabelled" label="Label" primaryAction=action}}`
+      hbs`{{polaris-labelled id="MyLabelled" label="Label" primaryAction=action}}`,
     );
 
     const actionButtonSelector = 'button.Polaris-Button';

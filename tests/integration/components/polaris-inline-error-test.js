@@ -31,7 +31,7 @@ module('Integration | Component | polaris-inline-error', function (hooks) {
       .hasAttribute(
         'id',
         `${this.fieldID}Error`,
-        'has ID generated from the fieldID'
+        'has ID generated from the fieldID',
       );
     assert
       .dom('[data-test-inline-error-icon]')

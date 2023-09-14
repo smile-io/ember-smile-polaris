@@ -139,7 +139,7 @@ export function rgbaString(color) {
 
 export function rgbToHex({ red, green, blue }) {
   return `#${componentToHex(red)}${componentToHex(green)}${componentToHex(
-    blue
+    blue,
   )}`;
 }
 
@@ -207,7 +207,7 @@ export function rgbaToHex(red, green, blue, alpha) {
       alpha = Math.round((255 * alpha) / 100);
     } else {
       throw new TypeError(
-        `Expected alpha value (${alpha}) as a fraction or percentage`
+        `Expected alpha value (${alpha}) as a fraction or percentage`,
       );
     }
     alpha = (alpha | (1 << 8)).toString(16).slice(1);

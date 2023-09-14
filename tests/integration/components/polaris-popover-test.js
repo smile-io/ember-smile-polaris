@@ -17,18 +17,18 @@ module('Integration | Component | polaris popover', function (hooks) {
   const overlaySelector = 'div.Polaris-PositionedOverlay';
   const popoverSelector = buildNestedSelector(
     overlaySelector,
-    'div.Polaris-Popover'
+    'div.Polaris-Popover',
   );
   const popoverChildSelector = buildNestedSelector(popoverSelector, 'div');
   const popoverContentSelector = buildNestedSelector(
     popoverChildSelector,
-    'div.Polaris-Popover__Content'
+    'div.Polaris-Popover__Content',
   );
   const popoverContentAboveSelector = '.ember-basic-dropdown-content--above';
   const popoverContentBelowSelector = '.ember-basic-dropdown-content--below';
   const popoverPaneSelector = buildNestedSelector(
     popoverContentSelector,
-    'div.Polaris-Popover__Pane.Polaris-Scrollable.Polaris-Scrollable--vertical'
+    'div.Polaris-Popover__Pane.Polaris-Scrollable.Polaris-Scrollable--vertical',
   );
 
   test('it renders the correct HTML with default attributes', async function (assert) {
@@ -59,13 +59,13 @@ module('Integration | Component | polaris popover', function (hooks) {
 
     popovers.exists(
       { count: 1 },
-      'renders one popover after clicking activator'
+      'renders one popover after clicking activator',
     );
 
     popovers.hasAttribute(
       'data-polaris-overlay',
       'true',
-      'popover has data-polaris-overlay attribute'
+      'popover has data-polaris-overlay attribute',
     );
 
     // Check the popover renders the correct HTML.
@@ -73,7 +73,7 @@ module('Integration | Component | polaris popover', function (hooks) {
     assert.equal(
       popoverChildren.length,
       4,
-      'popover has the correct number of children'
+      'popover has the correct number of children',
     );
 
     // Check the popover has the correct child elements.
@@ -87,7 +87,7 @@ module('Integration | Component | polaris popover', function (hooks) {
       .dom(child)
       .hasClass(
         'Polaris-Popover__FocusTracker',
-        'second popover child is focus tracker'
+        'second popover child is focus tracker',
       );
 
     child = popoverChildren[2];
@@ -95,7 +95,7 @@ module('Integration | Component | polaris popover', function (hooks) {
       .dom(child)
       .hasClass(
         'Polaris-Popover__Wrapper',
-        'third popover child is content wrapper'
+        'third popover child is content wrapper',
       );
 
     child = popoverChildren[3];
@@ -103,7 +103,7 @@ module('Integration | Component | polaris popover', function (hooks) {
       .dom(child)
       .hasClass(
         'Polaris-Popover__FocusTracker',
-        'fourth popover child is focus tracker'
+        'fourth popover child is focus tracker',
       );
 
     // Check the content was rendered correctly.
@@ -118,13 +118,13 @@ module('Integration | Component | polaris popover', function (hooks) {
     assert.equal(
       popoverPane.dataset.polarisScrollable,
       'true',
-      'popover pane has data-polaris-scrollable attribute'
+      'popover pane has data-polaris-scrollable attribute',
     );
     assert
       .dom(popoverPane)
       .hasText(
         'This is the popover content',
-        'popover pane contains the correct content'
+        'popover pane contains the correct content',
       );
 
     // Click the activator button again.
@@ -134,7 +134,7 @@ module('Integration | Component | polaris popover', function (hooks) {
     assert
       .dom(overlaySelector)
       .doesNotExist(
-        'after clicking activator twice - does not render any content'
+        'after clicking activator twice - does not render any content',
       );
   });
 
@@ -155,7 +155,7 @@ module('Integration | Component | polaris popover', function (hooks) {
 
     const popoverSectionSelector = buildNestedSelector(
       popoverPaneSelector,
-      'div.Polaris-Popover__Section'
+      'div.Polaris-Popover__Section',
     );
 
     const popoverSections = assert.dom(popoverSectionSelector);
@@ -163,7 +163,7 @@ module('Integration | Component | polaris popover', function (hooks) {
 
     popoverSections.hasText(
       'This is some sectioned popover content',
-      'popover section contains the correct content'
+      'popover section contains the correct content',
     );
   });
 
@@ -232,7 +232,7 @@ module('Integration | Component | polaris popover', function (hooks) {
 
     assert.notOk(
       this.get('onCloseCalled'),
-      'the passed-in onClose action has not been called'
+      'the passed-in onClose action has not been called',
     );
 
     // close the popover
@@ -240,7 +240,7 @@ module('Integration | Component | polaris popover', function (hooks) {
 
     assert.ok(
       this.get('onCloseCalled'),
-      'the passed-in onClose action is called when popover is closed'
+      'the passed-in onClose action is called when popover is closed',
     );
   });
 
@@ -318,7 +318,7 @@ module('Integration | Component | polaris popover', function (hooks) {
 
     assert.ok(
       this.get('wasOnOpenCalled'),
-      'the passed-in onOpen action is called when popover is opened'
+      'the passed-in onOpen action is called when popover is opened',
     );
   });
 
@@ -343,7 +343,7 @@ module('Integration | Component | polaris popover', function (hooks) {
 
     assert
       .dom(
-        `.ember-basic-dropdown-content-wormhole-origin [data-test-inline-content]`
+        `.ember-basic-dropdown-content-wormhole-origin [data-test-inline-content]`,
       )
       .exists({ count: 1 });
   });

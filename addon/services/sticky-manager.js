@@ -6,7 +6,7 @@ import { getRectForNode } from '@shopify/javascript-utilities/geometry';
 import stackedContent from '@smile-io/ember-smile-polaris/utils/breakpoints';
 
 export default class StickyManager extends Service.extend(
-  ContextBoundEventListenersMixin
+  ContextBoundEventListenersMixin,
 ) {
   /**
    * @type {Object[]}
@@ -29,7 +29,7 @@ export default class StickyManager extends Service.extend(
 
   unregisterStickyItem(nodeToRemove) {
     let nodeIndex = this.stickyItems.findIndex(
-      ({ stickyNode }) => nodeToRemove === stickyNode
+      ({ stickyNode }) => nodeToRemove === stickyNode,
     );
     this.stickyItems.splice(nodeIndex, 1);
   }
@@ -70,7 +70,7 @@ export default class StickyManager extends Service.extend(
       let { sticky, top, left, width } = this.evaluateStickyItem(
         stickyItem,
         scrollTop,
-        containerTop
+        containerTop,
       );
 
       this.updateStuckItems(stickyItem, sticky);
@@ -149,7 +149,7 @@ export default class StickyManager extends Service.extend(
   removeStuckItem(stickyItem) {
     let { stickyNode: nodeToRemove } = stickyItem;
     let nodeIndex = this.stuckItems.findIndex(
-      ({ stickyNode }) => nodeToRemove === stickyNode
+      ({ stickyNode }) => nodeToRemove === stickyNode,
     );
     this.stuckItems.splice(nodeIndex, 1);
   }
@@ -182,7 +182,7 @@ export default class StickyManager extends Service.extend(
 
   isNodeStuck(node) {
     let nodeFound = this.stuckItems.findIndex(
-      ({ stickyNode }) => node === stickyNode
+      ({ stickyNode }) => node === stickyNode,
     );
 
     return nodeFound >= 0;

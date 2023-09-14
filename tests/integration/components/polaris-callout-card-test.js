@@ -11,28 +11,28 @@ module('Integration | Component | polaris callout card', function (hooks) {
     'div.Polaris-Card',
     'div.Polaris-CalloutCard__Container',
     'div.Polaris-Card__Section',
-    'div.Polaris-CalloutCard'
+    'div.Polaris-CalloutCard',
   );
   const calloutCardContentSelector = buildNestedSelector(
     calloutCardSelector,
-    'div.Polaris-CalloutCard__Content'
+    'div.Polaris-CalloutCard__Content',
   );
   const calloutCardContentHeadingSelector = buildNestedSelector(
     calloutCardContentSelector,
     'div.Polaris-CalloutCard__Title',
-    'h2.Polaris-Heading'
+    'h2.Polaris-Heading',
   );
   const calloutCardContentTextSelector = buildNestedSelector(
     calloutCardContentSelector,
-    'div.Polaris-TextContainer'
+    'div.Polaris-TextContainer',
   );
   const calloutCardButtonWrapperSelector = buildNestedSelector(
     calloutCardContentSelector,
-    'div.Polaris-CalloutCard__Buttons'
+    'div.Polaris-CalloutCard__Buttons',
   );
   const calloutCardImageSelector = buildNestedSelector(
     calloutCardSelector,
-    'img.Polaris-CalloutCard__Image'
+    'img.Polaris-CalloutCard__Image',
   );
 
   test('it renders the correct HTML in inline form without secondary action', async function (assert) {
@@ -56,7 +56,7 @@ module('Integration | Component | polaris callout card', function (hooks) {
     headings.exists({ count: 1 }, 'renders one heading');
     headings.hasText(
       'This is an inline callout card',
-      'renders the correct heading'
+      'renders the correct heading',
     );
 
     const texts = assert.dom(calloutCardContentTextSelector);
@@ -69,7 +69,7 @@ module('Integration | Component | polaris callout card', function (hooks) {
 
     const buttonSelector = buildNestedSelector(
       calloutCardButtonWrapperSelector,
-      'button.Polaris-Button'
+      'button.Polaris-Button',
     );
     const buttons = assert.dom(buttonSelector);
     buttons.exists({ count: 1 }, 'renders one button');
@@ -81,7 +81,7 @@ module('Integration | Component | polaris callout card', function (hooks) {
     images.hasAttribute(
       'src',
       'http://www.somewhere.com/some-image.jpg',
-      'renders the correct image'
+      'renders the correct image',
     );
     images.hasAttribute('alt', '', 'renders an empty image title');
   });
@@ -112,7 +112,7 @@ module('Integration | Component | polaris callout card', function (hooks) {
     headings.exists({ count: 1 }, 'renders one heading');
     headings.hasText(
       'This is a block callout card',
-      'renders the correct heading'
+      'renders the correct heading',
     );
 
     const texts = assert.dom(calloutCardContentTextSelector);
@@ -127,7 +127,7 @@ module('Integration | Component | polaris callout card', function (hooks) {
       calloutCardButtonWrapperSelector,
       'div.Polaris-ButtonGroup',
       'div.Polaris-ButtonGroup__Item',
-      'button.Polaris-Button'
+      'button.Polaris-Button',
     );
     const buttons = findAll(buttonSelector);
     assert.equal(buttons.length, 2, 'renders two buttons');
@@ -137,7 +137,7 @@ module('Integration | Component | polaris callout card', function (hooks) {
       .dom(button)
       .hasText(
         'Primary action here',
-        'renders the correct primary button text'
+        'renders the correct primary button text',
       );
     assert
       .dom(button)
@@ -148,7 +148,7 @@ module('Integration | Component | polaris callout card', function (hooks) {
       .dom(button)
       .hasText(
         'Secondary action here',
-        'renders the correct secondary button text'
+        'renders the correct secondary button text',
       );
     assert
       .dom(button)
@@ -160,7 +160,7 @@ module('Integration | Component | polaris callout card', function (hooks) {
     images.hasAttribute(
       'src',
       'http://www.somewhere.com/some-image.jpg',
-      'renders the correct image'
+      'renders the correct image',
     );
     images.hasAttribute('alt', '', 'renders an empty image title');
   });
@@ -188,17 +188,17 @@ module('Integration | Component | polaris callout card', function (hooks) {
     await click('button.Polaris-Button:first-of-type');
     assert.ok(
       this.get('primaryActionFired'),
-      'after firing primary action - primary action has fired'
+      'after firing primary action - primary action has fired',
     );
     assert.notOk(
       this.get('secondaryActionFired'),
-      'after firing primary action - secondary action has not fired'
+      'after firing primary action - secondary action has not fired',
     );
 
     await click('button.Polaris-Button.Polaris-Button--plain');
     assert.ok(
       this.get('secondaryActionFired'),
-      'after firing secondary action - secondary action has been fired'
+      'after firing secondary action - secondary action has been fired',
     );
   });
 

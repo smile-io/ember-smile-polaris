@@ -129,7 +129,7 @@ export default class PolarisPagination extends Component {
 
     assert(
       'ember-polaris:polaris-pagination `nextKeys` should be an array',
-      isArray(nextKeys)
+      isArray(nextKeys),
     );
 
     return true;
@@ -145,7 +145,7 @@ export default class PolarisPagination extends Component {
 
     assert(
       'ember-polaris:polaris-pagination `previousKeys` should be an array',
-      isArray(previousKeys)
+      isArray(previousKeys),
     );
 
     return true;

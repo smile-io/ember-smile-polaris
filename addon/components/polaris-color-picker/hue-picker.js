@@ -13,7 +13,7 @@ function offsetForHue(hue, sliderHeight, draggerHeight) {
   return clamp(
     (hue / 360) * slidableArea + VERTICAL_PADDING,
     0,
-    sliderHeight - draggerHeight
+    sliderHeight - draggerHeight,
   );
 }
 

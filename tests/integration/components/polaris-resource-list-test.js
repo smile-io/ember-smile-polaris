@@ -87,11 +87,11 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
 
     this.owner.register(
       'component:shallow-item-component',
-      ShallowItemComponent
+      ShallowItemComponent,
     );
     this.owner.register(
       'component:custom-markup-component',
-      CustomMarkupComponent
+      CustomMarkupComponent,
     );
     this.owner.register('component:item-component', ItemComponent);
   });
@@ -157,7 +157,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
           this,
           'polaris-resource-list/bulk-actions',
           BulkActionsComponent,
-          'paginatedSelectAllAction'
+          'paginatedSelectAllAction',
         );
       },
     },
@@ -184,7 +184,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
       `);
         assert.ok(this.get('paginatedSelectAllAction'));
       });
-    }
+    },
   );
 
   module('resourceName', function () {
@@ -268,7 +268,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
           this,
           'polaris-resource-list/bulk-actions',
           BulkActionsComponent,
-          'accessibilityLabel'
+          'accessibilityLabel',
         );
       },
     },
@@ -318,7 +318,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
       `);
         assert.equal(this.get('accessibilityLabel'), 'Select all 3 items');
       });
-    }
+    },
   );
 
   module('idForItem()', function () {
@@ -362,7 +362,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         }}
       `);
       await click(
-        '.Polaris-ResourceList-Item:first-of-type [data-test-id="larger-selection-area"]'
+        '.Polaris-ResourceList-Item:first-of-type [data-test-id="larger-selection-area"]',
       );
       assert.ok(this.get('wasOnSelectionChangeCalled'));
     });
@@ -582,7 +582,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
             this,
             'polaris-select',
             SelectComponent,
-            'options'
+            'options',
           );
         },
       },
@@ -597,7 +597,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         `);
           assert.deepEqual(this.get('options'), sortOptions);
         });
-      }
+      },
     );
 
     module(
@@ -608,7 +608,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
             this,
             'polaris-select',
             SelectComponent,
-            'value'
+            'value',
           );
         },
       },
@@ -625,7 +625,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         `);
           assert.equal(this.get('value'), 'sortValue');
         });
-      }
+      },
     );
 
     module('onSortChange', function () {

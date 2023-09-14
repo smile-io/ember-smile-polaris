@@ -27,7 +27,7 @@ module('Integration | Component | polaris stack', function (hooks) {
     assert.equal(
       stackItems.length,
       2,
-      'renders the correct number of stack items'
+      'renders the correct number of stack items',
     );
 
     // Check the first stack item.
@@ -36,20 +36,20 @@ module('Integration | Component | polaris stack', function (hooks) {
     assert.equal(
       stackItemChildren.length,
       1,
-      'first stack item - renders the correct number of children'
+      'first stack item - renders the correct number of children',
     );
 
     let stackItemChild = stackItemChildren[0];
     assert.equal(
       stackItemChild.tagName.toLowerCase(),
       'p',
-      'first stack item - renders the correct child element'
+      'first stack item - renders the correct child element',
     );
     assert
       .dom(stackItemChild)
       .hasText(
         'Paragraph',
-        'first stack item - renders the correct child content'
+        'first stack item - renders the correct child content',
       );
 
     // Check the second stack item.
@@ -58,18 +58,18 @@ module('Integration | Component | polaris stack', function (hooks) {
     assert.equal(
       stackItemChildren.length,
       1,
-      'second stack item - renders the correct number of children'
+      'second stack item - renders the correct number of children',
     );
 
     stackItemChild = stackItemChildren[0];
     assert.equal(
       stackItemChild.tagName.toLowerCase(),
       'div',
-      'second stack item - renders the correct child element'
+      'second stack item - renders the correct child element',
     );
     assert.ok(
       stackItemChild.textContent.trim().indexOf('Outer div') > -1,
-      'second stack item - renders the correct child content'
+      'second stack item - renders the correct child content',
     );
   });
 
@@ -82,7 +82,7 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stack)
       .hasClass(
         'Polaris-Stack--vertical',
-        'vertical=true - adds the vertical class'
+        'vertical=true - adds the vertical class',
       );
 
     this.set('vertical', false);
@@ -90,7 +90,7 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stack)
       .hasNoClass(
         'Polaris-Stack--vertical',
-        'vertical=true - does not add the vertical class'
+        'vertical=true - does not add the vertical class',
       );
   });
 
@@ -102,7 +102,7 @@ module('Integration | Component | polaris stack', function (hooks) {
     assert.equal(
       stack.className.indexOf('Polaris-Stack--spacing'),
       -1,
-      'spacing=null - does not add any spacing class'
+      'spacing=null - does not add any spacing class',
     );
 
     this.set('spacing', 'none');
@@ -110,7 +110,7 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stack)
       .hasClass(
         'Polaris-Stack--spacingNone',
-        'spacing=none - adds the correct spacing class'
+        'spacing=none - adds the correct spacing class',
       );
 
     this.set('spacing', 'loose');
@@ -118,7 +118,7 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stack)
       .hasClass(
         'Polaris-Stack--spacingLoose',
-        'spacing=loose - adds the correct spacing class'
+        'spacing=loose - adds the correct spacing class',
       );
 
     this.set('spacing', 'tight');
@@ -126,7 +126,7 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stack)
       .hasClass(
         'Polaris-Stack--spacingTight',
-        'spacing=tight - adds the correct spacing class'
+        'spacing=tight - adds the correct spacing class',
       );
   });
 
@@ -138,7 +138,7 @@ module('Integration | Component | polaris stack', function (hooks) {
     assert.equal(
       stack.className.indexOf('Polaris-Stack--alignment'),
       -1,
-      'alignment=null - does not add any alignment class'
+      'alignment=null - does not add any alignment class',
     );
 
     this.set('alignment', 'leading');
@@ -146,7 +146,7 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stack)
       .hasClass(
         'Polaris-Stack--alignmentLeading',
-        'alignment=leading - adds the correct alignment class'
+        'alignment=leading - adds the correct alignment class',
       );
 
     this.set('alignment', 'trailing');
@@ -154,7 +154,7 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stack)
       .hasClass(
         'Polaris-Stack--alignmentTrailing',
-        'alignment=trailing - adds the correct alignment class'
+        'alignment=trailing - adds the correct alignment class',
       );
 
     this.set('alignment', 'center');
@@ -162,7 +162,7 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stack)
       .hasClass(
         'Polaris-Stack--alignmentCenter',
-        'alignment=center - adds the correct alignment class'
+        'alignment=center - adds the correct alignment class',
       );
 
     this.set('alignment', 'fill');
@@ -170,7 +170,7 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stack)
       .hasClass(
         'Polaris-Stack--alignmentFill',
-        'alignment=fill - adds the correct alignment class'
+        'alignment=fill - adds the correct alignment class',
       );
 
     this.set('alignment', 'baseline');
@@ -178,7 +178,7 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stack)
       .hasClass(
         'Polaris-Stack--alignmentBaseline',
-        'alignment=baseline - adds the correct alignment class'
+        'alignment=baseline - adds the correct alignment class',
       );
   });
 
@@ -190,7 +190,7 @@ module('Integration | Component | polaris stack', function (hooks) {
     assert.equal(
       stack.className.indexOf('Polaris-Stack--distribution'),
       -1,
-      'distribution=baseline - does not add any distribution class'
+      'distribution=baseline - does not add any distribution class',
     );
 
     this.set('distribution', 'leading');
@@ -198,7 +198,7 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stack)
       .hasClass(
         'Polaris-Stack--distributionLeading',
-        'distribution=leading - adds the correct distribution class'
+        'distribution=leading - adds the correct distribution class',
       );
 
     this.set('distribution', 'trailing');
@@ -206,7 +206,7 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stack)
       .hasClass(
         'Polaris-Stack--distributionTrailing',
-        'distribution=trailing - adds the correct distribution class'
+        'distribution=trailing - adds the correct distribution class',
       );
 
     this.set('distribution', 'center');
@@ -214,7 +214,7 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stack)
       .hasClass(
         'Polaris-Stack--distributionCenter',
-        'distribution=center - adds the correct distribution class'
+        'distribution=center - adds the correct distribution class',
       );
 
     this.set('distribution', 'fill');
@@ -222,7 +222,7 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stack)
       .hasClass(
         'Polaris-Stack--distributionFill',
-        'distribution=fill - adds the correct distribution class'
+        'distribution=fill - adds the correct distribution class',
       );
 
     this.set('distribution', 'fillEvenly');
@@ -230,7 +230,7 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stack)
       .hasClass(
         'Polaris-Stack--distributionFillEvenly',
-        'distribution=fillEvenly - adds the correct distribution class'
+        'distribution=fillEvenly - adds the correct distribution class',
       );
   });
 
@@ -242,7 +242,7 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stack)
       .hasNoClass(
         'Polaris-Stack--noWrap',
-        'wrap=undefined - does not add the no-wrap class'
+        'wrap=undefined - does not add the no-wrap class',
       );
 
     this.set('wrap', true);
@@ -250,7 +250,7 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stack)
       .hasNoClass(
         'Polaris-Stack--noWrap',
-        'wrap=true - does not add the no-wrap class'
+        'wrap=true - does not add the no-wrap class',
       );
 
     this.set('wrap', false);
@@ -278,7 +278,7 @@ module('Integration | Component | polaris stack', function (hooks) {
     assert.equal(
       stackItems.length,
       3,
-      'renders the correct number of stack items'
+      'renders the correct number of stack items',
     );
 
     // Check the first stack item.
@@ -287,13 +287,13 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stackItem)
       .hasClass(
         'Polaris-Stack__Item--fill',
-        'first stack item - has fill class'
+        'first stack item - has fill class',
       );
     assert
       .dom(stackItem)
       .hasText(
         'Block item with fill',
-        'first stack item - renders the correct content'
+        'first stack item - renders the correct content',
       );
 
     // Check the second stack item.
@@ -302,13 +302,13 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stackItem)
       .hasNoClass(
         'Polaris-Stack__Item--fill',
-        'second stack item - does not have fill class'
+        'second stack item - does not have fill class',
       );
     assert
       .dom(stackItem)
       .hasText(
         'Inline item',
-        'second stack item - renders the correct content'
+        'second stack item - renders the correct content',
       );
 
     // Check the third stack item.
@@ -317,13 +317,13 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stackItem)
       .hasNoClass(
         'Polaris-Stack__Item--fill',
-        'third stack item - does not have fill class'
+        'third stack item - does not have fill class',
       );
     assert
       .dom(stackItem)
       .hasText(
         'Paragraph inside a magically wrapped item',
-        'third stack item - renders the correct content'
+        'third stack item - renders the correct content',
       );
   });
 
@@ -338,14 +338,14 @@ module('Integration | Component | polaris stack', function (hooks) {
       .dom(stackSelector)
       .hasClass(
         'stack-class',
-        'classic syntax - supports a custom `class` to be applied'
+        'classic syntax - supports a custom `class` to be applied',
       );
 
     assert
       .dom(stackItemSelector)
       .hasClass(
         'stack-item-class',
-        'classic syntax - supports a custom `class` to be applied to stack item'
+        'classic syntax - supports a custom `class` to be applied to stack item',
       );
   });
 });

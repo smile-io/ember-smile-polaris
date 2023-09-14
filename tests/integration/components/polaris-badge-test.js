@@ -41,7 +41,7 @@ module('Integration | Component | polaris badge', function (hooks) {
     let badge = find(badgeSelector);
     let visuallyHiddenSelector = buildNestedSelector(
       badgeSelector,
-      'span.Polaris-VisuallyHidden'
+      'span.Polaris-VisuallyHidden',
     );
 
     // With status unset:
@@ -50,12 +50,12 @@ module('Integration | Component | polaris badge', function (hooks) {
     assert.equal(
       badge.className.indexOf('Polaris-Badge--status'),
       -1,
-      'status not set - does not apply status classes'
+      'status not set - does not apply status classes',
     );
     assert
       .dom(visuallyHiddenSelector)
       .doesNotExist(
-        'status not set - does not render any visually hidden components'
+        'status not set - does not render any visually hidden components',
       );
 
     // With status set to default:
@@ -65,12 +65,12 @@ module('Integration | Component | polaris badge', function (hooks) {
     assert.equal(
       badge.className.indexOf('Polaris-Badge--status'),
       -1,
-      'status set to default - does not apply status classes'
+      'status set to default - does not apply status classes',
     );
     assert
       .dom(visuallyHiddenSelector)
       .doesNotExist(
-        'status set to default - does not render any visually hidden components'
+        'status set to default - does not render any visually hidden components',
       );
 
     // With status set to success:
@@ -81,13 +81,13 @@ module('Integration | Component | polaris badge', function (hooks) {
       .dom(badgeSelector)
       .hasClass(
         'Polaris-Badge--statusSuccess',
-        'status set to success - applies correct status class'
+        'status set to success - applies correct status class',
       );
     assert
       .dom(visuallyHiddenSelector)
       .hasText(
         'Success',
-        'status set to success - renders correct visually hidden content'
+        'status set to success - renders correct visually hidden content',
       );
 
     // With status set to info:
@@ -98,13 +98,13 @@ module('Integration | Component | polaris badge', function (hooks) {
       .dom(badge)
       .hasClass(
         'Polaris-Badge--statusInfo',
-        'status set to info - applies correct status class'
+        'status set to info - applies correct status class',
       );
     assert
       .dom(visuallyHiddenSelector)
       .hasText(
         'Info',
-        'status set to info - renders correct visually hidden content'
+        'status set to info - renders correct visually hidden content',
       );
 
     // With status set to attention:
@@ -115,13 +115,13 @@ module('Integration | Component | polaris badge', function (hooks) {
       .dom(badge)
       .hasClass(
         'Polaris-Badge--statusAttention',
-        'status set to attention - applies correct status class'
+        'status set to attention - applies correct status class',
       );
     assert
       .dom(visuallyHiddenSelector)
       .hasText(
         'Attention',
-        'status set to attention - renders correct visually hidden content'
+        'status set to attention - renders correct visually hidden content',
       );
 
     // With status set to warning:
@@ -132,13 +132,13 @@ module('Integration | Component | polaris badge', function (hooks) {
       .dom(badge)
       .hasClass(
         'Polaris-Badge--statusWarning',
-        'status set to warning - applies correct status class'
+        'status set to warning - applies correct status class',
       );
     assert
       .dom(visuallyHiddenSelector)
       .hasText(
         'Warning',
-        'status set to warning - renders correct visually hidden content'
+        'status set to warning - renders correct visually hidden content',
       );
 
     // With status set to new:
@@ -149,13 +149,13 @@ module('Integration | Component | polaris badge', function (hooks) {
       .dom(badge)
       .hasClass(
         'Polaris-Badge--statusNew',
-        'status set to new - applies correct status class'
+        'status set to new - applies correct status class',
       );
     assert
       .dom(visuallyHiddenSelector)
       .hasText(
         'New',
-        'status set to new - renders correct visually hidden content'
+        'status set to new - renders correct visually hidden content',
       );
   });
 
@@ -170,7 +170,7 @@ module('Integration | Component | polaris badge', function (hooks) {
     let badgePipSelector = '.Polaris-Badge__Pip';
     let badgePipVisuallyHiddenSelector = buildNestedSelector(
       '.Polaris-Badge__Pip',
-      '.Polaris-VisuallyHidden'
+      '.Polaris-VisuallyHidden',
     );
 
     // With progress unset:
@@ -179,7 +179,7 @@ module('Integration | Component | polaris badge', function (hooks) {
     assert.equal(
       badge.className.indexOf('Polaris-Badge--progress'),
       -1,
-      'progress not set - does not apply progress classes'
+      'progress not set - does not apply progress classes',
     );
     assert
       .dom(badgePipSelector)
@@ -187,7 +187,7 @@ module('Integration | Component | polaris badge', function (hooks) {
     assert
       .dom(badgePipVisuallyHiddenSelector)
       .doesNotExist(
-        'progress not set - does not render a pip visually hidden component'
+        'progress not set - does not render a pip visually hidden component',
       );
 
     // With progress set to default:
@@ -197,7 +197,7 @@ module('Integration | Component | polaris badge', function (hooks) {
     assert.equal(
       badge.className.indexOf('Polaris-Badge--progress'),
       -1,
-      'progress set to default - does not apply progress classes'
+      'progress set to default - does not apply progress classes',
     );
     assert
       .dom(badgePipSelector)
@@ -205,7 +205,7 @@ module('Integration | Component | polaris badge', function (hooks) {
     assert
       .dom(badgePipVisuallyHiddenSelector)
       .doesNotExist(
-        'progress set to default - does not render a pip visually hidden component'
+        'progress set to default - does not render a pip visually hidden component',
       );
 
     // With progress set to 'incomplete':
@@ -216,7 +216,7 @@ module('Integration | Component | polaris badge', function (hooks) {
       .dom(badge)
       .hasClass(
         'Polaris-Badge--progressIncomplete',
-        'progress set to incomplete - applies correct progress class'
+        'progress set to incomplete - applies correct progress class',
       );
     assert
       .dom(badgePipSelector)
@@ -224,13 +224,13 @@ module('Integration | Component | polaris badge', function (hooks) {
     assert
       .dom(badgePipVisuallyHiddenSelector)
       .exists(
-        'progress set to incomplete - renders one pip visually hidden component'
+        'progress set to incomplete - renders one pip visually hidden component',
       );
     assert
       .dom(badgePipVisuallyHiddenSelector)
       .hasText(
         'Incomplete',
-        'progress set to incomplete - renders correct pip visually hidden content'
+        'progress set to incomplete - renders correct pip visually hidden content',
       );
 
     // With progress set to 'partiallyComplete':
@@ -241,7 +241,7 @@ module('Integration | Component | polaris badge', function (hooks) {
       .dom(badge)
       .hasClass(
         'Polaris-Badge--progressPartiallyComplete',
-        'progress set to partiallyComplete - applies correct progress class'
+        'progress set to partiallyComplete - applies correct progress class',
       );
     assert
       .dom(badgePipSelector)
@@ -249,13 +249,13 @@ module('Integration | Component | polaris badge', function (hooks) {
     assert
       .dom(badgePipVisuallyHiddenSelector)
       .exists(
-        'progress set to partiallyComplete - renders one pip visually hidden component'
+        'progress set to partiallyComplete - renders one pip visually hidden component',
       );
     assert
       .dom(badgePipVisuallyHiddenSelector)
       .hasText(
         'Partially complete',
-        'progress set to partiallyComplete - renders correct pip visually hidden content'
+        'progress set to partiallyComplete - renders correct pip visually hidden content',
       );
 
     // With progress set to 'complete':
@@ -266,7 +266,7 @@ module('Integration | Component | polaris badge', function (hooks) {
       .dom(badge)
       .hasClass(
         'Polaris-Badge--progressComplete',
-        'progress set to complete - applies correct progress class'
+        'progress set to complete - applies correct progress class',
       );
     assert
       .dom(badgePipSelector)
@@ -274,13 +274,13 @@ module('Integration | Component | polaris badge', function (hooks) {
     assert
       .dom(badgePipVisuallyHiddenSelector)
       .exists(
-        'progress set to complete - renders one pip visually hidden component'
+        'progress set to complete - renders one pip visually hidden component',
       );
     assert
       .dom(badgePipVisuallyHiddenSelector)
       .hasText(
         'Complete',
-        'progress set to complete - renders correct pip visually hidden content'
+        'progress set to complete - renders correct pip visually hidden content',
       );
   });
 
@@ -293,7 +293,7 @@ module('Integration | Component | polaris badge', function (hooks) {
       .dom(badgeSelector)
       .hasClass(
         'custom-class',
-        'applies `class` when used in curly-brackets form'
+        'applies `class` when used in curly-brackets form',
       );
 
     await render(hbs`
@@ -303,7 +303,7 @@ module('Integration | Component | polaris badge', function (hooks) {
       .dom(badgeSelector)
       .hasClass(
         'custom-class',
-        'applies `@class` when used in angle-brackets form'
+        'applies `@class` when used in angle-brackets form',
       );
 
     await render(hbs`
@@ -313,7 +313,7 @@ module('Integration | Component | polaris badge', function (hooks) {
       .dom(badgeSelector)
       .hasClass(
         'custom-class',
-        'applies `class` when used in angle-brackets form'
+        'applies `class` when used in angle-brackets form',
       );
   });
 });

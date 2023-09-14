@@ -32,7 +32,7 @@ export default class PolarisInlineError extends Component {
     super.init(...arguments);
     assert(
       '[polaris-inline-error] Missing required `fieldID` param!',
-      this.fieldID
+      this.fieldID,
     );
   }
 }

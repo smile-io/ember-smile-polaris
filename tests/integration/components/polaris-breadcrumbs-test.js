@@ -80,7 +80,7 @@ module('Integration | Component | polaris-breadcrumbs', function (hooks) {
     await click('button');
     assert.verifySteps(
       ['Action invoked with 0 args'],
-      'action does not append click event to invoked action args'
+      'action does not append click event to invoked action args',
     );
   });
 
@@ -99,7 +99,7 @@ module('Integration | Component | polaris-breadcrumbs', function (hooks) {
       .dom('[data-test-breadcrumbs]')
       .hasClass(
         'custom-class',
-        'applies `class` when used in curly-brackets form'
+        'applies `class` when used in curly-brackets form',
       );
 
     await render(hbs`
@@ -109,7 +109,7 @@ module('Integration | Component | polaris-breadcrumbs', function (hooks) {
       .dom('[data-test-breadcrumbs]')
       .hasClass(
         'custom-class',
-        'applies `@class` when used in angle-brackets form'
+        'applies `@class` when used in angle-brackets form',
       );
 
     await render(hbs`
@@ -119,7 +119,7 @@ module('Integration | Component | polaris-breadcrumbs', function (hooks) {
       .dom('[data-test-breadcrumbs]')
       .hasClass(
         'custom-class',
-        'applies `class` when used in angle-brackets form'
+        'applies `class` when used in angle-brackets form',
       );
   });
 });

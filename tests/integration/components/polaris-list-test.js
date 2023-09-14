@@ -10,7 +10,7 @@ module('Integration | Component | polaris list', function (hooks) {
   const listSelector = '.Polaris-List';
   const listItemSelector = buildNestedSelector(
     listSelector,
-    'li.Polaris-List__Item'
+    'li.Polaris-List__Item',
   );
 
   test('it renders the correct HTML', async function (assert) {
@@ -35,7 +35,7 @@ module('Integration | Component | polaris list', function (hooks) {
     assert.equal(
       listItems.length,
       0,
-      'no items - does not render any list items'
+      'no items - does not render any list items',
     );
 
     this.set('items', [
@@ -63,19 +63,19 @@ module('Integration | Component | polaris list', function (hooks) {
     assert.equal(
       list.nodeName,
       'UL',
-      'unspecified type - renders unordered list'
+      'unspecified type - renders unordered list',
     );
     assert
       .dom(list)
       .hasClass(
         'Polaris-List--typeBullet',
-        'unspecified type - applies bullet class'
+        'unspecified type - applies bullet class',
       );
     assert
       .dom(list)
       .hasNoClass(
         'Polaris-List--typeNumber',
-        'unspecified type - does not apply number class'
+        'unspecified type - does not apply number class',
       );
 
     this.set('type', 'number');
@@ -85,13 +85,13 @@ module('Integration | Component | polaris list', function (hooks) {
       .dom(list)
       .hasNoClass(
         'Polaris-List--typeBullet',
-        'number type - does not apply bullet class'
+        'number type - does not apply bullet class',
       );
     assert
       .dom(list)
       .hasClass(
         'Polaris-List--typeNumber',
-        'number type - applies number class'
+        'number type - applies number class',
       );
 
     this.set('type', 'bullet');
@@ -101,13 +101,13 @@ module('Integration | Component | polaris list', function (hooks) {
       .dom(list)
       .hasClass(
         'Polaris-List--typeBullet',
-        'bullet type - applies bullet class'
+        'bullet type - applies bullet class',
       );
     assert
       .dom(list)
       .hasNoClass(
         'Polaris-List--typeNumber',
-        'bullet type - does not apply number class'
+        'bullet type - does not apply number class',
       );
 
     this.set('type', 'unsupported');
@@ -115,19 +115,19 @@ module('Integration | Component | polaris list', function (hooks) {
     assert.equal(
       list.nodeName,
       'UL',
-      'unsupported type - renders unordered list'
+      'unsupported type - renders unordered list',
     );
     assert
       .dom(list)
       .hasClass(
         'Polaris-List--typeBullet',
-        'unsupported type - applies bullet class'
+        'unsupported type - applies bullet class',
       );
     assert
       .dom(list)
       .hasNoClass(
         'Polaris-List--typeNumber',
-        'unsupported type - does not apply number class'
+        'unsupported type - does not apply number class',
       );
   });
 });

@@ -15,11 +15,11 @@ const titleSelector = '[data-test-choice-list-title]';
 const choiceWithDescriptionWrapperSelector = buildNestedSelector(
   choicesWrapperSelector,
   '[data-test-choice-list-item]',
-  'div'
+  'div',
 );
 const choiceWithDescriptionSelector = buildNestedSelector(
   choiceWithDescriptionWrapperSelector,
-  choiceSelector
+  choiceSelector,
 );
 const helpTextSelector = '[data-test-choice-help-text]';
 const choiceErrorSelector = '[data-test-choice-list-error]';
@@ -72,16 +72,16 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
     assert.equal(
       radioInput.value,
       'one',
-      'first choice - radio input has the correct value'
+      'first choice - radio input has the correct value',
     );
     assert.equal(
       radioInput.name,
       'test-single-choice-list',
-      'first choice - radio input has the correct name'
+      'first choice - radio input has the correct name',
     );
     assert.notOk(
       radioInput.checked,
-      'first choice - radio input is not checked'
+      'first choice - radio input is not checked',
     );
 
     choice = choices[1];
@@ -93,12 +93,12 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
     assert.equal(
       radioInput.value,
       'two',
-      'second choice - radio input has the correct value'
+      'second choice - radio input has the correct value',
     );
     assert.equal(
       radioInput.name,
       'test-single-choice-list',
-      'second choice - radio input has the correct name'
+      'second choice - radio input has the correct name',
     );
     assert.ok(radioInput.checked, 'second choice - radio input is checked');
 
@@ -111,16 +111,16 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
     assert.equal(
       radioInput.value,
       'three',
-      'third choice - radio input has the correct value'
+      'third choice - radio input has the correct value',
     );
     assert.equal(
       radioInput.name,
       'test-single-choice-list',
-      'third choice - radio input has the correct name'
+      'third choice - radio input has the correct name',
     );
     assert.notOk(
       radioInput.checked,
-      'third choice - radio input is not checked'
+      'third choice - radio input is not checked',
     );
   });
 
@@ -165,16 +165,16 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
     assert.equal(
       checkboxInput.value,
       'one',
-      'first choice - checkbox input has the correct value'
+      'first choice - checkbox input has the correct value',
     );
     assert.equal(
       checkboxInput.name,
       'test-multiple-choice-list[]',
-      'first choice - checkbox input has the correct name'
+      'first choice - checkbox input has the correct name',
     );
     assert.notOk(
       checkboxInput.checked,
-      'first choice - checkbox input is not checked'
+      'first choice - checkbox input is not checked',
     );
 
     choice = choices[1];
@@ -186,16 +186,16 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
     assert.equal(
       checkboxInput.value,
       'two',
-      'second choice - checkbox input has the correct value'
+      'second choice - checkbox input has the correct value',
     );
     assert.equal(
       checkboxInput.name,
       'test-multiple-choice-list[]',
-      'second choice - checkbox input has the correct name'
+      'second choice - checkbox input has the correct name',
     );
     assert.ok(
       checkboxInput.checked,
-      'second choice - checkbox input is checked'
+      'second choice - checkbox input is checked',
     );
 
     choice = choices[2];
@@ -207,16 +207,16 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
     assert.equal(
       checkboxInput.value,
       'three',
-      'third choice - checkbox input has the correct value'
+      'third choice - checkbox input has the correct value',
     );
     assert.equal(
       checkboxInput.name,
       'test-multiple-choice-list[]',
-      'third choice - checkbox input has the correct name'
+      'third choice - checkbox input has the correct name',
     );
     assert.ok(
       checkboxInput.checked,
-      'third choice - checkbox input is checked'
+      'third choice - checkbox input is checked',
     );
   });
 
@@ -226,34 +226,34 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
       titleHidden: false,
     });
     await render(
-      hbs`{{polaris-choice-list title=title titleHidden=titleHidden}}`
+      hbs`{{polaris-choice-list title=title titleHidden=titleHidden}}`,
     );
 
     const choiceLists = findAll(choiceListSelector);
     assert.equal(
       choiceLists.length,
       1,
-      'with title set and unhidden - renders one choice list'
+      'with title set and unhidden - renders one choice list',
     );
     const choiceList = choiceLists[0];
     assert
       .dom(choiceList)
       .hasNoClass(
         'Polaris-ChoiceList--titleHidden',
-        'with title set and unhidden - does not apply titleHidden class to choice list'
+        'with title set and unhidden - does not apply titleHidden class to choice list',
       );
 
     let titles = findAll(titleSelector);
     assert.equal(
       titles.length,
       1,
-      'with title set and unhidden - renders one title'
+      'with title set and unhidden - renders one title',
     );
     assert
       .dom(titles[0])
       .hasText(
         'Original title',
-        'with title set and unhidden - renders the correct title text'
+        'with title set and unhidden - renders the correct title text',
       );
 
     this.set('titleHidden', true);
@@ -261,7 +261,7 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
       .dom(choiceList)
       .hasClass(
         'Polaris-ChoiceList--titleHidden',
-        'with title set and hidden - applies titleHidden class to choice list'
+        'with title set and hidden - applies titleHidden class to choice list',
       );
 
     this.set('title', null);
@@ -269,7 +269,7 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
     assert.equal(
       titles.length,
       0,
-      'with title unset - does not render a title'
+      'with title unset - does not render a title',
     );
   });
 
@@ -304,15 +304,15 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
 
     assert.notOk(
       findAll(radioInputSelector)[0].checked,
-      'before click - first radio input is not checked'
+      'before click - first radio input is not checked',
     );
     assert.ok(
       findAll(radioInputSelector)[1].checked,
-      'before click - second radio input is checked'
+      'before click - second radio input is checked',
     );
     assert.notOk(
       findAll(radioInputSelector)[2].checked,
-      'before click - third radio input is not checked'
+      'before click - third radio input is not checked',
     );
 
     // Click the first choice.
@@ -321,19 +321,19 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
     assert.deepEqual(
       this.get('selected'),
       ['one'],
-      'after click - selected value updated correctly'
+      'after click - selected value updated correctly',
     );
     assert.ok(
       findAll(radioInputSelector)[0].checked,
-      'after clicking first radio button - first radio input is checked'
+      'after clicking first radio button - first radio input is checked',
     );
     assert.notOk(
       findAll(radioInputSelector)[1].checked,
-      'after clicking first radio button - second radio input is not checked'
+      'after clicking first radio button - second radio input is not checked',
     );
     assert.notOk(
       findAll(radioInputSelector)[2].checked,
-      'after clicking first radio button - third radio input is not checked'
+      'after clicking first radio button - third radio input is not checked',
     );
   });
 
@@ -368,15 +368,15 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
 
     assert.ok(
       findAll(checkboxInputSelector)[0].checked,
-      'before click - first checkbox input is checked'
+      'before click - first checkbox input is checked',
     );
     assert.notOk(
       findAll(checkboxInputSelector)[1].checked,
-      'before click - second checkbox input is not checked'
+      'before click - second checkbox input is not checked',
     );
     assert.ok(
       findAll(checkboxInputSelector)[2].checked,
-      'before click - third checkbox input is checked'
+      'before click - third checkbox input is checked',
     );
 
     // Click the second choice to select it.
@@ -385,27 +385,27 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
     let selected = this.get('selected');
     assert.ok(
       selected.indexOf('one') > -1,
-      "after clicking second checkbox - selected values contains 'one'"
+      "after clicking second checkbox - selected values contains 'one'",
     );
     assert.ok(
       selected.indexOf('two') > -1,
-      "after clicking second checkbox - selected values contains 'two'"
+      "after clicking second checkbox - selected values contains 'two'",
     );
     assert.ok(
       selected.indexOf('three') > -1,
-      "after clicking second checkbox - selected values contains 'three'"
+      "after clicking second checkbox - selected values contains 'three'",
     );
     assert.ok(
       findAll(checkboxInputSelector)[0].checked,
-      'after clicking second checkbox - first checkbox input is checked'
+      'after clicking second checkbox - first checkbox input is checked',
     );
     assert.ok(
       findAll(checkboxInputSelector)[1].checked,
-      'after clicking second checkbox - second checkbox input is checked'
+      'after clicking second checkbox - second checkbox input is checked',
     );
     assert.ok(
       findAll(checkboxInputSelector)[2].checked,
-      'after clicking second checkbox - third checkbox input is checked'
+      'after clicking second checkbox - third checkbox input is checked',
     );
 
     // Click the third choice to deselect it.
@@ -414,27 +414,27 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
     selected = this.get('selected');
     assert.ok(
       selected.indexOf('one') > -1,
-      "after clicking third checkbox - selected values contains 'one'"
+      "after clicking third checkbox - selected values contains 'one'",
     );
     assert.ok(
       selected.indexOf('two') > -1,
-      "after clicking third checkbox - selected values contains 'two'"
+      "after clicking third checkbox - selected values contains 'two'",
     );
     assert.notOk(
       selected.indexOf('three') > -1,
-      "after clicking third checkbox - selected values does not contain 'three'"
+      "after clicking third checkbox - selected values does not contain 'three'",
     );
     assert.ok(
       findAll(checkboxInputSelector)[0].checked,
-      'after clicking third checkbox - first checkbox input is checked'
+      'after clicking third checkbox - first checkbox input is checked',
     );
     assert.ok(
       findAll(checkboxInputSelector)[1].checked,
-      'after clicking third checkbox - second checkbox input is checked'
+      'after clicking third checkbox - second checkbox input is checked',
     );
     assert.notOk(
       findAll(checkboxInputSelector)[2].checked,
-      'after clicking third checkbox - third checkbox input is not checked'
+      'after clicking third checkbox - third checkbox input is not checked',
     );
   });
 
@@ -475,19 +475,19 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
       .dom(helpTexts[0])
       .hasText(
         'This is the first option',
-        'first choice - renders the correct help text'
+        'first choice - renders the correct help text',
       );
     assert
       .dom(helpTexts[1])
       .hasText(
         'This is the second option',
-        'second choice - renders the correct help text'
+        'second choice - renders the correct help text',
       );
     assert
       .dom(helpTexts[2])
       .hasText(
         'This is the third option',
-        'third choice - renders the correct help text'
+        'third choice - renders the correct help text',
       );
   });
 
@@ -528,19 +528,19 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
       .dom(helpTexts[0])
       .hasText(
         'This is the first option',
-        'first choice - renders the correct help text'
+        'first choice - renders the correct help text',
       );
     assert
       .dom(helpTexts[1])
       .hasText(
         'This is the second option',
-        'second choice - renders the correct help text'
+        'second choice - renders the correct help text',
       );
     assert
       .dom(helpTexts[2])
       .hasText(
         'This is the third option',
-        'third choice - renders the correct help text'
+        'third choice - renders the correct help text',
       );
   });
 
@@ -645,7 +645,7 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
       Component.extend({
         layout: hbs``,
         'data-test-dummy-component': true,
-      })
+      }),
     );
 
     this.set('selected', 'one');
@@ -681,7 +681,7 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
     assert
       .dom('[data-test-dummy-component]')
       .exists(
-        'renders choice childComponent component, even when not selected if alwaysRenderChildComponent is true'
+        'renders choice childComponent component, even when not selected if alwaysRenderChildComponent is true',
       );
   });
 

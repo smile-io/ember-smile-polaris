@@ -19,7 +19,7 @@ module('Integration | Component | polaris-checkbox', function (hooks) {
   module('onChange()', function () {
     test('is called with the new checked value of the input on change', async function (assert) {
       this.set('handleChange', (newChecked, checkboxId) =>
-        this.setProperties({ newChecked, checkboxId })
+        this.setProperties({ newChecked, checkboxId }),
       );
       await render(hbs`
         {{polaris-checkbox inputId="MyCheckbox" label="Checkbox" onChange=(action handleChange)}}

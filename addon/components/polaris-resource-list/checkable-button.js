@@ -85,28 +85,28 @@ export default class PolarisResourceListCheckableButton extends Component {
     'shouldApplySelectModeClass',
     'shouldApplySelectedClass',
     'shouldApplyMeasuringClass',
-    'class'
+    'class',
   )
   get cssClasses() {
     let cssClasses = ['Polaris-ResourceList-CheckableButton'];
     if (this.plain) {
       cssClasses.push(
-        'Polaris-ResourceList-CheckableButton__CheckableButton--plain'
+        'Polaris-ResourceList-CheckableButton__CheckableButton--plain',
       );
     }
     if (this.shouldApplySelectModeClass) {
       cssClasses.push(
-        'Polaris-ResourceList-CheckableButton__CheckableButton--selectMode'
+        'Polaris-ResourceList-CheckableButton__CheckableButton--selectMode',
       );
     }
     if (this.shouldApplySelectedClass) {
       cssClasses.push(
-        'Polaris-ResourceList-CheckableButton__CheckableButton--selected'
+        'Polaris-ResourceList-CheckableButton__CheckableButton--selected',
       );
     }
     if (this.shouldApplyMeasuringClass) {
       cssClasses.push(
-        'Polaris-ResourceList-CheckableButton__CheckableButton--measuring'
+        'Polaris-ResourceList-CheckableButton__CheckableButton--measuring',
       );
     }
     if (this.class) {

@@ -25,7 +25,7 @@ export function isComponentDefinition(content) {
 
   let contentPropNames = Object.keys(content);
   let isPreOctaneComponentDefinition = contentPropNames.some(
-    (propName) => propName.indexOf('COMPONENT DEFINITION') > -1
+    (propName) => propName.indexOf('COMPONENT DEFINITION') > -1,
   );
 
   return (

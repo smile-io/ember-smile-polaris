@@ -8,7 +8,7 @@ const buttonGroupSelector = '[data-test-button-group]';
 const buttonGroupItemSelector = '[data-test-button-group-item]';
 const buttonSelector = buildNestedSelector(
   buttonGroupItemSelector,
-  'button.Polaris-Button'
+  'button.Polaris-Button',
 );
 
 module('Integration | Component | polaris button group', function (hooks) {
@@ -38,13 +38,13 @@ module('Integration | Component | polaris button group', function (hooks) {
     const buttonGroup = assert.dom(buttonGroupSelector);
     buttonGroup.hasClass(
       'Polaris-ButtonGroup--segmented',
-      'segmented=true - adds the segmented class'
+      'segmented=true - adds the segmented class',
     );
 
     this.set('segmented', false);
     buttonGroup.hasNoClass(
       'Polaris-ButtonGroup--segmented',
-      'segmented=true - does not add the segmented class'
+      'segmented=true - does not add the segmented class',
     );
   });
 
@@ -55,13 +55,13 @@ module('Integration | Component | polaris button group', function (hooks) {
     const buttonGroup = assert.dom(buttonGroupSelector);
     buttonGroup.hasClass(
       'Polaris-ButtonGroup--fullWidth',
-      'fullWidth=true - adds the fullWidth class'
+      'fullWidth=true - adds the fullWidth class',
     );
 
     this.set('fullWidth', false);
     buttonGroup.hasNoClass(
       'Polaris-ButtonGroup--fullWidth',
-      'fullWidth=false - does not add the fullWidth class'
+      'fullWidth=false - does not add the fullWidth class',
     );
   });
 
@@ -72,13 +72,13 @@ module('Integration | Component | polaris button group', function (hooks) {
     const buttonGroup = assert.dom(buttonGroupSelector);
     buttonGroup.hasClass(
       'Polaris-ButtonGroup--connectedTop',
-      'connectedTop=true - adds the connectedTop class'
+      'connectedTop=true - adds the connectedTop class',
     );
 
     this.set('connectedTop', false);
     buttonGroup.hasNoClass(
       'Polaris-ButtonGroup--connectedTop',
-      'connectedTop=false - does not add the connectedTop class'
+      'connectedTop=false - does not add the connectedTop class',
     );
   });
 
@@ -99,7 +99,7 @@ module('Integration | Component | polaris button group', function (hooks) {
 
     buttonGroupItems.exists(
       { count: 3 },
-      'renders the correct number of button group items'
+      'renders the correct number of button group items',
     );
 
     buttonGroupItems = findAll(buttonGroupItemSelector);
@@ -109,13 +109,13 @@ module('Integration | Component | polaris button group', function (hooks) {
       .dom(buttonGroupItem)
       .hasClass(
         'Polaris-ButtonGroup__Item--plain',
-        'first group item - has plain class'
+        'first group item - has plain class',
       );
     assert
       .dom(buttonGroupItem)
       .hasText(
         'Plain block item',
-        'first group item - renders the correct content'
+        'first group item - renders the correct content',
       );
 
     // Check the second item.
@@ -124,13 +124,13 @@ module('Integration | Component | polaris button group', function (hooks) {
       .dom(buttonGroupItem)
       .hasNoClass(
         'Polaris-ButtonGroup__Item--plain',
-        'second group item - does not have plain class'
+        'second group item - does not have plain class',
       );
     assert
       .dom(buttonGroupItem)
       .hasText(
         'Inline item',
-        'second group item - renders the correct content'
+        'second group item - renders the correct content',
       );
 
     // Check the third item.
@@ -139,13 +139,13 @@ module('Integration | Component | polaris button group', function (hooks) {
       .dom(buttonGroupItem)
       .hasNoClass(
         'Polaris-ButtonGroup__Item--plain',
-        'third group item - does not have plain class'
+        'third group item - does not have plain class',
       );
     assert
       .dom(buttonGroupItem)
       .hasText(
         'Magically wrapped button',
-        'third group item - renders the correct content'
+        'third group item - renders the correct content',
       );
   });
 
@@ -163,7 +163,7 @@ module('Integration | Component | polaris button group', function (hooks) {
       .dom(buttonGroupItemSelector)
       .hasNoClass(
         'Polaris-ButtonGroup__Item--focused',
-        'before focus - group item does not have focused class'
+        'before focus - group item does not have focused class',
       );
 
     await triggerEvent(buttonGroupItemSelector, 'focus');
@@ -171,7 +171,7 @@ module('Integration | Component | polaris button group', function (hooks) {
       .dom(buttonGroupItemSelector)
       .hasClass(
         'Polaris-ButtonGroup__Item--focused',
-        'after focus - group item has focused class'
+        'after focus - group item has focused class',
       );
 
     await triggerEvent(buttonGroupItemSelector, 'blur');
@@ -179,7 +179,7 @@ module('Integration | Component | polaris button group', function (hooks) {
       .dom(buttonGroupItemSelector)
       .hasNoClass(
         'Polaris-ButtonGroup__Item--focused',
-        'after blur - group item does not have focused class'
+        'after blur - group item does not have focused class',
       );
   });
 });

@@ -46,8 +46,8 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
           sliderSelector,
           sliderWrapperSelector,
           sliderInputWrapperSelector,
-          sliderInputSelector
-        )
+          sliderInputSelector,
+        ),
       )
       .exists('renders the input element correctly');
 
@@ -184,7 +184,7 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
         layout: hbs`{{text}}`,
 
         text: null,
-      })
+      }),
     );
 
     await render(hbs`
@@ -257,7 +257,7 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
       .dom(sliderPrefixSelector)
       .hasClass(
         'Polaris-RangeSlider__Prefix',
-        'prefix has correct class applied'
+        'prefix has correct class applied',
       );
   });
 
@@ -280,7 +280,7 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
       .dom(sliderSuffixSelector)
       .hasClass(
         'Polaris-RangeSlider__Suffix',
-        'suffix has correct class applied'
+        'suffix has correct class applied',
       );
   });
 
@@ -300,7 +300,7 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
     assert.ok(styleString.indexOf('--Polaris-RangeSlider-current:25;') > -1);
     assert.ok(styleString.indexOf('--Polaris-RangeSlider-progress:25%;') > -1);
     assert.ok(
-      styleString.indexOf('--Polaris-RangeSlider-output-factor:0.25;') > -1
+      styleString.indexOf('--Polaris-RangeSlider-output-factor:0.25;') > -1,
     );
   });
 });

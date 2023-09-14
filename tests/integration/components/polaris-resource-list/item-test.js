@@ -179,7 +179,7 @@ module(
             .dom('[data-test-id="item-wrapper"]')
             .hasAttribute('data-href', url);
         });
-      }
+      },
     );
 
     module('itemId', function () {
@@ -270,7 +270,7 @@ module(
           await click('[data-test-id="item-wrapper"]', { ctrlKey: true });
           assert.deepEqual(this.get('windowOpenParams'), [url, '_blank']);
         });
-      }
+      },
     );
 
     module(
@@ -311,7 +311,7 @@ module(
             itemId,
           ]);
         });
-      }
+      },
     );
 
     module(
@@ -399,7 +399,7 @@ module(
           await click('[data-test-id="item-wrapper"]', { ctrlKey: true });
           assert.notOk(this.get('windowOpenParams'));
         });
-      }
+      },
     );
 
     module(
@@ -463,7 +463,7 @@ module(
 
           assert.dom(`${mediaSelector} > .Polaris-Thumbnail`).exists();
         });
-      }
+      },
     );
 
     module(
@@ -534,7 +534,7 @@ module(
         `);
           assert.dom('[data-test-button-group]').doesNotExist();
         });
-      }
+      },
     );
 
     module(
@@ -573,7 +573,7 @@ module(
       `);
           assert.dom('[data-polaris-unstyled]').hasAttribute('tabindex', '0');
         });
-      }
+      },
     );
-  }
+  },
 );

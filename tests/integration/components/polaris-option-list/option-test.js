@@ -127,5 +127,5 @@ module(
         .dom('input[type="checkbox"]')
         .hasAttribute('value', defaultProps.value);
     });
-  }
+  },
 );

@@ -10,23 +10,23 @@ module('Integration | Component | polaris color picker', function (hooks) {
   const colorPickerSelector = 'div.Polaris-ColorPicker';
   const mainColorControlSelector = buildNestedSelector(
     colorPickerSelector,
-    'div.Polaris-ColorPicker__MainColor'
+    'div.Polaris-ColorPicker__MainColor',
   );
   const mainColorControlColorLayerSelector = buildNestedSelector(
     mainColorControlSelector,
-    'div.Polaris-ColorPicker__ColorLayer'
+    'div.Polaris-ColorPicker__ColorLayer',
   );
   const huePickerSelector = buildNestedSelector(
     colorPickerSelector,
-    'div.Polaris-ColorPicker__HuePicker'
+    'div.Polaris-ColorPicker__HuePicker',
   );
   const alphaPickerSelector = buildNestedSelector(
     colorPickerSelector,
-    'div.Polaris-ColorPicker__AlphaPicker'
+    'div.Polaris-ColorPicker__AlphaPicker',
   );
   const draggerSelector = buildNestedSelector(
     'div.Polaris-ColorPicker__Slidable',
-    'div.Polaris-ColorPicker__Dragger'
+    'div.Polaris-ColorPicker__Dragger',
   );
 
   test('it renders the correct HTML with default attributes', async function (assert) {
@@ -53,21 +53,21 @@ module('Integration | Component | polaris color picker', function (hooks) {
 
     colorLayers.hasStyle(
       { backgroundColor: 'rgb(255, 170, 0)' },
-      'renders color layer with correct background color'
+      'renders color layer with correct background color',
     );
 
     // Check the main color control's dragger.
     const colorDraggers = assert.dom(
-      `${mainColorControlSelector} ${draggerSelector}`
+      `${mainColorControlSelector} ${draggerSelector}`,
     );
     colorDraggers.exists(
       { count: 1 },
-      'renders one dragger for the main color control'
+      'renders one dragger for the main color control',
     );
 
     colorDraggers.hasStyle(
       { transform: 'matrix(1, 0, 0, 1, 80, 32)' },
-      'renders color dragger in the correct position'
+      'renders color dragger in the correct position',
     );
 
     // Check the hue picker.
@@ -80,7 +80,7 @@ module('Integration | Component | polaris color picker', function (hooks) {
 
     hueDraggers.hasStyle(
       { transform: 'matrix(1, 0, 0, 1, 0, 28)' },
-      'renders hue dragger in the correct position'
+      'renders hue dragger in the correct position',
     );
 
     // Check no alpha picker is rendered.
@@ -115,17 +115,17 @@ module('Integration | Component | polaris color picker', function (hooks) {
 
     colorLayers.hasStyle(
       { backgroundColor: 'rgba(0, 110, 255, 0.85)' },
-      'renders color layer with correct background color'
+      'renders color layer with correct background color',
     );
 
     // Check the main color control's dragger.
     const colorDraggers = assert.dom(
-      `.Polaris-ColorPicker__MainColor ${draggerSelector}`
+      `.Polaris-ColorPicker__MainColor ${draggerSelector}`,
     );
 
     colorDraggers.exists(
       { count: 1 },
-      'renders one dragger for the main color control'
+      'renders one dragger for the main color control',
     );
 
     const getTransform = (elem) => find(elem.target).style.transform;
@@ -133,7 +133,7 @@ module('Integration | Component | polaris color picker', function (hooks) {
     assert.equal(
       getTransform(colorDraggers),
       'translate3d(112px, 112px, 0px)',
-      'renders color dragger in the correct position'
+      'renders color dragger in the correct position',
     );
 
     // Check the hue picker.
@@ -148,7 +148,7 @@ module('Integration | Component | polaris color picker', function (hooks) {
     assert.equal(
       getTransform(hueDraggers),
       'translate3d(0px, 93.25px, 0px)',
-      'renders hue dragger in the correct position'
+      'renders hue dragger in the correct position',
     );
 
     // Check the alpha picker.
@@ -157,18 +157,18 @@ module('Integration | Component | polaris color picker', function (hooks) {
 
     // Check the alpha picker's dragger.
     const alphaDraggers = assert.dom(
-      `${alphaPickerSelector} ${draggerSelector}`
+      `${alphaPickerSelector} ${draggerSelector}`,
     );
 
     alphaDraggers.exists(
       { count: 1 },
-      'renders one dragger for the alpha picker'
+      'renders one dragger for the alpha picker',
     );
 
     assert.equal(
       getTransform(alphaDraggers),
       'translate3d(0px, 33.25px, 0px)',
-      'renders alpha dragger in the correct position'
+      'renders alpha dragger in the correct position',
     );
   });
 
@@ -197,12 +197,12 @@ module('Integration | Component | polaris color picker', function (hooks) {
       expectedX,
       expectedY,
       name,
-      label
+      label,
     ) {
       assert.equal(
         getTransform(dragger),
         `translate3d(${expectedX}px, ${expectedY}px, 0px)`,
-        `${label} - renders ${name} dragger in the correct position`
+        `${label} - renders ${name} dragger in the correct position`,
       );
     };
 
@@ -212,22 +212,22 @@ module('Integration | Component | polaris color picker', function (hooks) {
       assert.equal(
         parseInt(color.hue),
         parseInt(hue),
-        `${label} - has the correct hue`
+        `${label} - has the correct hue`,
       );
       assert.equal(
         parseInt(color.saturation),
         parseInt(saturation),
-        `${label} - has the correct saturation`
+        `${label} - has the correct saturation`,
       );
       assert.equal(
         parseInt(color.brightness),
         parseInt(brightness),
-        `${label} - has the correct brightness`
+        `${label} - has the correct brightness`,
       );
       assert.equal(
         parseInt(color.alpha),
         parseInt(alpha),
-        `${label} - has the correct alpha`
+        `${label} - has the correct alpha`,
       );
     };
 
@@ -250,7 +250,7 @@ module('Integration | Component | polaris color picker', function (hooks) {
       32,
       56,
       'color',
-      'after initial render'
+      'after initial render',
     );
     assertDraggerPosition(hueDragger, 0, 58, 'hue', 'after initial render');
     assertDraggerPosition(alphaDragger, 0, 94, 'alpha', 'after initial render');
@@ -262,13 +262,13 @@ module('Integration | Component | polaris color picker', function (hooks) {
       100,
       99.75,
       'color',
-      'after moving color dragger'
+      'after moving color dragger',
     );
 
     assertHsbaColor(
       this.get('color'),
       { hue: 120, saturation: 0.625, brightness: 0.375, alpha: 0.4 },
-      'after moving color dragger'
+      'after moving color dragger',
     );
 
     // Test moving the hue dragger.
@@ -279,7 +279,7 @@ module('Integration | Component | polaris color picker', function (hooks) {
       0,
       90.5746,
       'hue',
-      'after moving hue dragger'
+      'after moving hue dragger',
     );
 
     assertHsbaColor(
@@ -290,7 +290,7 @@ module('Integration | Component | polaris color picker', function (hooks) {
         hue: 206.87,
         saturation: 0.625,
       },
-      'after moving hue dragger'
+      'after moving hue dragger',
     );
 
     // Test moving the alpha dragger.
@@ -300,7 +300,7 @@ module('Integration | Component | polaris color picker', function (hooks) {
       0,
       70.4254,
       'alpha',
-      'after moving alpha dragger'
+      'after moving alpha dragger',
     );
     assertHsbaColor(
       this.get('color'),
@@ -310,7 +310,7 @@ module('Integration | Component | polaris color picker', function (hooks) {
         hue: 206.87,
         saturation: 0.625,
       },
-      'after moving alpha dragger'
+      'after moving alpha dragger',
     );
   });
 });

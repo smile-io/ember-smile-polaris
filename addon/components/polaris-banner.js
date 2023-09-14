@@ -199,7 +199,7 @@ export default class PolarisBanner extends Component {
       {
         id: 'ember-polaris.polaris-banner.action-arg',
         until: '7.0.0',
-      }
+      },
     );
   }
 

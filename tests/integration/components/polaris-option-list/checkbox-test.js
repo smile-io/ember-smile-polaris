@@ -52,5 +52,5 @@ module(
 
       assert.ok(this.get('wasOnChangeCalled'));
     });
-  }
+  },
 );

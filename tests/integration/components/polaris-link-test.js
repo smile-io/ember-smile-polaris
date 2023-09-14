@@ -11,7 +11,7 @@ module('Integration | Component | polaris link', function (hooks) {
 
   test('it renders the correct HTML in basic inline usage with a URL', async function (assert) {
     await render(
-      hbs`{{polaris-link url="http://www.somewhere.com/" text="This is an inline link"}}`
+      hbs`{{polaris-link url="http://www.somewhere.com/" text="This is an inline link"}}`,
     );
 
     assert.dom(linkSelector).exists({ count: 1 }, 'renders one link');
@@ -20,7 +20,7 @@ module('Integration | Component | polaris link', function (hooks) {
       .hasAttribute(
         'href',
         'http://www.somewhere.com/',
-        'renders the correct href'
+        'renders the correct href',
       );
     assert
       .dom(linkSelector)
@@ -31,13 +31,13 @@ module('Integration | Component | polaris link', function (hooks) {
       .hasAttribute(
         'data-polaris-unstyled',
         'true',
-        'applies data-polaris-unstyled to the link'
+        'applies data-polaris-unstyled to the link',
       );
     assert
       .dom(linkSelector)
       .doesNotHaveAttribute(
         'target',
-        'does not set a target attribute on the link'
+        'does not set a target attribute on the link',
       );
     assert
       .dom(linkSelector)
@@ -57,7 +57,7 @@ module('Integration | Component | polaris link', function (hooks) {
       .hasAttribute(
         'href',
         'http://www.somewhere.com/',
-        'renders the correct href'
+        'renders the correct href',
       );
     assert
       .dom(linkSelector)
@@ -67,13 +67,13 @@ module('Integration | Component | polaris link', function (hooks) {
       .hasAttribute(
         'data-polaris-unstyled',
         'true',
-        'applies data-polaris-unstyled to the link'
+        'applies data-polaris-unstyled to the link',
       );
     assert
       .dom(linkSelector)
       .doesNotHaveAttribute(
         'target',
-        'does not set a target attribute on the link'
+        'does not set a target attribute on the link',
       );
     assert
       .dom(linkSelector)
@@ -94,7 +94,7 @@ module('Integration | Component | polaris link', function (hooks) {
       .hasAttribute(
         'target',
         '_blank',
-        'sets the correct target attribute on the link'
+        'sets the correct target attribute on the link',
       );
 
     assert
@@ -102,7 +102,7 @@ module('Integration | Component | polaris link', function (hooks) {
       .hasAttribute(
         'rel',
         'noopener noreferrer',
-        'sets the correct rel attribute on the link'
+        'sets the correct rel attribute on the link',
       );
   });
 
@@ -119,7 +119,7 @@ module('Integration | Component | polaris link', function (hooks) {
       .dom(linkSelector)
       .hasClass(
         'Polaris-Link--monochrome',
-        'sets the monochrome class on the link'
+        'sets the monochrome class on the link',
       );
   });
 
@@ -133,7 +133,7 @@ module('Integration | Component | polaris link', function (hooks) {
       .dom(linkButtonSelector)
       .hasText(
         'This is an inline link button',
-        'renders the correct link text'
+        'renders the correct link text',
       );
   });
 
@@ -181,7 +181,7 @@ module('Integration | Component | polaris link', function (hooks) {
     assert.equal(
       location.hash,
       '#linkClicked',
-      'app navigates to specified URL'
+      'app navigates to specified URL',
     );
   });
 
@@ -211,7 +211,7 @@ module('Integration | Component | polaris link', function (hooks) {
     assert.equal(
       location.hash,
       '#linkClicked',
-      'app navigates to specified URL'
+      'app navigates to specified URL',
     );
   });
 
@@ -241,7 +241,7 @@ module('Integration | Component | polaris link', function (hooks) {
   test('it applies passed-in classes to the rendered element when rendering a link', async function (assert) {
     this.set('class', 'my-link click-me');
     await render(
-      hbs`{{polaris-link class=class url="http://www.somewhere.com/"}}`
+      hbs`{{polaris-link class=class url="http://www.somewhere.com/"}}`,
     );
 
     assert
@@ -268,7 +268,7 @@ module('Integration | Component | polaris link', function (hooks) {
     this.set('class', 'press-me-to-make-something-happen');
 
     let linkButton = assert.dom(
-      `${linkButtonSelector}.press-me-to-make-something-happen`
+      `${linkButtonSelector}.press-me-to-make-something-happen`,
     );
     linkButton.exists('renders button with updated classes');
     linkButton.hasNoClass('my-button');

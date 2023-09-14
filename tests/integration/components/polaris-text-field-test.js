@@ -55,19 +55,19 @@ module('Integration | Component | polaris-text-field', function (hooks) {
     field.hasClass('Polaris-TextField', 'input wrapper has correct class');
     field.hasNoClass(
       'Polaris-TextField--multiline',
-      'input wrapper has no multiline class'
+      'input wrapper has no multiline class',
     );
     field.hasNoClass(
       'Polaris-TextField--readOnly',
-      'input wrapper has no readOnly class'
+      'input wrapper has no readOnly class',
     );
     field.hasNoClass(
       'Polaris-TextField--hasValue',
-      'input wrapper has no value class applied'
+      'input wrapper has no value class applied',
     );
     field.hasNoClass(
       'Polaris-TextField--error',
-      'input wrapper has no error class applied'
+      'input wrapper has no error class applied',
     );
 
     let input = assert.dom(inputSelector);
@@ -75,16 +75,16 @@ module('Integration | Component | polaris-text-field', function (hooks) {
     input.hasAttribute(
       'aria-multiline',
       'false',
-      'input element has aria-multiline attribute set to `false`'
+      'input element has aria-multiline attribute set to `false`',
     );
     input.hasAttribute(
       'aria-invalid',
       'false',
-      'input element has no aria-invalid attribute set to `false`'
+      'input element has no aria-invalid attribute set to `false`',
     );
     input.hasNoClass(
       'Polaris-TextField__Input--suffixed',
-      'input element has no suffixed class'
+      'input element has no suffixed class',
     );
   });
 
@@ -95,7 +95,7 @@ module('Integration | Component | polaris-text-field', function (hooks) {
       .dom(fieldSelector)
       .hasNoClass(
         'Polaris-TextField--focus',
-        'input wrapper has no focus class applied'
+        'input wrapper has no focus class applied',
       );
     assert
       .dom(inputSelector)
@@ -107,7 +107,7 @@ module('Integration | Component | polaris-text-field', function (hooks) {
       .dom(fieldSelector)
       .hasClass(
         'Polaris-TextField--focus',
-        'input wrapper has focus class applied'
+        'input wrapper has focus class applied',
       );
     assert
       .dom(inputSelector)
@@ -149,7 +149,7 @@ module('Integration | Component | polaris-text-field', function (hooks) {
         .hasAttribute(
           'id',
           /TextField-ember/,
-          'generates an id and sets it on the input element'
+          'generates an id and sets it on the input element',
         );
     });
   });
@@ -162,7 +162,7 @@ module('Integration | Component | polaris-text-field', function (hooks) {
         .dom(inputSelector)
         .hasNoAttribute(
           'autoComplete',
-          'input does not have autoComplete attribute'
+          'input does not have autoComplete attribute',
         );
     });
 
@@ -212,7 +212,7 @@ module('Integration | Component | polaris-text-field', function (hooks) {
       .dom(fieldSelector)
       .hasClass(
         'Polaris-TextField--readOnly',
-        'input wrapper has readOnly class'
+        'input wrapper has readOnly class',
       );
   });
 
@@ -229,14 +229,14 @@ module('Integration | Component | polaris-text-field', function (hooks) {
         .dom(fieldSelector)
         .hasClass(
           'Polaris-TextField--error',
-          'input wrapper has error class applied'
+          'input wrapper has error class applied',
         );
       assert
         .dom(inputSelector)
         .hasAttribute(
           'aria-invalid',
           'true',
-          'input has aria-invalid attribute true'
+          'input has aria-invalid attribute true',
         );
 
       await render(hbs`
@@ -250,14 +250,14 @@ module('Integration | Component | polaris-text-field', function (hooks) {
         .dom(fieldSelector)
         .hasClass(
           'Polaris-TextField--error',
-          'input wrapper has error class applied'
+          'input wrapper has error class applied',
         );
       assert
         .dom(inputSelector)
         .hasAttribute(
           'aria-invalid',
           'true',
-          'input has aria-invalid attribute true'
+          'input has aria-invalid attribute true',
         );
     });
 
@@ -297,14 +297,14 @@ module('Integration | Component | polaris-text-field', function (hooks) {
         .hasAttribute(
           'aria-invalid',
           'true',
-          'input has aria-invalid attribute true'
+          'input has aria-invalid attribute true',
         );
       assert
         .dom(inlineErrorSelector)
         .hasAttribute(
           'id',
           errorID,
-          'inline error is connected to the text field'
+          'inline error is connected to the text field',
         );
     });
 
@@ -350,7 +350,7 @@ module('Integration | Component | polaris-text-field', function (hooks) {
         .hasAttribute(
           'type',
           'text',
-          'when type is currency - it sets the type to text'
+          'when type is currency - it sets the type to text',
         );
     });
 
@@ -379,7 +379,7 @@ module('Integration | Component | polaris-text-field', function (hooks) {
           .dom(fieldSelector)
           .hasClass(
             'Polaris-TextField--hasValue',
-            'input wrapper has value class applied'
+            'input wrapper has value class applied',
           );
 
         assert
@@ -392,7 +392,7 @@ module('Integration | Component | polaris-text-field', function (hooks) {
         assert.equal(
           this.value,
           3,
-          'clicking increment button - increments value'
+          'clicking increment button - increments value',
         );
 
         await click(spinnerDecrButtonSelector);
@@ -400,7 +400,7 @@ module('Integration | Component | polaris-text-field', function (hooks) {
         assert.equal(
           this.value,
           2,
-          'clicking decrement button - decrements value'
+          'clicking decrement button - decrements value',
         );
 
         this.set('disabled', true);
@@ -535,21 +535,21 @@ module('Integration | Component | polaris-text-field', function (hooks) {
     assert.equal(
       find(inputSelector).tagName,
       'TEXTAREA',
-      'when true - renders as a textarea element'
+      'when true - renders as a textarea element',
     );
     assert
       .dom(inputSelector)
       .hasAttribute(
         'aria-multiline',
         'true',
-        'input element has aria-multiline attribute'
+        'input element has aria-multiline attribute',
       );
     assert.dom(resizerSelector).exists('when true - renders a resizer');
     assert
       .dom(fieldSelector)
       .hasClass(
         'Polaris-TextField--multiline',
-        'input wrapper has multiline class'
+        'input wrapper has multiline class',
       );
   });
 
@@ -608,7 +608,7 @@ module('Integration | Component | polaris-text-field', function (hooks) {
       .dom(inputSelector)
       .hasClass(
         'Polaris-TextField__Input--suffixed',
-        'input element has suffixed class'
+        'input element has suffixed class',
       );
 
     let labelledBy = find(inputSelector)
@@ -616,11 +616,11 @@ module('Integration | Component | polaris-text-field', function (hooks) {
       .split(' ');
     assert.ok(
       labelledBy.includes(`${this.id}Prefix`),
-      'input element has prefix aria-labelledby'
+      'input element has prefix aria-labelledby',
     );
     assert.ok(
       labelledBy.includes(`${this.id}Suffix`),
-      'input element has suffixed aria-labelledby'
+      'input element has suffixed aria-labelledby',
     );
   });
 

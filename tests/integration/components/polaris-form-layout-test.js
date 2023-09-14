@@ -82,62 +82,65 @@ module('Integration | Component | polaris form layout', function (hooks) {
       .dom(firstGroupSelector)
       .hasNoClass(
         'Polaris-FormLayout--condensed',
-        'first group - does not have condensed class'
+        'first group - does not have condensed class',
       );
     assert
       .dom(firstGroupSelector)
       .hasClass(
         'Polaris-FormLayout--grouped',
-        'first group - has grouped class'
+        'first group - has grouped class',
       );
     assert
       .dom(firstGroupSelector)
       .hasAttribute(
         'aria-describedby',
         `${this.firstGroupId}HelpText`,
-        'first group - has correct aria-describedby'
+        'first group - has correct aria-describedby',
       );
     assert
       .dom(firstGroupSelector)
       .hasAttribute(
         'aria-labelledby',
         `${this.firstGroupId}Title`,
-        'first group - has correct aria-labelledby'
+        'first group - has correct aria-labelledby',
       );
     assert
       .dom(
-        buildNestedSelector(firstGroupSelector, formLayoutGroupTitleSelector)
+        buildNestedSelector(firstGroupSelector, formLayoutGroupTitleSelector),
       )
       .hasText(this.title, 'first group - renders group title');
     assert
       .dom(
-        buildNestedSelector(firstGroupSelector, formLayoutGroupHelpTextSelector)
+        buildNestedSelector(
+          firstGroupSelector,
+          formLayoutGroupHelpTextSelector,
+        ),
       )
       .hasText(this.helpText, 'first group - renders group helpText');
 
     let firstGroupItemSelector = buildNestedSelector(
       firstGroupSelector,
       formLayoutGroupItemsSelector,
-      formLayoutItemSelector
+      formLayoutItemSelector,
     );
     assert
       .dom(firstGroupItemSelector)
       .exists(
         { count: 2 },
-        'first group - renders the correct number of items'
+        'first group - renders the correct number of items',
       );
 
     assert
       .dom(`${firstGroupItemSelector}:nth-child(1)`)
       .hasText(
         'Default group item 1',
-        'first group item 1 - renders the correct content'
+        'first group item 1 - renders the correct content',
       );
     assert
       .dom(`${firstGroupItemSelector}:nth-child(2)`)
       .hasText(
         'Default group item 2',
-        'first group item 2 - renders the correct content'
+        'first group item 2 - renders the correct content',
       );
 
     // Check the second group.
@@ -146,18 +149,18 @@ module('Integration | Component | polaris form layout', function (hooks) {
       .dom(secondGroupSelector)
       .hasClass(
         'Polaris-FormLayout--condensed',
-        'second group - has condensed class'
+        'second group - has condensed class',
       );
     assert
       .dom(secondGroupSelector)
       .hasNoClass(
         'Polaris-FormLayout--grouped',
-        'second group - does not have grouped class'
+        'second group - does not have grouped class',
       );
     let secondGroupItemSelector = buildNestedSelector(
       secondGroupSelector,
       formLayoutGroupItemsSelector,
-      formLayoutItemSelector
+      formLayoutItemSelector,
     );
     assert
       .dom(secondGroupItemSelector)
@@ -166,7 +169,7 @@ module('Integration | Component | polaris form layout', function (hooks) {
       .dom(`${secondGroupItemSelector}:nth-child(1)`)
       .hasText(
         'Condensed group item',
-        'second group item 1 - renders the correct content'
+        'second group item 1 - renders the correct content',
       );
   });
 });

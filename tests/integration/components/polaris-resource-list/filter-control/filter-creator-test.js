@@ -255,7 +255,7 @@ module(
                 value: option.getAttribute('value'),
                 label: option.textContent.trim(),
               };
-            }
+            },
           ),
           [
             {
@@ -270,7 +270,7 @@ module(
               value: filters[2].key,
               label: filters[2].label,
             },
-          ]
+          ],
         );
       });
     });
@@ -464,5 +464,5 @@ module(
         });
       });
     });
-  }
+  },
 );

@@ -61,7 +61,7 @@ function getOptionsValuesList(options) {
 async function triggerChangeEventWithValue(
   selector,
   value,
-  eventName = 'change'
+  eventName = 'change',
 ) {
   find(selector).value = value;
   await triggerEvent(selector, eventName);
@@ -108,9 +108,9 @@ module(
 
         assert.deepEqual(
           getOptionsValuesList(
-            findAll('.Polaris-Select option:not([disabled])')
+            findAll('.Polaris-Select option:not([disabled])'),
           ),
-          expectOptionValues
+          expectOptionValues,
         );
       });
 
@@ -128,9 +128,9 @@ module(
 
         assert.deepEqual(
           getOptionsValuesList(
-            findAll('.Polaris-Select option:not([disabled])')
+            findAll('.Polaris-Select option:not([disabled])'),
           ),
-          expectOptionValues
+          expectOptionValues,
         );
       });
 
@@ -148,9 +148,9 @@ module(
 
         assert.deepEqual(
           getOptionsValuesList(
-            findAll('.Polaris-Select option:not([disabled])')
+            findAll('.Polaris-Select option:not([disabled])'),
           ),
-          expectOptionValues
+          expectOptionValues,
         );
       });
 
@@ -167,9 +167,9 @@ module(
 
         assert.deepEqual(
           getOptionsValuesList(
-            findAll('.Polaris-Select option:not([disabled])')
+            findAll('.Polaris-Select option:not([disabled])'),
           ),
-          expectOptionValues
+          expectOptionValues,
         );
       });
     });
@@ -280,7 +280,7 @@ module(
             this,
             'polaris-date-picker',
             DatePickerComponent,
-            'selected'
+            'selected',
           );
         },
       },
@@ -305,7 +305,7 @@ module(
           await triggerChangeEventWithValue(
             textFieldInputSelector,
             nextUserInputDate,
-            'input'
+            'input',
           );
           await blur(textFieldInputSelector, 'blur');
 
@@ -317,7 +317,7 @@ module(
 
           assert.equal(
             selectedDate.toISOString(),
-            `2019-01-01T0${timezoneOffsetInHours}:00:00.000Z`
+            `2019-01-01T0${timezoneOffsetInHours}:00:00.000Z`,
           );
           assert.dom(textFieldInputSelector).hasValue(nextUserInputDate);
         });
@@ -338,7 +338,7 @@ module(
           await triggerChangeEventWithValue(
             textFieldInputSelector,
             nextUserInputDate,
-            'input'
+            'input',
           );
           await blur(textFieldInputSelector, 'blur');
 
@@ -370,7 +370,7 @@ module(
           await triggerChangeEventWithValue(
             textFieldInputSelector,
             nextUserInputDate,
-            'input'
+            'input',
           );
           await blur(textFieldInputSelector, 'blur');
 
@@ -382,11 +382,11 @@ module(
 
           assert.equal(
             selectedDate.toISOString(),
-            `2019-01-01T0${timezoneOffsetInHours}:00:00.000Z`
+            `2019-01-01T0${timezoneOffsetInHours}:00:00.000Z`,
           );
           assert.dom(textFieldInputSelector).hasValue(nextUserInputDate);
         });
-      }
+      },
     );
 
     module('filterKey and filterMinKey', function () {
@@ -605,7 +605,7 @@ module(
 
         assert.equal(
           this.get('changedFilterKey'),
-          this.initialConsumerFilterKey
+          this.initialConsumerFilterKey,
         );
       });
 
@@ -623,7 +623,7 @@ module(
 
         await triggerChangeEventWithValue(
           'select',
-          DateFilterOption.OnOrBefore
+          DateFilterOption.OnOrBefore,
         );
 
         assert.equal(this.get('changedFilterKey'), this.filterMaxKey);
@@ -682,7 +682,7 @@ module(
 
       await triggerChangeEventWithValue(
         textFieldInputSelector,
-        validUserInputDate
+        validUserInputDate,
       );
       await blur(textFieldInputSelector);
 
@@ -690,7 +690,7 @@ module(
         .dom(selectedDaySelector)
         .hasAttribute(
           'data-test-date-picker-date',
-          new RegExp(validUserInputDate)
+          new RegExp(validUserInputDate),
         );
     });
 
@@ -725,7 +725,7 @@ module(
 
       await triggerChangeEventWithValue(
         textFieldInputSelector,
-        invalidUserInputDate
+        invalidUserInputDate,
       );
       await blur(textFieldInputSelector);
 
@@ -747,13 +747,13 @@ module(
 
       await triggerChangeEventWithValue(
         textFieldInputSelector,
-        invalidUserInputDate
+        invalidUserInputDate,
       );
       await blur(textFieldInputSelector);
 
       await triggerChangeEventWithValue(
         textFieldInputSelector,
-        validUserInputDate
+        validUserInputDate,
       );
 
       assert.dom('[data-test-labelled-error]').doesNotExist();
@@ -773,7 +773,7 @@ module(
 
       await triggerChangeEventWithValue(
         textFieldInputSelector,
-        invalidUserInputDate
+        invalidUserInputDate,
       );
       await blur(textFieldInputSelector);
 
@@ -798,5 +798,5 @@ module(
 
       assert.dom('[data-test-labelled-error]').doesNotExist();
     });
-  }
+  },
 );

@@ -86,7 +86,7 @@ export default class PolarisEmptyState extends Component {
       {
         id: 'ember-polaris.polaris-empty-state.action-arg',
         until: '7.0.0',
-      }
+      },
     );
   }
 }

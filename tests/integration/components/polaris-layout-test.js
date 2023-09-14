@@ -7,21 +7,21 @@ import buildNestedSelector from '../../helpers/build-nested-selector';
 const layoutSelector = 'div.Polaris-Layout';
 const layoutSectionSelector = buildNestedSelector(
   layoutSelector,
-  'div.Polaris-Layout__Section'
+  'div.Polaris-Layout__Section',
 );
 const layoutAnnotationWrapperSelector = buildNestedSelector(
   layoutSelector,
   'div.Polaris-Layout__AnnotatedSection',
-  'div.Polaris-Layout__AnnotationWrapper'
+  'div.Polaris-Layout__AnnotationWrapper',
 );
 
 const textContainerSelector = buildNestedSelector(
   'div.Polaris-Layout__Annotation',
-  'div.Polaris-TextContainer'
+  'div.Polaris-TextContainer',
 );
 const headerSelector = `${layoutAnnotationWrapperSelector} ${buildNestedSelector(
   textContainerSelector,
-  'h2.Polaris-Heading'
+  'h2.Polaris-Heading',
 )}`;
 
 const contentSelector = `${layoutAnnotationWrapperSelector} div.Polaris-Layout__AnnotationContent`;
@@ -38,105 +38,105 @@ module('Integration | Component | polaris layout', function (hooks) {
     assert.equal(
       layouts.length,
       1,
-      'inline without sectioned flag - renders one layout'
+      'inline without sectioned flag - renders one layout',
     );
 
     let layout = layouts[0];
     assert.equal(
       layout.children.length,
       0,
-      'inline without sectioned flag - layout has no children'
+      'inline without sectioned flag - layout has no children',
     );
     assert
       .dom(layout)
       .hasText(
         'This is an inline layout',
-        'inline without sectioned flag - renders text content'
+        'inline without sectioned flag - renders text content',
       );
 
     // Test block form.
     await render(
-      hbs`{{#polaris-layout}}This is a block layout{{/polaris-layout}}`
+      hbs`{{#polaris-layout}}This is a block layout{{/polaris-layout}}`,
     );
 
     layouts = findAll(layoutSelector);
     assert.equal(
       layouts.length,
       1,
-      'block without sectioned flag - renders one layout'
+      'block without sectioned flag - renders one layout',
     );
 
     layout = layouts[0];
     assert.equal(
       layout.children.length,
       0,
-      'block without sectioned flag - layout has no children'
+      'block without sectioned flag - layout has no children',
     );
     assert
       .dom(layout)
       .hasText(
         'This is a block layout',
-        'block without sectioned flag - renders text content'
+        'block without sectioned flag - renders text content',
       );
 
     // Test inline form with sectioned flag.
     await render(
-      hbs`{{polaris-layout text="This is a sectioned inline layout" sectioned=true}}`
+      hbs`{{polaris-layout text="This is a sectioned inline layout" sectioned=true}}`,
     );
 
     layouts = findAll(layoutSelector);
     assert.equal(
       layouts.length,
       1,
-      'inline with sectioned flag - renders one layout'
+      'inline with sectioned flag - renders one layout',
     );
     assert.equal(
       layouts[0].children.length,
       1,
-      'inline with sectioned flag - layout has one child'
+      'inline with sectioned flag - layout has one child',
     );
 
     let layoutSections = findAll(layoutSectionSelector);
     assert.equal(
       layoutSections.length,
       1,
-      'inline with sectioned flag - renders layout section'
+      'inline with sectioned flag - renders layout section',
     );
     assert
       .dom(layoutSections[0])
       .hasText(
         'This is a sectioned inline layout',
-        'inline with sectioned flag - renders text content'
+        'inline with sectioned flag - renders text content',
       );
 
     // Test block form with sectioned flag.
     await render(
-      hbs`{{#polaris-layout sectioned=true}}This is a sectioned block layout{{/polaris-layout}}`
+      hbs`{{#polaris-layout sectioned=true}}This is a sectioned block layout{{/polaris-layout}}`,
     );
 
     layouts = findAll(layoutSelector);
     assert.equal(
       layouts.length,
       1,
-      'block with sectioned flag - renders one layout'
+      'block with sectioned flag - renders one layout',
     );
     assert.equal(
       layouts[0].children.length,
       1,
-      'block with sectioned flag - layout has one child'
+      'block with sectioned flag - layout has one child',
     );
 
     layoutSections = findAll(layoutSectionSelector);
     assert.equal(
       layoutSections.length,
       1,
-      'inline with sectioned flag - renders layout section'
+      'inline with sectioned flag - renders layout section',
     );
     assert
       .dom(layoutSections[0])
       .hasText(
         'This is a sectioned block layout',
-        'block with sectioned flag - renders text content'
+        'block with sectioned flag - renders text content',
       );
   });
 
@@ -168,31 +168,31 @@ module('Integration | Component | polaris layout', function (hooks) {
       .dom(layoutSection)
       .hasNoClass(
         'Polaris-Layout__Section--secondary',
-        'first section - does not have secondary class'
+        'first section - does not have secondary class',
       );
     assert
       .dom(layoutSection)
       .hasNoClass(
         'Polaris-Layout__Section--fullWidth',
-        'first section - does not have full width class'
+        'first section - does not have full width class',
       );
     assert
       .dom(layoutSection)
       .hasNoClass(
         'Polaris-Layout__Section--oneHalf',
-        'first section - does not have half width class'
+        'first section - does not have half width class',
       );
     assert
       .dom(layoutSection)
       .hasNoClass(
         'Polaris-Layout__Section--oneThird',
-        'first section - does not have third width class'
+        'first section - does not have third width class',
       );
     assert
       .dom(layoutSection)
       .hasText(
         'This is an inline section',
-        'first section - renders text content'
+        'first section - renders text content',
       );
 
     // Check the second section.
@@ -200,69 +200,69 @@ module('Integration | Component | polaris layout', function (hooks) {
 
     layoutSection.hasNoClass(
       'Polaris-Layout__Section--secondary',
-      'second section - does not have secondary class'
+      'second section - does not have secondary class',
     );
     layoutSection.hasNoClass(
       'Polaris-Layout__Section--fullWidth',
-      'second section - does not have full width class'
+      'second section - does not have full width class',
     );
     layoutSection.hasNoClass(
       'Polaris-Layout__Section--oneHalf',
-      'second section - does not have half width class'
+      'second section - does not have half width class',
     );
     layoutSection.hasNoClass(
       'Polaris-Layout__Section--oneThird',
-      'second section - does not have third width class'
+      'second section - does not have third width class',
     );
     layoutSection.hasText(
       'This is a block section',
-      'second section - renders text content'
+      'second section - renders text content',
     );
 
     // Check the third section.
     layoutSection = assert.dom(layoutSections[2]);
     layoutSection.hasClass(
       'Polaris-Layout__Section--secondary',
-      'third section - has secondary class'
+      'third section - has secondary class',
     );
     layoutSection.hasNoClass(
       'Polaris-Layout__Section--fullWidth',
-      'third section - does not have full width class'
+      'third section - does not have full width class',
     );
     layoutSection.hasNoClass(
       'Polaris-Layout__Section--oneHalf',
-      'third section - does not have half width class'
+      'third section - does not have half width class',
     );
     layoutSection.hasNoClass(
       'Polaris-Layout__Section--oneThird',
-      'third section - does not have third width class'
+      'third section - does not have third width class',
     );
     layoutSection.hasText(
       'This is a secondary section',
-      'third section - renders text content'
+      'third section - renders text content',
     );
 
     // Check the fourth section.
     layoutSection = assert.dom(layoutSections[3]);
     layoutSection.hasNoClass(
       'Polaris-Layout__Section--secondary',
-      'fourth section - does not have secondary class'
+      'fourth section - does not have secondary class',
     );
     layoutSection.hasClass(
       'Polaris-Layout__Section--fullWidth',
-      'fourth section - has full width class'
+      'fourth section - has full width class',
     );
     layoutSection.hasNoClass(
       'Polaris-Layout__Section--oneHalf',
-      'fourth section - does not have half width class'
+      'fourth section - does not have half width class',
     );
     layoutSection.hasNoClass(
       'Polaris-Layout__Section--oneThird',
-      'fourth section - does not have third width class'
+      'fourth section - does not have third width class',
     );
     layoutSection.hasText(
       'This is a full-width section',
-      'fourth section - renders text content'
+      'fourth section - renders text content',
     );
 
     // Check the fifth section.
@@ -270,23 +270,23 @@ module('Integration | Component | polaris layout', function (hooks) {
 
     layoutSection.hasNoClass(
       'Polaris-Layout__Section--secondary',
-      'fifth section - does not have secondary class'
+      'fifth section - does not have secondary class',
     );
     layoutSection.hasNoClass(
       'Polaris-Layout__Section--fullWidth',
-      'fifth section - does not have full width class'
+      'fifth section - does not have full width class',
     );
     layoutSection.hasClass(
       'Polaris-Layout__Section--oneHalf',
-      'fifth section - has half width class'
+      'fifth section - has half width class',
     );
     layoutSection.hasNoClass(
       'Polaris-Layout__Section--oneThird',
-      'fifth section - does not have third width class'
+      'fifth section - does not have third width class',
     );
     layoutSection.hasText(
       'This is a half-width section',
-      'fifth section - renders text content'
+      'fifth section - renders text content',
     );
 
     // Check the sixth section.
@@ -294,23 +294,23 @@ module('Integration | Component | polaris layout', function (hooks) {
 
     layoutSection.hasNoClass(
       'Polaris-Layout__Section--secondary',
-      'sixth section - does not have secondary class'
+      'sixth section - does not have secondary class',
     );
     layoutSection.hasNoClass(
       'Polaris-Layout__Section--fullWidth',
-      'sixth section - does not have full width class'
+      'sixth section - does not have full width class',
     );
     layoutSection.hasNoClass(
       'Polaris-Layout__Section--oneHalf',
-      'sixth section - does not have half width class'
+      'sixth section - does not have half width class',
     );
     layoutSection.hasClass(
       'Polaris-Layout__Section--oneThird',
-      'sixth section - has third width class'
+      'sixth section - has third width class',
     );
     layoutSection.hasText(
       'This is a third-width section',
-      'sixth section - renders text content'
+      'sixth section - renders text content',
     );
   });
 
@@ -362,7 +362,7 @@ module('Integration | Component | polaris layout', function (hooks) {
     contents.exists({ count: 1 }, 'renders content');
     contents.hasText(
       'This is an inline annotated section without title or description',
-      'renders correct content'
+      'renders correct content',
     );
   });
 
@@ -392,7 +392,7 @@ module('Integration | Component | polaris layout', function (hooks) {
     contents.exists({ count: 1 }, 'renders content');
     contents.hasText(
       'This is an inline annotated section with a title but no description',
-      'renders correct content'
+      'renders correct content',
     );
   });
 
@@ -422,7 +422,7 @@ module('Integration | Component | polaris layout', function (hooks) {
     contents.exists({ count: 1 }, 'renders content');
     contents.hasText(
       'This is an inline annotated section with a description but no title',
-      'renders correct content'
+      'renders correct content',
     );
   });
 
@@ -453,7 +453,7 @@ module('Integration | Component | polaris layout', function (hooks) {
     contents.exists({ count: 1 }, 'renders content');
     contents.hasText(
       'This is an inline annotated section with both a title and description',
-      'renders correct content'
+      'renders correct content',
     );
   });
 
@@ -468,7 +468,7 @@ module('Integration | Component | polaris layout', function (hooks) {
 
     const descriptionSelector = buildNestedSelector(
       '[data-test-annotation-description]',
-      '[data-test-annotation-description-content]'
+      '[data-test-annotation-description-content]',
     );
     assert.dom(descriptionSelector).exists({ count: 1 });
   });
@@ -489,7 +489,7 @@ module('Integration | Component | polaris layout', function (hooks) {
 
     const descriptionSelector = buildNestedSelector(
       '[data-test-annotation-description]',
-      '[data-test-annotation-description-content]'
+      '[data-test-annotation-description-content]',
     );
 
     assert.dom(descriptionSelector).exists({ count: 1 });

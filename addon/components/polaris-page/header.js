@@ -175,7 +175,7 @@ export default class PolarisPageHeader extends Component {
     'hasBreadcrumbs',
     'hasSecondaryActions',
     'hasRollup',
-    'class'
+    'class',
   )
   get cssClasses() {
     let cssClasses = ['Polaris-Page-Header'];

@@ -171,7 +171,7 @@ export default class PolarisChoiceList extends Component {
         updatedSelectedChoices = [...selected, value];
       } else {
         updatedSelectedChoices = selected.filter(
-          (selectedChoice) => selectedChoice !== value
+          (selectedChoice) => selectedChoice !== value,
         );
       }
     } else {

@@ -19,7 +19,7 @@ module('Integration | Component | polaris heading', function (hooks) {
       .dom(headingSelector)
       .hasText(
         'This is a heading',
-        'inline with defaults - renders correct text'
+        'inline with defaults - renders correct text',
       );
     assert.dom(headingSelector).hasTagName('h2', 'renders correct element');
 
@@ -34,7 +34,7 @@ module('Integration | Component | polaris heading', function (hooks) {
       .dom(headingSelector)
       .hasText(
         'This is an emphasised heading',
-        'block with customisation - renders correct text'
+        'block with customisation - renders correct text',
       );
     assert
       .dom(headingSelector)
@@ -50,7 +50,7 @@ module('Integration | Component | polaris heading', function (hooks) {
       .dom(headingSelector)
       .hasText(
         'This is an emphasised heading',
-        'block with customisation - renders correct text'
+        'block with customisation - renders correct text',
       );
     assert
       .dom(headingSelector)

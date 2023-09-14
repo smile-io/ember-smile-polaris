@@ -65,7 +65,7 @@ export default class PolarisDisplayText extends Component {
       {
         id: 'ember-polaris.polaris-display-text.tagName-arg',
         until: '7.0.0',
-      }
+      },
     );
   }
 

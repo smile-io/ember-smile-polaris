@@ -12,7 +12,7 @@ import deprecateClassArgument from '../../utils/deprecate-class-argument';
 @tagName('')
 @templateLayout(layout)
 export default class PolarisResourceListItem extends Component.extend(
-  context.ConsumerMixin
+  context.ConsumerMixin,
 ) {
   /**
    * Unique identifier for the item
@@ -136,7 +136,7 @@ export default class PolarisResourceListItem extends Component.extend(
     'selectMode',
     'persistActions',
     'focusedInner',
-    'class'
+    'class',
   )
   get cssClasses() {
     let cssClasses = ['Polaris-ResourceList-Item'];

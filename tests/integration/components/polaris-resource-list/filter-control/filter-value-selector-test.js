@@ -73,7 +73,7 @@ function getOptionsListForOperators(operators) {
 async function triggerChangeEventWithValue(
   selector,
   value,
-  eventName = 'change'
+  eventName = 'change',
 ) {
   find(selector).value = value;
   await triggerEvent(selector, eventName);
@@ -126,7 +126,7 @@ module(
             const expectedOptions = getOptionsListForOperators(operators);
 
             const operatorsSelectOptions = findAll(
-              '[data-test-select="operator"] option:not([disabled])'
+              '[data-test-select="operator"] option:not([disabled])',
             ).map((option) => {
               return {
                 value: option.getAttribute('value'),
@@ -174,7 +174,7 @@ module(
 
             await triggerChangeEventWithValue(
               '[data-test-select="operator"]',
-              newOperator
+              newOperator,
             );
 
             assert.ok(this.get('wasOnFilterKeyChangeCalled'));
@@ -193,17 +193,17 @@ module(
 
             await triggerChangeEventWithValue(
               '[data-test-select="filter"]',
-              newFilterValue
+              newFilterValue,
             );
 
             await triggerChangeEventWithValue(
               '[data-test-select="operator"]',
-              operators[1].key
+              operators[1].key,
             );
 
             assert.equal(this.get('newFilterValue'), newFilterValue);
           });
-        }
+        },
       );
 
       module(
@@ -245,7 +245,7 @@ module(
             const expectedOptions = getOptionsListForOperators(operators);
 
             const operatorsSelectOptions = findAll(
-              '[data-test-select="operator"] option:not([disabled])'
+              '[data-test-select="operator"] option:not([disabled])',
             ).map((option) => {
               return {
                 value: option.getAttribute('value'),
@@ -318,7 +318,7 @@ module(
 
             await triggerChangeEventWithValue(
               '.Polaris-Select select',
-              newOperator
+              newOperator,
             );
 
             assert.equal(this.get('newFilterKey'), newOperator);
@@ -338,17 +338,17 @@ module(
             await triggerChangeEventWithValue(
               '.Polaris-TextField input',
               newFilterValue,
-              'input'
+              'input',
             );
 
             await triggerChangeEventWithValue(
               '[data-test-select="operator"]',
-              operators[1].key
+              operators[1].key,
             );
 
             assert.equal(this.get('newFilterValue'), newFilterValue);
           });
-        }
+        },
       );
 
       module(
@@ -362,7 +362,7 @@ module(
                   'component:polaris-resource-list/filter-control/date-selector',
                   DateSelectorComponent.extend({
                     layout,
-                  })
+                  }),
                 );
               },
             });
@@ -485,8 +485,8 @@ module(
             await triggerEvent('[data-test-select="date-selector"]', 'change');
             assert.ok(this.get('wasOnFilterKeyChangeCalled'));
           });
-        }
+        },
       );
     });
-  }
+  },
 );
