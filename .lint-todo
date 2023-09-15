@@ -1270,3 +1270,7 @@ add|ember-template-lint|no-action|468|25|468|25|7a1127f1d95327c1af84af3500377238
 add|ember-template-lint|no-curly-component-invocation|465|14|465|14|1b808ee6bd910032c42402b05239615f7d079272|1694649600000|||tests/integration/components/polaris-resource-list/filter-control/filter-value-selector-test.js
 add|ember-template-lint|no-action|481|34|481|34|bfda11268adacee3d85d949191eaef656c278706|1694649600000|||tests/integration/components/polaris-resource-list/filter-control/filter-value-selector-test.js
 add|ember-template-lint|no-curly-component-invocation|478|14|478|14|288855346142f21a93fc97d3cc3f023dc64d6fc0|1694649600000|||tests/integration/components/polaris-resource-list/filter-control/filter-value-selector-test.js
+remove|ember-template-lint|no-pointer-down-event-binding|5|7|5|7|054b5943367ced133354ed106d8fcf665aee5fad|1694649600000|||addon/templates/components/polaris-color-picker/slidable.hbs
+remove|ember-template-lint|no-implicit-this|48|29|48|29|13bc17961aa8ae0ad55f112f99e5d3c8e7cae650|1694563200000|1697155200000|1699750800000|tests/dummy/app/templates/index.hbs
+remove|ember-template-lint|no-action|48|15|48|15|d0bf5afd6133e17778d3d536890be82eab67ec3c|1694563200000|1697155200000|1699750800000|tests/dummy/app/templates/index.hbs
+remove|ember-template-lint|no-implicit-this|48|64|48|64|13bc17961aa8ae0ad55f112f99e5d3c8e7cae650|1694563200000|1697155200000|1699750800000|tests/dummy/app/templates/index.hbs
