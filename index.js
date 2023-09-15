@@ -11,6 +11,9 @@ module.exports = {
         'node_modules/@smile-io/ember-smile-polaris/public',
       ],
     },
+    'ember-composable-helpers': {
+      only: ['includes'],
+    },
   },
 
   included: function (/* app */) {

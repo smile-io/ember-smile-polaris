@@ -18,7 +18,11 @@
       {{on "click" this.handleClick}}
     >
       {{#if @prefix}}
-        <div data-test-text-field-prefix class="Polaris-TextField__Prefix" id="{{this.id}}Prefix">
+        <div
+          data-test-text-field-prefix
+          class="Polaris-TextField__Prefix"
+          id="{{this.id}}Prefix"
+        >
           {{render-content @prefix}}
         </div>
       {{/if}}
@@ -63,7 +67,11 @@
       {{/let}}
 
       {{#if @suffix}}
-        <div data-test-text-field-suffix class="Polaris-TextField__Suffix" id="{{this.id}}Suffix">
+        <div
+          data-test-text-field-suffix
+          class="Polaris-TextField__Suffix"
+          id="{{this.id}}Suffix"
+        >
           {{render-content @suffix}}
         </div>
       {{/if}}

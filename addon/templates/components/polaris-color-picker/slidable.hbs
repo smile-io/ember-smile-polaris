@@ -1,10 +1,10 @@
 {{! template-lint-disable no-invalid-interactive }}
 {{! template-lint-disable no-down-event-binding }}
 <div
-  class='Polaris-ColorPicker__Slidable {{@class}}'
-  {{on 'mousedown' this.startDrag}}
-  {{on 'touchstart' this.startDrag}}
+  class="Polaris-ColorPicker__Slidable {{@class}}"
+  {{on "mousedown" this.startDrag}}
+  {{on "touchstart" this.startDrag}}
   {{did-insert this.setElementAndTriggerHeightChanged}}
 >
-  <div class='Polaris-ColorPicker__Dragger' style={{this.draggerStyle}}></div>
+  <div class="Polaris-ColorPicker__Dragger" style={{this.draggerStyle}}></div>
 </div>
