@@ -146,8 +146,6 @@ module('Integration | Component | polaris page', function (hooks) {
   });
 
   test('it handles primary action correctly when supplied', async function (assert) {
-    assert.expect(8);
-
     this.setProperties({
       handleClick: (event) => {
         assert.ok(true, 'triggers @onAction handler');

@@ -18,7 +18,7 @@ module('Integration | Component | polaris-button', function (hooks) {
   });
 
   module('<Button />', function () {
-    module('url', function () {
+    module('url', function (hooks) {
       hooks.beforeEach(function () {
         this.set('mockUrl', 'http://google.com');
       });

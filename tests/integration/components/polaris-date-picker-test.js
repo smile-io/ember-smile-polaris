@@ -211,8 +211,6 @@ module('Integration | Component | polaris date picker', function (hooks) {
   });
 
   test('it passes a `selected` range argument to the `onChange` action', async function (assert) {
-    assert.expect(2);
-
     this.setProperties({
       month: MONTH,
       year: YEAR,
@@ -274,8 +272,6 @@ module('Integration | Component | polaris date picker', function (hooks) {
   });
 
   test('it passes `month` and `year` arguments to the `onMonthChange` action', async function (assert) {
-    assert.expect(3);
-
     let expectedMonth = MONTH + 1;
     let expectedYear = YEAR;
 

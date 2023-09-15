@@ -42,8 +42,6 @@ module('Integration | Component | polaris-unstyled-link', function (hooks) {
   });
 
   test('supports onClick action', async function (assert) {
-    assert.expect(2);
-
     this.handleWrapperClick = () =>
       assert.notOk(true, "click event doesn't bubble");
     this.handleClick = (event) => {

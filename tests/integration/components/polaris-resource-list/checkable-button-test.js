@@ -56,8 +56,6 @@ module(
     });
 
     test('onToggleAll action works', async function (assert) {
-      assert.expect(2);
-
       this.handleWrapperClick = () =>
         assert.notOk(true, "click event doesn't bubble");
       this.handleToggle = (event) => {

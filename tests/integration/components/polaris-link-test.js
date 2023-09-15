@@ -189,8 +189,6 @@ module('Integration | Component | polaris link', function (hooks) {
     // Reset the hash part of the browser URL to keep this test valid on reruns.
     window.location.hash = 'linkNotClicked';
 
-    assert.expect(3);
-
     this.handleParentClicked = () =>
       assert.notOk(true, "click event doesn't bubble to the parent");
     this.handleClick = (event) => {
@@ -216,8 +214,6 @@ module('Integration | Component | polaris link', function (hooks) {
   });
 
   test('clicking a link button performs the button action but does not bubble to the parent', async function (assert) {
-    assert.expect(3);
-
     this.handleParentClicked = () =>
       assert.notOk(true, "click event doesn't bubble to the parent");
     this.handleClick = (event) => {

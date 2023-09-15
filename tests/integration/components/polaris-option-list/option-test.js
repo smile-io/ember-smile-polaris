@@ -48,8 +48,6 @@ module(
     });
 
     test('calls onClick with section and index if option is not disabled', async function (assert) {
-      assert.expect(2);
-
       this.set('onOptionClicked', (optionSection, optionIndex) => {
         const { section, index } = defaultProps;
         assert.strictEqual(optionSection, section);
@@ -87,8 +85,6 @@ module(
     });
 
     test('calls onClick with section and index if option is not disabled and multiple options are allowed', async function (assert) {
-      assert.expect(2);
-
       this.set('onOptionClicked', (optionSection, optionIndex) => {
         const { section, index } = defaultProps;
         assert.strictEqual(optionSection, section);

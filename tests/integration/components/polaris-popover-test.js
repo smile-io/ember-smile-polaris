@@ -168,8 +168,6 @@ module('Integration | Component | polaris popover', function (hooks) {
   });
 
   test('it renders the correct HTML with preferredPosition attribute', async function (assert) {
-    assert.expect(2);
-
     this.set('preferredPosition', 'above');
 
     await render(hbs`

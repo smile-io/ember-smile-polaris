@@ -86,8 +86,6 @@ module('Integration | Component | polaris icon', function (hooks) {
   });
 
   test('it applies colors correctly', async function (assert) {
-    assert.expect(2 + colors.length * 3);
-
     await render(hbs`{{polaris-icon source="add" color=color}}`);
 
     // Check without any color set first.

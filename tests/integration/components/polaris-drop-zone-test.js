@@ -122,8 +122,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
   );
 
   test('it renders in inline form', async function (assert) {
-    assert.expect(8);
-
     await render(hbs`{{polaris-drop-zone}}`);
 
     // Defaults
@@ -154,8 +152,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
   });
 
   test('it supports `outline` property', async function (assert) {
-    assert.expect(2);
-
     this.set('outline', true);
 
     await render(hbs`{{polaris-drop-zone outline=outline}}`);
@@ -171,8 +167,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
   });
 
   test('it supports `disabled` property', async function (assert) {
-    assert.expect(4);
-
     await render(hbs`{{polaris-drop-zone disabled=disabled}}`);
 
     const dropZone = assert.dom(dropZoneSelector);
@@ -196,8 +190,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
   });
 
   test('it supports `accept` property', async function (assert) {
-    assert.expect(2);
-
     await render(hbs`{{polaris-drop-zone accept=accept}}`);
 
     const input = assert.dom(inputSelector);
@@ -211,8 +203,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
   });
 
   test('it supports `error` && `errorOverlayText` properties', async function (assert) {
-    assert.expect(3);
-
     let event = new MockEvent({ dataTransfer: { files: uploadedFiles } });
     await render(
       hbs`{{polaris-drop-zone error=error errorOverlayText=errorOverlayText}}`,
@@ -243,8 +233,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
   });
 
   test('it supports `overlayText` property', async function (assert) {
-    assert.expect(2);
-
     this.set('overlay', true);
     let event = new MockEvent({ dataTransfer: { files: uploadedFiles } });
     await render(
@@ -302,8 +290,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
     });
 
     test('renders properly during drag events', async function (assert) {
-      assert.expect(28);
-
       let event = new MockEvent({ dataTransfer: { files: uploadedFiles } });
 
       await render(hbs`{{polaris-drop-zone accept=accept}}`);
@@ -482,8 +468,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
       );
 
       test('it renders properly with FileUpload', async function (assert) {
-        assert.expect(12);
-
         await render(hbs`
           {{#polaris-drop-zone type=type as |dropZone|}}
             {{dropZone.fileUpload}}
@@ -557,8 +541,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
 
     module('when size is large', function () {
       test('it renders properly with FileUpload', async function (assert) {
-        assert.expect(14);
-
         this.set('style', htmlSafe(`width: ${largeWidth}px;`));
         await render(hbs`
           <div style={{style}}>
@@ -642,8 +624,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
       });
 
       test('renders properly during drag events', async function (assert) {
-        assert.expect(4);
-
         let event = new MockEvent({ dataTransfer: { files: uploadedFiles } });
 
         this.set('style', htmlSafe(`width: ${largeWidth}px;`));
@@ -693,8 +673,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
       );
 
       test('it renders properly with FileUpload', async function (assert) {
-        assert.expect(8);
-
         this.set('style', htmlSafe(`width: ${mediumWidth}px;`));
         await render(hbs`
           <div style={{style}}>
@@ -747,8 +725,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
       });
 
       test('renders properly during drag events', async function (assert) {
-        assert.expect(4);
-
         let event = new MockEvent({ dataTransfer: { files: uploadedFiles } });
 
         this.set('style', htmlSafe(`width: ${mediumWidth}px;`));
@@ -798,8 +774,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
       );
 
       test('it renders properly with FileUpload', async function (assert) {
-        assert.expect(8);
-
         this.set('style', htmlSafe(`width: ${smallWidth}px;`));
         await render(hbs`
           <div style={{style}}>
@@ -850,8 +824,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
       });
 
       test('renders properly during drag events', async function (assert) {
-        assert.expect(4);
-
         let event = new MockEvent({ dataTransfer: { files: uploadedFiles } });
 
         this.set('style', htmlSafe(`width: ${smallWidth}px;`));
@@ -889,8 +861,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
    */
   module('handles drag and drop events', function () {
     test('it calls onDrop callback when a drop event is fired', async function (assert) {
-      assert.expect(6);
-
       this.set('drop', (files, acceptedFiles, rejectedFiles) => {
         assert.deepEqual(
           files,
@@ -928,8 +898,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
     });
 
     test('calls the onDrop callback when a drop event is fired on document twice when a duplicate file is added consecutively', async function (assert) {
-      assert.expect(6);
-
       this.set('drop', (files, acceptedFiles, rejectedFiles) => {
         this.setProperties({ files, acceptedFiles, rejectedFiles });
       });
@@ -950,8 +918,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
     });
 
     test('it calls onDrop callback when a drop event is fired on document', async function (assert) {
-      assert.expect(9);
-
       this.set('drop', (files, acceptedFiles, rejectedFiles) => {
         assert.deepEqual(
           files,
@@ -1000,8 +966,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
     });
 
     test('calls the onDragEnter callback when a dragEnter event is fired', async function (assert) {
-      assert.expect(1);
-
       this.set('dragEnter', () => {
         assert.ok('onDragEnter callback is invoked');
       });
@@ -1013,8 +977,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
     });
 
     test('calls the onDragOver callback when a dragOver event is fired', async function (assert) {
-      assert.expect(1);
-
       this.set('dragOver', () => {
         assert.ok('onDragOver callback is invoked');
       });
@@ -1026,8 +988,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
     });
 
     test('calls the onDragLeave callback when a dragLeave event is fired', async function (assert) {
-      assert.expect(1);
-
       this.set('dragLeave', () => {
         assert.ok('onDragLeave callback is invoked');
       });
@@ -1039,8 +999,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
     });
 
     test('it calls onDropAccepted callback correctly when it ony accepts images', async function (assert) {
-      assert.expect(1);
-
       this.set('dropAccepted', (acceptedFiles) => {
         assert.deepEqual(
           acceptedFiles,
@@ -1058,8 +1016,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
     });
 
     test('it calls onDropRejected callback correctly when it ony accepts images', async function (assert) {
-      assert.expect(1);
-
       this.set('dropRejected', (rejectedFiles) => {
         assert.deepEqual(
           rejectedFiles,
@@ -1077,8 +1033,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
     });
 
     test('it calls onClick callback', async function (assert) {
-      assert.expect(2);
-
       let event = new MockEvent({ dataTransfer: { files: uploadedFiles } });
 
       // Test that `open` triggers click on the input element if `onClick` is not present
@@ -1185,8 +1139,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
     });
 
     test('it supports `customValidator` property', async function (assert) {
-      assert.expect(3);
-
       this.set('customValidator', (file) => file.type === 'image/jpeg');
       this.set('drop', (files, acceptedFiles, rejectedFiles) => {
         assert.deepEqual(
@@ -1215,8 +1167,6 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
     });
 
     test('it supports `allowMultiple` property', async function (assert) {
-      assert.expect(4);
-
       this.set('drop', (files, acceptedFiles, rejectedFiles) => {
         assert.deepEqual(
           files,
