@@ -391,7 +391,7 @@ module('Integration | Component | polaris-text-field', function (hooks) {
 
         assert.strictEqual(
           this.value,
-          3,
+          '3',
           'clicking increment button - increments value',
         );
 
@@ -399,7 +399,7 @@ module('Integration | Component | polaris-text-field', function (hooks) {
 
         assert.strictEqual(
           this.value,
-          2,
+          '2',
           'clicking decrement button - decrements value',
         );
 
@@ -419,7 +419,7 @@ module('Integration | Component | polaris-text-field', function (hooks) {
 
         await click(spinnerIncrButtonSelector);
 
-        assert.strictEqual(this.value, 1);
+        assert.strictEqual(this.value, '1');
       });
 
       test('it uses step property when provided', async function (assert) {
@@ -434,7 +434,7 @@ module('Integration | Component | polaris-text-field', function (hooks) {
 
         await click(spinnerIncrButtonSelector);
 
-        assert.strictEqual(this.value, 8);
+        assert.strictEqual(this.value, '8');
       });
 
       test('it respects a min value', async function (assert) {
@@ -452,26 +452,26 @@ module('Integration | Component | polaris-text-field', function (hooks) {
         await click(spinnerDecrButtonSelector);
         assert.strictEqual(
           this.value,
-          2,
+          '2',
           'does not decrement value below min one',
         );
 
         await click(spinnerIncrButtonSelector);
-        assert.strictEqual(this.value, 3, 'does increment value');
+        assert.strictEqual(this.value, '3', 'does increment value');
 
         this.set('value', -1);
 
         await click(spinnerIncrButtonSelector);
         assert.strictEqual(
           this.value,
-          2,
+          '2',
           'brings an invalid value down to the min',
         );
 
         await click(spinnerDecrButtonSelector);
         assert.strictEqual(
           this.value,
-          2,
+          '2',
           'does not decrement value below min one',
         );
       });
@@ -489,22 +489,26 @@ module('Integration | Component | polaris-text-field', function (hooks) {
         `);
 
         await click(spinnerIncrButtonSelector);
-        assert.strictEqual(this.value, 2, 'does not increment value above max');
+        assert.strictEqual(
+          this.value,
+          '2',
+          'does not increment value above max',
+        );
 
         await click(spinnerDecrButtonSelector);
-        assert.strictEqual(this.value, 1, 'decrements value');
+        assert.strictEqual(this.value, '1', 'decrements value');
 
         this.set('value', 12);
 
         await click(spinnerIncrButtonSelector);
         assert.strictEqual(
           this.value,
-          2,
+          '2',
           'brings an invalid value down to the max',
         );
 
         await click(spinnerDecrButtonSelector);
-        assert.strictEqual(this.value, 1, 'decrements value');
+        assert.strictEqual(this.value, '1', 'decrements value');
       });
 
       test('increments correctly when a value step or both are float numbers', async function (assert) {
@@ -520,7 +524,7 @@ module('Integration | Component | polaris-text-field', function (hooks) {
         `);
 
         await click(spinnerIncrButtonSelector);
-        assert.strictEqual(this.value, 4.064, 'decrements value correctly');
+        assert.strictEqual(this.value, '4.064', 'decrements value correctly');
       });
 
       test('decrements correctly when a value step or both are float numbers', async function (assert) {
@@ -536,7 +540,7 @@ module('Integration | Component | polaris-text-field', function (hooks) {
         `);
 
         await click(spinnerDecrButtonSelector);
-        assert.strictEqual(this.value, 1.976, 'decrements value correctly');
+        assert.strictEqual(this.value, '1.976', 'decrements value correctly');
       });
     });
   });
