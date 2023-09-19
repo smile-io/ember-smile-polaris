@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click } from '@ember/test-helpers';
+import { render, click, settled } from '@ember/test-helpers';
 import buildNestedSelector from '../../helpers/build-nested-selector';
 import MockSvgJarComponent from '../../mocks/components/svg-jar';
 
@@ -49,6 +49,8 @@ module('Integration | Component | polaris tag', function (hooks) {
         .doesNotExist('does not render a tag button');
 
       this.set('text', 'Retail');
+      await this.settled();
+
       assert
         .dom(tagTextSelector)
         .hasAttribute(

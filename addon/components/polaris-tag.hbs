@@ -1,17 +1,19 @@
 <span
-  class="Polaris-Tag {{@class}} {{if @disabled "Polaris-Tag--disabled"}}"
+  class="Polaris-Tag {{@class}} {{if @disabled 'Polaris-Tag--disabled'}}"
   data-test-tag={{true}}
   ...attributes
-  {{did-insert this.setTagText}}
 >
-  <span data-test-tag-text title={{this.tagText}} class="Polaris-Tag__TagText">
-    <RenderDetector @onRender={{this.updateTagText}}>
-      {{#if hasBlock}}
-        {{yield}}
-      {{else}}
-        {{@text}}
-      {{/if}}
-    </RenderDetector>
+  <span
+    data-test-tag-text
+    title={{this.tagText}}
+    class="Polaris-Tag__TagText"
+    {{trigger-update-on-text-change this.setTagText}}
+  >
+    {{#if (has-block)}}
+      {{yield}}
+    {{else}}
+      {{@text}}
+    {{/if}}
   </span>
 
   {{#if @onRemove}}
