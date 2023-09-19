@@ -14,22 +14,20 @@ export default class triggerUpdateOnTextChangeModifier extends Modifier {
 
   modify(element, [onUpdate]) {
     // Save off the element the first time for convenience with setupMutationObserver
-    if (!this.element) {
-      this.element = element;
-      this.onUpdate = onUpdate;
+    if (this.element) {
+      return;
     }
 
+    this.element = element;
+    this.onUpdate = onUpdate;
+
+    this.triggerUpdate();
     this.setupMutationObserver();
   }
 
   setupMutationObserver() {
     this.mutationObserver = new MutationObserver(() => {
-      const newText = elementText(this.element);
-      if (newText === this.previousText) {
-        return;
-      }
-
-      run(this, this.triggerUpdate, newText);
+      this.triggerUpdate();
     });
 
     this.mutationObserver.observe(this.element, {
@@ -39,9 +37,14 @@ export default class triggerUpdateOnTextChangeModifier extends Modifier {
     });
   }
 
-  triggerUpdate(text) {
-    this.previousText = text;
-    this.onUpdate(text);
+  triggerUpdate() {
+    const newText = elementText(this.element);
+    if (typeof newText !== 'undefined' && newText === this.previousText) {
+      return;
+    }
+
+    this.previousText = newText;
+    run(this, this.onUpdate, this.element, newText);
   }
 }
 

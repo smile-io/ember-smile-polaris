@@ -49,7 +49,7 @@ module('Integration | Component | polaris tag', function (hooks) {
         .doesNotExist('does not render a tag button');
 
       this.set('text', 'Retail');
-      await this.settled();
+      await settled();
 
       assert
         .dom(tagTextSelector)

@@ -66,7 +66,7 @@ export default class PolarisTag extends Component {
   }
 
   @action
-  setTagText(text) {
+  setTagText(_element, text) {
     this.tagText = text;
   }
 }
