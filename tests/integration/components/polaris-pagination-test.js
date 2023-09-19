@@ -2,7 +2,6 @@ import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { click, render } from '@ember/test-helpers';
-import { initialize } from 'ember-keyboard';
 import { keyUp } from 'ember-keyboard/test-support/test-helpers';
 import MockSvgJarComponent from '../../mocks/components/svg-jar';
 
@@ -16,7 +15,6 @@ module('Integration | Component | polaris pagination', function (hooks) {
 
   hooks.beforeEach(function () {
     this.owner.register('component:svg-jar', MockSvgJarComponent);
-    initialize();
   });
 
   test('it renders defaults correctly', async function (assert) {
