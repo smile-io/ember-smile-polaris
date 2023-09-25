@@ -185,7 +185,7 @@ export default class PolarisPopover extends Component {
     }
 
     let activators = component.querySelectorAll(
-      '.ember-basic-dropdown-trigger'
+      '.ember-basic-dropdown-trigger',
     );
 
     if (activators.length > 1) {
@@ -193,7 +193,7 @@ export default class PolarisPopover extends Component {
         'Multiple popover activators found. Defaulting to `preferredPosition` of `below`',
         {
           id: 'ember-polaris.polaris-popover.multiple-popover-activators',
-        }
+        },
       );
 
       return BELOW;
@@ -237,7 +237,7 @@ export default class PolarisPopover extends Component {
   setRef(element) {
     this.set(
       'dropdownTriggerElement',
-      element.parentElement.querySelector('.ember-basic-dropdown-trigger')
+      element.parentElement.querySelector('.ember-basic-dropdown-trigger'),
     );
   }
 

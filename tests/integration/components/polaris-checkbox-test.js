@@ -19,14 +19,14 @@ module('Integration | Component | polaris-checkbox', function (hooks) {
   module('onChange()', function () {
     test('is called with the new checked value of the input on change', async function (assert) {
       this.set('handleChange', (newChecked, checkboxId) =>
-        this.setProperties({ newChecked, checkboxId })
+        this.setProperties({ newChecked, checkboxId }),
       );
       await render(hbs`
         {{polaris-checkbox inputId="MyCheckbox" label="Checkbox" onChange=(action handleChange)}}
       `);
       await click('input');
       assert.true(this.get('newChecked'));
-      assert.equal(this.get('checkboxId'), 'MyCheckbox');
+      assert.strictEqual(this.get('checkboxId'), 'MyCheckbox');
     });
 
     test('sets focus on the input when checkbox is toggled off', async function (assert) {
@@ -104,7 +104,7 @@ module('Integration | Component | polaris-checkbox', function (hooks) {
       `);
 
       const helpTextID = find('input').getAttribute('aria-describedby');
-      assert.equal(typeof helpTextID, 'string');
+      assert.strictEqual(typeof helpTextID, 'string');
       assert.dom(`#${helpTextID}`).hasText('Some help');
     });
   });
@@ -127,7 +127,7 @@ module('Integration | Component | polaris-checkbox', function (hooks) {
         {{polaris-checkbox error="Some error" label="Checkbox"}}
       `);
       const errorID = find('input').getAttribute('aria-describedby');
-      assert.equal(typeof errorID, 'string');
+      assert.strictEqual(typeof errorID, 'string');
       assert.dom(`#${errorID}`).hasText('Some error');
     });
 
@@ -138,7 +138,7 @@ module('Integration | Component | polaris-checkbox', function (hooks) {
       const errorID = find('input').getAttribute('aria-describedby');
 
       assert.dom('input').hasAttribute('aria-invalid', 'true');
-      assert.equal(typeof errorID, 'string');
+      assert.strictEqual(typeof errorID, 'string');
       assert.dom(`#${errorID}`).doesNotExist();
     });
 
@@ -150,7 +150,7 @@ module('Integration | Component | polaris-checkbox', function (hooks) {
         .getAttribute('aria-describedby')
         .split(' ');
 
-      assert.equal(descriptions.length, 2);
+      assert.strictEqual(descriptions.length, 2);
       assert.dom(`#${descriptions[0]}`).hasText('Some error');
       assert.dom(`#${descriptions[1]}`).hasText('Some help');
     });

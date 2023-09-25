@@ -28,7 +28,7 @@ module('Integration | Component | polaris pagination', function (hooks) {
       .dom(paginationSelector)
       .hasNoClass(
         'Polaris-Pagination--plain',
-        `inline-mode - doesn't have 'plain' class`
+        `inline-mode - doesn't have 'plain' class`,
       );
 
     assert
@@ -52,7 +52,7 @@ module('Integration | Component | polaris pagination', function (hooks) {
       .hasAttribute(
         'aria-label',
         'Pagination',
-        'inline mode - has correct default aria-label attribute'
+        'inline mode - has correct default aria-label attribute',
       );
   });
 
@@ -63,7 +63,7 @@ module('Integration | Component | polaris pagination', function (hooks) {
       .dom(paginationSelector)
       .hasClass(
         'Polaris-Pagination--plain',
-        'plain pagination - has `Polaris-Pagination--plain` class'
+        'plain pagination - has `Polaris-Pagination--plain` class',
       );
   });
 
@@ -84,7 +84,7 @@ module('Integration | Component | polaris pagination', function (hooks) {
 
   test('it handles a11y ', async function (assert) {
     await render(
-      hbs`{{polaris-pagination accessibilityLabel="Accessible to all"}}`
+      hbs`{{polaris-pagination accessibilityLabel="Accessible to all"}}`,
     );
 
     assert
@@ -92,7 +92,7 @@ module('Integration | Component | polaris pagination', function (hooks) {
       .hasAttribute(
         'aria-label',
         'Accessible to all',
-        'accessibility label - sets aria-label attribute'
+        'accessibility label - sets aria-label attribute',
       );
   });
 
@@ -110,7 +110,7 @@ module('Integration | Component | polaris pagination', function (hooks) {
 
     assert.verifySteps(
       ['on-previous'],
-      'clicking previous button fires `onPrevious` callback'
+      'clicking previous button fires `onPrevious` callback',
     );
 
     assert
@@ -121,7 +121,7 @@ module('Integration | Component | polaris pagination', function (hooks) {
 
     assert.verifySteps(
       ['on-next'],
-      'clicking next button fires `onNext` callback'
+      'clicking next button fires `onNext` callback',
     );
 
     assert
@@ -151,7 +151,7 @@ module('Integration | Component | polaris pagination', function (hooks) {
     await keyUp('ArrowLeft');
     assert.verifySteps(
       ['on-previous:KeyH', 'on-previous:ArrowLeft'],
-      'pressing h/← triggers `onPrevious` action'
+      'pressing h/← triggers `onPrevious` action',
     );
 
     this.set('hasPrevious', false);
@@ -159,14 +159,14 @@ module('Integration | Component | polaris pagination', function (hooks) {
     await keyUp('ArrowLeft');
     assert.verifySteps(
       [],
-      "pressing  h/← when `hasPrevious` is `false` shouldn't trigger `onPrevious` action"
+      "pressing  h/← when `hasPrevious` is `false` shouldn't trigger `onPrevious` action",
     );
 
     await keyUp('KeyL');
     await keyUp('ArrowRight');
     assert.verifySteps(
       ['on-next:KeyL', 'on-next:ArrowRight'],
-      'pressing l/→ triggers `onNext` action'
+      'pressing l/→ triggers `onNext` action',
     );
 
     this.set('hasNext', false);
@@ -174,7 +174,7 @@ module('Integration | Component | polaris pagination', function (hooks) {
     await keyUp('ArrowRight');
     assert.verifySteps(
       [],
-      "pressing l/→ when `hasNext` is `false` shouldn't trigger `onNext` action"
+      "pressing l/→ when `hasNext` is `false` shouldn't trigger `onNext` action",
     );
   });
 });

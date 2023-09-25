@@ -8,7 +8,7 @@ import { FilterType } from '@smile-io/ember-smile-polaris/components/polaris-res
 @tagName('')
 @templateLayout(layout)
 export default class PolarisResourceListFilterControl extends Component.extend(
-  context.ConsumerMixin
+  context.ConsumerMixin,
 ) {
   /**
    * @type {String}
@@ -77,7 +77,7 @@ export default class PolarisResourceListFilterControl extends Component.extend(
    */
   @(computed(
     'additionalAction.{text,accessibilityLabel,url,external,destructive,icon,loading,onAction}',
-    'context.selectMode'
+    'context.selectMode',
   ).readOnly())
   get additionalActionButton() {
     let { additionalAction, context } = this;
@@ -131,7 +131,8 @@ export default class PolarisResourceListFilterControl extends Component.extend(
     }
 
     let foundFilter = appliedFilters.find(
-      (appliedFilter) => idFromFilter(appliedFilter) === idFromFilter(newFilter)
+      (appliedFilter) =>
+        idFromFilter(appliedFilter) === idFromFilter(newFilter),
     );
 
     if (foundFilter) {
@@ -154,7 +155,7 @@ export default class PolarisResourceListFilterControl extends Component.extend(
     }
 
     let foundIndex = appliedFilters.findIndex(
-      (appliedFilter) => idFromFilter(appliedFilter) === filterId
+      (appliedFilter) => idFromFilter(appliedFilter) === filterId,
     );
 
     let newAppliedFilters =
@@ -219,7 +220,7 @@ export default class PolarisResourceListFilterControl extends Component.extend(
       let foundFilterOption = get(filter, 'options').find((option) =>
         typeof option === 'string'
           ? option === appliedFilterValue
-          : get(option, 'value') === appliedFilterValue
+          : get(option, 'value') === appliedFilterValue,
       );
 
       if (foundFilterOption) {
@@ -236,13 +237,13 @@ export default class PolarisResourceListFilterControl extends Component.extend(
 
       if (get(appliedFilter, 'key') === get(filter, 'maxKey')) {
         return `before ${formatDateForLabelDisplay(
-          get(appliedFilter, 'value')
+          get(appliedFilter, 'value'),
         )}`;
       }
 
       if (get(appliedFilter, 'key') === get(filter, 'minKey')) {
         return `after ${formatDateForLabelDisplay(
-          get(appliedFilter, 'value')
+          get(appliedFilter, 'value'),
         )}`;
       }
     }

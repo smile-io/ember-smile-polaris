@@ -192,7 +192,7 @@ module(
           assert
             .dom('.Polaris-Tag')
             .hasText(
-              `${filter.label} ${filter.operatorText} ${appliedFilterLabel}`
+              `${filter.label} ${filter.operatorText} ${appliedFilterLabel}`,
             );
         });
 
@@ -292,7 +292,7 @@ module(
           assert
             .dom('.Polaris-Tag')
             .hasText(
-              `${filter.label} ${filter.operatorText} ${appliedFilterValue}`
+              `${filter.label} ${filter.operatorText} ${appliedFilterValue}`,
             );
         });
 
@@ -324,7 +324,7 @@ module(
           assert
             .dom('.Polaris-Tag')
             .hasText(
-              `${filter.label} ${filter.operatorText} ${appliedFilterValue}`
+              `${filter.label} ${filter.operatorText} ${appliedFilterValue}`,
             );
         });
 
@@ -361,7 +361,7 @@ module(
           assert
             .dom('.Polaris-Tag')
             .hasText(
-              `${filter.label} ${filter.operatorText} ${expectedLocalizedLabel}`
+              `${filter.label} ${filter.operatorText} ${expectedLocalizedLabel}`,
             );
         });
 
@@ -393,7 +393,7 @@ module(
           `);
 
           const expectedLocalizedLabel = `after ${new Date(
-            selectedDate.replace(/-/g, '/')
+            selectedDate.replace(/-/g, '/'),
           ).toLocaleDateString()}`;
 
           assert
@@ -429,7 +429,7 @@ module(
           `);
 
           const expectedLocalizedLabel = `before ${new Date(
-            selectedDate.replace(/-/g, '/')
+            selectedDate.replace(/-/g, '/'),
           ).toLocaleDateString()}`;
 
           assert
@@ -513,7 +513,7 @@ module(
           assert
             .dom('.Polaris-Tag')
             .hasText(
-              `${filter.label} ${appliedFilterLabel} ${appliedFilterValue}`
+              `${filter.label} ${appliedFilterLabel} ${appliedFilterValue}`,
             );
         });
 
@@ -557,7 +557,7 @@ module(
           assert
             .dom('.Polaris-Tag')
             .hasText(
-              `${filter.label} ${appliedOperatorOptionLabel} ${appliedFilterValue}`
+              `${filter.label} ${appliedOperatorOptionLabel} ${appliedFilterValue}`,
             );
         });
 
@@ -598,7 +598,7 @@ module(
           assert.dom('ul').exists({ count: 1 });
           assert.dom('li').exists({ count: 1 });
         });
-      }
+      },
     );
 
     module('additionalAction', function () {
@@ -689,7 +689,7 @@ module(
                 this._super(...arguments);
                 receivedFilters = this.get('filters');
               },
-            })
+            }),
           );
           await render(hbs`
             {{#polaris-resource-list/provider value=mockDefaultContext}}
@@ -699,9 +699,9 @@ module(
             {{/polaris-resource-list/provider}}
           `);
 
-          assert.equal(receivedFilters, mockFilters);
+          assert.strictEqual(receivedFilters, mockFilters);
         });
-      }
+      },
     );
 
     module('onSearchBlur()', function () {
@@ -734,7 +734,7 @@ module(
 
         await fillIn('.Polaris-TextField input', newSearchValue);
 
-        assert.equal(this.get('newSearchValue'), newSearchValue);
+        assert.strictEqual(this.get('newSearchValue'), newSearchValue);
       });
     });
 
@@ -789,7 +789,7 @@ module(
 
           assert.notOk(this.get('wasOnFiltersChangeCalled'));
         });
-      }
+      },
     );
-  }
+  },
 );

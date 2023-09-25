@@ -27,11 +27,11 @@ module('Integration | Component | polaris choice', function (hooks) {
   const labelSelector = 'label.Polaris-Choice';
   const controlSelector = buildNestedSelector(
     labelSelector,
-    'span.Polaris-Choice__Control'
+    'span.Polaris-Choice__Control',
   );
   const labelContentSelector = buildNestedSelector(
     labelSelector,
-    'span.Polaris-Choice__Label'
+    'span.Polaris-Choice__Label',
   );
 
   // When an error or help text are passed into the choice component,
@@ -39,44 +39,44 @@ module('Integration | Component | polaris choice', function (hooks) {
   // both get wrapped up in one containing div.
   const withDescriptionWrapperSelector = buildNestedSelector(
     'div.choice-with-description-wrapper',
-    'div'
+    'div',
   );
   const labelWithDescriptionSelector = buildNestedSelector(
     withDescriptionWrapperSelector,
-    labelSelector
+    labelSelector,
   );
   const controlWithDescriptionSelector = buildNestedSelector(
     withDescriptionWrapperSelector,
-    controlSelector
+    controlSelector,
   );
   const labelContentWithDescriptionSelector = buildNestedSelector(
     withDescriptionWrapperSelector,
-    labelContentSelector
+    labelContentSelector,
   );
 
   const descriptionSelector = buildNestedSelector(
     withDescriptionWrapperSelector,
-    'div.Polaris-Choice__Descriptions'
+    'div.Polaris-Choice__Descriptions',
   );
   const helpTextSelector = buildNestedSelector(
     descriptionSelector,
-    'div.Polaris-Choice__HelpText'
+    'div.Polaris-Choice__HelpText',
   );
   const errorSelector = buildNestedSelector(
     descriptionSelector,
-    'div.Polaris-Choice__Error'
+    'div.Polaris-Choice__Error',
   );
   const errorIconSelector = buildNestedSelector(
     errorSelector,
     'div.Polaris-InlineError',
     'div.Polaris-InlineError__Icon',
     'span.Polaris-Icon',
-    'svg'
+    'svg',
   );
 
   const labelComponentSelector = buildNestedSelector(
     labelContentSelector,
-    'div.test-label-component'
+    'div.test-label-component',
   );
 
   test('it renders the correct HTML when no error or helpText are provided', async function (assert) {
@@ -91,25 +91,25 @@ module('Integration | Component | polaris choice', function (hooks) {
     labels.hasAttribute(
       'for',
       'test-choice',
-      'renders the label with the correct `for` attribute'
+      'renders the label with the correct `for` attribute',
     );
 
     const testControlSelector = buildNestedSelector(
       controlSelector,
-      'span.test-control'
+      'span.test-control',
     );
     const testControls = assert.dom(testControlSelector);
     testControls.exists({ count: 1 }, 'renders one control');
     testControls.hasText(
       'This is a test control',
-      'renders the control correctly'
+      'renders the control correctly',
     );
 
     const labelContents = assert.dom(labelContentSelector);
     labelContents.exists({ count: 1 }, 'renders one label content wrapper');
     labelContents.hasText(
       'This is my label',
-      'renders the label text correctly'
+      'renders the label text correctly',
     );
   });
 
@@ -131,34 +131,34 @@ module('Integration | Component | polaris choice', function (hooks) {
     labels.hasAttribute(
       'for',
       'helpful-test-choice',
-      'renders the label with the correct `for` attribute'
+      'renders the label with the correct `for` attribute',
     );
 
     const testControlSelector = buildNestedSelector(
       controlWithDescriptionSelector,
-      'span.helpful-test-control'
+      'span.helpful-test-control',
     );
     const testControls = assert.dom(testControlSelector);
     testControls.exists({ count: 1 }, 'renders one control');
     testControls.hasText(
       'This is a test control with help text',
-      'renders the control correctly'
+      'renders the control correctly',
     );
 
     const labelContents = assert.dom(labelContentWithDescriptionSelector);
     labelContents.exists({ count: 1 }, 'renders one label content wrapper');
     labelContents.hasText(
       'This is my label for a control with help text',
-      'renders the label text correctly'
+      'renders the label text correctly',
     );
 
     // Check the help text rendering.
     const helpTexts = assert.dom(helpTextSelector);
     helpTexts.exists({ count: 1 }, 'renders one help text');
-    // assert.equal(helpTexts[0].id, 'helpful-test-choiceHelpText'); TODO: figure out why ID isn't being set
+    // assert.strictEqual(helpTexts[0].id, 'helpful-test-choiceHelpText'); TODO: figure out why ID isn't being set
     helpTexts.hasText(
       'This is some help text',
-      'renders the correct help text'
+      'renders the correct help text',
     );
   });
 
@@ -180,34 +180,34 @@ module('Integration | Component | polaris choice', function (hooks) {
     labels.hasAttribute(
       'for',
       'error-test-choice',
-      'renders the label with the correct `for` attribute'
+      'renders the label with the correct `for` attribute',
     );
 
     const testControlSelector = buildNestedSelector(
       controlWithDescriptionSelector,
-      'span.error-test-control'
+      'span.error-test-control',
     );
     const testControls = assert.dom(testControlSelector);
     testControls.exists({ count: 1 }, 'renders one control');
     testControls.hasText(
       'This is a test control with an error',
-      'renders the control correctly'
+      'renders the control correctly',
     );
 
     const labelContents = assert.dom(labelContentWithDescriptionSelector);
     labelContents.exists({ count: 1 }, 'renders one label content wrapper');
     labelContents.hasText(
       'This is my label for a control with an error',
-      'renders the label text correctly'
+      'renders the label text correctly',
     );
 
     // Check the error rendering.
     const errors = assert.dom(errorSelector);
     errors.exists({ count: 1 }, 'renders one error');
-    // assert.equal(errors[0].id, 'error-test-choiceError'); TODO: figure out why ID isn't being set
+    // assert.strictEqual(errors[0].id, 'error-test-choiceError'); TODO: figure out why ID isn't being set
     errors.hasText(
       'This is an error message',
-      'renders the correct error text'
+      'renders the correct error text',
     );
 
     const errorIcons = assert.dom(errorIconSelector);
@@ -215,7 +215,7 @@ module('Integration | Component | polaris choice', function (hooks) {
     errorIcons.hasAttribute(
       'data-icon-source',
       'polaris/alert',
-      'renders the correct error icon'
+      'renders the correct error icon',
     );
   });
 
@@ -233,13 +233,13 @@ module('Integration | Component | polaris choice', function (hooks) {
     label.exists('without description - renders the label');
     label.hasClass(
       'Polaris-Choice--labelHidden',
-      'without description - applies labelHidden class when labelHidden true'
+      'without description - applies labelHidden class when labelHidden true',
     );
 
     this.set('labelHidden', false);
     label.hasNoClass(
       'Polaris-Choice--labelHidden',
-      'without description - does not apply labelHidden class when labelHidden false'
+      'without description - does not apply labelHidden class when labelHidden false',
     );
 
     await render(hbs`
@@ -255,13 +255,13 @@ module('Integration | Component | polaris choice', function (hooks) {
     label.exists('with description - renders the label');
     label.hasNoClass(
       'Polaris-Choice--labelHidden',
-      'with description - does not apply labelHidden class when labelHidden false'
+      'with description - does not apply labelHidden class when labelHidden false',
     );
 
     this.set('labelHidden', true);
     label.hasClass(
       'Polaris-Choice--labelHidden',
-      'with description - applies labelHidden class when labelHidden true'
+      'with description - applies labelHidden class when labelHidden true',
     );
   });
 
@@ -275,7 +275,7 @@ module('Integration | Component | polaris choice', function (hooks) {
       .dom(labelContentSelector)
       .hasText(
         'some label',
-        'with label as plain string - renders the correct label content'
+        'with label as plain string - renders the correct label content',
       );
 
     await render(hbs`
@@ -291,7 +291,7 @@ module('Integration | Component | polaris choice', function (hooks) {
       .dom(labelContentSelector)
       .hasText(
         'test label component from component',
-        'with label component - renders the correct label content'
+        'with label component - renders the correct label content',
       );
   });
 
@@ -322,7 +322,7 @@ module('Integration | Component | polaris choice', function (hooks) {
       .dom(labelContentSelector)
       .hasText(
         'test label component from component',
-        'with label as component - renders the correct label content'
+        'with label as component - renders the correct label content',
       );
   });
 
@@ -393,8 +393,8 @@ module('Integration | Component | polaris choice', function (hooks) {
 
     // 'auto' width/height values are a bit of a nuisance to detect...
     let styleMap = controlWrapper.computedStyleMap();
-    assert.equal(styleMap.get('width').value, 'auto');
-    assert.equal(styleMap.get('height').value, 'auto');
+    assert.strictEqual(styleMap.get('width').value, 'auto');
+    assert.strictEqual(styleMap.get('height').value, 'auto');
   });
 
   test('it does not set auto width and height on the control wrapper when customWidth is not specified', async function (assert) {
@@ -407,8 +407,8 @@ module('Integration | Component | polaris choice', function (hooks) {
     let controlWrapper = this.element.querySelector(controlSelector);
 
     let styleMap = controlWrapper.computedStyleMap();
-    assert.equal(styleMap.get('width').value, 16);
-    assert.equal(styleMap.get('height').value, 16);
+    assert.strictEqual(styleMap.get('width').value, 16);
+    assert.strictEqual(styleMap.get('height').value, 16);
   });
 
   test('it applies the specified choiceClass to the control wrapper', async function (assert) {

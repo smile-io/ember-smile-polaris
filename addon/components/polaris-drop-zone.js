@@ -26,7 +26,7 @@ const iconAlertCircle = 'alert-circle';
 @tagName('')
 @layout(template)
 export default class PolarisDropZone extends Component.extend(
-  ContextBoundEventListenersMixin
+  ContextBoundEventListenersMixin,
 ) {
   /**
    * ID for file input
@@ -425,7 +425,7 @@ export default class PolarisDropZone extends Component.extend(
       'dragTargets',
       this.dragTargets.filter((el) => {
         return el !== event.target && dropNode && dropNode.contains(el);
-      })
+      }),
     );
 
     if (this.dragTargets.length > 0) {
@@ -460,7 +460,7 @@ export default class PolarisDropZone extends Component.extend(
 
         this.set('state.size', size);
       },
-      50
+      50,
     );
   }
 

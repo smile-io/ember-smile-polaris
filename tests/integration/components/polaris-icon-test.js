@@ -57,7 +57,7 @@ module('Integration | Component | polaris icon', function (hooks) {
 
   const svgSelector = buildNestedSelector(
     iconSelector,
-    'svg.Polaris-Icon__Svg'
+    'svg.Polaris-Icon__Svg',
   );
 
   test('it renders the specified icon correctly', async function (assert) {
@@ -71,23 +71,21 @@ module('Integration | Component | polaris icon', function (hooks) {
     svg.hasAttribute(
       'data-icon-source',
       'polaris/notes',
-      'uses the correct SVG source'
+      'uses the correct SVG source',
     );
     svg.hasAttribute(
       'focusable',
       'false',
-      'applies focusable:false to the SVG element'
+      'applies focusable:false to the SVG element',
     );
     svg.hasAttribute(
       'aria-hidden',
       'true',
-      'applies aria-hidden to the SVG element'
+      'applies aria-hidden to the SVG element',
     );
   });
 
   test('it applies colors correctly', async function (assert) {
-    assert.expect(2 + colors.length * 3);
-
     await render(hbs`{{polaris-icon source="add" color=color}}`);
 
     // Check without any color set first.
@@ -96,11 +94,11 @@ module('Integration | Component | polaris icon', function (hooks) {
 
     icon.doesNotHaveClass(
       'Polaris-Icon--color',
-      'icon without color does not add color class'
+      'icon without color does not add color class',
     );
     icon.hasNoClass(
       'Polaris-Icon--isColored',
-      'icon without color does not add isColored class'
+      'icon without color does not add isColored class',
     );
 
     // Check all the available colors are handled correctly.
@@ -110,28 +108,28 @@ module('Integration | Component | polaris icon', function (hooks) {
       const colorClass = `Polaris-Icon--color${classify(color)}`;
       icon.hasClass(
         colorClass,
-        `icon with ${color} color applies ${colorClass} class`
+        `icon with ${color} color applies ${colorClass} class`,
       );
 
       const colorClassNames = [...iconClassList].filter((className) =>
-        className.includes('Polaris-Icon--color')
+        className.includes('Polaris-Icon--color'),
       );
 
-      assert.equal(
+      assert.strictEqual(
         colorClassNames.length,
         1,
-        `icon with ${color} color does not add other color classes`
+        `icon with ${color} color does not add other color classes`,
       );
 
       if (color === 'white') {
         icon.hasNoClass(
           'Polaris-Icon--isColored',
-          `icon with ${color} color does not add isColored class`
+          `icon with ${color} color does not add isColored class`,
         );
       } else {
         icon.hasClass(
           'Polaris-Icon--isColored',
-          `icon with ${color} color adds isColored class`
+          `icon with ${color} color adds isColored class`,
         );
       }
     });
@@ -146,25 +144,25 @@ module('Integration | Component | polaris icon', function (hooks) {
     const icon = assert.dom(iconSelector);
     icon.hasNoClass(
       backdropClass,
-      'icon without backdrop set does not apply backdrop class'
+      'icon without backdrop set does not apply backdrop class',
     );
 
     this.set('backdrop', true);
     icon.hasClass(
       backdropClass,
-      `icon with backdrop=true applies backdrop class`
+      `icon with backdrop=true applies backdrop class`,
     );
 
     this.set('backdrop', false);
     icon.hasNoClass(
       backdropClass,
-      `icon with backdrop=false does not apply backdrop class`
+      `icon with backdrop=false does not apply backdrop class`,
     );
   });
 
   test('it handles accessibilityLabel correctly', async function (assert) {
     await render(
-      hbs`{{polaris-icon source="add" accessibilityLabel=accessibilityLabel}}`
+      hbs`{{polaris-icon source="add" accessibilityLabel=accessibilityLabel}}`,
     );
 
     // Check default setting.
@@ -172,14 +170,14 @@ module('Integration | Component | polaris icon', function (hooks) {
 
     icon.doesNotHaveAttribute(
       'aria-label',
-      'no accessibilityLabel set - does not add aria-label attribute'
+      'no accessibilityLabel set - does not add aria-label attribute',
     );
 
     this.set('accessibilityLabel', 'This is the accessibility label');
     icon.hasAttribute(
       'aria-label',
       'This is the accessibility label',
-      'accessibilityLabel set - adds aria-label attribute'
+      'accessibilityLabel set - adds aria-label attribute',
     );
   });
 
@@ -188,7 +186,7 @@ module('Integration | Component | polaris icon', function (hooks) {
 
     const iconPlaceholderSelector = buildNestedSelector(
       iconSelector,
-      'div.Polaris-Icon__Placeholder'
+      'div.Polaris-Icon__Placeholder',
     );
     assert
       .dom(iconPlaceholderSelector)
@@ -212,7 +210,7 @@ module('Integration | Component | polaris icon', function (hooks) {
 
   test('it removes icon fills when sourcePath is specified as "polaris"', async function (assert) {
     await render(
-      hbs`{{polaris-icon sourcePath="polaris" source="placeholder"}}`
+      hbs`{{polaris-icon sourcePath="polaris" source="placeholder"}}`,
     );
 
     assert.dom(iconSelector).doesNotHaveAttribute('data-test-keep-fills');
@@ -220,7 +218,7 @@ module('Integration | Component | polaris icon', function (hooks) {
 
   test('it keeps icon fills when sourcePath is not "polaris"', async function (assert) {
     await render(
-      hbs`{{polaris-icon sourcePath="custom-icons" source="my-icon"}}`
+      hbs`{{polaris-icon sourcePath="custom-icons" source="my-icon"}}`,
     );
 
     assert.dom(iconSelector).hasAttribute('data-test-keep-fills');

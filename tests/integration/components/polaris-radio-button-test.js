@@ -55,22 +55,22 @@ module('Integration | Component | polaris radio button', function (hooks) {
     choices.hasAttribute(
       'data-input-id',
       'some-radio-button-id',
-      'passes inputId through to `polaris-choice` component'
+      'passes inputId through to `polaris-choice` component',
     );
     choices.hasAttribute(
       'data-label',
       'Radio label',
-      'passes label through to `polaris-choice` component'
+      'passes label through to `polaris-choice` component',
     );
     choices.hasAttribute(
       'data-label-hidden',
       'Label is hidden, yes',
-      'passes labelHidden through to `polaris-choice` component'
+      'passes labelHidden through to `polaris-choice` component',
     );
     choices.hasAttribute(
       'data-help-text',
       'Help!',
-      'passes helpText through to `polaris-choice` component'
+      'passes helpText through to `polaris-choice` component',
     );
 
     // Check the wrapper element.
@@ -86,7 +86,7 @@ module('Integration | Component | polaris radio button', function (hooks) {
     inputs.hasAttribute(
       'id',
       'some-radio-button-id',
-      'radio input has the right id'
+      'radio input has the right id',
     );
     inputs.hasAttribute('name', 'Radio', 'radio input has the right name');
     inputs.hasValue('gaga', 'radio input has the right value');
@@ -127,14 +127,14 @@ module('Integration | Component | polaris radio button', function (hooks) {
     input.hasAttribute(
       'aria-describedby',
       'described-radio-buttonHelpText',
-      'described by help text element when help text is present'
+      'described by help text element when help text is present',
     );
 
     this.set('helpText', null);
 
     input.doesNotHaveAttribute(
       'aria-describedby',
-      'has no description when help text is present'
+      'has no description when help text is present',
     );
   });
 
@@ -160,10 +160,10 @@ module('Integration | Component | polaris radio button', function (hooks) {
 
     await click(radioButtonInputSelector);
     assert.notOk(this.get('blurFired'), 'after click - onBlur not fired');
-    assert.equal(
+    assert.strictEqual(
       this.get('selectedValue'),
       'clicked',
-      'after click - selected value has updated'
+      'after click - selected value has updated',
     );
 
     await blur(radioButtonInputSelector);

@@ -16,7 +16,7 @@ export function measureColumn(tableData) {
     if (isVisible) {
       tableData.firstVisibleColumnIndex = Math.min(
         firstVisibleColumnIndex,
-        index
+        index,
       );
     }
 

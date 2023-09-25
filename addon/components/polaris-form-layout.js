@@ -37,7 +37,7 @@ export default class PolarisFormLayout extends Component {
           !elem.classList.contains('Polaris-FormLayout__Item') &&
           elem.getAttribute('role') !== 'group'
         );
-      }
+      },
     );
   }
 

@@ -14,7 +14,7 @@ const MAX_PROMOTED_ACTIONS = 2;
 @templateLayout(layout)
 export default class PolarisResourceListBulkActions extends Component.extend(
   ContextBoundEventListenersMixin,
-  ContextBoundTasksMixin
+  ContextBoundTasksMixin,
 ) {
   /**
    * Visually hidden text for screen readers
@@ -138,7 +138,7 @@ export default class PolarisResourceListBulkActions extends Component.extend(
     'bulkActionsWidth',
     'measuring',
     'addedMoreActionsWidthForMeasuring',
-    'promotedActionsWidths'
+    'promotedActionsWidths',
   )
   get numberOfPromotedActionsToRender() {
     let {
@@ -184,7 +184,7 @@ export default class PolarisResourceListBulkActions extends Component.extend(
 
     return Boolean(
       (promotedActions && promotedActions.length > 0) ||
-        (actionsCollection && actionsCollection.length > 0)
+        (actionsCollection && actionsCollection.length > 0),
     );
   }
 
@@ -221,7 +221,7 @@ export default class PolarisResourceListBulkActions extends Component.extend(
     let { actionSections, rolledInPromotedActions, measuring } = this;
 
     return Boolean(
-      actionSections || rolledInPromotedActions.length > 0 || measuring
+      actionSections || rolledInPromotedActions.length > 0 || measuring,
     );
   }
 
@@ -282,13 +282,13 @@ export default class PolarisResourceListBulkActions extends Component.extend(
 
   get moreActionsNode() {
     return this.bulkActionsElement.querySelector(
-      '.Polaris-ResourceList-BulkActions__Popover'
+      '.Polaris-ResourceList-BulkActions__Popover',
     );
   }
 
   get largeScreenButtonsNode() {
     return this.bulkActionsElement.querySelector(
-      '.Polaris-ResourceList-BulkActions__Group--largeScreen'
+      '.Polaris-ResourceList-BulkActions__Group--largeScreen',
     );
   }
 
@@ -345,7 +345,7 @@ export default class PolarisResourceListBulkActions extends Component.extend(
         `To provide a better user experience. There should only be a maximum of ${MAX_PROMOTED_ACTIONS} promoted actions.`,
         {
           id: 'ember-polaris.polaris-resource-list.bulk-actions.max-promoted-actions',
-        }
+        },
       );
     }
 

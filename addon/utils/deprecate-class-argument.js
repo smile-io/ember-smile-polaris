@@ -14,7 +14,7 @@ export default function deprecateClassArgument(target) {
           {
             id: `ember-polaris.${dasherize(componentName)}.class-arg`,
             until: '7.0.0',
-          }
+          },
         );
 
         return super.init(...arguments);

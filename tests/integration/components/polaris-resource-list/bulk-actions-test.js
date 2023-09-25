@@ -67,13 +67,13 @@ module(
           .dom(allActionsButtons[0])
           .hasText(
             'button 1',
-            'first promoted action is the first button rendered'
+            'first promoted action is the first button rendered',
           );
         assert
           .dom(allActionsButtons[1])
           .hasText(
             'button 2',
-            'second promoted action is the second button rendered'
+            'second promoted action is the second button rendered',
           );
       });
 
@@ -95,15 +95,15 @@ module(
 
         actionBtn.doesNotIncludeText(
           'button 3',
-          'non promoted actions are not rendered (button 3)'
+          'non promoted actions are not rendered (button 3)',
         );
         actionBtn.doesNotIncludeText(
           'button 4',
-          'non promoted actions are not rendered (button 4)'
+          'non promoted actions are not rendered (button 4)',
         );
         actionBtn.doesNotIncludeText(
           'button 5',
-          'non promoted actions are not rendered (button 5)'
+          'non promoted actions are not rendered (button 5)',
         );
       });
 
@@ -148,14 +148,14 @@ module(
           .dom(checkableButtonLabelSelector)
           .hasText(
             label,
-            'label is passed down and rendered in checkable-button'
+            'label is passed down and rendered in checkable-button',
           );
 
         assert
           .dom(checkableButtonAriaLabelSelector)
           .hasText(
             accessibilityLabel,
-            'accessibilityLabel is passed down and rendered in checkable-button'
+            'accessibilityLabel is passed down and rendered in checkable-button',
           );
         assert
           .dom(checkableButtonCheckboxSelector)
@@ -178,7 +178,7 @@ module(
           .dom(actionsButtonGroupButtonsSelector)
           .exists(
             { count: 2 },
-            'it renders the correct amount of buttons for promotedActions'
+            'it renders the correct amount of buttons for promotedActions',
           );
         assert
           .dom(checkableButtonSelector)
@@ -211,22 +211,22 @@ module(
           .dom(selectAllText)
           .hasText(
             paginatedSelectAllText,
-            'paginatedSelectAllText is rendered'
+            'paginatedSelectAllText is rendered',
           );
         assert
           .dom(selectAllButton)
           .hasText(
             paginatedSelectAllActionText,
-            'paginatedSelectAllAction `content` is rendered'
+            'paginatedSelectAllAction `content` is rendered',
           );
 
         await click(selectAllButton);
 
         assert.ok(
           this.get('actionCalled'),
-          'paginatedSelectAllAction `onAction` was called'
+          'paginatedSelectAllAction `onAction` was called',
         );
       });
     });
-  }
+  },
 );

@@ -29,12 +29,12 @@ module('Integration | Component | polaris banner', function (hooks) {
     banner.hasAttribute(
       'role',
       'status',
-      'inline-mode - has correct role attribute'
+      'inline-mode - has correct role attribute',
     );
     banner.hasAttribute(
       'aria-live',
       'polite',
-      'inline-mode - has correct aria-live attribute'
+      'inline-mode - has correct aria-live attribute',
     );
 
     let bannerIcon = assert.dom(`${bannerSelector} ${iconSelector}`);
@@ -42,11 +42,11 @@ module('Integration | Component | polaris banner', function (hooks) {
     bannerIcon.exists('inline-mode - has icon');
     bannerIcon.hasClass(
       'Polaris-Icon--colorInkLighter',
-      'inline-mode - icon has inkLighter color'
+      'inline-mode - icon has inkLighter color',
     );
     bannerIcon.hasClass(
       'Polaris-Icon--hasBackdrop',
-      'inline-mode - icon has backdrop'
+      'inline-mode - icon has backdrop',
     );
 
     assert
@@ -54,7 +54,7 @@ module('Integration | Component | polaris banner', function (hooks) {
       .hasAttribute(
         'data-icon-source',
         'polaris/flag',
-        'inline-mode - default icon is polaris/flag'
+        'inline-mode - default icon is polaris/flag',
       );
 
     // Template block usage:
@@ -68,7 +68,7 @@ module('Integration | Component | polaris banner', function (hooks) {
     banner.exists('block-mode - banner exists');
     banner.hasText(
       'template block text',
-      'block-mode - banner has correct content'
+      'block-mode - banner has correct content',
     );
   });
 
@@ -82,7 +82,7 @@ module('Integration | Component | polaris banner', function (hooks) {
     heading.doesNotExist('banner without title - no heading rendered');
     banner.doesNotHaveAttribute(
       'aria-labelledby',
-      'banner without title - no aria-labelledby for banner'
+      'banner without title - no aria-labelledby for banner',
     );
 
     let title = 'Your shipping label is ready to print.';
@@ -96,7 +96,7 @@ module('Integration | Component | polaris banner', function (hooks) {
     banner.hasAttribute(
       'aria-labelledby',
       this.element.querySelector(bannerHeadingSelector).getAttribute('id'),
-      "banner with title - has the banner's aria-labelledby as the heading Id"
+      "banner with title - has the banner's aria-labelledby as the heading Id",
     );
   });
 
@@ -113,7 +113,7 @@ module('Integration | Component | polaris banner', function (hooks) {
 
     banner.doesNotHaveAttribute(
       'aria-describedby',
-      'banner without content - no aria-describedby for banner'
+      'banner without content - no aria-describedby for banner',
     );
 
     this.set('contentText', contentText);
@@ -124,7 +124,7 @@ module('Integration | Component | polaris banner', function (hooks) {
     banner.hasAttribute(
       'aria-describedby',
       this.element.querySelector(bannerContentSelector).getAttribute('id'),
-      "banner with content - has the banner's aria-describedby as the content Id"
+      "banner with content - has the banner's aria-describedby as the content Id",
     );
 
     // Block-mode
@@ -139,13 +139,13 @@ module('Integration | Component | polaris banner', function (hooks) {
     content.exists('banner with content (block) - content rendered');
     content.hasText(
       contentText,
-      'banner with content (block) - has correct content'
+      'banner with content (block) - has correct content',
     );
 
     banner.hasAttribute(
       'aria-describedby',
       this.element.querySelector(bannerContentSelector).getAttribute('id'),
-      "banner with content (block) - has the banner's aria-describedby as the content Id"
+      "banner with content (block) - has the banner's aria-describedby as the content Id",
     );
   });
 
@@ -155,7 +155,7 @@ module('Integration | Component | polaris banner', function (hooks) {
     let banner = assert.dom(bannerSelector);
     banner.doesNotHaveClass(
       'Polaris-Banner--status',
-      'banner without status - has no status class'
+      'banner without status - has no status class',
     );
 
     let bannerIcon = assert.dom(`${bannerSelector} ${iconSelector}`);
@@ -164,89 +164,89 @@ module('Integration | Component | polaris banner', function (hooks) {
     this.set('status', 'success');
     banner.hasClass(
       'Polaris-Banner--statusSuccess',
-      'banner with success status - has correct class'
+      'banner with success status - has correct class',
     );
 
     banner.hasAttribute(
       'role',
       'status',
-      'banner with success status - has correct role attribute'
+      'banner with success status - has correct role attribute',
     );
     bannerIcon.hasClass(
       'Polaris-Icon--colorGreenDark',
-      'banner with success status - has greenDark icon color'
+      'banner with success status - has greenDark icon color',
     );
 
     iconSvg.hasAttribute(
       'data-icon-source',
       'polaris/circle-check-mark',
-      'banner with success status - has icon polaris/circle-check-mark'
+      'banner with success status - has icon polaris/circle-check-mark',
     );
 
     this.set('status', 'info');
     banner.hasClass(
       'Polaris-Banner--statusInfo',
-      'banner with info status - has correct class'
+      'banner with info status - has correct class',
     );
 
     banner.hasAttribute(
       'role',
       'status',
-      'banner with info status - has correct role attribute'
+      'banner with info status - has correct role attribute',
     );
     bannerIcon.hasClass(
       'Polaris-Icon--colorTealDark',
-      'banner with info status - has tealDark icon color'
+      'banner with info status - has tealDark icon color',
     );
 
     iconSvg.hasAttribute(
       'data-icon-source',
       'polaris/circle-information',
-      'banner with info status - has icon polaris/circle-information'
+      'banner with info status - has icon polaris/circle-information',
     );
 
     this.set('status', 'warning');
     banner.hasClass(
       'Polaris-Banner--statusWarning',
-      'banner with warning status - has correct class'
+      'banner with warning status - has correct class',
     );
 
     banner.hasAttribute(
       'role',
       'alert',
-      'banner with warning status - has correct role attribute'
+      'banner with warning status - has correct role attribute',
     );
     bannerIcon.hasClass(
       'Polaris-Icon--colorYellowDark',
-      'banner with warning status - has yellowDark icon color'
+      'banner with warning status - has yellowDark icon color',
     );
 
     iconSvg.hasAttribute(
       'data-icon-source',
       'polaris/circle-alert',
-      'banner with warning status - has icon polaris/circle-alert'
+      'banner with warning status - has icon polaris/circle-alert',
     );
 
     this.set('status', 'critical');
     banner.hasClass(
       'Polaris-Banner--statusCritical',
-      'banner with critical status - has correct class'
+      'banner with critical status - has correct class',
     );
 
     banner.hasAttribute(
       'role',
       'alert',
-      'banner with critical status - has correct role attribute'
+      'banner with critical status - has correct role attribute',
     );
     bannerIcon.hasClass(
       'Polaris-Icon--colorRedDark',
-      'banner with critical status - has redDark icon color'
+      'banner with critical status - has redDark icon color',
     );
 
     iconSvg.hasAttribute(
       'data-icon-source',
       'polaris/circle-barred',
-      'banner with critical status - has icon polaris/circle-barred'
+      'banner with critical status - has icon polaris/circle-barred',
     );
   });
 
@@ -258,11 +258,11 @@ module('Integration | Component | polaris banner', function (hooks) {
 
     banner.hasNoClass(
       'Polaris-Banner--hasDismiss',
-      'banner non-dismissable - does not have dismissable class'
+      'banner non-dismissable - does not have dismissable class',
     );
 
     dismissWrapper.doesNotExist(
-      'banner non-dismissable - does not render the dismiss element'
+      'banner non-dismissable - does not render the dismiss element',
     );
 
     let dismissed = false;
@@ -276,18 +276,18 @@ module('Integration | Component | polaris banner', function (hooks) {
     let dismissBtn = assert.dom(dismissBtnSelector);
     banner.hasClass(
       'Polaris-Banner--hasDismiss',
-      'banner dismissable - has dismissable class'
+      'banner dismissable - has dismissable class',
     );
 
     dismissWrapper.exists(
-      'banner dismissable - does render the dismiss element'
+      'banner dismissable - does render the dismiss element',
     );
     dismissBtn.exists('banner dismissable - has correct dismiss button');
 
     dismissBtn.hasAttribute(
       'aria-label',
       'Dismiss notification',
-      'banner dismissable - dismiss button has correct aria-label'
+      'banner dismissable - dismiss button has correct aria-label',
     );
 
     await click(dismissBtnSelector);
@@ -296,8 +296,6 @@ module('Integration | Component | polaris banner', function (hooks) {
   });
 
   test('it supports `primaryAction` and `secondaryAction`', async function (assert) {
-    assert.expect(14);
-
     await render(hbs`{{polaris-banner text="Some content text"}}`);
 
     let bannerContentSelector = `${bannerSelector} ${contentSelector}`;
@@ -306,14 +304,14 @@ module('Integration | Component | polaris banner', function (hooks) {
     assert
       .dom(bannerActionsSelector)
       .doesNotExist(
-        'banner without actions - does not render the actions container'
+        'banner without actions - does not render the actions container',
       );
 
     this.set('primaryAction', () =>
-      assert.ok(true, 'triggers primaryAction handler')
+      assert.ok(true, 'triggers primaryAction handler'),
     );
     this.set('secondaryAction', () =>
-      assert.ok(true, 'triggers secondaryAction handler')
+      assert.ok(true, 'triggers secondaryAction handler'),
     );
 
     await render(hbs`{{polaris-banner
@@ -323,7 +321,7 @@ module('Integration | Component | polaris banner', function (hooks) {
     assert
       .dom(`${bannerContentSelector} ${actionsSelector}`)
       .doesNotExist(
-        'banner with `secondaryAction` only - does not render the actions container'
+        'banner with `secondaryAction` only - does not render the actions container',
       );
 
     await render(hbs`{{polaris-banner
@@ -343,7 +341,7 @@ module('Integration | Component | polaris banner', function (hooks) {
     assert
       .dom(secondaryActionBtnSelector)
       .doesNotExist(
-        'banner with `action` only - does not render `secondaryAction` button'
+        'banner with `action` only - does not render `secondaryAction` button',
       );
 
     this.setProperties({
@@ -369,7 +367,7 @@ module('Integration | Component | polaris banner', function (hooks) {
     primaryActionBtn.exists('banner with actions - renders `action` button');
     primaryActionBtn.hasClass(
       'Polaris-Button--loading',
-      'banner with actions - `action` button starts in loading state'
+      'banner with actions - `action` button starts in loading state',
     );
 
     this.setProperties({
@@ -378,22 +376,22 @@ module('Integration | Component | polaris banner', function (hooks) {
     });
     primaryActionBtn.hasNoClass(
       'Polaris-Button--loading',
-      'banner with actions - `action` button exits loading state'
+      'banner with actions - `action` button exits loading state',
     );
     primaryActionBtn.isDisabled(
-      'banner with actions - `action` button becomes disabled'
+      'banner with actions - `action` button becomes disabled',
     );
     primaryActionBtn.hasText(
       'Edit',
-      'banner with actions - renders correct `action` button text'
+      'banner with actions - renders correct `action` button text',
     );
 
     secondaryActionBtn.exists(
-      'banner with actions - renders `secondaryAction` button'
+      'banner with actions - renders `secondaryAction` button',
     );
     secondaryActionBtn.hasText(
       'View',
-      'banner with actions - renders correct `secondaryAction` button text'
+      'banner with actions - renders correct `secondaryAction` button text',
     );
 
     this.setProperties({
@@ -407,7 +405,7 @@ module('Integration | Component | polaris banner', function (hooks) {
 
   test('it has backwards support for `action` as `primaryAction`', async function (assert) {
     this.set('primaryAction', () =>
-      assert.ok(true, 'triggers primaryAction handler')
+      assert.ok(true, 'triggers primaryAction handler'),
     );
 
     await render(hbs`{{polaris-banner
@@ -424,7 +422,7 @@ module('Integration | Component | polaris banner', function (hooks) {
       .dom(primaryActionBtnSelector)
       .hasText(
         'Edit',
-        'banner with actions - renders correct `action` button text'
+        'banner with actions - renders correct `action` button text',
       );
 
     await click(primaryActionBtnSelector);

@@ -32,7 +32,7 @@ const LARGE_SPINNER_HEIGHT = 45;
 @templateLayout(layout)
 export default class PolarisResourceList extends Component.extend(
   ContextBoundEventListenersMixin,
-  ContextBoundTasksMixin
+  ContextBoundTasksMixin,
 ) {
   /**
    * Item data; each item is passed to renderItem
@@ -282,7 +282,7 @@ export default class PolarisResourceList extends Component.extend(
     let { promotedBulkActions, bulkActions } = this;
     return Boolean(
       (promotedBulkActions && promotedBulkActions.length > 0) ||
-        (bulkActions && bulkActions.length > 0)
+        (bulkActions && bulkActions.length > 0),
     );
   }
 
@@ -308,7 +308,7 @@ export default class PolarisResourceList extends Component.extend(
     'defaultResourceName',
     'items.length',
     'loading',
-    'resourceName.{singular,plural}'
+    'resourceName.{singular,plural}',
   ).readOnly())
   get headerTitle() {
     let { resourceName, items, loading } = this;
@@ -342,7 +342,7 @@ export default class PolarisResourceList extends Component.extend(
     'defaultResourceName',
     'items.length',
     'resourceName.{plural,singular}',
-    'selectedItems.length'
+    'selectedItems.length',
   ).readOnly())
   get bulkActionsAccessibilityLabel() {
     let { resourceName, selectedItems, items } = this;
@@ -370,7 +370,7 @@ export default class PolarisResourceList extends Component.extend(
     'items.length',
     'resourceName.plural',
     'selectable',
-    'selectedItems'
+    'selectedItems',
   ).readOnly())
   get paginatedSelectAllText() {
     let { hasMoreItems, selectedItems, items, resourceName } = this;
@@ -383,7 +383,7 @@ export default class PolarisResourceList extends Component.extend(
     if (selectedItems === SELECT_ALL_ITEMS) {
       return `All ${items.length}+ ${get(
         resourceName,
-        'plural'
+        'plural',
       )} in your store are selected.`;
     }
 
@@ -397,7 +397,7 @@ export default class PolarisResourceList extends Component.extend(
     'items.length',
     'resourceName.plural',
     'selectable',
-    'selectedItems'
+    'selectedItems',
   ).readOnly())
   get paginatedSelectAllAction() {
     let { hasMoreItems, selectedItems, items, resourceName } = this;
@@ -412,7 +412,7 @@ export default class PolarisResourceList extends Component.extend(
         ? 'Undo'
         : `Select all ${items.length}+ ${get(
             resourceName,
-            'plural'
+            'plural',
           )} in your store`;
 
     return {
@@ -452,7 +452,7 @@ export default class PolarisResourceList extends Component.extend(
     'resourceName',
     'selectMode',
     'selectable',
-    'selectedItems.[]'
+    'selectedItems.[]',
   ).readOnly())
   get context() {
     let { selectedItems, resourceName, loading, selectMode, selectable } = this;
@@ -506,7 +506,7 @@ export default class PolarisResourceList extends Component.extend(
       let overlay = listNode.getBoundingClientRect();
       let viewportHeight = Math.max(
         document.documentElement ? document.documentElement.clientHeight : 0,
-        window.innerHeight || 0
+        window.innerHeight || 0,
       );
 
       let overflow = viewportHeight - overlay.height;
@@ -623,7 +623,7 @@ export default class PolarisResourceList extends Component.extend(
   updateResourceList() {
     assert(
       'ember-polaris::polaris-resource-list - itemComponent must be a component name or definition',
-      this.itemComponent
+      this.itemComponent,
     );
 
     // This logic is in the React implementation's

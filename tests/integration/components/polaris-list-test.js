@@ -10,7 +10,7 @@ module('Integration | Component | polaris list', function (hooks) {
   const listSelector = '.Polaris-List';
   const listItemSelector = buildNestedSelector(
     listSelector,
-    'li.Polaris-List__Item'
+    'li.Polaris-List__Item',
   );
 
   test('it renders the correct HTML', async function (assert) {
@@ -29,13 +29,13 @@ module('Integration | Component | polaris list', function (hooks) {
     `);
 
     let lists = findAll(listSelector);
-    assert.equal(lists.length, 1, 'renders one bulleted list');
+    assert.strictEqual(lists.length, 1, 'renders one bulleted list');
 
     let listItems = findAll(listItemSelector);
-    assert.equal(
+    assert.strictEqual(
       listItems.length,
       0,
-      'no items - does not render any list items'
+      'no items - does not render any list items',
     );
 
     this.set('items', [
@@ -50,7 +50,11 @@ module('Integration | Component | polaris list', function (hooks) {
     ]);
 
     listItems = findAll(listItemSelector);
-    assert.equal(listItems.length, 2, 'with items - renders two list items');
+    assert.strictEqual(
+      listItems.length,
+      2,
+      'with items - renders two list items',
+    );
 
     assert
       .dom(listItems[0])
@@ -60,74 +64,82 @@ module('Integration | Component | polaris list', function (hooks) {
       .hasText('Second one (inline)', 'second item has correct text');
 
     let list = lists[0];
-    assert.equal(
+    assert.strictEqual(
       list.nodeName,
       'UL',
-      'unspecified type - renders unordered list'
+      'unspecified type - renders unordered list',
     );
     assert
       .dom(list)
       .hasClass(
         'Polaris-List--typeBullet',
-        'unspecified type - applies bullet class'
+        'unspecified type - applies bullet class',
       );
     assert
       .dom(list)
       .hasNoClass(
         'Polaris-List--typeNumber',
-        'unspecified type - does not apply number class'
+        'unspecified type - does not apply number class',
       );
 
     this.set('type', 'number');
     list = find(listSelector);
-    assert.equal(list.nodeName, 'OL', 'number type - renders ordered list');
+    assert.strictEqual(
+      list.nodeName,
+      'OL',
+      'number type - renders ordered list',
+    );
     assert
       .dom(list)
       .hasNoClass(
         'Polaris-List--typeBullet',
-        'number type - does not apply bullet class'
+        'number type - does not apply bullet class',
       );
     assert
       .dom(list)
       .hasClass(
         'Polaris-List--typeNumber',
-        'number type - applies number class'
+        'number type - applies number class',
       );
 
     this.set('type', 'bullet');
     list = find(listSelector);
-    assert.equal(list.nodeName, 'UL', 'bullet type - renders unordered list');
-    assert
-      .dom(list)
-      .hasClass(
-        'Polaris-List--typeBullet',
-        'bullet type - applies bullet class'
-      );
-    assert
-      .dom(list)
-      .hasNoClass(
-        'Polaris-List--typeNumber',
-        'bullet type - does not apply number class'
-      );
-
-    this.set('type', 'unsupported');
-    list = find(listSelector);
-    assert.equal(
+    assert.strictEqual(
       list.nodeName,
       'UL',
-      'unsupported type - renders unordered list'
+      'bullet type - renders unordered list',
     );
     assert
       .dom(list)
       .hasClass(
         'Polaris-List--typeBullet',
-        'unsupported type - applies bullet class'
+        'bullet type - applies bullet class',
       );
     assert
       .dom(list)
       .hasNoClass(
         'Polaris-List--typeNumber',
-        'unsupported type - does not apply number class'
+        'bullet type - does not apply number class',
+      );
+
+    this.set('type', 'unsupported');
+    list = find(listSelector);
+    assert.strictEqual(
+      list.nodeName,
+      'UL',
+      'unsupported type - renders unordered list',
+    );
+    assert
+      .dom(list)
+      .hasClass(
+        'Polaris-List--typeBullet',
+        'unsupported type - applies bullet class',
+      );
+    assert
+      .dom(list)
+      .hasNoClass(
+        'Polaris-List--typeNumber',
+        'unsupported type - does not apply number class',
       );
   });
 });

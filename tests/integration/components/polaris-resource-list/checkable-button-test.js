@@ -45,26 +45,24 @@ module(
         .dom(checkboxAccessibilityLabelSelector)
         .hasText(
           accessibilityLabel,
-          'accessibilityLabel attribute renders as label on checkbox'
+          'accessibilityLabel attribute renders as label on checkbox',
         );
       assert
         .dom(checkboxInputSelector)
         .hasNoAttribute(
           'disabled',
-          'disabled attribute is passed down correctly'
+          'disabled attribute is passed down correctly',
         );
     });
 
     test('onToggleAll action works', async function (assert) {
-      assert.expect(2);
-
       this.handleWrapperClick = () =>
         assert.notOk(true, "click event doesn't bubble");
       this.handleToggle = (event) => {
         assert.ok(true, 'triggers @onToggleAll handler');
         assert.notOk(
           event,
-          'does not curry click event to the @onToggleAll handler'
+          'does not curry click event to the @onToggleAll handler',
         );
       };
 
@@ -77,5 +75,5 @@ module(
 
       await click(componentSelector);
     });
-  }
+  },
 );

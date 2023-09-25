@@ -18,37 +18,37 @@ module('Integration | Component | polaris text style', function (hooks) {
       .dom(textStyleSelector)
       .hasNoClass(
         'Polaris-TextStyle--variationPositive',
-        'does not apply positive class'
+        'does not apply positive class',
       );
     assert
       .dom(textStyleSelector)
       .hasNoClass(
         'Polaris-TextStyle--variationNegative',
-        'does not apply negative class'
+        'does not apply negative class',
       );
     assert
       .dom(textStyleSelector)
       .hasNoClass(
         'Polaris-TextStyle--variationStrong',
-        'does not apply strong class'
+        'does not apply strong class',
       );
     assert
       .dom(textStyleSelector)
       .hasNoClass(
         'Polaris-TextStyle--variationSubdued',
-        'does not apply subdued class'
+        'does not apply subdued class',
       );
     assert
       .dom(textStyleSelector)
       .hasNoClass(
         'Polaris-TextStyle--variationCode',
-        'does not apply code class'
+        'does not apply code class',
       );
   });
 
   test('it renders the correct HTML in block usage with default attributes', async function (assert) {
     await render(
-      hbs`{{#polaris-text-style}}Block styled text{{/polaris-text-style}}`
+      hbs`{{#polaris-text-style}}Block styled text{{/polaris-text-style}}`,
     );
 
     assert
@@ -58,31 +58,31 @@ module('Integration | Component | polaris text style', function (hooks) {
       .dom(textStyleSelector)
       .hasNoClass(
         'Polaris-TextStyle--variationPositive',
-        'does not apply positive class'
+        'does not apply positive class',
       );
     assert
       .dom(textStyleSelector)
       .hasNoClass(
         'Polaris-TextStyle--variationNegative',
-        'does not apply negative class'
+        'does not apply negative class',
       );
     assert
       .dom(textStyleSelector)
       .hasNoClass(
         'Polaris-TextStyle--variationStrong',
-        'does not apply strong class'
+        'does not apply strong class',
       );
     assert
       .dom(textStyleSelector)
       .hasNoClass(
         'Polaris-TextStyle--variationSubdued',
-        'does not apply subdued class'
+        'does not apply subdued class',
       );
     assert
       .dom(textStyleSelector)
       .hasNoClass(
         'Polaris-TextStyle--variationCode',
-        'does not apply code class'
+        'does not apply code class',
       );
   });
 
@@ -96,12 +96,12 @@ module('Integration | Component | polaris text style', function (hooks) {
       .dom(textStyleSelector)
       .hasClass(
         'Polaris-TextStyle--variationPositive',
-        'positive variation - applies positive class'
+        'positive variation - applies positive class',
       );
-    assert.equal(
+    assert.strictEqual(
       elementTag,
       'SPAN',
-      'positive variation - is rendered as a span tag'
+      'positive variation - is rendered as a span tag',
     );
 
     this.set('variation', 'negative');
@@ -109,12 +109,12 @@ module('Integration | Component | polaris text style', function (hooks) {
       .dom(textStyleSelector)
       .hasClass(
         'Polaris-TextStyle--variationNegative',
-        'negative variation - applies negative class'
+        'negative variation - applies negative class',
       );
-    assert.equal(
+    assert.strictEqual(
       elementTag,
       'SPAN',
-      'negative variation - is rendered as a span tag'
+      'negative variation - is rendered as a span tag',
     );
 
     this.set('variation', 'strong');
@@ -122,12 +122,12 @@ module('Integration | Component | polaris text style', function (hooks) {
       .dom(textStyleSelector)
       .hasClass(
         'Polaris-TextStyle--variationStrong',
-        'strong variation - applies strong class'
+        'strong variation - applies strong class',
       );
-    assert.equal(
+    assert.strictEqual(
       find(textStyleSelector).tagName,
       'SPAN',
-      'strong variation - is rendered as a span tag'
+      'strong variation - is rendered as a span tag',
     );
 
     this.set('variation', 'subdued');
@@ -135,12 +135,12 @@ module('Integration | Component | polaris text style', function (hooks) {
       .dom(textStyleSelector)
       .hasClass(
         'Polaris-TextStyle--variationSubdued',
-        'subdued variation - applies subdued class'
+        'subdued variation - applies subdued class',
       );
-    assert.equal(
+    assert.strictEqual(
       find(textStyleSelector).tagName,
       'SPAN',
-      'subdued variation - is rendered as a span tag'
+      'subdued variation - is rendered as a span tag',
     );
 
     this.set('variation', 'code');
@@ -148,12 +148,12 @@ module('Integration | Component | polaris text style', function (hooks) {
       .dom(textStyleSelector)
       .hasClass(
         'Polaris-TextStyle--variationCode',
-        'code variation - applies code class'
+        'code variation - applies code class',
       );
-    assert.equal(
+    assert.strictEqual(
       find(textStyleSelector).tagName,
       'CODE',
-      'code variation - is rendered as a code tag'
+      'code variation - is rendered as a code tag',
     );
   });
 

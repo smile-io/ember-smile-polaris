@@ -25,7 +25,7 @@ module('Integration | Component | polaris description list', function (hooks) {
     this.owner.register('component:stub-term-component', stubTermComponent);
     this.owner.register(
       'component:stub-description-component',
-      stubDescriptionComponent
+      stubDescriptionComponent,
     );
   });
 
@@ -53,7 +53,7 @@ module('Integration | Component | polaris description list', function (hooks) {
    */
   const listItemsDescriptionsSelector = buildNestedSelector(
     componentSelector,
-    'dt + dd'
+    'dt + dd',
   );
 
   test('it renders the correct HTML when items are passed in', async function (assert) {
@@ -70,14 +70,14 @@ module('Integration | Component | polaris description list', function (hooks) {
       .dom(listItemsTermsSelector)
       .exists(
         { count: itemsLength },
-        'it renders the correct number of terms within the list'
+        'it renders the correct number of terms within the list',
       );
 
     assert
       .dom(listItemsDescriptionsSelector)
       .exists(
         { count: itemsLength },
-        'it renders the correct number of descriptions following terms'
+        'it renders the correct number of descriptions following terms',
       );
   });
 
@@ -101,14 +101,14 @@ module('Integration | Component | polaris description list', function (hooks) {
       .dom(stubTermSelector)
       .exists(
         { count: 1 },
-        'it renders a component passed as a `term` attribute'
+        'it renders a component passed as a `term` attribute',
       );
 
     assert
       .dom(stubDescriptionSelector)
       .exists(
         { count: 1 },
-        'it renders a component passed as a `description` attribute'
+        'it renders a component passed as a `description` attribute',
       );
   });
 });

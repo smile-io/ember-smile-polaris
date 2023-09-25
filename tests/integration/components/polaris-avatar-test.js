@@ -85,7 +85,7 @@ module('Integration | Component | polaris-avatar', function (hooks) {
       .dom('.Polaris-Avatar')
       .hasClass(
         'custom-class',
-        'applies `class` when used in curly-brackets form'
+        'applies `class` when used in curly-brackets form',
       );
 
     await render(hbs`
@@ -95,7 +95,7 @@ module('Integration | Component | polaris-avatar', function (hooks) {
       .dom('.Polaris-Avatar')
       .hasClass(
         'custom-class',
-        'applies `@class` when used in angle-brackets form'
+        'applies `@class` when used in angle-brackets form',
       );
 
     await render(hbs`
@@ -105,7 +105,7 @@ module('Integration | Component | polaris-avatar', function (hooks) {
       .dom('.Polaris-Avatar')
       .hasClass(
         'custom-class',
-        'applies `class` when used in angle-brackets form'
+        'applies `class` when used in angle-brackets form',
       );
   });
 });

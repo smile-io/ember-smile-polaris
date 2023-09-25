@@ -80,7 +80,7 @@ export default class PolarisColorPicker extends Component {
   setPickerSize(element) {
     // Grab the size of the picker for positioning the draggable markers.
     const mainColorElement = element.querySelector(
-      'div.Polaris-ColorPicker__MainColor'
+      'div.Polaris-ColorPicker__MainColor',
     );
     if (isNone(mainColorElement)) {
       return;

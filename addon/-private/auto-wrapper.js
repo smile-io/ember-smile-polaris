@@ -56,7 +56,7 @@ export default class AutoWrapper {
     let wrapper = document.createElement('div');
     wrapper.classList.add(this.childClass);
     Object.keys(attributes).forEach((key) =>
-      wrapper.setAttribute(key, attributes[key])
+      wrapper.setAttribute(key, attributes[key]),
     );
 
     wrapChildren(nodesToWrap, wrapper);

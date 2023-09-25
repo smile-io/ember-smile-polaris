@@ -27,7 +27,7 @@ function elementLookup(selector) {
 @templateLayout(layout)
 export default class PolarisDataTable extends Component.extend(
   ContextBoundEventListenersMixin,
-  ContextBoundTasksMixin
+  ContextBoundTasksMixin,
 ) {
   /**
    * List of data types, which determines content alignment for each column.
@@ -251,7 +251,7 @@ export default class PolarisDataTable extends Component.extend(
       };
 
       let columnVisibilityData = collapsedHeaderCells.map(
-        measureColumn(tableData)
+        measureColumn(tableData),
       );
 
       let lastColumn = columnVisibilityData[columnVisibilityData.length - 1];
@@ -264,7 +264,7 @@ export default class PolarisDataTable extends Component.extend(
           isScrolledFarthestRight:
             lastColumn.rightEdge <= tableRightVisibleEdge,
         },
-        getPrevAndCurrentColumns(tableData, columnVisibilityData)
+        getPrevAndCurrentColumns(tableData, columnVisibilityData),
       );
     }
 
@@ -296,8 +296,8 @@ export default class PolarisDataTable extends Component.extend(
           collapsed,
           heights: [],
         },
-        this.calculateColumnVisibilityData(collapsed)
-      )
+        this.calculateColumnVisibilityData(collapsed),
+      ),
     );
 
     if (footerContent || !truncate) {

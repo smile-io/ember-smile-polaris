@@ -64,20 +64,20 @@ module('Integration | Component | polaris date picker', function (hooks) {
   const monthTitleSelector = buildNestedSelector(
     monthContainer,
     monthBody,
-    monthTitle
+    monthTitle,
   );
 
   const weekdaySelector = buildNestedSelector(
     monthContainer,
     monthBody,
     weekdaysHeader,
-    weekday
+    weekday,
   );
 
   const monthWeekSelector = buildNestedSelector(
     monthContainer,
     monthBody,
-    week
+    week,
   );
 
   const daySelector = buildNestedSelector(week, day);
@@ -124,7 +124,7 @@ module('Integration | Component | polaris date picker', function (hooks) {
       .hasAttribute(
         'data-icon-source',
         'polaris/arrow-left',
-        'it renders a left arrow icon as the `prev` button'
+        'it renders a left arrow icon as the `prev` button',
       );
 
     assert
@@ -136,14 +136,14 @@ module('Integration | Component | polaris date picker', function (hooks) {
       .hasAttribute(
         'data-icon-source',
         'polaris/arrow-right',
-        'it renders a right arrow icon as the `next` button'
+        'it renders a right arrow icon as the `next` button',
       );
 
     assert
       .dom(monthTitleSelector)
       .hasText(
         `${MONTH_NAME} ${YEAR}`,
-        'it renders a title displaying the current month name and year'
+        'it renders a title displaying the current month name and year',
       );
 
     assert.dom(monthSelector).exists('it renders a single month container');
@@ -156,7 +156,7 @@ module('Integration | Component | polaris date picker', function (hooks) {
       .dom(weekdaySelector)
       .exists(
         { count: DAYS_PER_WEEK },
-        'it renders 7 weekday labels in the weekday header'
+        'it renders 7 weekday labels in the weekday header',
       );
 
     assert
@@ -167,7 +167,7 @@ module('Integration | Component | polaris date picker', function (hooks) {
       .dom(monthWeekSelector)
       .exists(
         { count: FEB_2018_WEEKS },
-        'it renders 5 weeks for February 2018'
+        'it renders 5 weeks for February 2018',
       );
 
     assert
@@ -178,7 +178,7 @@ module('Integration | Component | polaris date picker', function (hooks) {
       .dom(dayEmptySelector)
       .exists(
         { count: FEB_2018_DAYS_EMPTY },
-        'it renders 6 empty days for February 2018'
+        'it renders 6 empty days for February 2018',
       );
 
     assert
@@ -206,13 +206,11 @@ module('Integration | Component | polaris date picker', function (hooks) {
     await click(daySelector);
     assert.ok(
       this.get('onChangeActionFired'),
-      'onChange action is called when a day is clicked'
+      'onChange action is called when a day is clicked',
     );
   });
 
   test('it passes a `selected` range argument to the `onChange` action', async function (assert) {
-    assert.expect(2);
-
     this.setProperties({
       month: MONTH,
       year: YEAR,
@@ -220,11 +218,11 @@ module('Integration | Component | polaris date picker', function (hooks) {
       onChange: (selected) => {
         assert.ok(
           selected.start,
-          '`onChange` receives a range with a `start` attribute'
+          '`onChange` receives a range with a `start` attribute',
         );
         assert.ok(
           selected.end,
-          '`onChange` receives a range with an `end` attribute'
+          '`onChange` receives a range with an `end` attribute',
         );
       },
     });
@@ -261,7 +259,7 @@ module('Integration | Component | polaris date picker', function (hooks) {
     await click(headerPrevBtnSelector);
     assert.ok(
       this.get('onMonthChangeActionFired'),
-      'onMonthChange action is called when `prev` button is clicked'
+      'onMonthChange action is called when `prev` button is clicked',
     );
 
     this.set('onMonthChangeActionFired', false);
@@ -269,13 +267,11 @@ module('Integration | Component | polaris date picker', function (hooks) {
     await click(headerNextBtnSelector);
     assert.ok(
       this.get('onMonthChangeActionFired'),
-      'onMonthChange action is called when `next` button is clicked'
+      'onMonthChange action is called when `next` button is clicked',
     );
   });
 
   test('it passes `month` and `year` arguments to the `onMonthChange` action', async function (assert) {
-    assert.expect(3);
-
     let expectedMonth = MONTH + 1;
     let expectedYear = YEAR;
 
@@ -285,15 +281,15 @@ module('Integration | Component | polaris date picker', function (hooks) {
       selected: null,
       onMonthChangeActionFired: false,
       onMonthChange: (month, year) => {
-        assert.equal(
+        assert.strictEqual(
           month,
           expectedMonth,
-          '`onMonthChange` receives the correct `month` argument'
+          '`onMonthChange` receives the correct `month` argument',
         );
-        assert.equal(
+        assert.strictEqual(
           year,
           expectedYear,
-          '`onMonthChange` receives the correct `year` argument'
+          '`onMonthChange` receives the correct `year` argument',
         );
         this.set('onMonthChangeActionFired', true);
       },
@@ -311,7 +307,7 @@ module('Integration | Component | polaris date picker', function (hooks) {
     await click(headerNextBtnSelector);
     assert.ok(
       this.get('onMonthChangeActionFired'),
-      '`onMonthChange` action sends up correct arguments'
+      '`onMonthChange` action sends up correct arguments',
     );
   });
 
@@ -365,14 +361,14 @@ module('Integration | Component | polaris date picker', function (hooks) {
       .dom(DISABLE_BEFORE_SELECTOR)
       .hasClass(
         DAY_DISABLED_CLASS,
-        'dates before `disableDatesBefore` have a disabled class'
+        'dates before `disableDatesBefore` have a disabled class',
       );
 
     assert
       .dom(DISABLE_AFTER_SELECTOR)
       .hasClass(
         DAY_DISABLED_CLASS,
-        'dates after `disableDatesAfter` have a disabled class'
+        'dates after `disableDatesAfter` have a disabled class',
       );
   });
 
@@ -427,7 +423,7 @@ module('Integration | Component | polaris date picker', function (hooks) {
       .dom(IN_RANGE_SELECTOR)
       .hasClass(
         DAY_IN_RANGE_CLASS,
-        'days within the provided range contain an `inRange` class'
+        'days within the provided range contain an `inRange` class',
       );
   });
 
@@ -457,14 +453,14 @@ module('Integration | Component | polaris date picker', function (hooks) {
       .dom(TODAY_SELECTOR)
       .hasClass(
         DAY_IS_TODAY_CLASS,
-        'the day representing today contains a `today` class'
+        'the day representing today contains a `today` class',
       );
 
     assert
       .dom(`.${DAY_IS_TODAY_CLASS}`)
       .exists(
         { count: 1 },
-        'only a single day element contains a `today` class'
+        'only a single day element contains a `today` class',
       );
   });
 });

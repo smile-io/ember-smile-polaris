@@ -39,7 +39,7 @@ module('Integration | Component | polaris empty state', function (hooks) {
       .dom(headingSelector)
       .hasClass(
         'Polaris-DisplayText--sizeMedium',
-        'renders the correct size heading'
+        'renders the correct size heading',
       );
     assert
       .dom(headingSelector)
@@ -58,7 +58,7 @@ module('Integration | Component | polaris empty state', function (hooks) {
       .hasAttribute(
         'src',
         'http://www.somewhere.com/some-image.jpg',
-        'renders the correct image'
+        'renders the correct image',
       );
     assert
       .dom(imageSelector)
@@ -86,7 +86,7 @@ module('Integration | Component | polaris empty state', function (hooks) {
       .dom(headingSelector)
       .hasClass(
         'Polaris-DisplayText--sizeMedium',
-        'renders the correct size heading'
+        'renders the correct size heading',
       );
     assert
       .dom(headingSelector)
@@ -95,7 +95,7 @@ module('Integration | Component | polaris empty state', function (hooks) {
     // Check the content.
     let blockContentSelector = buildNestedSelector(
       contentSelector,
-      'p.block-content'
+      'p.block-content',
     );
     assert.dom(blockContentSelector).exists('renders content');
     assert
@@ -109,7 +109,7 @@ module('Integration | Component | polaris empty state', function (hooks) {
       .hasAttribute(
         'src',
         'http://www.somewhere.com/some-image.jpg',
-        'renders the correct image'
+        'renders the correct image',
       );
     assert
       .dom(imageSelector)
@@ -146,7 +146,7 @@ module('Integration | Component | polaris empty state', function (hooks) {
       .dom(mainActionSelector)
       .hasClass(
         'Polaris-Button--sizeLarge',
-        'renders large button for primary action'
+        'renders large button for primary action',
       );
     assert
       .dom(mainActionSelector)
@@ -156,7 +156,7 @@ module('Integration | Component | polaris empty state', function (hooks) {
     assert
       .dom(secondaryActionSelector)
       .doesNotExist(
-        'does not render secondary action button when no secondary action supplied'
+        'does not render secondary action button when no secondary action supplied',
       );
 
     this.set('secondaryAction', {
@@ -173,23 +173,23 @@ module('Integration | Component | polaris empty state', function (hooks) {
       .dom(secondaryActionSelector)
       .hasText(
         'Secondary action',
-        'renders correct secondary action text when secondary action supplied'
+        'renders correct secondary action text when secondary action supplied',
       );
 
     await click(mainActionSelector);
     assert.ok(
       this.get('mainActionFired'),
-      'main action fires when main action button clicked'
+      'main action fires when main action button clicked',
     );
     assert.notOk(
       this.get('secondaryActionFired'),
-      'secondary action does not fire when main action button clicked'
+      'secondary action does not fire when main action button clicked',
     );
 
     await click(secondaryActionSelector);
     assert.ok(
       this.get('secondaryActionFired'),
-      'secondary action fires when secondary action button clicked'
+      'secondary action fires when secondary action button clicked',
     );
   });
 
@@ -215,7 +215,7 @@ module('Integration | Component | polaris empty state', function (hooks) {
       .dom(emptyStateSelector)
       .hasNoClass(
         'Polaris-EmptyState--imageContained',
-        'empty state component does not have imageContained class when imageContained is false'
+        'empty state component does not have imageContained class when imageContained is false',
       );
 
     this.set('imageContained', true);
@@ -223,7 +223,7 @@ module('Integration | Component | polaris empty state', function (hooks) {
       .dom(emptyStateSelector)
       .hasClass(
         'Polaris-EmptyState--imageContained',
-        'empty state component has imageContained class when imageContained is true'
+        'empty state component has imageContained class when imageContained is true',
       );
   });
 });
