@@ -4,7 +4,6 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, findAll, click } from '@ember/test-helpers';
 import buildNestedSelector from '../../helpers/build-nested-selector';
 import MockSvgJarComponent from '../../mocks/components/svg-jar';
-import Component from '@ember/component';
 
 const choiceListSelector = '[data-test-choice-list]';
 const choicesWrapperSelector = '[data-test-choice-list-choices]';
