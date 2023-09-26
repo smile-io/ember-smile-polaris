@@ -460,7 +460,7 @@ module('Integration | Component | polaris layout', function (hooks) {
   test('it renders the correct HTML when description component is passed to annotated section', async function (assert) {
     this.owner.register(
       'template:components/dummy-component',
-      hbs`<div data-test-annotation-description-content=true></div>`,
+      hbs`<div data-test-annotation-description-content></div>`,
     );
 
     await render(hbs`
@@ -481,7 +481,7 @@ module('Integration | Component | polaris layout', function (hooks) {
   test('it renders the correct HTML when description hash is passed to annotated section', async function (assert) {
     this.owner.register(
       'template:components/dummy-component',
-      hbs`<div data-test-annotation-description-content=true></div>`,
+      hbs`<div data-test-annotation-description-content></div>`,
     );
 
     await render(hbs`

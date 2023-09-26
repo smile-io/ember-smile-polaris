@@ -1278,3 +1278,7 @@ remove|ember-template-lint|no-curly-component-invocation|462|6|462|6|f8b553dadc6
 remove|ember-template-lint|no-curly-component-invocation|463|8|463|8|e48bf646c41b2ba22ac8b955c461c5bc5947786c|1694649600000|||tests/integration/components/polaris-layout-test.js
 remove|ember-template-lint|no-curly-component-invocation|478|6|478|6|f9bac29bbd5dd1f35c43e29ea41b25bc5af27cf1|1694649600000|||tests/integration/components/polaris-layout-test.js
 remove|ember-template-lint|no-curly-component-invocation|479|8|479|8|b0673f6acb179485c8e057b18e477d349e3b94d7|1694649600000|||tests/integration/components/polaris-layout-test.js
+add|ember-template-lint|no-curly-component-invocation|467|6|467|6|e6fe774837cbcec908eef347e4656524274cdcce|1695686400000|||tests/integration/components/polaris-layout-test.js
+add|ember-template-lint|no-curly-component-invocation|468|8|468|8|e5400852ab30594ceb58f0df0fae7a852dc4809b|1695686400000|||tests/integration/components/polaris-layout-test.js
+add|ember-template-lint|no-curly-component-invocation|488|6|488|6|b03b817a301d24d7302e67b9a1b7fbe3b4f35633|1695686400000|||tests/integration/components/polaris-layout-test.js
+add|ember-template-lint|no-curly-component-invocation|489|8|489|8|3321511cd02971128b0ef117884e8c497e1960ab|1695686400000|||tests/integration/components/polaris-layout-test.js
