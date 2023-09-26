@@ -22,7 +22,7 @@ module('Integration | Helper | is-component-definition', function (hooks) {
     );
     this.owner.register(
       'template:components/custom-classic-component',
-      hbs`{{yield}}`,
+      hbs`HELLO`,
     );
 
     await render(
@@ -40,7 +40,7 @@ module('Integration | Helper | is-component-definition', function (hooks) {
     );
     this.owner.register(
       'template:components/custom-glimmer-component',
-      hbs`{{yield}}`,
+      hbs`HELLO`,
     );
 
     await render(
@@ -54,7 +54,7 @@ module('Integration | Helper | is-component-definition', function (hooks) {
   test('it works with template-only components', async function (assert) {
     this.owner.register(
       'template:components/custom-template-only-component',
-      hbs`{{yield}}`,
+      hbs`HELLO`,
     );
 
     await render(
