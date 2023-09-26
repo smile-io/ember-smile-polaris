@@ -241,7 +241,6 @@ module('Integration | Component | polaris-button', function (hooks) {
         };
 
         await render(hbs`
-          {{!-- template-lint-disable no-invalid-interactive--}}
           <div {{on "click" this.handleWrapperClick}}>{{polaris-button onClick=this.handleClick}}</div>
         `);
 
@@ -257,7 +256,6 @@ module('Integration | Component | polaris-button', function (hooks) {
         };
 
         await render(hbs`
-          {{!-- template-lint-disable no-invalid-interactive--}}
           <div {{on "click" this.handleWrapperClick}}>{{polaris-button onClick=this.handleClick url="#"}}</div>
         `);
 

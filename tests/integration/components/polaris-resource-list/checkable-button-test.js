@@ -67,7 +67,6 @@ module(
       };
 
       await render(hbs`
-        {{!-- template-lint-disable no-invalid-interactive--}}
         <div {{on "click" this.handleWrapperClick}}>
           {{polaris-resource-list/checkable-button onToggleAll=this.handleToggle}}
         </div>

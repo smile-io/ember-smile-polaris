@@ -171,7 +171,6 @@ module('Integration | Component | polaris link', function (hooks) {
     this.handleParentClicked = () => assert.notOk("click event doesn't bubble");
 
     await render(hbs`
-      {{!-- template-lint-disable no-invalid-interactive --}}
       <div {{on "click" this.handleParentClicked}}>
         {{polaris-link url="#linkClicked"}}
       </div>
