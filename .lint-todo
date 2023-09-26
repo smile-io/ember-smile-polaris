@@ -79,8 +79,8 @@ add|ember-template-lint|require-has-block-helper|23|22|23|22|bf562aead7b96b3369f
 add|ember-template-lint|no-implicit-this|4|41|4|41|e540cdd1328b2b21e29a95405c301b9313b7c346|1694563200000|1697155200000|1699750800000|addon/templates/components/polaris-data-table/row.hbs
 add|ember-template-lint|no-down-event-binding|8|7|8|7|e82f6aa36fd44bb3dccff09770613eee19380f9b|1694563200000|1697155200000|1699750800000|addon/templates/components/polaris-date-picker.hbs
 add|ember-template-lint|no-redundant-fn|53|18|53|18|81bf22431d39450b3d5b8522259a645513f7c5a5|1694563200000|1697155200000|1699750800000|addon/templates/components/polaris-date-picker.hbs
-add|ember-template-lint|no-invalid-interactive|6|2|6|2|9c47fbb981de62e2515604a4d556267705cd24d8|1695686400000|||addon/templates/components/polaris-date-picker.hbs
-add|ember-template-lint|no-invalid-interactive|7|2|7|2|9c47fbb981de62e2515604a4d556267705cd24d8|1695686400000|||addon/templates/components/polaris-date-picker.hbs
+add|ember-template-lint|no-invalid-interactive|6|2|6|2|162aa33834eb24ba446c4e9ce3e9b29af99497d2|1695686400000|||addon/templates/components/polaris-date-picker.hbs
+add|ember-template-lint|no-invalid-interactive|7|2|7|2|162aa33834eb24ba446c4e9ce3e9b29af99497d2|1695686400000|||addon/templates/components/polaris-date-picker.hbs
 add|ember-template-lint|require-has-block-helper|7|10|7|10|bf562aead7b96b3369f2f96ff8c838387a268cc0|1694563200000|1697155200000|1699750800000|addon/templates/components/polaris-label.hbs
 add|ember-template-lint|require-has-block-helper|4|12|4|12|bf562aead7b96b3369f2f96ff8c838387a268cc0|1694563200000|1697155200000|1699750800000|addon/templates/components/polaris-setting-toggle.hbs
 add|ember-template-lint|no-redundant-fn|35|31|35|31|bb1d63d18f1fe5ad8d45a4f61f0a75b4dcfafba6|1694563200000|1697155200000|1699750800000|addon/templates/components/polaris-data-table.hbs
@@ -213,13 +213,13 @@ add|ember-template-lint|no-down-event-binding|9|7|9|7|a158be60fde14211f6abfbac32
 add|ember-template-lint|no-action|110|58|110|58|d710ce6761d12ab130703c059d7b6d8502c8f0a8|1694563200000|1697155200000|1699750800000|addon/templates/components/polaris-resource-list/item.hbs
 add|ember-template-lint|require-has-block-helper|79|14|79|14|bf562aead7b96b3369f2f96ff8c838387a268cc0|1694563200000|1697155200000|1699750800000|addon/templates/components/polaris-resource-list/item.hbs
 add|ember-template-lint|no-pointer-down-event-binding|9|7|9|7|a158be60fde14211f6abfbac329c94fa5a3b4a46|1694649600000|||addon/templates/components/polaris-resource-list/item.hbs
-add|ember-template-lint|no-invalid-interactive|5|2|5|2|7a07edadce95ce6eb70c7d155d93cb38e552acd6|1695686400000|||addon/templates/components/polaris-resource-list/item.hbs
-add|ember-template-lint|no-invalid-interactive|8|2|8|2|7a07edadce95ce6eb70c7d155d93cb38e552acd6|1695686400000|||addon/templates/components/polaris-resource-list/item.hbs
-add|ember-template-lint|no-invalid-interactive|9|2|9|2|7a07edadce95ce6eb70c7d155d93cb38e552acd6|1695686400000|||addon/templates/components/polaris-resource-list/item.hbs
 add|ember-template-lint|no-invalid-interactive|50|12|50|12|a65232310d9231b865c123c441303af770998ab9|1695686400000|||addon/templates/components/polaris-resource-list/item.hbs
 add|ember-template-lint|no-invalid-interactive|54|14|54|14|5afc895a37ef70fbc4a9e875890afb87c3e24864|1695686400000|||addon/templates/components/polaris-resource-list/item.hbs
-add|ember-template-lint|no-invalid-interactive|89|8|89|8|f03a66fd9dd6724f9f3d3504e6eebe79294c6b38|1695686400000|||addon/templates/components/polaris-resource-list/item.hbs
-add|ember-template-lint|no-invalid-interactive|119|10|119|10|542d7df0708f0e5d1b33ca4c9f59411951372cd7|1695686400000|||addon/templates/components/polaris-resource-list/item.hbs
+add|ember-template-lint|no-invalid-interactive|5|2|5|2|52491714f41c22d4431bd922dcca56f4b8335ee0|1695686400000|||addon/templates/components/polaris-resource-list/item.hbs
+add|ember-template-lint|no-invalid-interactive|8|2|8|2|52491714f41c22d4431bd922dcca56f4b8335ee0|1695686400000|||addon/templates/components/polaris-resource-list/item.hbs
+add|ember-template-lint|no-invalid-interactive|9|2|9|2|52491714f41c22d4431bd922dcca56f4b8335ee0|1695686400000|||addon/templates/components/polaris-resource-list/item.hbs
+add|ember-template-lint|no-invalid-interactive|89|8|89|8|5b4149d14d4b2582dee94f89ae817cd339037813|1695686400000|||addon/templates/components/polaris-resource-list/item.hbs
+add|ember-template-lint|no-invalid-interactive|121|10|121|10|f9c710bd128bbb8f2c080411e41c5e32154766e7|1695686400000|||addon/templates/components/polaris-resource-list/item.hbs
 add|ember-template-lint|no-redundant-fn|90|27|90|27|f0c44b7171e51be40156dae64351f34149f42420|1694563200000|1697155200000|1699750800000|addon/templates/components/polaris-resource-list/bulk-actions.hbs
 add|ember-template-lint|no-action|58|19|58|19|19c627e42982512bc8cbc5bdb95f9e60570320df|1694563200000|1697155200000|1699750800000|addon/templates/components/polaris-resource-list/bulk-actions.hbs
 add|ember-template-lint|no-action|29|31|29|31|096f0f43a8cc41e96039d75181bb3daa02d6a4ac|1694563200000|1697155200000|1699750800000|addon/templates/components/polaris-resource-list/bulk-actions.hbs
@@ -1279,4 +1279,4 @@ add|ember-template-lint|no-curly-component-invocation|465|14|465|14|1b808ee6bd91
 add|ember-template-lint|no-action|481|34|481|34|bfda11268adacee3d85d949191eaef656c278706|1694649600000|||tests/integration/components/polaris-resource-list/filter-control/filter-value-selector-test.js
 add|ember-template-lint|no-curly-component-invocation|478|14|478|14|288855346142f21a93fc97d3cc3f023dc64d6fc0|1694649600000|||tests/integration/components/polaris-resource-list/filter-control/filter-value-selector-test.js
 add|ember-template-lint|no-positive-tabindex|2|2|2|2|fc0a48a2c236b462e7fe5ce61af2a0ca6c0bdd55|1695686400000|||addon/templates/components/polaris-date-picker/day.hbs
-add|ember-template-lint|no-invalid-interactive|3|2|3|2|a84b71507e17928c137d8966820276875d7a4594|1695686400000|||addon/templates/components/polaris-resource-list/checkable-button.hbs
+add|ember-template-lint|no-invalid-interactive|1|31|1|31|a4df5ba56d33be2595fe0bdc113132ad98e56881|1695686400000|||addon/templates/components/polaris-resource-list/checkable-button.hbs
