@@ -1292,3 +1292,5 @@ add|ember-template-lint|require-presentational-children|88|6|88|6|43cc20f9016ee6
 add|ember-template-lint|require-presentational-children|90|8|90|8|e141e9bd2e7330c651c1a972787da447a0416cb1|1695686400000|||addon/templates/components/polaris-drop-zone.hbs
 remove|ember-template-lint|require-presentational-children|88|6|88|6|43cc20f9016ee6a168e3d57f52cbcd3bc6dcaec7|1695686400000|||addon/templates/components/polaris-drop-zone.hbs
 add|ember-template-lint|require-presentational-children|88|6|88|6|46dfe4db1c90061a781ec494c0d0e9a1b5dc99d6|1695686400000|||addon/templates/components/polaris-drop-zone.hbs
+remove|ember-template-lint|require-presentational-children|88|6|88|6|46dfe4db1c90061a781ec494c0d0e9a1b5dc99d6|1695686400000|||addon/templates/components/polaris-drop-zone.hbs
+add|ember-template-lint|require-presentational-children|88|6|88|6|43cc20f9016ee6a168e3d57f52cbcd3bc6dcaec7|1695686400000|||addon/templates/components/polaris-drop-zone.hbs
