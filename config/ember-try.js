@@ -91,16 +91,8 @@ module.exports = async function () {
           },
         },
       },
-      embroiderSafe({
-        npm: {
-          allowedToFail: true,
-        },
-      }),
-      embroiderOptimized({
-        npm: {
-          allowedToFail: true,
-        },
-      }),
+      embroiderSafe({ allowedToFail: true }),
+      embroiderOptimized({ allowedToFail: true }),
     ],
   };
 };
