@@ -440,6 +440,7 @@ export default class PolarisDropZone extends Component {
     onDragLeave();
   }
 
+  @action
   adjustSize() {
     throttle(
       this,
