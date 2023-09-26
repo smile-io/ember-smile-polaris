@@ -1,7 +1,11 @@
-{{#let (if @label
-  (component "polaris-labelled")
-  (component "wrapper-element" tagName="")
-) as |Wrapper|}}
+{{#let
+  (if
+    @label
+    (component "polaris-labelled")
+    (component "wrapper-element" tagName="")
+  )
+  as |Wrapper|
+}}
   <Wrapper
     @id={{@id}}
     @label={{@label}}
@@ -15,8 +19,15 @@
       role="button"
       {{on "click" this.handleClick}}
       {{on "dragstart" this.handleDragStart}}
-      {{did-insert this.setNode}}
-      {{did-insert this.setupEvents}}
+      {{setup-drop-zone-listeners
+        @dropOnPage
+        onSetNode=this.setNode
+        onDrop=this.handleDrop
+        onDragOver=this.handleDragOver
+        onDragEnter=this.handleDragEnter
+        onDragLeave=this.handleDragLeave
+        onResize=this.adjustSize
+      }}
       {{did-insert this.triggerFileDialog this.openFileDialog}}
       {{did-update this.triggerFileDialog this.openFileDialog}}
       ...attributes
@@ -32,7 +43,9 @@
                 @htmlTag="p"
                 @text={{this.state.overlayText}}
               />
-            {{else if (or (eq this.state.size "medium") (eq this.state.size "large"))}}
+            {{else if
+              (or (eq this.state.size "medium") (eq this.state.size "large"))
+            }}
               <PolarisCaption @text={{this.state.overlayText}} />
             {{/if}}
           </PolarisStack>
@@ -50,7 +63,9 @@
                 @htmlTag="p"
                 @text={{this.state.errorOverlayText}}
               />
-            {{else if (or (eq this.state.size "medium") (eq this.state.size "large"))}}
+            {{else if
+              (or (eq this.state.size "medium") (eq this.state.size "large"))
+            }}
               <PolarisCaption @text={{this.state.errorOverlayText}} />
             {{/if}}
           </PolarisStack>
@@ -60,10 +75,10 @@
       <div data-test-drop-zone-container class="Polaris-DropZone__Container">
         {{yield
           (hash
-            fileUpload=(component "polaris-drop-zone/file-upload"
+            fileUpload=(component
+              "polaris-drop-zone/file-upload"
               context=(hash
-                type=(readonly this.state.type)
-                size=(readonly this.state.size)
+                type=(readonly this.state.type) size=(readonly this.state.size)
               )
             )
           )
@@ -71,7 +86,7 @@
       </div>
 
       <PolarisVisuallyHidden>
-        {{!-- template-lint-disable no-nested-interactive --}}
+        {{! template-lint-disable no-nested-interactive }}
         <input
           data-test-drop-zone-hidden-input
           type="file"
@@ -82,7 +97,7 @@
           multiple={{this.allowMultiple}}
           {{did-insert (action (mut this.fileInputNode))}}
           {{on "change" this.handleDrop}}
-        >
+        />
       </PolarisVisuallyHidden>
     </div>
   </Wrapper>

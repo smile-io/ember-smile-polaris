@@ -1282,3 +1282,11 @@ add|ember-template-lint|no-curly-component-invocation|467|6|467|6|e6fe774837cbce
 add|ember-template-lint|no-curly-component-invocation|468|8|468|8|e5400852ab30594ceb58f0df0fae7a852dc4809b|1695686400000|||tests/integration/components/polaris-layout-test.js
 add|ember-template-lint|no-curly-component-invocation|488|6|488|6|b03b817a301d24d7302e67b9a1b7fbe3b4f35633|1695686400000|||tests/integration/components/polaris-layout-test.js
 add|ember-template-lint|no-curly-component-invocation|489|8|489|8|3321511cd02971128b0ef117884e8c497e1960ab|1695686400000|||tests/integration/components/polaris-layout-test.js
+remove|ember-template-lint|require-presentational-children|26|10|26|10|48a3e9ed3e0a37727e369c5bce42f98618d7b22b|1694649600000|||addon/templates/components/polaris-drop-zone.hbs
+remove|ember-template-lint|require-presentational-children|44|10|44|10|e37ee609c4228730afbd5f7085f06cc963bff454|1694649600000|||addon/templates/components/polaris-drop-zone.hbs
+remove|ember-template-lint|require-presentational-children|73|6|73|6|41eddffe8c52794e79e00cbd00f2c5771e0f1f91|1694649600000|||addon/templates/components/polaris-drop-zone.hbs
+remove|ember-template-lint|require-presentational-children|75|8|75|8|ee8c93f3b0fd3ecd4425b7d65e88b0c943c99678|1694649600000|||addon/templates/components/polaris-drop-zone.hbs
+add|ember-template-lint|require-presentational-children|37|10|37|10|763f70a545157e6d0f5c97fed321fd3ea7a7cb5f|1695686400000|||addon/templates/components/polaris-drop-zone.hbs
+add|ember-template-lint|require-presentational-children|57|10|57|10|404624ee6be1b75d373cad358b7a2e513ad0f235|1695686400000|||addon/templates/components/polaris-drop-zone.hbs
+add|ember-template-lint|require-presentational-children|88|6|88|6|43cc20f9016ee6a168e3d57f52cbcd3bc6dcaec7|1695686400000|||addon/templates/components/polaris-drop-zone.hbs
+add|ember-template-lint|require-presentational-children|90|8|90|8|e141e9bd2e7330c651c1a972787da447a0416cb1|1695686400000|||addon/templates/components/polaris-drop-zone.hbs
