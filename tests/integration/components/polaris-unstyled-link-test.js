@@ -50,7 +50,6 @@ module('Integration | Component | polaris-unstyled-link', function (hooks) {
     };
 
     await render(hbs`
-      {{!-- template-lint-disable no-invalid-interactive--}}
       <div {{on "click" this.handleWrapperClick}}>
         <PolarisUnstyledLink
           data-test="unstyled-link"

@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, settled } from '@ember/test-helpers';
 
 module('Integration | Component | polaris subheading', function (hooks) {
   setupRenderingTest(hooks);
@@ -54,6 +54,7 @@ module('Integration | Component | polaris subheading', function (hooks) {
 
     // Update the content of the subheading.
     this.set('subheadingText', 'This is an updated subheading');
+    await settled();
 
     subheading = assert.dom(subheadingSelector);
     subheading.hasText(

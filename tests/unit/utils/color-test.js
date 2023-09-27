@@ -24,11 +24,11 @@ module('Unit | Utility | color', function () {
   test('rgbaToHsb() correctly converts RGB(a) colors to HSB(a)', function (assert) {
     let result = rgbaToHsb({ red: 194, green: 204, blue: 143, alpha: 1 });
 
-    assert.strictEqual(result.hue, 70);
+    assert.strictEqual(result.hue, 70, 'hue');
     // Need to round here to match
-    assert.strictEqual(result.saturation.toFixed(1), 0.3);
-    assert.strictEqual(result.brightness, 0.8);
-    assert.strictEqual(result.alpha, 1);
+    assert.strictEqual(result.saturation.toFixed(1), '0.3', 'stauration');
+    assert.strictEqual(result.brightness, 0.8, 'brightness');
+    assert.strictEqual(result.alpha, 1, 'alpha');
   });
 
   test('rgbaToHex() correctly converts RGB(a) colors to HEX', function (assert) {

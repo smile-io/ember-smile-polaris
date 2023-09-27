@@ -458,10 +458,15 @@ module('Integration | Component | polaris layout', function (hooks) {
   });
 
   test('it renders the correct HTML when description component is passed to annotated section', async function (assert) {
+    this.owner.register(
+      'template:components/dummy-component',
+      hbs`<div data-test-annotation-description-content></div>`,
+    );
+
     await render(hbs`
       {{#polaris-layout as |layout|}}
         {{layout.annotatedSection
-          description=(component "wrapper-element" data-test-annotation-description-content=true)
+          description=(component "dummy-component")
         }}
       {{/polaris-layout}}
     `);
@@ -474,14 +479,17 @@ module('Integration | Component | polaris layout', function (hooks) {
   });
 
   test('it renders the correct HTML when description hash is passed to annotated section', async function (assert) {
+    this.owner.register(
+      'template:components/dummy-component',
+      hbs`<div data-test-annotation-description-content></div>`,
+    );
+
     await render(hbs`
       {{#polaris-layout as |layout|}}
         {{layout.annotatedSection
           description=(hash
-            componentName="wrapper-element"
-            props=(hash
-              data-test-annotation-description-content=true
-            )
+            componentName="dummy-component"
+            props=(hash)
           )
         }}
       {{/polaris-layout}}

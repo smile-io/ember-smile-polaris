@@ -220,7 +220,6 @@ module('Integration | Component | polaris page', function (hooks) {
       assert.notOk(true, "click event doesn't bubble");
 
     await render(hbs`
-      {{!-- template-lint-disable no-invalid-interactive--}}
       <div {{on "click" this.handleWrapperClick}}>
         {{polaris-page
           title="This is the title"

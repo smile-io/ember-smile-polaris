@@ -1,4 +1,3 @@
-{{!-- template-lint-disable no-invalid-interactive --}}
 <div
   data-test-id="item-wrapper"
   data-href={{@url}}
@@ -107,7 +106,9 @@
                 @icon={{shortcutAction.icon}}
                 this.loading={{shortcutAction.loading}}
                 @disabled={{shortcutAction.disabled}}
-                @onClick={{fn (or shortcutAction.onAction (action (mut dummy)))}}
+                @onClick={{fn
+                  (or shortcutAction.onAction (action (mut dummy)))
+                }}
               />
             </buttonGroup.item>
           {{/each}}
@@ -121,12 +122,12 @@
         >
           <PolarisPopover as |popover|>
             <popover.activator>
-              {{!--
+              {{!
                 Possible mistake in the Polaris source here as
                 `Button` doesn't seem to support `aria-label`.
                 Matching what they do for now, and if they fix
                 it we can update ;)
-              --}}
+              }}
               <PolarisButton
                 aria-label="Actions dropdown"
                 @plain={{true}}

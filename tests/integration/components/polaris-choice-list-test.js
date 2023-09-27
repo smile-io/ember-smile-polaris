@@ -4,7 +4,6 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, findAll, click } from '@ember/test-helpers';
 import buildNestedSelector from '../../helpers/build-nested-selector';
 import MockSvgJarComponent from '../../mocks/components/svg-jar';
-import Component from '@ember/component';
 
 const choiceListSelector = '[data-test-choice-list]';
 const choicesWrapperSelector = '[data-test-choice-list-choices]';
@@ -641,11 +640,8 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
 
   test('it supports choice children components aka renderChildren', async function (assert) {
     this.owner.register(
-      'component:dummy-component',
-      Component.extend({
-        layout: hbs``,
-        'data-test-dummy-component': true,
-      }),
+      'template:components/dummy-component',
+      hbs`<div data-test-dummy-component></div>`,
     );
 
     this.set('selected', 'one');
@@ -673,6 +669,7 @@ module('Integration | Component | polaris-choice-list', function (hooks) {
       .doesNotExist('does not render choice childComponent, when not selected');
 
     this.set('selected', 'two');
+
     assert
       .dom('[data-test-dummy-component]')
       .exists('renders choice childComponent component, when selected');
