@@ -59,7 +59,7 @@ export default class PolarisTag extends Component {
    * Gets updated after rendering to always use the most up-to-date tag text
    *
    * @type {String}
-   * @dyefault null
+   * @default null
    */
   get buttonLabel() {
     return `Remove ${this.tagText}`;
