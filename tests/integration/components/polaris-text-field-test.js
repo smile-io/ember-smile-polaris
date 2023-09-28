@@ -9,6 +9,7 @@ import {
   blur,
   click,
 } from '@ember/test-helpers';
+import { action } from '@ember/object';
 import buildNestedSelector from '../../helpers/build-nested-selector';
 
 const label = 'Text field label';
@@ -356,22 +357,20 @@ module('Integration | Component | polaris-text-field', function (hooks) {
 
     module('when type is number', function () {
       test('it handles incrementing/decrementing correctly', async function (assert) {
-        this.setProperties({
-          value: 1,
-          id: 'myId',
-          disabled: false,
-          handleChange(num, id) {
-            this.set('value', num);
-            assert.ok(id, this.id);
-          },
-        });
+        this.handleChange = (num, id) => {
+          this.set('value', num);
+          assert.ok(id, this.id);
+        };
+        this.value = 1;
+        this.id = 'myId';
+        this.disabled = false;
 
         await render(hbs`
           {{polaris-text-field
             type="number"
             value=value
             disabled=disabled
-            onChange=(action handleChange)
+            onChange=this.handleChange
           }}
         `);
 
