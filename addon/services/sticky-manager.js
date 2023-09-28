@@ -1,4 +1,5 @@
 import Service from '@ember/service';
+import { action } from '@ember/object';
 import { throttleTask, runDisposables } from 'ember-lifeline';
 import tokens from '@shopify/polaris-tokens';
 import { getRectForNode } from '@shopify/javascript-utilities/geometry';
@@ -46,10 +47,12 @@ export default class StickyManager extends Service {
     }
   }
 
+  @action
   handleResize() {
     throttleTask(this, 'manageStickyItems', 40, false);
   }
 
+  @action
   handleScroll() {
     throttleTask(this, 'manageStickyItems', 40, false);
   }
