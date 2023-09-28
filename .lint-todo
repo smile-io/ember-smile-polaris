@@ -1233,3 +1233,6 @@ add|ember-template-lint|no-action|481|34|481|34|bfda11268adacee3d85d949191eaef65
 add|ember-template-lint|no-curly-component-invocation|478|14|478|14|288855346142f21a93fc97d3cc3f023dc64d6fc0|1694649600000|||tests/integration/components/polaris-resource-list/filter-control/filter-value-selector-test.js
 add|ember-template-lint|no-positive-tabindex|2|2|2|2|fc0a48a2c236b462e7fe5ce61af2a0ca6c0bdd55|1695686400000|||addon/templates/components/polaris-date-picker/day.hbs
 add|ember-template-lint|no-invalid-interactive|1|31|1|31|a4df5ba56d33be2595fe0bdc113132ad98e56881|1695686400000|||addon/templates/components/polaris-resource-list/checkable-button.hbs
+remove|ember-template-lint|no-action|374|21|374|21|debe11c57b2ab117d783bd2ea2a7762ecf6bc9c7|1694649600000|||tests/integration/components/polaris-text-field-test.js
+remove|ember-template-lint|no-curly-component-invocation|370|10|370|10|9dcefee0de75e6b8dc85113edf8049e63f41a166|1694649600000|||tests/integration/components/polaris-text-field-test.js
+add|ember-template-lint|no-curly-component-invocation|368|10|368|10|949cd6da9faa8f412724adb81a9814bf7b31bc1a|1695859200000|||tests/integration/components/polaris-text-field-test.js

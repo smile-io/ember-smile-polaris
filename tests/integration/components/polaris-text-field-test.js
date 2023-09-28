@@ -9,7 +9,6 @@ import {
   blur,
   click,
 } from '@ember/test-helpers';
-import { action } from '@ember/object';
 import buildNestedSelector from '../../helpers/build-nested-selector';
 
 const label = 'Text field label';
