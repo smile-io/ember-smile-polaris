@@ -1,10 +1,13 @@
-{{#let (element (if (eq this.elementTagName "code") "code" "span")) as |TextStyle|}}
+{{#let
+  (element (if (eq this.elementTagName "code") "code" "span"))
+  as |TextStyle|
+}}
   <TextStyle
     class={{this.textStyleClasses}}
     data-test-text-style={{or @dataTestTextStyle ""}}
     ...attributes
   >
-    {{#if hasBlock}}
+    {{#if (has-block)}}
       {{yield}}
     {{else}}
       {{@text}}
