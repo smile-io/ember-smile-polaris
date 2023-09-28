@@ -2,17 +2,16 @@
   <@contentComponent class="Polaris-PositionedOverlay">
     <div
       data-polaris-overlay="true"
-      class="
-        Polaris-Popover
-        {{if @fullWidth "Polaris-Popover--fullWidth"}}
-      "
+      class="Polaris-Popover {{if @fullWidth 'Polaris-Popover--fullWidth'}} "
     >
       <div class="Polaris-Popover__Tip"></div>
       <div class="Polaris-Popover__FocusTracker" tabindex="0"></div>
       <div class="Polaris-Popover__Wrapper">
         <div
           tabindex="-1"
-          class="Polaris-Popover__Content {{@contentClass}} {{if @fullHeight "Polaris-Popover__Content--fullHeight"}}"
+          class="Polaris-Popover__Content
+            {{@contentClass}}
+            {{if @fullHeight 'Polaris-Popover__Content--fullHeight'}}"
         >
           <div
             class="Polaris-Popover__Pane Polaris-Scrollable Polaris-Scrollable--vertical"
@@ -20,14 +19,14 @@
           >
             {{#if @sectioned}}
               <div class="Polaris-Popover__Section">
-                {{#if hasBlock}}
+                {{#if (has-block)}}
                   {{yield}}
                 {{else}}
                   {{@text}}
                 {{/if}}
               </div>
             {{else}}
-              {{#if hasBlock}}
+              {{#if (has-block)}}
                 {{yield}}
               {{else}}
                 {{@text}}

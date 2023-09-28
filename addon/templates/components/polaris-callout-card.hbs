@@ -1,4 +1,7 @@
-<div class="Polaris-Card {{@class}} {{this.illustrationSizeClass}}" ...attributes>
+<div
+  class="Polaris-Card {{@class}} {{this.illustrationSizeClass}}"
+  ...attributes
+>
   <div class="Polaris-CalloutCard__Container">
     {{#if @onDismiss}}
       <div class="Polaris-CalloutCard__Dismiss">
@@ -19,7 +22,7 @@
           </div>
 
           <PolarisTextContainer>
-            {{#if hasBlock}}
+            {{#if (has-block)}}
               {{yield}}
             {{else}}
               {{@text}}
@@ -28,7 +31,8 @@
 
           <div class="Polaris-CalloutCard__Buttons">
             {{#let
-              (component "polaris-button"
+              (component
+                "polaris-button"
                 text=@primaryAction.text
                 accessibilityLabel=@primaryAction.accessibilityLabel
                 disabled=@primaryAction.disabled
@@ -63,9 +67,10 @@
 
         <img
           alt=""
-          class="Polaris-CalloutCard__Image {{if @onDismiss "Polaris-CalloutCard__DismissImage"}}"
+          class="Polaris-CalloutCard__Image
+            {{if @onDismiss 'Polaris-CalloutCard__DismissImage'}}"
           src={{@illustration}}
-        >
+        />
       </div>
     </PolarisCard::Section>
   </div>
