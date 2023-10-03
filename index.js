@@ -5,12 +5,12 @@ module.exports = {
 
   options: {
     svgJar: {
-      sourceDirs: [
-        'public',
-        'tests/dummy/public/assets/images/svg',
-        'node_modules/@smile-io/ember-smile-polaris/public',
-      ],
+      inline: {
+        // This overwrites default glocal `sourceDirs: []` since we don't want that.
+        sourceDirs: [],
+      },
     },
+
     'ember-composable-helpers': {
       only: ['includes'],
     },
