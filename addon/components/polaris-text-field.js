@@ -4,7 +4,7 @@ import { bool } from '@ember/object/computed';
 import { guidFor } from '@ember/object/internals';
 import { htmlSafe } from '@ember/string';
 import { typeOf, isPresent } from '@ember/utils';
-import { deprecate } from '@ember/application/deprecations';
+import { deprecate } from '@ember/debug';
 import { tagName, layout } from '@ember-decorators/component';
 import { runTask, cancelTask } from 'ember-lifeline';
 import template from '../templates/components/polaris-text-field';

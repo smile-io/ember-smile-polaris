@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { or } from '@ember/object/computed';
-import { deprecate } from '@ember/application/deprecations';
+import { deprecate } from '@ember/debug';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import layout from '../templates/components/polaris-setting-toggle';
 

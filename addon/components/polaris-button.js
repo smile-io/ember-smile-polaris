@@ -2,7 +2,7 @@ import Component from '@ember/component';
 import { action, computed } from '@ember/object';
 import { or } from '@ember/object/computed';
 import { classify } from '@ember/string';
-import { deprecate } from '@ember/application/deprecations';
+import { deprecate } from '@ember/debug';
 import { tagName, layout } from '@ember-decorators/component';
 import { handleMouseUpByBlurring } from '../utils/focus';
 import template from '../templates/components/polaris-button';

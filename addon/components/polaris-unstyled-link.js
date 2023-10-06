@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { computed, action } from '@ember/object';
-import { deprecate } from '@ember/application/deprecations';
+import { deprecate } from '@ember/debug';
 import { tagName, layout } from '@ember-decorators/component';
 import template from '../templates/components/polaris-unstyled-link';
 import deprecateClassArgument from '../utils/deprecate-class-argument';

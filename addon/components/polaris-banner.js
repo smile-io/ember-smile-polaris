@@ -4,7 +4,7 @@ import { bool, or } from '@ember/object/computed';
 import { isBlank, isPresent } from '@ember/utils';
 import { guidFor } from '@ember/object/internals';
 import { capitalize } from '@ember/string';
-import { deprecate } from '@ember/application/deprecations';
+import { deprecate } from '@ember/debug';
 import { tagName, layout } from '@ember-decorators/component';
 import template from '../templates/components/polaris-banner';
 import { handleMouseUpByBlurring } from '../utils/focus';
