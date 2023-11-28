@@ -107,7 +107,7 @@
                 this.loading={{shortcutAction.loading}}
                 @disabled={{shortcutAction.disabled}}
                 @onClick={{fn
-                  (or shortcutAction.onAction (action (mut @dummy)))
+                  (or shortcutAction.onAction (action (mut this.dummy)))
                 }}
               />
             </buttonGroup.item>
