@@ -2,20 +2,16 @@ import Component from '@ember/component';
 import { action, computed } from '@ember/object';
 import { warn } from '@ember/debug';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
-import ContextBoundEventListenersMixin from 'ember-lifeline/mixins/dom';
-import ContextBoundTasksMixin from 'ember-lifeline/mixins/run';
 import layout from '../../templates/components/polaris-resource-list/bulk-actions';
 import deprecateClassArgument from '../../utils/deprecate-class-argument';
+import { addEventListener, runDisposables, throttleTask } from 'ember-lifeline';
 
 const MAX_PROMOTED_ACTIONS = 2;
 
 @deprecateClassArgument
 @tagName('')
 @templateLayout(layout)
-export default class PolarisResourceListBulkActions extends Component.extend(
-  ContextBoundEventListenersMixin,
-  ContextBoundTasksMixin,
-) {
+export default class PolarisResourceListBulkActions extends Component {
   /**
    * Visually hidden text for screen readers
    *
@@ -317,15 +313,7 @@ export default class PolarisResourceListBulkActions extends Component.extend(
   }
 
   handleResize() {
-    this.throttleTask('setContainerWidth', 50);
-  }
-
-  addResizeEventListener() {
-    let { largeScreenGroupNode } = this;
-
-    if (largeScreenGroupNode) {
-      this.addEventListener(largeScreenGroupNode, 'resize', this.handleResize);
-    }
+    throttleTask(this, 'setContainerWidth', 50);
   }
 
   @action
@@ -349,7 +337,14 @@ export default class PolarisResourceListBulkActions extends Component.extend(
       );
     }
 
-    this.addResizeEventListener();
+    if (largeScreenButtonsNode) {
+      addEventListener(
+        this,
+        largeScreenButtonsNode,
+        'resize',
+        this.handleResize,
+      );
+    }
 
     if (promotedActions && !actionsCollection && moreActionsNode) {
       addedMoreActionsWidthForMeasuring =
@@ -379,5 +374,10 @@ export default class PolarisResourceListBulkActions extends Component.extend(
     if (this.measuring) {
       this.promotedActionsWidths.pushObject(width);
     }
+  }
+
+  willDestroy() {
+    super.willDestroy();
+    runDisposables(this);
   }
 }
