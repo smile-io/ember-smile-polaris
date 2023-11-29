@@ -6,8 +6,6 @@ import { scheduleOnce } from '@ember/runloop';
 import { assign } from '@ember/polyfills';
 import { isEqual } from '@ember/utils';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
-import ContextBoundEventListenersMixin from 'ember-lifeline/mixins/dom';
-import ContextBoundTasksMixin from 'ember-lifeline/mixins/run';
 import layout from '../templates/components/polaris-data-table';
 import { measureColumn, getPrevAndCurrentColumns } from '../utils/data-table';
 import deprecateClassArgument from '../utils/deprecate-class-argument';
@@ -25,10 +23,7 @@ function elementLookup(selector) {
 @deprecateClassArgument
 @tagName('')
 @templateLayout(layout)
-export default class PolarisDataTable extends Component.extend(
-  ContextBoundEventListenersMixin,
-  ContextBoundTasksMixin,
-) {
+export default class PolarisDataTable extends Component.extend() {
   /**
    * List of data types, which determines content alignment for each column.
    * Data types are "text," which aligns left, or "numeric," which aligns right.
@@ -277,7 +272,7 @@ export default class PolarisDataTable extends Component.extend(
 
   handleResize() {
     // This is needed to replicate the React implementation's `@debounce` decorator.
-    this.debounceTask('debouncedHandleResize', 0);
+    debounceTask('debouncedHandleResize', 0);
   }
 
   debouncedHandleResize() {
@@ -336,8 +331,8 @@ export default class PolarisDataTable extends Component.extend(
   }
 
   addEventHandlers() {
-    this.addEventListener(window, 'resize', this.handleResize);
-    this.addEventListener(window, 'scroll', this.scrollListener, {
+    addEventListener(window, 'resize', this.handleResize);
+    addEventListener(window, 'scroll', this.scrollListener, {
       capture: true,
     });
   }
