@@ -68,6 +68,13 @@ export default class PolarisIcon extends Component.extend(SvgHandling) {
   showPlaceholder;
 
   /**
+   * Internal property to store the state of keepFills
+   *
+   * @type {Boolean}
+   */
+  _keepFills;
+
+  /**
    * Shopify removes all SVG fills from icons. In order to use this component
    * for our icons too, we need to be able to keep their fills.
    * This won't remove fills for anything other than Polaris icons by default,
@@ -79,6 +86,11 @@ export default class PolarisIcon extends Component.extend(SvgHandling) {
    */
   @computed('sourcePath', 'source')
   get keepFills() {
+    // If the value was previously set manually return that value
+    if (this._keepFills) {
+      return this._keepFills;
+    }
+
     // If not Polaris icons, keep fills by default
     if (this.sourcePath !== 'polaris') {
       return true;
@@ -92,6 +104,10 @@ export default class PolarisIcon extends Component.extend(SvgHandling) {
 
     // Else, it's clearly not a Polaris icon, so keep them
     return true;
+  }
+  set keepFills(value) {
+    // Update the internal state instead of directly setting the computed property
+    this._keepFills = value;
   }
 
   /**
