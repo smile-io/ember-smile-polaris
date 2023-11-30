@@ -7,7 +7,7 @@ import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import createContext from 'ember-context';
 import layout from '../templates/components/polaris-resource-list';
 import { computedIdVariation } from '@smile-io/ember-smile-polaris/utils/id';
-import { addEventListener, runDisposables } from 'ember-lifeline';
+import { runDisposables } from 'ember-lifeline';
 
 export const SELECT_ALL_ITEMS = 'All';
 
@@ -661,12 +661,7 @@ export default class PolarisResourceList extends Component {
 
   @action
   insertResourceList() {
-    addEventListener(
-      this,
-      window,
-      'resize',
-      this.handleResize,
-    );
+    window.addEventListener('resize', this.handleResize);
 
     if (this.loading) {
       this.setLoadingPosition();

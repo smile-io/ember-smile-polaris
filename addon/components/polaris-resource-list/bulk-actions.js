@@ -4,7 +4,7 @@ import { warn } from '@ember/debug';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import layout from '../../templates/components/polaris-resource-list/bulk-actions';
 import deprecateClassArgument from '../../utils/deprecate-class-argument';
-import { addEventListener, runDisposables, throttleTask } from 'ember-lifeline';
+import { runDisposables, throttleTask } from 'ember-lifeline';
 
 const MAX_PROMOTED_ACTIONS = 2;
 
@@ -338,12 +338,7 @@ export default class PolarisResourceListBulkActions extends Component {
     }
 
     if (largeScreenButtonsNode) {
-      addEventListener(
-        this,
-        largeScreenButtonsNode,
-        'resize',
-        this.handleResize,
-      );
+      largeScreenButtonsNode.addEventListener('resize', this.handleResize);
     }
 
     if (promotedActions && !actionsCollection && moreActionsNode) {
