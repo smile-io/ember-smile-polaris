@@ -273,7 +273,7 @@ export default class PolarisDataTable extends Component.extend() {
 
   handleResize() {
     // This is needed to replicate the React implementation's `@debounce` decorator.
-    debounceTask('debouncedHandleResize', 0);
+    debounceTask(this, 'debouncedHandleResize', 0);
   }
 
   debouncedHandleResize() {
@@ -332,8 +332,8 @@ export default class PolarisDataTable extends Component.extend() {
   }
 
   addEventHandlers() {
-    addEventListener(window, 'resize', this.handleResize);
-    addEventListener(window, 'scroll', this.scrollListener, {
+    addEventListener(this, window, 'resize', this.handleResize);
+    addEventListener(this, window, 'scroll', this.scrollListener, {
       capture: true,
     });
   }
