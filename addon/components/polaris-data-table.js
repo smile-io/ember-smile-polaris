@@ -9,6 +9,7 @@ import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import layout from '../templates/components/polaris-data-table';
 import { measureColumn, getPrevAndCurrentColumns } from '../utils/data-table';
 import deprecateClassArgument from '../utils/deprecate-class-argument';
+import { addEventListener, debounceTask } from 'ember-lifeline';
 
 function elementLookup(selector) {
   return computed('dataTableElement', function () {
