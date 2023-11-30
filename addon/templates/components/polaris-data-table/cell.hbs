@@ -7,7 +7,7 @@
       aria-sort={{@sortDirection}}
       style={{this.style}}
     >
-      {{#if sortable}}
+      {{#if this.sortable}}
         <button
           type="button"
           class={{this.headerClassNames}}
@@ -27,19 +27,12 @@
       {{/if}}
     </th>
   {{else}}
-    <th
-      scope="row"
-      class={{this.cellClassNames}}
-      style={{this.style}}
-    >
+    <th scope="row" class={{this.cellClassNames}} style={{this.style}}>
       {{render-content @text}}
     </th>
   {{/if}}
 {{else}}
-  <td
-    class={{this.cellClassNames}}
-    style={{this.style}}
-  >
+  <td class={{this.cellClassNames}} style={{this.style}}>
     {{render-content @text}}
   </td>
 {{/if}}
