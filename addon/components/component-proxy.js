@@ -25,7 +25,7 @@ export default Component.extend({
     let { componentName, propsString } = this;
 
     return compile(`
-      {{#if hasBlock}}
+      {{#if has-block}}
         {{#component "${componentName}"${propsString}}}
           {{yield}}
         {{/component}}
