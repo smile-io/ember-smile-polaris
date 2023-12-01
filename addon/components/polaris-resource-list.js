@@ -7,7 +7,6 @@ import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import createContext from 'ember-context';
 import layout from '../templates/components/polaris-resource-list';
 import { computedIdVariation } from '@smile-io/ember-smile-polaris/utils/id';
-import { runDisposables } from 'ember-lifeline';
 
 export const SELECT_ALL_ITEMS = 'All';
 
@@ -671,11 +670,6 @@ export default class PolarisResourceList extends Component {
   @action
   insertListNode(element) {
     this.set('listNode', element);
-  }
-
-  willDestroy() {
-    super.willDestroy();
-    runDisposables(this);
   }
 }
 

@@ -1,6 +1,6 @@
 import Service from '@ember/service';
 import { action } from '@ember/object';
-import { throttleTask, runDisposables } from 'ember-lifeline';
+import { throttleTask } from 'ember-lifeline';
 import tokens from '@shopify/polaris-tokens';
 import { getRectForNode } from '@shopify/javascript-utilities/geometry';
 import stackedContent from '@smile-io/ember-smile-polaris/utils/breakpoints';
@@ -202,11 +202,6 @@ export default class StickyManager extends Service {
     if (container) {
       this.setContainer(container);
     }
-  }
-
-  willDestroy() {
-    super.willDestroy(...arguments);
-    runDisposables(this);
   }
 }
 

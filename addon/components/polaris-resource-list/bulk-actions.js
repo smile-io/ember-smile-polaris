@@ -4,7 +4,7 @@ import { warn } from '@ember/debug';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import layout from '../../templates/components/polaris-resource-list/bulk-actions';
 import deprecateClassArgument from '../../utils/deprecate-class-argument';
-import { runDisposables, throttleTask } from 'ember-lifeline';
+import { throttleTask } from 'ember-lifeline';
 
 const MAX_PROMOTED_ACTIONS = 2;
 
@@ -369,10 +369,5 @@ export default class PolarisResourceListBulkActions extends Component {
     if (this.measuring) {
       this.promotedActionsWidths.pushObject(width);
     }
-  }
-
-  willDestroy() {
-    super.willDestroy();
-    runDisposables(this);
   }
 }
