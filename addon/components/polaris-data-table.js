@@ -9,7 +9,7 @@ import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import layout from '../templates/components/polaris-data-table';
 import { measureColumn, getPrevAndCurrentColumns } from '../utils/data-table';
 import deprecateClassArgument from '../utils/deprecate-class-argument';
-import { addEventListener, debounceTask } from 'ember-lifeline';
+import { debounceTask } from 'ember-lifeline';
 
 function elementLookup(selector) {
   return computed('dataTableElement', function () {
@@ -332,8 +332,8 @@ export default class PolarisDataTable extends Component.extend() {
   }
 
   addEventHandlers() {
-    addEventListener(this, window, 'resize', this.handleResize);
-    addEventListener(this, window, 'scroll', this.scrollListener, {
+    window.addEventListener('resize', this.handleResize);
+    window.addEventListener('scroll', this.scrollListener, {
       capture: true,
     });
   }
