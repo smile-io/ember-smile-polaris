@@ -436,11 +436,6 @@ export default class PolarisResourceList extends Component {
     return htmlSafe(`padding-top: ${topPadding}px`);
   }
 
-  @(computed('items.length').readOnly())
-  get spinnerSize() {
-    return this.items.length < 2 ? 'small' : 'large';
-  }
-
   @(computed(
     'defaultResourceName',
     'loading',
