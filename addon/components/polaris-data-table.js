@@ -271,12 +271,12 @@ export default class PolarisDataTable extends Component.extend() {
     };
   }
 
-  handleResize() {
+  handleResize = () => {
     // This is needed to replicate the React implementation's `@debounce` decorator.
     debounceTask(this, 'debouncedHandleResize', 0);
-  }
+  };
 
-  debouncedHandleResize() {
+  debouncedHandleResize = () => {
     let { footerContent, truncate, table, scrollContainer } = this;
 
     let collapsed = false;
@@ -299,15 +299,15 @@ export default class PolarisDataTable extends Component.extend() {
     if (footerContent || !truncate) {
       scheduleOnce('afterRender', this, this.setHeightsAndScrollPosition);
     }
-  }
+  };
 
-  scrollListener() {
+  scrollListener = () => {
     if (this.isDestroying || this.isDestroyed) {
       return;
     }
 
     this.setProperties(this.calculateColumnVisibilityData(this.collapsed));
-  }
+  };
 
   tallestCellHeights() {
     let { footerContent, truncate, heights, table } = this;
