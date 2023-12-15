@@ -1,0 +1,13 @@
+{{#let (element (or @htmlTag @tagName "h3")) as |Subheading|}}
+  <Subheading
+    class="Polaris-Subheading {{@class}}"
+    {{trigger-update-on-text-change this.updateAriaLabel}}
+    ...attributes
+  >
+    {{#if (has-block)}}
+      {{yield}}
+    {{else}}
+      {{@text}}
+    {{/if}}
+  </Subheading>
+{{/let}}

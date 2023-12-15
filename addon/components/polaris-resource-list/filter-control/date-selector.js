@@ -197,7 +197,7 @@ export default class PolarisResourceListFilterControlDateSelector extends Compon
     'filterValue',
     'filterKey',
     'filterMinKey',
-    'filterMaxKey'
+    'filterMaxKey',
   ).readOnly())
   get dateFilterOption() {
     let { filterValue, filterKey, filterMinKey, filterMaxKey } = this;
@@ -206,7 +206,7 @@ export default class PolarisResourceListFilterControlDateSelector extends Compon
       filterValue,
       filterKey,
       filterMinKey,
-      filterMaxKey
+      filterMaxKey,
     );
   }
 
@@ -247,7 +247,7 @@ export default class PolarisResourceListFilterControlDateSelector extends Compon
       onFilterValueChange(
         selectedDate
           ? stripTimeFromISOString(formatDateForLocalTimezone(selectedDate))
-          : undefined
+          : undefined,
       );
       return;
     }
@@ -257,7 +257,7 @@ export default class PolarisResourceListFilterControlDateSelector extends Compon
       onFilterValueChange(
         selectedDate
           ? stripTimeFromISOString(formatDateForLocalTimezone(selectedDate))
-          : undefined
+          : undefined,
       );
       return;
     }
@@ -302,7 +302,7 @@ export default class PolarisResourceListFilterControlDateSelector extends Compon
     }
 
     let formattedDateForTimezone = new Date(
-      formatDateForLocalTimezone(new Date(userInputDate))
+      formatDateForLocalTimezone(new Date(userInputDate)),
     );
 
     this.setProperties({
@@ -323,7 +323,7 @@ export default class PolarisResourceListFilterControlDateSelector extends Compon
     }
 
     onFilterValueChange(
-      stripTimeFromISOString(formatDateForLocalTimezone(selectedDate))
+      stripTimeFromISOString(formatDateForLocalTimezone(selectedDate)),
     );
   }
 
@@ -368,7 +368,7 @@ function getDateFilterOption(
   filterValue,
   filterKey,
   filterMinKey,
-  filterMaxKey
+  filterMaxKey,
 ) {
   if (filterKey === filterMaxKey) {
     return DateFilterOption.OnOrBefore;

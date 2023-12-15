@@ -87,11 +87,11 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
 
     this.owner.register(
       'component:shallow-item-component',
-      ShallowItemComponent
+      ShallowItemComponent,
     );
     this.owner.register(
       'component:custom-markup-component',
-      CustomMarkupComponent
+      CustomMarkupComponent,
     );
     this.owner.register('component:item-component', ItemComponent);
   });
@@ -157,7 +157,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
           this,
           'polaris-resource-list/bulk-actions',
           BulkActionsComponent,
-          'paginatedSelectAllAction'
+          'paginatedSelectAllAction',
         );
       },
     },
@@ -184,7 +184,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
       `);
         assert.ok(this.get('paginatedSelectAllAction'));
       });
-    }
+    },
   );
 
   module('resourceName', function () {
@@ -268,7 +268,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
           this,
           'polaris-resource-list/bulk-actions',
           BulkActionsComponent,
-          'accessibilityLabel'
+          'accessibilityLabel',
         );
       },
     },
@@ -281,7 +281,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
           bulkActions=bulkActions
         }}
       `);
-        assert.equal(this.get('accessibilityLabel'), 'Select item');
+        assert.strictEqual(this.get('accessibilityLabel'), 'Select item');
       });
 
       test('provides the BulkActions with the right accessibilityLabel if there’s 1 item and it is selected ', async function (assert) {
@@ -293,7 +293,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
           selectedItems=(array "1")
         }}
       `);
-        assert.equal(this.get('accessibilityLabel'), 'Deselect item');
+        assert.strictEqual(this.get('accessibilityLabel'), 'Deselect item');
       });
 
       test('provides the BulkActions with the right accessibilityLabel if there are multiple items and they are selected', async function (assert) {
@@ -305,7 +305,10 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
           selectedItems=(array "5" "6" "7")
         }}
       `);
-        assert.equal(this.get('accessibilityLabel'), 'Deselect all 3 items');
+        assert.strictEqual(
+          this.get('accessibilityLabel'),
+          'Deselect all 3 items',
+        );
       });
 
       test('provides the BulkActions with the right accessibilityLabel if there’s multiple items and some or none are selected', async function (assert) {
@@ -316,9 +319,12 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
           bulkActions=bulkActions
         }}
       `);
-        assert.equal(this.get('accessibilityLabel'), 'Select all 3 items');
+        assert.strictEqual(
+          this.get('accessibilityLabel'),
+          'Select all 3 items',
+        );
       });
-    }
+    },
   );
 
   module('idForItem()', function () {
@@ -362,7 +368,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         }}
       `);
       await click(
-        '.Polaris-ResourceList-Item:first-of-type [data-test-id="larger-selection-area"]'
+        '.Polaris-ResourceList-Item:first-of-type [data-test-id="larger-selection-area"]',
       );
       assert.ok(this.get('wasOnSelectionChangeCalled'));
     });
@@ -582,7 +588,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
             this,
             'polaris-select',
             SelectComponent,
-            'options'
+            'options',
           );
         },
       },
@@ -597,7 +603,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         `);
           assert.deepEqual(this.get('options'), sortOptions);
         });
-      }
+      },
     );
 
     module(
@@ -608,7 +614,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
             this,
             'polaris-select',
             SelectComponent,
-            'value'
+            'value',
           );
         },
       },
@@ -623,9 +629,9 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
             itemComponent="item-component"
           }}
         `);
-          assert.equal(this.get('value'), 'sortValue');
+          assert.strictEqual(this.get('value'), 'sortValue');
         });
-      }
+      },
     );
 
     module('onSortChange', function () {
@@ -640,7 +646,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         `);
         find('.Polaris-Select select').value = 'PRODUCT_TITLE_DESC';
         await triggerEvent('.Polaris-Select select', 'change');
-        assert.equal(this.get('sortChangeParam'), 'PRODUCT_TITLE_DESC');
+        assert.strictEqual(this.get('sortChangeParam'), 'PRODUCT_TITLE_DESC');
       });
     });
   });

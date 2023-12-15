@@ -48,12 +48,10 @@ module(
     });
 
     test('calls onClick with section and index if option is not disabled', async function (assert) {
-      assert.expect(2);
-
       this.set('onOptionClicked', (optionSection, optionIndex) => {
         const { section, index } = defaultProps;
-        assert.equal(optionSection, section);
-        assert.equal(optionIndex, index);
+        assert.strictEqual(optionSection, section);
+        assert.strictEqual(optionIndex, index);
       });
 
       await render(hbs`
@@ -87,12 +85,10 @@ module(
     });
 
     test('calls onClick with section and index if option is not disabled and multiple options are allowed', async function (assert) {
-      assert.expect(2);
-
       this.set('onOptionClicked', (optionSection, optionIndex) => {
         const { section, index } = defaultProps;
-        assert.equal(optionSection, section);
-        assert.equal(optionIndex, index);
+        assert.strictEqual(optionSection, section);
+        assert.strictEqual(optionIndex, index);
       });
 
       await render(hbs`
@@ -127,5 +123,5 @@ module(
         .dom('input[type="checkbox"]')
         .hasAttribute('value', defaultProps.value);
     });
-  }
+  },
 );

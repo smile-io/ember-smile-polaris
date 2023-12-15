@@ -16,11 +16,11 @@ module('Integration | Component | polaris card', function (hooks) {
   const cardSelector = 'div.Polaris-Card';
   const headerSelector = buildNestedSelector(
     cardSelector,
-    'div.Polaris-Card__Header'
+    'div.Polaris-Card__Header',
   );
   const sectionSelector = buildNestedSelector(
     'div.Polaris-Card',
-    'div.Polaris-Card__Section'
+    'div.Polaris-Card__Section',
   );
 
   test('it renders the correct HTML', async function (assert) {
@@ -35,32 +35,32 @@ module('Integration | Component | polaris card', function (hooks) {
     card.exists({ count: 1 }, 'one section, basic usage - renders one card');
     card.hasNoClass(
       'Polaris-Card--subdued',
-      'one section, basic usage - does not apply subdued class'
+      'one section, basic usage - does not apply subdued class',
     );
 
     const headingSelector = buildNestedSelector(
       headerSelector,
-      'h2.Polaris-Heading'
+      'h2.Polaris-Heading',
     );
     const heading = assert.dom(headingSelector);
     heading.exists(
       { count: 1 },
-      'one section, basic usage - renders one heading'
+      'one section, basic usage - renders one heading',
     );
     heading.hasText(
       'This is the card title',
-      'one section, basic usage - renders correct heading text'
+      'one section, basic usage - renders correct heading text',
     );
 
     const unsectionedParagraphSelector = buildNestedSelector(cardSelector, 'p');
     const unsectionedParagraphs = assert.dom(unsectionedParagraphSelector);
     unsectionedParagraphs.exists(
       { count: 1 },
-      'one section, basic usage - renders one unsectioned paragraph'
+      'one section, basic usage - renders one unsectioned paragraph',
     );
     unsectionedParagraphs.hasText(
       'This is the card content',
-      'one section, basic usage - renders correct unsectioned paragraph text'
+      'one section, basic usage - renders correct unsectioned paragraph text',
     );
 
     // Sectioned attribute.
@@ -72,17 +72,17 @@ module('Integration | Component | polaris card', function (hooks) {
 
     const sectionedParagraphSelector = buildNestedSelector(
       sectionSelector,
-      'p'
+      'p',
     );
     const sectionedParagraphs = assert.dom(sectionedParagraphSelector);
 
     sectionedParagraphs.exists(
       { count: 1 },
-      'one section, basic usage - renders one sectioned paragraph'
+      'one section, basic usage - renders one sectioned paragraph',
     );
     sectionedParagraphs.hasText(
       'This is the card content',
-      'one section, basic usage - renders correct sectioned paragraph text'
+      'one section, basic usage - renders correct sectioned paragraph text',
     );
 
     // Subdued attribute.
@@ -97,7 +97,7 @@ module('Integration | Component | polaris card', function (hooks) {
       .dom(subduedCardSelector)
       .exists(
         { count: 1 },
-        'one section, subdued=true - renders one card with subdued class'
+        'one section, subdued=true - renders one card with subdued class',
       );
 
     // Multiple sections.
@@ -128,13 +128,13 @@ module('Integration | Component | polaris card', function (hooks) {
       .dom(section)
       .doesNotHaveClass(
         'Polaris-Card__Section--subdued',
-        'mutiple sections, first section - does not apply subdued class'
+        'mutiple sections, first section - does not apply subdued class',
       );
     assert
       .dom(section)
       .doesNotHaveClass(
         'Polaris-Card__Section--fullWidth',
-        'mutiple sections, first section - does not apply full width class'
+        'mutiple sections, first section - does not apply full width class',
       );
 
     const sectionTitleSelector = 'div.Polaris-Card__SectionHeader';
@@ -144,32 +144,32 @@ module('Integration | Component | polaris card', function (hooks) {
 
     const sectionTitleSubheadingSelector = buildNestedSelector(
       sectionTitleSelector,
-      'h3.Polaris-Subheading'
+      'h3.Polaris-Subheading',
     );
     assert
       .dom(sectionTitleSubheadingSelector, section)
       .exists(
         { count: 1 },
-        'mutiple sections, first section - renders title subheading'
+        'mutiple sections, first section - renders title subheading',
       );
     assert
       .dom(sectionTitleSubheadingSelector, section)
       .hasText(
         'Section 1',
-        'mutiple sections, first section - renders correct heading text'
+        'mutiple sections, first section - renders correct heading text',
       );
 
     assert
       .dom('p', section)
       .exists(
         { count: 1 },
-        'mutiple sections, first section - renders content'
+        'mutiple sections, first section - renders content',
       );
     assert
       .dom('p', section)
       .hasText(
         "This is the first section's content",
-        'mutiple sections, first section - renders correct content text'
+        'mutiple sections, first section - renders correct content text',
       );
 
     // Check the second section.
@@ -178,25 +178,25 @@ module('Integration | Component | polaris card', function (hooks) {
       .dom(section)
       .doesNotHaveClass(
         'Polaris-Card__Section--subdued',
-        'mutiple sections, second section - does not apply subdued class'
+        'mutiple sections, second section - does not apply subdued class',
       );
     assert
       .dom(section)
       .hasClass(
         'Polaris-Card__Section--fullWidth',
-        'mutiple sections, second section - applies full width class'
+        'mutiple sections, second section - applies full width class',
       );
     assert
       .dom('p', section)
       .exists(
         { count: 1 },
-        'mutiple sections, second section - renders content'
+        'mutiple sections, second section - renders content',
       );
     assert
       .dom('p', section)
       .hasText(
         "This is the second section's content",
-        'mutiple sections, second section - renders correct content text'
+        'mutiple sections, second section - renders correct content text',
       );
 
     // Check the third section.
@@ -205,13 +205,13 @@ module('Integration | Component | polaris card', function (hooks) {
       .dom(section)
       .hasClass(
         'Polaris-Card__Section--subdued',
-        'mutiple sections, third section - applies subdued class'
+        'mutiple sections, third section - applies subdued class',
       );
     assert
       .dom(section)
       .doesNotHaveClass(
         'Polaris-Card__Section--fullWidth',
-        'mutiple sections, third section - does not apply full width class'
+        'mutiple sections, third section - does not apply full width class',
       );
     assert
       .dom(sectionTitleSelector, section)
@@ -220,19 +220,19 @@ module('Integration | Component | polaris card', function (hooks) {
       .dom('p', section)
       .exists(
         { count: 1 },
-        'mutiple sections, third section - renders content'
+        'mutiple sections, third section - renders content',
       );
     assert
       .dom('p', section)
       .hasText(
         "This is the third section's subdued content",
-        'mutiple sections, third section - renders correct content text'
+        'mutiple sections, third section - renders correct content text',
       );
   });
 
   test('it supports card title property as a component or a string', async function (assert) {
     await render(
-      hbs` {{polaris-card title=(component "polaris-badge" text="My title")}} `
+      hbs` {{polaris-card title=(component "polaris-badge" text="My title")}} `,
     );
 
     assert
@@ -241,7 +241,7 @@ module('Integration | Component | polaris card', function (hooks) {
     assert
       .dom('Polaris-Heading')
       .doesNotExist(
-        'as a component - does not wrap the title in a heading component'
+        'as a component - does not wrap the title in a heading component',
       );
 
     await render(hbs` {{polaris-card title="My title"}} `);
@@ -286,18 +286,18 @@ module('Integration | Component | polaris card', function (hooks) {
     // Check the title rendered.
     const headerStackSelector = buildNestedSelector(
       headerSelector,
-      'div.Polaris-Stack.Polaris-Stack--alignmentBaseline'
+      'div.Polaris-Stack.Polaris-Stack--alignmentBaseline',
     );
     const headingSelector = buildNestedSelector(
       headerStackSelector,
       'div.Polaris-Stack__Item.Polaris-Stack__Item--fill',
-      'h2.Polaris-Heading'
+      'h2.Polaris-Heading',
     );
     const headings = assert.dom(headingSelector);
     headings.exists({ count: 1 }, 'renders one heading');
     headings.hasText(
       'This is a card with actions',
-      'renders correct heading content'
+      'renders correct heading content',
     );
 
     // Check the actions rendered.
@@ -306,13 +306,13 @@ module('Integration | Component | polaris card', function (hooks) {
       'div.Polaris-Stack__Item',
       'div.Polaris-ButtonGroup',
       'div.Polaris-ButtonGroup__Item.Polaris-ButtonGroup__Item--plain',
-      'button.Polaris-Button.Polaris-Button--plain'
+      'button.Polaris-Button.Polaris-Button--plain',
     );
     const actionButtons = findAll(actionButtonSelector);
-    assert.equal(
+    assert.strictEqual(
       actionButtons.length,
       3,
-      'renders the correct number of action buttons'
+      'renders the correct number of action buttons',
     );
     assert
       .dom(actionButtons[0])
@@ -326,32 +326,29 @@ module('Integration | Component | polaris card', function (hooks) {
 
     // Check clicking the buttons.
     await click(actionButtons[0]);
-    assert.equal(
+    assert.true(
       action1HandlerCalled,
-      true,
-      'clicking first action button - invokes first action handler correctly'
+      'clicking first action button - invokes first action handler correctly',
     );
-    assert.equal(
+    assert.false(
       this.get('action2HandlerCalled'),
-      false,
-      'clicking first action button - does not invoke second action handler'
+      'clicking first action button - does not invoke second action handler',
     );
 
     await click(actionButtons[1]);
-    assert.equal(
+    assert.true(
       this.get('action2HandlerCalled'),
-      true,
-      'clicking second action button - invokes second action handler correctly'
+      'clicking second action button - invokes second action handler correctly',
     );
 
     assert
       .dom(actionButtons[2])
       .isDisabled(
-        'third action is a disabled header action - button is disabled'
+        'third action is a disabled header action - button is disabled',
       )
       .hasClass(
         'Polaris-Button--disabled',
-        'third action is a disabled header action - disabled class'
+        'third action is a disabled header action - disabled class',
       );
   });
 
@@ -368,42 +365,42 @@ module('Integration | Component | polaris card', function (hooks) {
 
     const sectionHeaderSelector = buildNestedSelector(
       sectionSelector,
-      'div.Polaris-Card__SectionHeader'
+      'div.Polaris-Card__SectionHeader',
     );
 
     const sectionHeaders = findAll(sectionHeaderSelector);
-    assert.equal(sectionHeaders.length, 1, 'renders one section header');
+    assert.strictEqual(sectionHeaders.length, 1, 'renders one section header');
 
     const sectionHeaderTitleSelector = buildNestedSelector(
       sectionHeaderSelector,
-      'h3.Polaris-Subheading'
+      'h3.Polaris-Subheading',
     );
     const sectionHeaderTitles = findAll(sectionHeaderTitleSelector);
-    assert.equal(
+    assert.strictEqual(
       sectionHeaderTitles.length,
       1,
-      'renders one section header title'
+      'renders one section header title',
     );
     assert
       .dom(sectionHeaderTitles[0])
       .hasText(
         'Custom section title',
-        'renders the correct section header title'
+        'renders the correct section header title',
       );
 
     const sectionHeaderContentSelector = buildNestedSelector(
       sectionHeaderSelector,
-      'p'
+      'p',
     );
     const sectionHeaderContents = assert.dom(sectionHeaderContentSelector);
 
     sectionHeaderContents.exists(
       { count: 1 },
-      'renders custom section header content'
+      'renders custom section header content',
     );
     sectionHeaderContents.hasText(
       'Custom section content',
-      'renders the correct custom section header content'
+      'renders the correct custom section header content',
     );
   });
 
@@ -425,7 +422,7 @@ module('Integration | Component | polaris card', function (hooks) {
     });
 
     await render(
-      hbs`{{polaris-card primaryFooterAction=saveAction secondaryFooterAction=cancelAction}}`
+      hbs`{{polaris-card primaryFooterAction=saveAction secondaryFooterAction=cancelAction}}`,
     );
 
     let footerClass = '.Polaris-Card__Footer';
@@ -485,8 +482,8 @@ module('Integration | Component | polaris card', function (hooks) {
       return section.getBoundingClientRect();
     });
 
-    assert.equal(section1Rect.top, section2Rect.top);
-    assert.equal(section1Rect.right, section2Rect.left);
+    assert.strictEqual(section1Rect.top, section2Rect.top);
+    assert.strictEqual(section1Rect.right, section2Rect.left);
 
     let section2Style = getComputedStyle(sections[1]);
     assert.ok(section2Style.borderTop.match(/^0px.*/));

@@ -49,7 +49,6 @@ export default class PolarisButton extends Component {
    * @default null
    * @public
    */
-  // eslint-disable-next-line smile-ember/order-in-components
   id = null;
 
   /**
@@ -290,7 +289,7 @@ export default class PolarisButton extends Component {
     'monochrome',
     'size',
     'fullWidth',
-    'isIconOnly'
+    'isIconOnly',
   )
   get cssClasses() {
     let {
@@ -359,7 +358,7 @@ export default class PolarisButton extends Component {
       {
         id: 'ember-polaris.polaris-button.externalClasses-arg',
         until: '7.0.0',
-      }
+      },
     );
   }
 

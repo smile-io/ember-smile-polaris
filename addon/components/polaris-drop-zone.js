@@ -6,7 +6,6 @@ import { throttle, scheduleOnce } from '@ember/runloop';
 import { isNone, isPresent } from '@ember/utils';
 import { guidFor } from '@ember/object/internals';
 import { layout, tagName } from '@ember-decorators/component';
-import ContextBoundEventListenersMixin from 'ember-lifeline/mixins/dom';
 import { getRectForNode } from '@shopify/javascript-utilities/geometry';
 import template from '../templates/components/polaris-drop-zone';
 import DropZoneState from '../-private/drop-zone-state';
@@ -25,9 +24,7 @@ const iconAlertCircle = 'alert-circle';
 @deprecateClassArgument
 @tagName('')
 @layout(template)
-export default class PolarisDropZone extends Component.extend(
-  ContextBoundEventListenersMixin
-) {
+export default class PolarisDropZone extends Component {
   /**
    * ID for file input
    *
@@ -266,7 +263,7 @@ export default class PolarisDropZone extends Component.extend(
   iconAlertCircle = iconAlertCircle;
   dragTargets = [];
 
-  @computed()
+  @computed
   get state() {
     return new DropZoneState();
   }
@@ -343,9 +340,8 @@ export default class PolarisDropZone extends Component.extend(
       return;
     }
     let fileList = getDataTransferFiles(event);
-    let { files, acceptedFiles, rejectedFiles } = this.getValidatedFiles(
-      fileList
-    );
+    let { files, acceptedFiles, rejectedFiles } =
+      this.getValidatedFiles(fileList);
 
     this.set('dragTargets', []);
 
@@ -370,6 +366,7 @@ export default class PolarisDropZone extends Component.extend(
     event.target.value = '';
   }
 
+  @action
   handleDragEnter(event) {
     event.preventDefault();
     event.stopPropagation();
@@ -398,6 +395,7 @@ export default class PolarisDropZone extends Component.extend(
     onDragEnter();
   }
 
+  @action
   handleDragOver(event) {
     event.preventDefault();
     event.stopPropagation();
@@ -413,6 +411,7 @@ export default class PolarisDropZone extends Component.extend(
     return false;
   }
 
+  @action
   handleDragLeave(event) {
     event.preventDefault();
 
@@ -426,7 +425,7 @@ export default class PolarisDropZone extends Component.extend(
       'dragTargets',
       this.dragTargets.filter((el) => {
         return el !== event.target && dropNode && dropNode.contains(el);
-      })
+      }),
     );
 
     if (this.dragTargets.length > 0) {
@@ -441,6 +440,7 @@ export default class PolarisDropZone extends Component.extend(
     onDragLeave();
   }
 
+  @action
   adjustSize() {
     throttle(
       this,
@@ -461,7 +461,7 @@ export default class PolarisDropZone extends Component.extend(
 
         this.set('state.size', size);
       },
-      50
+      50,
     );
   }
 
@@ -567,29 +567,12 @@ export default class PolarisDropZone extends Component.extend(
 
   @action
   setNode(dropzoneContainer) {
-    let { dropOnPage } = this;
-
     this.setProperties({
       node: dropzoneContainer,
-      dropNode: dropOnPage ? document : dropzoneContainer,
+      dropNode: dropzoneContainer,
     });
 
     this.adjustSize();
-  }
-
-  @action
-  setupEvents() {
-    let { dropNode } = this;
-    if (isNone(dropNode)) {
-      return;
-    }
-
-    this.addEventListener(dropNode, 'drop', this.handleDrop);
-    this.addEventListener(dropNode, 'dragover', this.handleDragOver);
-    this.addEventListener(dropNode, 'dragenter', this.handleDragEnter);
-    this.addEventListener(dropNode, 'dragleave', this.handleDragLeave);
-
-    this.addEventListener(window, 'resize', this.adjustSize);
   }
 
   @action

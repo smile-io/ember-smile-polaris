@@ -15,7 +15,7 @@ function offsetForAlpha(alpha, sliderHeight, draggerHeight) {
   return clamp(
     (1 - alpha) * slidableArea + VERTICAL_PADDING,
     0,
-    sliderHeight - draggerHeight
+    sliderHeight - draggerHeight,
   );
 }
 

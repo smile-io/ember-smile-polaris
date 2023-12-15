@@ -368,7 +368,7 @@ export default class PolarisTextField extends Component {
     'readOnly',
     'error',
     'multiline',
-    'focus'
+    'focus',
   )
   get textFieldClasses() {
     let { normalizedValue, disabled, readOnly, error, multiline, focus } = this;
@@ -521,7 +521,7 @@ export default class PolarisTextField extends Component {
       {
         id: 'ember-polaris.polaris-text-field.dataTestTextField-arg',
         until: '7.0.0',
-      }
+      },
     );
   }
 

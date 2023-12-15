@@ -10,17 +10,17 @@ const yieldedContent = 'yielded content';
 const connectedContainerSelector = '.Polaris-Connected';
 const primaryContentSelector = buildNestedSelector(
   connectedContainerSelector,
-  '.Polaris-Connected__Item--primary'
+  '.Polaris-Connected__Item--primary',
 );
 
 // These selectors are for when both `left` AND `right` attributes are passed-in
 const leftContentSelector = buildNestedSelector(
   connectedContainerSelector,
-  '.Polaris-Connected__Item--connection:first-of-type'
+  '.Polaris-Connected__Item--connection:first-of-type',
 );
 const rightContentSelector = buildNestedSelector(
   connectedContainerSelector,
-  '.Polaris-Connected__Item--connection:last-of-type'
+  '.Polaris-Connected__Item--connection:last-of-type',
 );
 
 module('Integration | Component | polaris-connected', function (hooks) {
@@ -53,7 +53,7 @@ module('Integration | Component | polaris-connected', function (hooks) {
     assert
       .dom(primaryContentSelector)
       .exists(
-        'the block content still renders when connected sides are not passed in'
+        'the block content still renders when connected sides are not passed in',
       );
     assert
       .dom(primaryContentSelector)

@@ -19,11 +19,11 @@ module('Integration | Component | polaris visually hidden', function (hooks) {
     const visuallyHidden = assert.dom(visuallyHiddenSelector);
     visuallyHidden.exists(
       { count: 1 },
-      'renders one visually hidden component'
+      'renders one visually hidden component',
     );
     visuallyHidden.hasText(
       'Inline visually hidden content',
-      'renders correct visually hidden content'
+      'renders correct visually hidden content',
     );
   });
 
@@ -38,11 +38,11 @@ module('Integration | Component | polaris visually hidden', function (hooks) {
 
     visuallyHidden.exists(
       { count: 1 },
-      'renders one visually hidden component'
+      'renders one visually hidden component',
     );
     visuallyHidden.hasText(
       'Block visually hidden content',
-      'renders correct visually hidden content'
+      'renders correct visually hidden content',
     );
   });
 });

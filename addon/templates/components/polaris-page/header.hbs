@@ -8,7 +8,8 @@
     )
     (element (if @primaryAction "div" ""))
     (element (if @primaryAction "div" ""))
-    (if @primaryAction
+    (if
+      @primaryAction
       (component
         "polaris-button"
         primary=this.shouldRenderPrimaryActionAsPrimary
@@ -35,7 +36,13 @@
       {{! Add a "title and actions" wrapper div if we have a primary action. }}
       <TitleAndActions class="Polaris-Page-Header__TitleAndActions">
         <div class="Polaris-Page-Header__TitleAndRollup">
-          <div class="Polaris-Page-Header__Title {{if (eq titleAlignment "center") "Polaris-Page-Header__Title--alignmentCenter"}}">
+          <div
+            class="Polaris-Page-Header__Title
+              {{if
+                (eq titleAlignment 'center')
+                'Polaris-Page-Header__Title--alignmentCenter'
+              }}"
+          >
             <div>
               <PolarisStack @alignment="baseline" @spacing="tight" as |stack|>
                 {{#if @beforeTitleComponent}}
@@ -70,7 +77,9 @@
           {{/unless}}
         </div>
 
-        {{#if (or @primaryAction this.hasSecondaryActions this.hasActionGroups)}}
+        {{#if
+          (or @primaryAction this.hasSecondaryActions this.hasActionGroups)
+        }}
           <div class="Polaris-Page-Header__Actions">
             {{#if (or this.hasSecondaryActions this.hasActionGroups)}}
               <div class="Polaris-Page-Header__SecondaryActions">
@@ -106,7 +115,9 @@
 
             {{#if @primaryAction}}
               <div class="Polaris-Page-Header__PrimaryAction">
-                <PrimaryActionButton @onClick={{action @primaryAction.onAction}} />
+                <PrimaryActionButton
+                  @onClick={{action @primaryAction.onAction}}
+                />
               </div>
             {{/if}}
           </div>

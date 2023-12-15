@@ -10,19 +10,19 @@ module('Integration | Component | polaris setting toggle', function (hooks) {
   const settingActionSelector = buildNestedSelector(
     'div.Polaris-Card',
     'div.Polaris-Card__Section',
-    'div.Polaris-SettingAction'
+    'div.Polaris-SettingAction',
   );
   const settingActionSettingSelector = buildNestedSelector(
     settingActionSelector,
-    'div.Polaris-SettingAction__Setting'
+    'div.Polaris-SettingAction__Setting',
   );
   const settingActionWrapperSelector = buildNestedSelector(
     settingActionSelector,
-    'div.Polaris-SettingAction__Action'
+    'div.Polaris-SettingAction__Action',
   );
   const settingActionButtonSelector = buildNestedSelector(
     settingActionWrapperSelector,
-    'button.Polaris-Button'
+    'button.Polaris-Button',
   );
 
   test('it renders the correct HTML in inline usage with default attributes', async function (assert) {
@@ -35,11 +35,11 @@ module('Integration | Component | polaris setting toggle', function (hooks) {
     const settingActionSettings = assert.dom(settingActionSettingSelector);
     settingActionSettings.exists(
       { count: 1 },
-      'renders one setting action setting'
+      'renders one setting action setting',
     );
     settingActionSettings.hasText(
       'Inline setting toggle',
-      'renders the correct setting action setting text'
+      'renders the correct setting action setting text',
     );
 
     assert
@@ -69,11 +69,11 @@ module('Integration | Component | polaris setting toggle', function (hooks) {
     const settingActionSettings = assert.dom(settingActionSettingSelector);
     settingActionSettings.exists(
       { count: 1 },
-      'renders one setting action setting'
+      'renders one setting action setting',
     );
     settingActionSettings.hasText(
       'Block setting toggle',
-      'renders the correct setting action setting content'
+      'renders the correct setting action setting content',
     );
 
     assert
@@ -84,16 +84,16 @@ module('Integration | Component | polaris setting toggle', function (hooks) {
 
     settingActionButtons.exists(
       { count: 1 },
-      'renders one setting action button'
+      'renders one setting action button',
     );
 
     settingActionButtons.hasText(
       'Take action!',
-      'renders the correct setting action button content'
+      'renders the correct setting action button content',
     );
     settingActionButtons.hasNoClass(
       'Polaris-Button--primary',
-      'renders plain setting action button'
+      'renders plain setting action button',
     );
   });
 
@@ -112,18 +112,18 @@ module('Integration | Component | polaris setting toggle', function (hooks) {
     settingActionButton.exists('renders the setting action button');
     settingActionButton.hasText(
       'Flip the switch',
-      'renders the correct setting action button content'
+      'renders the correct setting action button content',
     );
 
     settingActionButton.hasClass(
       'Polaris-Button--primary',
-      'with enabled true - renders primary setting action button'
+      'with enabled true - renders primary setting action button',
     );
 
     this.set('enabled', false);
     settingActionButton.hasNoClass(
       'Polaris-Button--primary',
-      'with enabled false - renders plain setting action button'
+      'with enabled false - renders plain setting action button',
     );
   });
 
@@ -163,7 +163,7 @@ module('Integration | Component | polaris setting toggle', function (hooks) {
     let button = assert.dom(settingActionButtonSelector);
     button.hasClass(
       'Polaris-Button--loading',
-      'button is in loading state when loading is true'
+      'button is in loading state when loading is true',
     );
 
     this.setProperties({
@@ -173,11 +173,11 @@ module('Integration | Component | polaris setting toggle', function (hooks) {
 
     button.hasClass(
       'Polaris-Button--disabled',
-      'button is in disabled state when disabled is true'
+      'button is in disabled state when disabled is true',
     );
     button.hasNoClass(
       'Polaris-Button--loading',
-      'button is not in loading state when loading is false'
+      'button is not in loading state when loading is false',
     );
   });
 });

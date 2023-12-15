@@ -33,7 +33,7 @@ module('Integration | Component | polaris progress bar', function (hooks) {
       .dom(barProgressSelector)
       .hasClass(
         'Polaris-ProgressBar__Progress',
-        'bar progress has correct class applied'
+        'bar progress has correct class applied',
       );
     assert
       .dom(barProgressSelector)
@@ -43,7 +43,7 @@ module('Integration | Component | polaris progress bar', function (hooks) {
       .hasAttribute(
         'value',
         `${this.progress}`,
-        'bar progress has correct value attribute'
+        'bar progress has correct value attribute',
       );
 
     assert
@@ -53,14 +53,14 @@ module('Integration | Component | polaris progress bar', function (hooks) {
       .dom(barIndicatorSelector)
       .hasClass(
         'Polaris-ProgressBar__Indicator',
-        'indicator has correct class applied'
+        'indicator has correct class applied',
       );
     assert
       .dom(barIndicatorSelector)
       .hasAttribute(
         'style',
         percentStyle,
-        'indicator has correct width style applied'
+        'indicator has correct width style applied',
       );
 
     assert
@@ -70,7 +70,7 @@ module('Integration | Component | polaris progress bar', function (hooks) {
       .dom(barIndicatorLabelSelector)
       .hasClass(
         'Polaris-ProgressBar__Label',
-        'indicator label has correct class applied'
+        'indicator label has correct class applied',
       );
     assert
       .dom(barIndicatorLabelSelector)
@@ -86,7 +86,7 @@ module('Integration | Component | polaris progress bar', function (hooks) {
       .dom(barSelector)
       .hasClass(
         'Polaris-ProgressBar--sizeMedium',
-        'no size - applies medium size class'
+        'no size - applies medium size class',
       );
 
     this.set('size', 'small');
@@ -94,7 +94,7 @@ module('Integration | Component | polaris progress bar', function (hooks) {
       .dom(barSelector)
       .hasClass(
         'Polaris-ProgressBar--sizeSmall',
-        'no size - applies small size class'
+        'no size - applies small size class',
       );
 
     this.set('size', 'medium');
@@ -102,7 +102,7 @@ module('Integration | Component | polaris progress bar', function (hooks) {
       .dom(barSelector)
       .hasClass(
         'Polaris-ProgressBar--sizeMedium',
-        'no size - applies medium size class'
+        'no size - applies medium size class',
       );
 
     this.set('size', 'medium');
@@ -110,7 +110,7 @@ module('Integration | Component | polaris progress bar', function (hooks) {
       .dom(barSelector)
       .hasClass(
         'Polaris-ProgressBar--sizeMedium',
-        'no size - applies medium size class'
+        'no size - applies medium size class',
       );
 
     this.set('size', 'large');
@@ -118,7 +118,7 @@ module('Integration | Component | polaris progress bar', function (hooks) {
       .dom(barSelector)
       .hasClass(
         'Polaris-ProgressBar--sizeLarge',
-        'no size - applies large size class'
+        'no size - applies large size class',
       );
 
     this.set('size', 'unsupported');
@@ -126,7 +126,7 @@ module('Integration | Component | polaris progress bar', function (hooks) {
       .dom(barSelector)
       .hasClass(
         'Polaris-ProgressBar--sizeMedium',
-        'no size - applies medium size class'
+        'no size - applies medium size class',
       );
   });
 
@@ -139,7 +139,7 @@ module('Integration | Component | polaris progress bar', function (hooks) {
       .hasAttribute(
         'value',
         '0',
-        'sets the progress element to 0 when the progress is negative'
+        'sets the progress element to 0 when the progress is negative',
       );
 
     this.set('progress', -Infinity);
@@ -148,7 +148,7 @@ module('Integration | Component | polaris progress bar', function (hooks) {
       .hasAttribute(
         'value',
         '0',
-        'sets the progress element to 0 when the progress is negative infinity'
+        'sets the progress element to 0 when the progress is negative infinity',
       );
 
     this.set('progress', 145);
@@ -157,7 +157,7 @@ module('Integration | Component | polaris progress bar', function (hooks) {
       .hasAttribute(
         'value',
         '100',
-        'sets the progress element to 100 when the progress is greater than 100'
+        'sets the progress element to 100 when the progress is greater than 100',
       );
 
     this.set('progress', Infinity);
@@ -166,7 +166,7 @@ module('Integration | Component | polaris progress bar', function (hooks) {
       .hasAttribute(
         'value',
         '100',
-        'sets the progress element to 100 when the progress is infinite'
+        'sets the progress element to 100 when the progress is infinite',
       );
 
     this.set('progress', null);
@@ -174,7 +174,7 @@ module('Integration | Component | polaris progress bar', function (hooks) {
       .dom(barProgressSelector)
       .doesNotHaveAttribute(
         'value',
-        'does not set the progress element value when progress is null'
+        'does not set the progress element value when progress is null',
       );
 
     this.set('progress', 'a string');
@@ -182,7 +182,7 @@ module('Integration | Component | polaris progress bar', function (hooks) {
       .dom(barProgressSelector)
       .doesNotHaveAttribute(
         'value',
-        'does not set the progress element value when progress is a string'
+        'does not set the progress element value when progress is a string',
       );
 
     this.set('progress', undefined);
@@ -190,7 +190,7 @@ module('Integration | Component | polaris progress bar', function (hooks) {
       .dom(barProgressSelector)
       .doesNotHaveAttribute(
         'value',
-        'does not set the progress element value when progress is undefined'
+        'does not set the progress element value when progress is undefined',
       );
   });
 });

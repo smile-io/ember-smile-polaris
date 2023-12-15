@@ -63,5 +63,5 @@ module(
 
       assert.dom(illustrationSelector).exists();
     });
-  }
+  },
 );

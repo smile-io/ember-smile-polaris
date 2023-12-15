@@ -72,7 +72,7 @@ export default class PolarisFormLayoutGroup extends Component {
       'Polaris-FormLayout__Item',
       {
         'data-test-form-layout-item': '',
-      }
+      },
     );
   }
 

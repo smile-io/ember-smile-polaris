@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click } from '@ember/test-helpers';
+import { render, click, settled } from '@ember/test-helpers';
 import buildNestedSelector from '../../helpers/build-nested-selector';
 import MockSvgJarComponent from '../../mocks/components/svg-jar';
 
@@ -49,12 +49,14 @@ module('Integration | Component | polaris tag', function (hooks) {
         .doesNotExist('does not render a tag button');
 
       this.set('text', 'Retail');
+      await settled();
+
       assert
         .dom(tagTextSelector)
         .hasAttribute(
           'title',
           'Retail',
-          'tag text has correct title attribute after tag change'
+          'tag text has correct title attribute after tag change',
         );
     });
   });
@@ -63,7 +65,7 @@ module('Integration | Component | polaris tag', function (hooks) {
     this.set('remove', () => {});
 
     await render(
-      hbs`{{polaris-tag disabled=disabled onRemove=(action remove)}}`
+      hbs`{{polaris-tag disabled=disabled onRemove=(action remove)}}`,
     );
 
     // Check the component when no value for `disabled` is given.
@@ -71,13 +73,13 @@ module('Integration | Component | polaris tag', function (hooks) {
       .dom(tagSelector)
       .hasNoClass(
         'Polaris-Tag--disabled',
-        'when disabled is not specified - does not apply disabled class to the tag'
+        'when disabled is not specified - does not apply disabled class to the tag',
       );
     assert
       .dom(tagButtonSelector)
       .hasNoAttribute(
         'disabled',
-        'when disabled is not specified - does not disable the remove button'
+        'when disabled is not specified - does not disable the remove button',
       );
 
     // Specify that the tag's disabled and check the component again.
@@ -86,14 +88,14 @@ module('Integration | Component | polaris tag', function (hooks) {
       .dom(tagSelector)
       .hasClass(
         'Polaris-Tag--disabled',
-        'when disabled is specified - applies disabled class to tag'
+        'when disabled is specified - applies disabled class to tag',
       );
     assert
       .dom(tagButtonSelector)
       .hasAttribute(
         'disabled',
         '',
-        'when disabled is specified - disables the remove button'
+        'when disabled is specified - disables the remove button',
       );
   });
 
@@ -120,7 +122,7 @@ module('Integration | Component | polaris tag', function (hooks) {
       .hasAttribute(
         'aria-label',
         `Remove ${tag}`,
-        'button has correct aria-label'
+        'button has correct aria-label',
       );
     assert
       .dom(buildNestedSelector(tagButtonSelector, tagButtonIconSelector))
@@ -130,7 +132,7 @@ module('Integration | Component | polaris tag', function (hooks) {
       .hasAttribute(
         'data-icon-source',
         'polaris/cancel-small',
-        'it uses the correct polaris/cancel-small icon as the icon source'
+        'it uses the correct polaris/cancel-small icon as the icon source',
       );
   });
 });

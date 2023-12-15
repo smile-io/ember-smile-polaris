@@ -105,7 +105,7 @@ export default class PolarisDataTableCell extends Component {
     'footer',
     'contentType',
     'sorted',
-    'sortable'
+    'sortable',
   ).readOnly())
   get cellClassNames() {
     let cssClasses = ['Polaris-DataTable__Cell'];

@@ -13,7 +13,7 @@ module(
       'div.Polaris-SkeletonBodyText__SkeletonBodyTextContainer';
     const lineSelector = buildNestedSelector(
       containerSelector,
-      'div.Polaris-SkeletonBodyText'
+      'div.Polaris-SkeletonBodyText',
     );
 
     test('it renders the specified number of lines', async function (assert) {
@@ -27,7 +27,7 @@ module(
         .dom(lineSelector)
         .exists(
           { count: 3 },
-          'lines not specified - renders three skeleton body text lines'
+          'lines not specified - renders three skeleton body text lines',
         );
 
       this.set('lines', 1);
@@ -36,7 +36,7 @@ module(
         .dom(lineSelector)
         .exists(
           { count: 1 },
-          'lines set to 1 - renders one skeleton body text line'
+          'lines set to 1 - renders one skeleton body text line',
         );
 
       this.set('lines', 5);
@@ -45,8 +45,8 @@ module(
         .dom(lineSelector)
         .exists(
           { count: 5 },
-          'lines set to 5 - renders five skeleton body text lines'
+          'lines set to 5 - renders five skeleton body text lines',
         );
     });
-  }
+  },
 );

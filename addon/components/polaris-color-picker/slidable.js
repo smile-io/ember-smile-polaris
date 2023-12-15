@@ -1,3 +1,4 @@
+/* eslint-disable ember/no-jquery, ember/jquery-ember-run */
 import Component from '@ember/component';
 import { computed, action } from '@ember/object';
 import { isNone, typeOf } from '@ember/utils';
@@ -61,7 +62,7 @@ export default class PolarisColorPickerSlidable extends Component {
     if (event.touches && event.touches.length) {
       this.handleDraggerMove(
         event.touches[0].clientX,
-        event.touches[0].clientY
+        event.touches[0].clientY,
       );
       return;
     }
@@ -108,7 +109,7 @@ export default class PolarisColorPickerSlidable extends Component {
     if (typeOf(onDraggerHeightChanged) === 'function') {
       // Publish the height of our dragger.
       const draggerElement = element.querySelector(
-        'div.Polaris-ColorPicker__Dragger'
+        'div.Polaris-ColorPicker__Dragger',
       );
       if (isNone(draggerElement)) {
         return;

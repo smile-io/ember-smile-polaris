@@ -23,19 +23,19 @@ module('Integration | Component | polaris skeleton page', function (hooks) {
   const pageTitleSelector = buildNestedSelector(
     headerSelector,
     titleAndPrimarySelector,
-    titleSelector
+    titleSelector,
   );
 
   const pagePrimaryActionSelector = buildNestedSelector(
     headerSelector,
     titleAndPrimarySelector,
-    primaryActionSelector
+    primaryActionSelector,
   );
 
   const pageSecondaryActionSelector = buildNestedSelector(
     headerSelector,
     secondaryActionsSelector,
-    secondaryActionSelector
+    secondaryActionSelector,
   );
 
   test('it renders a basic skeleton page', async function (assert) {
@@ -52,14 +52,14 @@ module('Integration | Component | polaris skeleton page', function (hooks) {
 
   test('it renders the correct page content', async function (assert) {
     await render(
-      hbs`{{polaris-skeleton-page text="Skeleton page - inline content"}}`
+      hbs`{{polaris-skeleton-page text="Skeleton page - inline content"}}`,
     );
 
     assert
       .dom(contentSelector)
       .hasText(
         'Skeleton page - inline content',
-        'inline usage - renders the correct skeleton page content'
+        'inline usage - renders the correct skeleton page content',
       );
 
     await render(hbs`
@@ -72,26 +72,26 @@ module('Integration | Component | polaris skeleton page', function (hooks) {
       .dom(contentSelector)
       .hasText(
         'Skeleton page - block content',
-        'block usage - renders the correct skeleton page content'
+        'block usage - renders the correct skeleton page content',
       );
   });
 
   test('it renders the page at the correct width', async function (assert) {
     await render(
-      hbs`{{polaris-skeleton-page fullWidth=fullWidth singleColumn=singleColumn}}`
+      hbs`{{polaris-skeleton-page fullWidth=fullWidth singleColumn=singleColumn}}`,
     );
 
     assert
       .dom(pageSelector)
       .hasNoClass(
         'Polaris-SkeletonPage--fullWidth',
-        'fullWidth unspecified - does not apply full width class'
+        'fullWidth unspecified - does not apply full width class',
       );
     assert
       .dom(pageSelector)
       .hasNoClass(
         'Polaris-SkeletonPage--singleColumn',
-        'fullWidth unspecified - does not apply single column class'
+        'fullWidth unspecified - does not apply single column class',
       );
 
     this.set('fullWidth', true);
@@ -99,7 +99,7 @@ module('Integration | Component | polaris skeleton page', function (hooks) {
       .dom(pageSelector)
       .hasClass(
         'Polaris-SkeletonPage--fullWidth',
-        'fullWidth true - applies full width class'
+        'fullWidth true - applies full width class',
       );
 
     this.set('singleColumn', true);
@@ -107,7 +107,7 @@ module('Integration | Component | polaris skeleton page', function (hooks) {
       .dom(pageSelector)
       .hasClass(
         'Polaris-SkeletonPage--singleColumn',
-        'singleColumn true - applies single column class'
+        'singleColumn true - applies single column class',
       );
   });
 
@@ -123,7 +123,7 @@ module('Integration | Component | polaris skeleton page', function (hooks) {
       .dom(titleTextSelector)
       .hasClass(
         'Polaris-SkeletonDisplayText--sizeLarge',
-        'unspecified title - renders large skeleton title'
+        'unspecified title - renders large skeleton title',
       );
 
     // Text title -> renders large display text.
@@ -136,13 +136,13 @@ module('Integration | Component | polaris skeleton page', function (hooks) {
       .dom(titleTextSelector)
       .hasText(
         'Spooky Skeleton Page',
-        'title specified - renders correct title text'
+        'title specified - renders correct title text',
       );
     assert
       .dom(titleTextSelector)
       .hasClass(
         'Polaris-DisplayText--sizeLarge',
-        'title specified - renders title text as large display text'
+        'title specified - renders title text as large display text',
       );
   });
 
@@ -153,7 +153,7 @@ module('Integration | Component | polaris skeleton page', function (hooks) {
       .dom(headerSelector)
       .hasNoClass(
         'Polaris-SkeletonPage__Header--hasBreadcrumbs',
-        'breadcrumbs false - does not apply header breadcrumbs class'
+        'breadcrumbs false - does not apply header breadcrumbs class',
       );
     assert
       .dom(buildNestedSelector(headerSelector, breadcrumbsSelector))
@@ -164,7 +164,7 @@ module('Integration | Component | polaris skeleton page', function (hooks) {
       .dom(headerSelector)
       .hasClass(
         'Polaris-SkeletonPage__Header--hasBreadcrumbs',
-        'breadcrumbs true - applies header breadcrumbs class'
+        'breadcrumbs true - applies header breadcrumbs class',
       );
     assert
       .dom(buildNestedSelector(headerSelector, breadcrumbsSelector))
@@ -182,7 +182,7 @@ module('Integration | Component | polaris skeleton page', function (hooks) {
     assert
       .dom(pagePrimaryActionSelector)
       .doesNotExist(
-        'primaryAction unspecified - does not render a primary action'
+        'primaryAction unspecified - does not render a primary action',
       );
 
     this.set('primaryAction', true);
@@ -193,19 +193,19 @@ module('Integration | Component | polaris skeleton page', function (hooks) {
 
   test('it renders secondary actions correctly', async function (assert) {
     await render(
-      hbs`{{polaris-skeleton-page secondaryActions=secondaryActions}}`
+      hbs`{{polaris-skeleton-page secondaryActions=secondaryActions}}`,
     );
 
     assert
       .dom(headerSelector)
       .hasNoClass(
         'Polaris-SkeletonPage__Header--hasSecondaryActions',
-        'secondaryActions unspecified - does not apply secondary actions class'
+        'secondaryActions unspecified - does not apply secondary actions class',
       );
     assert
       .dom(pageSecondaryActionSelector)
       .doesNotExist(
-        'secondaryActions unspecified - does not render any secondary actions'
+        'secondaryActions unspecified - does not render any secondary actions',
       );
 
     this.set('secondaryActions', 3);
@@ -213,13 +213,13 @@ module('Integration | Component | polaris skeleton page', function (hooks) {
       .dom(headerSelector)
       .hasClass(
         'Polaris-SkeletonPage__Header--hasSecondaryActions',
-        'secondaryActions specified - applies secondary actions class'
+        'secondaryActions specified - applies secondary actions class',
       );
     assert
       .dom(pageSecondaryActionSelector)
       .exists(
         { count: 3 },
-        'secondaryActions specified - renders the correct number of secondary actions'
+        'secondaryActions specified - renders the correct number of secondary actions',
       );
   });
 });

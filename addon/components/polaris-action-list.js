@@ -65,7 +65,7 @@ export default class PolarisActionList extends Component {
     let { sections } = this;
     assert(
       `ember-polaris::polaris-action-list - sections must be an array, you passed ${sections}`,
-      isArray(sections)
+      isArray(sections),
     );
     finalSections.push(...sections);
 

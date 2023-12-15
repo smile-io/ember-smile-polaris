@@ -11,16 +11,16 @@ module('Integration | Component | polaris display text', function (hooks) {
     await render(hbs`{{polaris-display-text text="This is some text"}}`);
 
     let displayText = assert.dom(
-      'p.Polaris-DisplayText.Polaris-DisplayText--sizeMedium'
+      'p.Polaris-DisplayText.Polaris-DisplayText--sizeMedium',
     );
 
     displayText.exists(
       { count: 1 },
-      'inline with defaults - renders one display text paragraph'
+      'inline with defaults - renders one display text paragraph',
     );
     displayText.hasText(
       'This is some text',
-      'inline with defaults - renders correct text'
+      'inline with defaults - renders correct text',
     );
 
     // Block form with element and size specified.
@@ -31,16 +31,16 @@ module('Integration | Component | polaris display text', function (hooks) {
     `);
 
     displayText = assert.dom(
-      'h3.Polaris-DisplayText.Polaris-DisplayText--sizeExtraLarge'
+      'h3.Polaris-DisplayText.Polaris-DisplayText--sizeExtraLarge',
     );
 
     displayText.exists(
       { count: 1 },
-      'block with customisation - renders one display text paragraph'
+      'block with customisation - renders one display text paragraph',
     );
     displayText.hasText(
       'This is some BIG text',
-      'block with customisation - renders correct text'
+      'block with customisation - renders correct text',
     );
   });
 });

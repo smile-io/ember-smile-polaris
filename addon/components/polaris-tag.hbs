@@ -1,0 +1,32 @@
+<span
+  class="Polaris-Tag {{@class}} {{if @disabled 'Polaris-Tag--disabled'}}"
+  data-test-tag={{true}}
+  ...attributes
+>
+  <span
+    data-test-tag-text
+    title={{this.tagText}}
+    class="Polaris-Tag__TagText"
+    {{trigger-update-on-text-change this.setTagText}}
+  >
+    {{#if (has-block)}}
+      {{yield}}
+    {{else}}
+      {{@text}}
+    {{/if}}
+  </span>
+
+  {{#if @onRemove}}
+    <button
+      data-test-tag-button
+      type="button"
+      class="Polaris-Tag__Button"
+      aria-label={{this.buttonLabel}}
+      disabled={{@disabled}}
+      {{on "click" @onRemove}}
+      {{on "mouseup" this.handleMouseUpByBlurring}}
+    >
+      <PolarisIcon data-test-tag-button-icon @source="cancel-small" />
+    </button>
+  {{/if}}
+</span>

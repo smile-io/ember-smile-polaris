@@ -214,7 +214,7 @@ export default class PolarisRangeSlider extends Component {
       {
         progress: `${sliderProgress}%`,
         outputFactor: invertNumber((sliderProgress - 50) / 100),
-      }
+      },
     );
 
     let styleString = Object.keys(styleProps).reduce(
@@ -223,7 +223,7 @@ export default class PolarisRangeSlider extends Component {
           styleProps[propName]
         };`;
       },
-      ''
+      '',
     );
 
     return htmlSafe(styleString.trim());

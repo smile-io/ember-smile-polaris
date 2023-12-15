@@ -1,20 +1,11 @@
 'use strict';
 
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
-// NOTE: We should be using `sass` instead of `node-sass` which is the default/recommended
-// by `ember-cli-sass` and it's the Dart implementation and should be much faster.
-// We're using this because Polaris uses multi-line which is not supported
-// ex: @shopify/polaris/styles/foundation/colors.scss#57
-const nodeSass = require('node-sass');
 
 module.exports = function (defaults) {
   let app = new EmberAddon(defaults, {
     'ember-cli-babel': {
       includePolyfill: true,
-    },
-
-    sassOptions: {
-      implementation: nodeSass,
     },
   });
 
@@ -26,5 +17,12 @@ module.exports = function (defaults) {
   */
   app.import('node_modules/ember-source/dist/ember-template-compiler.js');
 
-  return app.toTree();
+  const { maybeEmbroider } = require('@embroider/test-setup');
+  return maybeEmbroider(app, {
+    skipBabel: [
+      {
+        package: 'qunit',
+      },
+    ],
+  });
 };

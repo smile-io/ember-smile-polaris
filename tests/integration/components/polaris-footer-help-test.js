@@ -14,17 +14,17 @@ module('Integration | Component | polaris footer help', function (hooks) {
 
   const footerHelpContentSelector = buildNestedSelector(
     'div.Polaris-FooterHelp',
-    'div.Polaris-FooterHelp__Content'
+    'div.Polaris-FooterHelp__Content',
   );
   const footerHelpIconSelector = buildNestedSelector(
     footerHelpContentSelector,
     'div.Polaris-FooterHelp__Icon',
     'span.Polaris-Icon',
-    'svg'
+    'svg',
   );
   const footerHelpTextSelector = buildNestedSelector(
     footerHelpContentSelector,
-    'div.Polaris-FooterHelp__Text'
+    'div.Polaris-FooterHelp__Text',
   );
 
   test('it renders the correct HTML in inline usage', async function (assert) {
@@ -41,17 +41,18 @@ module('Integration | Component | polaris footer help', function (hooks) {
     footerHelpIcon.hasAttribute(
       'data-icon-source',
       'polaris/help',
-      'renders the correct icon'
+      'renders the correct icon',
     );
 
-    const iconWrapper = this.element.querySelector(footerHelpIconSelector)
-      .parentNode;
+    const iconWrapper = this.element.querySelector(
+      footerHelpIconSelector,
+    ).parentNode;
 
     assert
       .dom(iconWrapper)
       .hasClass(
         'Polaris-Icon--colorTeal',
-        'renders the icon with the correct color'
+        'renders the icon with the correct color',
       );
     assert
       .dom(iconWrapper)
@@ -62,7 +63,7 @@ module('Integration | Component | polaris footer help', function (hooks) {
 
     footerHelpTexts.exists(
       { count: 1 },
-      'renders one footer help text wrapper'
+      'renders one footer help text wrapper',
     );
     footerHelpTexts.hasText('Looking for help?', 'renders the correct text');
   });
@@ -85,16 +86,17 @@ module('Integration | Component | polaris footer help', function (hooks) {
     footerHelpIcons.hasAttribute(
       'data-icon-source',
       'polaris/help',
-      'renders the correct icon'
+      'renders the correct icon',
     );
 
-    const iconWrapper = this.element.querySelector(footerHelpIconSelector)
-      .parentNode;
+    const iconWrapper = this.element.querySelector(
+      footerHelpIconSelector,
+    ).parentNode;
     assert
       .dom(iconWrapper)
       .hasClass(
         'Polaris-Icon--colorTeal',
-        'renders the icon with the correct color'
+        'renders the icon with the correct color',
       );
     assert
       .dom(iconWrapper)
@@ -105,7 +107,7 @@ module('Integration | Component | polaris footer help', function (hooks) {
 
     footerHelpTexts.exists(
       { count: 1 },
-      'renders one footer help text wrapper'
+      'renders one footer help text wrapper',
     );
     footerHelpTexts.hasText('Looking for help?', 'renders the correct text');
   });

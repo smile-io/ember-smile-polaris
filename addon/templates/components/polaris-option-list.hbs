@@ -1,14 +1,14 @@
-<ul role={{@role}} class="Polaris-OptionList {{@class}}" ...attributes>
+<ul role={{@role}} class='Polaris-OptionList {{@class}}' ...attributes>
   {{#each this.normalizedOptions as |normalizedOption sectionIndex|}}
     <li>
       {{#if normalizedOption.title}}
-        <p class="Polaris-OptionList__Title" role={{@role}}>
+        <p class='Polaris-OptionList__Title' role={{@role}}>
           {{normalizedOption.title}}
         </p>
       {{/if}}
 
       <ul
-        class="Polaris-OptionList__Options"
+        class='Polaris-OptionList__Options'
         id={{or @id this.id}}
         role={{@role}}
         aria-multiselectable={{@allowMultiple}}
@@ -19,12 +19,15 @@
             @label={{option.label}}
             @disabled={{option.disabled}}
             @active={{option.active}}
-            @optionId={{or option.id (concat (or @id this.id) "-" sectionIndex "-" optionIndex)}}
+            @optionId={{or
+              option.id
+              (concat (or @id this.id) '-' sectionIndex '-' optionIndex)
+            }}
             @media={{option.media}}
             @section={{sectionIndex}}
             @index={{optionIndex}}
-            @onClick={{fn this.handleClick}}
-            @select={{array-contains @selected option.value}}
+            @onClick={{this.handleClick}}
+            @select={{includes option.value @selected}}
             @allowMultiple={{@allowMultiple}}
             @role={{@optionRole}}
           />

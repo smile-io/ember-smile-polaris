@@ -109,7 +109,7 @@ export default class PolarisStack extends Component {
     'distributionClassName',
     'vertical',
     'noWrap',
-    'class'
+    'class',
   )
   get cssClasses() {
     let cssClasses = ['Polaris-Stack'];

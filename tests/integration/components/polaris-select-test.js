@@ -27,8 +27,8 @@ module('Integration | Component | polaris-select', function (hooks) {
 
       find('select').value = 'two';
       await triggerEvent('select', 'change');
-      assert.equal(this.get('selectedValue'), 'two');
-      assert.equal(this.get('selectId'), 'MySelect');
+      assert.strictEqual(this.get('selectedValue'), 'two');
+      assert.strictEqual(this.get('selectId'), 'MySelect');
     });
   });
 
@@ -128,13 +128,19 @@ module('Integration | Component | polaris-select', function (hooks) {
 
     function testOptions(optionOrGroup, optionOrOptgroupElement, assert) {
       if (typeof optionOrGroup === 'string') {
-        assert.equal(optionOrOptgroupElement.tagName.toLowerCase(), 'option');
+        assert.strictEqual(
+          optionOrOptgroupElement.tagName.toLowerCase(),
+          'option',
+        );
         assert
           .dom(optionOrOptgroupElement)
           .hasAttribute('value', optionOrGroup);
         assert.dom(optionOrOptgroupElement).hasText(optionOrGroup);
       } else {
-        assert.equal(optionOrOptgroupElement.tagName.toLowerCase(), 'optgroup');
+        assert.strictEqual(
+          optionOrOptgroupElement.tagName.toLowerCase(),
+          'optgroup',
+        );
         assert
           .dom(optionOrOptgroupElement)
           .hasAttribute('label', optionOrGroup.title);
@@ -142,7 +148,7 @@ module('Integration | Component | polaris-select', function (hooks) {
 
         optionOrGroup.options.forEach((option, optionIndex) => {
           let optionElement = options[optionIndex];
-          assert.equal(optionElement.tagName.toLowerCase(), 'option');
+          assert.strictEqual(optionElement.tagName.toLowerCase(), 'option');
           assert.dom(optionElement).hasAttribute('value', option);
           assert.dom(optionElement).hasText(option);
         });
@@ -152,7 +158,7 @@ module('Integration | Component | polaris-select', function (hooks) {
     test('translates grouped options into optgroup tags', async function (assert) {
       this.set('optionsAndGroups', optionsAndGroups);
       await render(
-        hbs`{{polaris-select label="Select" options=optionsAndGroups}}`
+        hbs`{{polaris-select label="Select" options=optionsAndGroups}}`,
       );
 
       let optionOrOptgroupElements = find('select').children;
@@ -181,7 +187,7 @@ module('Integration | Component | polaris-select', function (hooks) {
   module('id', function () {
     test('sets the id on the input', async function (assert) {
       await render(
-        hbs`{{polaris-select label="Select" id="MySelect" options=(array)}}`
+        hbs`{{polaris-select label="Select" id="MySelect" options=(array)}}`,
       );
 
       assert.dom('select').hasAttribute('id', 'MySelect');
@@ -197,7 +203,7 @@ module('Integration | Component | polaris-select', function (hooks) {
   module('disabled', function () {
     test('sets the disabled attribute on the select', async function (assert) {
       await render(
-        hbs`{{polaris-select label="Select" disabled=true options=(array)}}`
+        hbs`{{polaris-select label="Select" disabled=true options=(array)}}`,
       );
 
       assert.dom('select').hasAttribute('disabled');
@@ -205,7 +211,7 @@ module('Integration | Component | polaris-select', function (hooks) {
 
     test('is only disabled when disabled is explicitly set to true', async function (assert) {
       await render(
-        hbs`{{polaris-select label="Select" disabled=false options=(array)}}`
+        hbs`{{polaris-select label="Select" disabled=false options=(array)}}`,
       );
 
       assert.dom('select').doesNotHaveAttribute('disabled');
@@ -215,7 +221,7 @@ module('Integration | Component | polaris-select', function (hooks) {
   module('helpText', function () {
     test('connects the select to the help text', async function (assert) {
       await render(
-        hbs`{{polaris-select label="Select" options=(array) helpText="Some help"}}`
+        hbs`{{polaris-select label="Select" options=(array) helpText="Some help"}}`,
       );
 
       let helpTextID = find('select').getAttribute('aria-describedby');
@@ -322,7 +328,7 @@ module('Integration | Component | polaris-select', function (hooks) {
       let descriptions = find('select')
         .getAttribute('aria-describedby')
         .split(' ');
-      assert.equal(descriptions.length, 2);
+      assert.strictEqual(descriptions.length, 2);
       assert.dom(`#${descriptions[0]}`).hasText('Some help');
       assert.dom(`#${descriptions[1]}`).hasText('Some error');
     });

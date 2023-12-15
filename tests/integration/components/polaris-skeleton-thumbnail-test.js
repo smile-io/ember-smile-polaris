@@ -36,5 +36,5 @@ module(
         .dom('div.Polaris-SkeletonThumbnail')
         .hasClass('Polaris-SkeletonThumbnail--sizeMedium');
     });
-  }
+  },
 );

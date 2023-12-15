@@ -1,13 +1,11 @@
 import Service from '@ember/service';
-import ContextBoundEventListenersMixin from 'ember-lifeline/mixins/dom';
+import { action } from '@ember/object';
 import { throttleTask, runDisposables } from 'ember-lifeline';
 import tokens from '@shopify/polaris-tokens';
 import { getRectForNode } from '@shopify/javascript-utilities/geometry';
 import stackedContent from '@smile-io/ember-smile-polaris/utils/breakpoints';
 
-export default class StickyManager extends Service.extend(
-  ContextBoundEventListenersMixin
-) {
+export default class StickyManager extends Service {
   /**
    * @type {Object[]}
    */
@@ -29,29 +27,32 @@ export default class StickyManager extends Service.extend(
 
   unregisterStickyItem(nodeToRemove) {
     let nodeIndex = this.stickyItems.findIndex(
-      ({ stickyNode }) => nodeToRemove === stickyNode
+      ({ stickyNode }) => nodeToRemove === stickyNode,
     );
     this.stickyItems.splice(nodeIndex, 1);
   }
 
   setContainer(el) {
     this.set('container', el);
-    this.addEventListener(el, 'scroll', this.handleScroll);
-    this.addEventListener(window, 'resize', this.handleResize);
+    el.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('resize', this.handleResize);
+
     this.manageStickyItems();
   }
 
   removeScrollListener() {
     if (this.container) {
-      this.removeEventListener(this.container, 'scroll', this.handleScroll);
-      this.removeEventListener(window, 'resize', this.handleResize);
+      this.container.removeEventListener('scroll', this.handleScroll);
+      window.removeEventListener('resize', this.handleResize);
     }
   }
 
+  @action
   handleResize() {
     throttleTask(this, 'manageStickyItems', 40, false);
   }
 
+  @action
   handleScroll() {
     throttleTask(this, 'manageStickyItems', 40, false);
   }
@@ -70,7 +71,7 @@ export default class StickyManager extends Service.extend(
       let { sticky, top, left, width } = this.evaluateStickyItem(
         stickyItem,
         scrollTop,
-        containerTop
+        containerTop,
       );
 
       this.updateStuckItems(stickyItem, sticky);
@@ -149,7 +150,7 @@ export default class StickyManager extends Service.extend(
   removeStuckItem(stickyItem) {
     let { stickyNode: nodeToRemove } = stickyItem;
     let nodeIndex = this.stuckItems.findIndex(
-      ({ stickyNode }) => nodeToRemove === stickyNode
+      ({ stickyNode }) => nodeToRemove === stickyNode,
     );
     this.stuckItems.splice(nodeIndex, 1);
   }
@@ -182,7 +183,7 @@ export default class StickyManager extends Service.extend(
 
   isNodeStuck(node) {
     let nodeFound = this.stuckItems.findIndex(
-      ({ stickyNode }) => node === stickyNode
+      ({ stickyNode }) => node === stickyNode,
     );
 
     return nodeFound >= 0;

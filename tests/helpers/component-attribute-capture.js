@@ -2,7 +2,7 @@ export function setUpAttributeCaptureOnComponent(
   testContext,
   componentPath,
   componentClass,
-  attributeName
+  attributeName,
 ) {
   testContext.owner.register(
     `component:${componentPath}`,
@@ -12,6 +12,6 @@ export function setUpAttributeCaptureOnComponent(
 
         testContext.set(attributeName, this.get(attributeName));
       },
-    })
+    }),
   );
 }

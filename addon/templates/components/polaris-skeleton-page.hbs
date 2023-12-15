@@ -7,10 +7,10 @@
 >
   <div
     class="Polaris-SkeletonPage__Header
-      {{if @breadcrumbs "Polaris-SkeletonPage__Header--hasBreadcrumbs"}}
+      {{if @breadcrumbs 'Polaris-SkeletonPage__Header--hasBreadcrumbs'}}
       {{if
         this.dummySecondaryActions
-        "Polaris-SkeletonPage__Header--hasSecondaryActions"
+        'Polaris-SkeletonPage__Header--hasSecondaryActions'
       }}"
     data-test-skeleton-page-header
   >
@@ -60,7 +60,10 @@
     </div>
 
     {{#if this.dummySecondaryActions}}
-      <div class="Polaris-SkeletonPage__Actions" data-test-skeleton-page-actions>
+      <div
+        class="Polaris-SkeletonPage__Actions"
+        data-test-skeleton-page-actions
+      >
         {{#each this.dummySecondaryActions}}
           <PolarisSkeletonPage::Action data-test-skeleton-page-action />
         {{/each}}
@@ -69,7 +72,7 @@
   </div>
 
   <div class="Polaris-SkeletonPage__Content" data-test-skeleton-page-content>
-    {{#if hasBlock}}
+    {{#if (has-block)}}
       {{yield}}
     {{else}}
       {{@text}}

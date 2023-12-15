@@ -44,7 +44,7 @@ module('Integration | Component | polaris-form', function (hooks) {
       .hasAttribute(
         'accept-charset',
         acceptCharset,
-        'renders acceptCharset attribute when provided'
+        'renders acceptCharset attribute when provided',
       );
     assert
       .dom('[data-test-form]')
@@ -54,14 +54,14 @@ module('Integration | Component | polaris-form', function (hooks) {
       .hasAttribute(
         'autoComplete',
         'off',
-        'sets the autocomplete attribute to "off" when provided as false'
+        'sets the autocomplete attribute to "off" when provided as false',
       );
     assert
       .dom('[data-test-form]')
       .hasAttribute(
         'enctype',
         encType,
-        'renders encType attribute when provided'
+        'renders encType attribute when provided',
       );
     assert
       .dom('[data-test-form-button]')
@@ -77,7 +77,7 @@ module('Integration | Component | polaris-form', function (hooks) {
       .hasAttribute(
         'novalidate',
         '',
-        'renders novalidate attribute when provided'
+        'renders novalidate attribute when provided',
       );
     assert
       .dom('[data-test-form]')
@@ -88,7 +88,7 @@ module('Integration | Component | polaris-form', function (hooks) {
     assert
       .dom('[data-test-form-button]')
       .doesNotExist(
-        'does not render submit button when `implicitSubmit` is false'
+        'does not render submit button when `implicitSubmit` is false',
       );
   });
 
@@ -154,7 +154,7 @@ module('Integration | Component | polaris-form', function (hooks) {
 
       assert.verifySteps(
         ['preventDefault', 'onSubmit'],
-        'invokes `onSubmit` preventing default'
+        'invokes `onSubmit` preventing default',
       );
     });
 
@@ -177,7 +177,7 @@ module('Integration | Component | polaris-form', function (hooks) {
 
       assert.verifySteps(
         ['preventDefault', 'onSubmit'],
-        'invokes `onSubmit` preventing default'
+        'invokes `onSubmit` preventing default',
       );
     });
   });

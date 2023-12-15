@@ -26,12 +26,12 @@ module('Integration | Component | polaris thumbnail', function (hooks) {
     thumbnailSpan.exists('thumbnail container element is rendered');
     thumbnailSpan.hasClass(
       'Polaris-Thumbnail--sizeSmall',
-      'correct size class is applied to container element'
+      'correct size class is applied to container element',
     );
 
     let imageSelector = buildNestedSelector(
       THUMB_SELECTOR,
-      '.Polaris-Thumbnail__Image'
+      '.Polaris-Thumbnail__Image',
     );
     let image = assert.dom(imageSelector);
 
@@ -40,7 +40,7 @@ module('Integration | Component | polaris thumbnail', function (hooks) {
     image.hasAttribute(
       'src',
       SRC,
-      'correct source attribute is applied to image node'
+      'correct source attribute is applied to image node',
     );
     image.hasAttribute('alt', ALT, 'correct alt text is applied to image node');
   });
@@ -52,15 +52,15 @@ module('Integration | Component | polaris thumbnail', function (hooks) {
 
     thumbnailSpan.hasNoClass(
       'Polaris-Thumbnail--sizeSmall',
-      'no size - does not apply small size class'
+      'no size - does not apply small size class',
     );
     thumbnailSpan.hasClass(
       'Polaris-Thumbnail--sizeMedium',
-      'no size - applies medium size class by default'
+      'no size - applies medium size class by default',
     );
     thumbnailSpan.hasNoClass(
       'Polaris-Thumbnail--sizeLarge',
-      'no size - does not apply large size class'
+      'no size - does not apply large size class',
     );
 
     this.set('size', 'small');
@@ -70,57 +70,57 @@ module('Integration | Component | polaris thumbnail', function (hooks) {
 
     thumbnailSpan.hasClass(
       'Polaris-Thumbnail--sizeSmall',
-      'size small - applies small size class'
+      'size small - applies small size class',
     );
     thumbnailSpan.hasNoClass(
       'Polaris-Thumbnail--sizeMedium',
-      'size small - does not apply medium size class'
+      'size small - does not apply medium size class',
     );
     thumbnailSpan.hasNoClass(
       'Polaris-Thumbnail--sizeLarge',
-      'size small - does not apply large size class'
+      'size small - does not apply large size class',
     );
 
     this.set('size', 'medium');
     thumbnailSpan.hasNoClass(
       'Polaris-Thumbnail--sizeSmall',
-      'size medium - does not apply small size class'
+      'size medium - does not apply small size class',
     );
     thumbnailSpan.hasClass(
       'Polaris-Thumbnail--sizeMedium',
-      'size medium - applies medium size class'
+      'size medium - applies medium size class',
     );
     thumbnailSpan.hasNoClass(
       'Polaris-Thumbnail--sizeLarge',
-      'size medium - does not apply large size class'
+      'size medium - does not apply large size class',
     );
 
     this.set('size', 'large');
     thumbnailSpan.hasNoClass(
       'Polaris-Thumbnail--sizeSmall',
-      'size large - does not apply small size class'
+      'size large - does not apply small size class',
     );
     thumbnailSpan.hasNoClass(
       'Polaris-Thumbnail--sizeMedium',
-      'size large - does not apply medium size class'
+      'size large - does not apply medium size class',
     );
     thumbnailSpan.hasClass(
       'Polaris-Thumbnail--sizeLarge',
-      'size large - applies large size class'
+      'size large - applies large size class',
     );
 
     this.set('size', 'unsupported');
     thumbnailSpan.hasNoClass(
       'Polaris-Thumbnail--sizeSmall',
-      'unsupported size - does not apply small size class'
+      'unsupported size - does not apply small size class',
     );
     thumbnailSpan.hasClass(
       'Polaris-Thumbnail--sizeMedium',
-      'unsupported size - falls back to applying medium size class'
+      'unsupported size - falls back to applying medium size class',
     );
     thumbnailSpan.hasNoClass(
       'Polaris-Thumbnail--sizeLarge',
-      'unsupported size - does not apply large size class'
+      'unsupported size - does not apply large size class',
     );
   });
 
@@ -129,14 +129,14 @@ module('Integration | Component | polaris thumbnail', function (hooks) {
 
     let imageSelector = buildNestedSelector(
       THUMB_SELECTOR,
-      '.Polaris-Thumbnail__Image'
+      '.Polaris-Thumbnail__Image',
     );
 
     assert
       .dom(imageSelector)
       .doesNotHaveAttribute(
         'alt',
-        'no alt text - alt text is not applied to image'
+        'no alt text - alt text is not applied to image',
       );
   });
 
@@ -145,7 +145,7 @@ module('Integration | Component | polaris thumbnail', function (hooks) {
 
     let imageSelector = buildNestedSelector(
       THUMB_SELECTOR,
-      '.Polaris-Thumbnail__Image'
+      '.Polaris-Thumbnail__Image',
     );
 
     assert

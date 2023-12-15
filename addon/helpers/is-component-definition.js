@@ -1,37 +1,20 @@
 import { helper } from '@ember/component/helper';
-import { typeOf } from '@ember/utils';
+import runtime from '@glimmer/runtime';
+
+let { isCurriedComponentDefinition, CurriedValue } = runtime;
 
 // TODO look into getting rid of this concept
 export function isComponentDefinition(content) {
-  if (typeOf(content) !== 'object') {
-    return false;
+  // Older embers have isCurriedComponentDefinition, new ones have CurriedValue
+  // and instanceof CurriedValue seems good enough.
+  // NOTE This is just copy/pasta from  @embroider/util
+  // https://github.com/embroider-build/embroider/blob/main/packages/util/addon/ember-private-api.js#L21C1-L34C2
+  if (!isCurriedComponentDefinition) {
+    isCurriedComponentDefinition = function (content) {
+      return content instanceof CurriedValue;
+    };
   }
-
-  // Glimmer now uses Symbol keys in its component definitions so we check those first.
-  let symbolPropKeys = Object.getOwnPropertySymbols?.(content);
-  if (symbolPropKeys?.length) {
-    let isGlimmerComponentDefinition = symbolPropKeys.some((symbolPropKey) => {
-      let propValue = content[symbolPropKey];
-      return (
-        propValue &&
-        Object.keys(propValue).some((key) => key === 'ComponentClass')
-      );
-    });
-
-    if (isGlimmerComponentDefinition) {
-      return true;
-    }
-  }
-
-  let contentPropNames = Object.keys(content);
-  let isPreOctaneComponentDefinition = contentPropNames.some(
-    (propName) => propName.indexOf('COMPONENT DEFINITION') > -1
-  );
-
-  return (
-    isPreOctaneComponentDefinition ||
-    content.constructor?.name === 'CurriedComponentDefinition'
-  );
+  return isCurriedComponentDefinition(content);
 }
 
 export default helper(([content]) => isComponentDefinition(content));

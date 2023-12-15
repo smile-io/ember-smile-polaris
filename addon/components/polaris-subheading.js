@@ -1,8 +1,7 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { deprecate } from '@ember/application/deprecations';
-import { tagName, layout as templateLayout } from '@ember-decorators/component';
-import layout from '../templates/components/polaris-subheading';
+import { deprecate } from '@ember/debug';
 import deprecateClassArgument from '../utils/deprecate-class-argument';
 
 /**
@@ -20,8 +19,6 @@ import deprecateClassArgument from '../utils/deprecate-class-argument';
  *   {{/polaris-subheading}}
  */
 @deprecateClassArgument
-@tagName('')
-@templateLayout(layout)
 export default class PolarisSubheading extends Component {
   /**
    * The content to display inside the heading
@@ -31,37 +28,33 @@ export default class PolarisSubheading extends Component {
    * instead of `text`
    *
    * @type {String}
-   * @default null
    * @public
    */
-  text = null;
+  text;
 
-  init() {
-    super.init(...arguments);
+  @tracked ariaLabel;
+
+  constructor(owner, args) {
+    super(owner, args);
 
     deprecate(
       `[PolarisSubheading] Passing 'tagName' argument is deprecated! Use '@htmlTag' instead`,
-      !this.tagName,
+      !this.args.tagName,
       {
-        id: 'ember-polaris.polaris-subheading.tagName-arg',
+        id: 'polaris-subheading.tagName-arg',
+        since: '6.2.2',
         until: '7.0.0',
-      }
+        for: 'ember-polaris',
+      },
     );
   }
 
+  /**
+   * We're updating `aria-label` directly as a HTML attribute because `ember-element-helper`
+   * will throw an error if we try to update an attribute multiple times.
+   */
   @action
-  setAriaLabel(element) {
-    this.set('_subheadingElement', element);
-    this.updateAriaLabel();
-  }
-
-  @action
-  updateAriaLabel() {
-    if (!this._subheadingElement) {
-      return;
-    }
-
-    // Update ariaLabel with the new content.
-    this.set('ariaLabel', this._subheadingElement.textContent.trim());
+  updateAriaLabel(element, text) {
+    element.setAttribute('aria-label', text);
   }
 }

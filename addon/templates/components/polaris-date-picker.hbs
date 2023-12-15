@@ -1,4 +1,3 @@
-{{!-- template-lint-disable no-invalid-interactive --}}
 <div
   class="Polaris-DatePicker {{@class}}"
   data-test-date-picker
@@ -12,18 +11,29 @@
       @plain={{true}}
       @icon="arrow-left"
       @accessibilityLabel={{this.previousMonthLabel}}
-      @onClick={{fn this.handleMonthChangeClick this.showPreviousMonth this.showPreviousYear}}
+      @onClick={{fn
+        this.handleMonthChangeClick
+        this.showPreviousMonth
+        this.showPreviousYear
+      }}
     />
 
     <PolarisButton
       @plain={{true}}
       @icon="arrow-right"
       @accessibilityLabel={{this.nextMonthLabel}}
-      @onClick={{fn this.handleMonthChangeClick this.showNextMonth this.showNextYear}}
+      @onClick={{fn
+        this.handleMonthChangeClick
+        this.showNextMonth
+        this.showNextYear
+      }}
     />
   </div>
 
-  <div data-test-date-picker-month-container class="Polaris-DatePicker__MonthContainer">
+  <div
+    data-test-date-picker-month-container
+    class="Polaris-DatePicker__MonthContainer"
+  >
     <PolarisDatePicker::Month
       @month={{@month}}
       @year={{@year}}

@@ -1,5 +1,4 @@
 {{#if @day}}
-  {{!-- template-lint-disable no-positive-tabindex --}}
   <button
     data-test-date-picker-day
     data-test-date-picker-date={{this.dataTestDatePickerDate}}
@@ -18,5 +17,8 @@
     {{this.date}}
   </button>
 {{else}}
-  <div data-test-date-picker-day-empty class="Polaris-DatePicker__EmptyDay"></div>
+  <div
+    data-test-date-picker-day-empty
+    class="Polaris-DatePicker__EmptyDay"
+  ></div>
 {{/if}}

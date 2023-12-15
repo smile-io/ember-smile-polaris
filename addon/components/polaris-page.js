@@ -180,7 +180,7 @@ export default class PolarisPage extends Component {
     'primaryAction',
     'secondaryActions',
     'actionGroups',
-    'breadcrumbs'
+    'breadcrumbs',
   )
   hasHeaderContent;
 

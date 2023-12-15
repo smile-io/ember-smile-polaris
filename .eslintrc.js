@@ -1,9 +1,27 @@
-/* eslint-env node */
 'use strict';
 
 module.exports = {
-  plugins: ['smile-ember'],
-  extends: ['plugin:smile-ember/addon'],
+  root: true,
+  parser: '@babel/eslint-parser',
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    requireConfigFile: false,
+    babelOptions: {
+      plugins: [
+        ['@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true }],
+      ],
+    },
+  },
+  plugins: ['ember'],
+  extends: [
+    'eslint:recommended',
+    'plugin:ember/recommended',
+    'plugin:prettier/recommended',
+  ],
+  env: {
+    browser: true,
+  },
   rules: {
     // Temporary while upgrading to Ember Octane & Glimmer components
     'ember/no-get': 'off',
@@ -15,7 +33,34 @@ module.exports = {
     'ember/require-tagless-components': 'off',
     'ember/no-computed-properties-in-native-classes': 'off',
     'ember/no-component-lifecycle-hooks': 'off',
-    // These are a lil broken right now (eslint-plugin-ember also disabled these)
-    'smile-ember/order-in-components': 'off',
   },
+  overrides: [
+    // node files
+    {
+      files: [
+        './.eslintrc.js',
+        './.prettierrc.js',
+        './.template-lintrc.js',
+        './ember-cli-build.js',
+        './index.js',
+        './testem.js',
+        './blueprints/*/index.js',
+        './config/**/*.js',
+        './tests/dummy/config/**/*.js',
+      ],
+      parserOptions: {
+        sourceType: 'script',
+      },
+      env: {
+        browser: false,
+        node: true,
+      },
+      extends: ['plugin:n/recommended'],
+    },
+    {
+      // test files
+      files: ['tests/**/*-test.{js,ts}'],
+      extends: ['plugin:qunit/recommended'],
+    },
+  ],
 };

@@ -46,8 +46,8 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
           sliderSelector,
           sliderWrapperSelector,
           sliderInputWrapperSelector,
-          sliderInputSelector
-        )
+          sliderInputSelector,
+        ),
       )
       .exists('renders the input element correctly');
 
@@ -63,8 +63,8 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
 
   test('it calls `onChange` with the new value when the value is changed', async function (assert) {
     this.set('valueChanged', (newValue, inputId) => {
-      assert.equal(newValue, 40);
-      assert.equal(inputId, 'MyRangeSlider');
+      assert.strictEqual(newValue, 40);
+      assert.strictEqual(inputId, 'MyRangeSlider');
     });
 
     await render(hbs`
@@ -145,7 +145,7 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
     `);
 
     const inputId = find(sliderInputSelector).getAttribute('id');
-    assert.equal(typeof inputId, 'string');
+    assert.strictEqual(typeof inputId, 'string');
     assert.dom(sliderOutputSelector).hasAttribute('for', inputId);
   });
 
@@ -169,11 +169,10 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
         helpText="Some help"
       }}
     `);
-    const helpTextId = find(sliderInputSelector).getAttribute(
-      'aria-describedby'
-    );
+    const helpTextId =
+      find(sliderInputSelector).getAttribute('aria-describedby');
 
-    assert.equal(typeof helpTextId, 'string');
+    assert.strictEqual(typeof helpTextId, 'string');
     assert.dom(`#${helpTextId}`).hasText('Some help');
   });
 
@@ -185,7 +184,7 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
         layout: hbs`{{text}}`,
 
         text: null,
-      })
+      }),
     );
 
     await render(hbs`
@@ -217,7 +216,7 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
     `);
     const errorId = find(sliderInputSelector).getAttribute('aria-describedby');
 
-    assert.equal(typeof errorId, 'string');
+    assert.strictEqual(typeof errorId, 'string');
     assert.dom(`#${errorId}`).hasText('Some error');
   });
 
@@ -234,7 +233,7 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
       .getAttribute('aria-describedby')
       .split(' ');
 
-    assert.equal(descriptions.length, 2);
+    assert.strictEqual(descriptions.length, 2);
     assert.dom(`#${descriptions[1]}`).hasText('Some help');
     assert.dom(`#${descriptions[0]}`).hasText('Some error');
   });
@@ -258,7 +257,7 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
       .dom(sliderPrefixSelector)
       .hasClass(
         'Polaris-RangeSlider__Prefix',
-        'prefix has correct class applied'
+        'prefix has correct class applied',
       );
   });
 
@@ -281,7 +280,7 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
       .dom(sliderSuffixSelector)
       .hasClass(
         'Polaris-RangeSlider__Suffix',
-        'suffix has correct class applied'
+        'suffix has correct class applied',
       );
   });
 
@@ -301,7 +300,7 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
     assert.ok(styleString.indexOf('--Polaris-RangeSlider-current:25;') > -1);
     assert.ok(styleString.indexOf('--Polaris-RangeSlider-progress:25%;') > -1);
     assert.ok(
-      styleString.indexOf('--Polaris-RangeSlider-output-factor:0.25;') > -1
+      styleString.indexOf('--Polaris-RangeSlider-output-factor:0.25;') > -1,
     );
   });
 });

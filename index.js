@@ -1,41 +1,23 @@
 'use strict';
 
-const path = require('path');
-const resolve = require('resolve');
-const Funnel = require('broccoli-funnel');
-const MergeTrees = require('broccoli-merge-trees');
-
 module.exports = {
   name: require('./package').name,
 
   options: {
     svgJar: {
-      sourceDirs: [
-        'public',
-        'tests/dummy/public/assets/images/svg',
-        'node_modules/@smile-io/ember-smile-polaris/public',
-      ],
+      inline: {
+        // This overwrites default glocal `sourceDirs: []` since we don't want that.
+        sourceDirs: [],
+      },
+    },
+
+    'ember-composable-helpers': {
+      only: ['includes'],
     },
   },
 
   included: function (/* app */) {
     this._super.included.apply(this, arguments);
-  },
-
-  treeForStyles(tree) {
-    let packageRoot = path.dirname(
-      resolve.sync('@shopify/polaris/package.json', { basedir: __dirname })
-    );
-    let polarisScssFiles = new Funnel(packageRoot, {
-      include: ['styles.scss', 'styles/**/*'],
-      srcDir: './',
-      destDir: 'ember-smile-polaris',
-      annotation: 'PolarisScssFunnel',
-    });
-
-    return this._super.treeForStyles(
-      new MergeTrees([polarisScssFiles, tree], { overwrite: true })
-    );
   },
 
   isDevelopingAddon() {

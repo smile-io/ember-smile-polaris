@@ -79,7 +79,7 @@ export default class PolarisSticky extends Component {
 
     let style = stick
       ? htmlSafe(
-          `position: fixed; top: ${top}px; left: ${left}px; width: ${width}px;`
+          `position: fixed; top: ${top}px; left: ${left}px; width: ${width}px;`,
         )
       : null;
 

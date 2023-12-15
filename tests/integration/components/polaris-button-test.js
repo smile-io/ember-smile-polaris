@@ -18,7 +18,7 @@ module('Integration | Component | polaris-button', function (hooks) {
   });
 
   module('<Button />', function () {
-    module('url', function () {
+    module('url', function (hooks) {
       hooks.beforeEach(function () {
         this.set('mockUrl', 'http://google.com');
       });
@@ -51,7 +51,7 @@ module('Integration | Component | polaris-button', function (hooks) {
       test('renders the given children into the link', async function (assert) {
         this.set('label', 'Click me!');
         await render(
-          hbs`{{#polaris-button url="http://google.com"}}{{label}}{{/polaris-button}}`
+          hbs`{{#polaris-button url="http://google.com"}}{{label}}{{/polaris-button}}`,
         );
         assert.dom('a').hasText(this.get('label'));
       });
@@ -179,7 +179,7 @@ module('Integration | Component | polaris-button', function (hooks) {
 
       test('renders a component if it is one', async function (assert) {
         await render(
-          hbs`{{polaris-button icon=(component "wrapper-element" id="icon-component")}}`
+          hbs`{{polaris-button icon=(component "wrapper-element" id="icon-component")}}`,
         );
         assert.dom('#icon-component').exists();
       });
@@ -241,7 +241,6 @@ module('Integration | Component | polaris-button', function (hooks) {
         };
 
         await render(hbs`
-          {{!-- template-lint-disable no-invalid-interactive--}}
           <div {{on "click" this.handleWrapperClick}}>{{polaris-button onClick=this.handleClick}}</div>
         `);
 
@@ -257,7 +256,6 @@ module('Integration | Component | polaris-button', function (hooks) {
         };
 
         await render(hbs`
-          {{!-- template-lint-disable no-invalid-interactive--}}
           <div {{on "click" this.handleWrapperClick}}>{{polaris-button onClick=this.handleClick url="#"}}</div>
         `);
 
@@ -271,12 +269,12 @@ module('Integration | Component | polaris-button', function (hooks) {
           assert.ok(true, 'triggers onFocus handler');
           assert.ok(
             event instanceof Event,
-            'receives the Event as last argument'
+            'receives the Event as last argument',
           );
         });
 
         await render(
-          hbs`{{polaris-button onFocus=(action handleFocus "myArg")}}`
+          hbs`{{polaris-button onFocus=(action handleFocus "myArg")}}`,
         );
         await focus('button');
       });
@@ -288,7 +286,7 @@ module('Integration | Component | polaris-button', function (hooks) {
           {{polaris-button onFocus=(action incrementFocusCount) url="http://google.com"}}
         `);
         await focus('[data-polaris-unstyled]');
-        assert.equal(focusCount, 1);
+        assert.strictEqual(focusCount, 1);
       });
     });
 
@@ -298,12 +296,12 @@ module('Integration | Component | polaris-button', function (hooks) {
           assert.ok(true, 'triggers onBlur handler');
           assert.ok(
             event instanceof Event,
-            'receives the Event as last argument'
+            'receives the Event as last argument',
           );
         });
 
         await render(
-          hbs`{{polaris-button onBlur=(action handleBlur "myArg")}}`
+          hbs`{{polaris-button onBlur=(action handleBlur "myArg")}}`,
         );
 
         await focus('button');
@@ -318,37 +316,37 @@ module('Integration | Component | polaris-button', function (hooks) {
         `);
         await focus('[data-polaris-unstyled]');
         await blur('[data-polaris-unstyled]');
-        assert.equal(blurCount, 1);
+        assert.strictEqual(blurCount, 1);
       });
     });
 
     module('onKeyPress()', function () {
       test('is called when a keypress event is registered on the button', async function (assert) {
         await render(
-          hbs`{{#polaris-button onKeyPress=(action (mut keyEventData))}}Test{{/polaris-button}}`
+          hbs`{{#polaris-button onKeyPress=(action (mut keyEventData))}}Test{{/polaris-button}}`,
         );
         await triggerKeyEvent('button', 'keypress', 'J');
-        assert.equal(this.get('keyEventData.key'), 'J');
+        assert.strictEqual(this.get('keyEventData.key'), 'J');
       });
     });
 
     module('onKeyUp()', function () {
       test('is called when a keyup event is registered on the button', async function (assert) {
         await render(
-          hbs`{{#polaris-button onKeyUp=(action (mut keyEventData))}}Test{{/polaris-button}}`
+          hbs`{{#polaris-button onKeyUp=(action (mut keyEventData))}}Test{{/polaris-button}}`,
         );
         await triggerKeyEvent('button', 'keyup', 'J');
-        assert.equal(this.get('keyEventData.key'), 'J');
+        assert.strictEqual(this.get('keyEventData.key'), 'J');
       });
     });
 
     module('onKeyDown()', function () {
       test('is called when a keydown event is registered on the button', async function (assert) {
         await render(
-          hbs`{{#polaris-button onKeyDown=(action (mut keyEventData))}}Test{{/polaris-button}}`
+          hbs`{{#polaris-button onKeyDown=(action (mut keyEventData))}}Test{{/polaris-button}}`,
         );
         await triggerKeyEvent('button', 'keydown', 'J');
-        assert.equal(this.get('keyEventData.key'), 'J');
+        assert.strictEqual(this.get('keyEventData.key'), 'J');
       });
     });
   });

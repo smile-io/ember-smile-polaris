@@ -58,7 +58,7 @@ export default class PolarisResourceListFilterControlFilterCreator extends Compo
   @(and(
     'selectedFilter',
     'selectedFilterKey',
-    'selectedFilterValue'
+    'selectedFilterValue',
   ).readOnly())
   canAddFilter;
 

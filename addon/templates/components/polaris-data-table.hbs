@@ -1,5 +1,5 @@
 <div
-  class="{{if this.collapsed "Polaris-DataTable--collapsed"}} {{@class}}"
+  class="{{if this.collapsed 'Polaris-DataTable--collapsed'}} {{@class}}"
   {{did-insert this.insertDataTable}}
   {{did-update this.updateDataTable @footerContent @truncate @rows}}
   ...attributes
@@ -11,13 +11,16 @@
     @navigateTableLeft={{fn this.navigateTable "left"}}
     @navigateTableRight={{fn this.navigateTable "right"}}
   />
-  {{! template-lint-disable attribute-indentation }}
-  {{!-- TODO remove rule above once linter handles this correctly --}}
+  {{! TODO remove rule above once linter handles this correctly }}
   <div
-    class="Polaris-DataTable {{if this.collapsed "Polaris-DataTable--collapsed"}} {{if @footerContent "Polaris-DataTable--hasFooter"}}"
+    class="Polaris-DataTable
+      {{if this.collapsed 'Polaris-DataTable--collapsed'}}
+      {{if @footerContent 'Polaris-DataTable--hasFooter'}}"
   >
-    <div class="Polaris-DataTable__ScrollContainer" style={{scrollContainerStyle}}>
-      {{! template-lint-disable table-groups }}
+    <div
+      class="Polaris-DataTable__ScrollContainer"
+      style={{scrollContainerStyle}}
+    >
       <table class="Polaris-DataTable__Table">
         <thead>
           <tr>
@@ -28,7 +31,11 @@
                 @truncate={{@truncate}}
                 @heights={{this.heights}}
                 @sortable={{@sortable}}
-                @sortedColumnIndex={{or this.sortedColumnIndex @initialSortColumnIndex 0}}
+                @sortedColumnIndex={{or
+                  this.sortedColumnIndex
+                  @initialSortColumnIndex
+                  0
+                }}
                 @sortDirection={{this.sortDirection}}
                 @contentTypes={{@columnContentTypes}}
                 @defaultSortDirection={{@defaultSortDirection}}
