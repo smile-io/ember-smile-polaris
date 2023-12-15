@@ -49,13 +49,13 @@
         {{#if (has-block)}}
           {{yield (hash section=Section Section=Section)}}
         {{else}}
-          {{text}}
+          {{this.text}}
         {{/if}}
       </Section>
     {{else if (has-block)}}
       {{yield (hash section=Section Section=Section)}}
     {{else}}
-      {{text}}
+      {{this.text}}
     {{/if}}
   {{/let}}
 
