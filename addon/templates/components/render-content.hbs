@@ -1,7 +1,10 @@
-{{#if contentIsComponentHash}}
-  {{component-proxy componentName=content.componentName props=content.props}}
-{{else if contentIsComponentDefinition}}
-  {{component content}}
+{{#if this.contentIsComponentHash}}
+  {{component-proxy
+    componentName=this.content.componentName
+    props=this.content.props
+  }}
+{{else if this.contentIsComponentDefinition}}
+  {{component this.content}}
 {{else}}
   {{content}}
 {{/if}}
