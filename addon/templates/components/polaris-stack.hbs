@@ -8,6 +8,6 @@
   {{#if (has-block)}}
     {{yield (hash item=(component "polaris-stack/item"))}}
   {{else}}
-    {{text}}
+    {{this.text}}
   {{/if}}
 </div>

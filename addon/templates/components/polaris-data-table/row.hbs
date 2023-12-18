@@ -5,7 +5,7 @@
 >
   {{#each @row as |cellText cellIndex|}}
     <PolarisDataTable::Cell
-      @height={{get this.bodyCellHeights @index}}
+      @height={{get this.bodyCellHeights this.index}}
       @text={{cellText}}
       @contentType={{get @contentTypes cellIndex}}
       @fixed={{eq cellIndex 0}}

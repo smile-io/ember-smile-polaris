@@ -14,9 +14,12 @@
   <div
     data-test-progress-bar-indicator
     class="Polaris-ProgressBar__Indicator"
-    style={{progressStyle}}
+    style={{this.progressStyle}}
   >
-    <span data-test-progress-bar-indicator-label class="Polaris-ProgressBar__Label">
+    <span
+      data-test-progress-bar-indicator-label
+      class="Polaris-ProgressBar__Label"
+    >
       {{this.parsedProgress}}%
     </span>
   </div>

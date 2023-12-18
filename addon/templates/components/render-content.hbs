@@ -1,5 +1,8 @@
 {{#if this.contentIsComponentHash}}
-  {{component-proxy componentName=this.content.componentName props=this.content.props}}
+  {{component-proxy
+    componentName=this.content.componentName
+    props=this.content.props
+  }}
 {{else if this.contentIsComponentDefinition}}
   {{component this.content}}
 {{else}}

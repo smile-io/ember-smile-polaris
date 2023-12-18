@@ -1,9 +1,6 @@
 <span {{did-insert this.insertFilterValueSelector}}>
-  {{#if (eq @filter.type FilterType.Select)}}
-    <PolarisStack
-      @vertical={{true}}
-      as |stack|
-    >
+  {{#if (eq @filter.type this.FilterType.Select)}}
+    <PolarisStack @vertical={{true}} as |stack|>
       {{#if this.showOperatorOptions}}
         <stack.item>
           {{render-content this.operatorOptionsMarkup}}
@@ -18,11 +15,8 @@
         @onChange={{fn (or @onChange this.onChange)}}
       />
     </PolarisStack>
-  {{else if (eq @filter.type FilterType.TextField)}}
-    <PolarisStack
-      @vertical={{true}}
-      as |stack|
-    >
+  {{else if (eq @filter.type this.FilterType.TextField)}}
+    <PolarisStack @vertical={{true}} as |stack|>
       {{#if this.showOperatorOptions}}
         <stack.item>
           {{render-content this.operatorOptionsMarkup}}
@@ -35,7 +29,7 @@
         @onChange={{fn (or @onChange this.onChange)}}
       />
     </PolarisStack>
-  {{else if (eq @filter.type FilterType.DateSelector)}}
+  {{else if (eq @filter.type this.FilterType.DateSelector)}}
     <PolarisResourceList::FilterControl::DateSelector
       @dateOptionType={{@filter.dateOptionType}}
       @filterValue={{@value}}

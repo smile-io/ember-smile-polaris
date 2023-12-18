@@ -7,7 +7,7 @@
   @disabled={{this.disabled}}
   ...attributes
 >
-  <span class="Polaris-Checkbox {{if @error "Polaris-Checkbox--error"}}">
+  <span class="Polaris-Checkbox {{if @error 'Polaris-Checkbox--error'}}">
     <input
       data-test-checkbox-input
       data-test-checkbox-input-checked={{this.isChecked}}
@@ -26,7 +26,7 @@
       onchange={{this.handleChange}}
       onfocus={{this.onFocus}}
       onblur={{this.onBlur}}
-    >
+    />
 
     <span class="Polaris-Checkbox__Backdrop"></span>
 
