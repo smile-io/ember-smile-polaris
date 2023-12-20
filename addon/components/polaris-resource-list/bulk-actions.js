@@ -2,16 +2,20 @@ import Component from '@ember/component';
 import { action, computed } from '@ember/object';
 import { warn } from '@ember/debug';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
+import ContextBoundEventListenersMixin from 'ember-lifeline/mixins/dom';
+import ContextBoundTasksMixin from 'ember-lifeline/mixins/run';
 import layout from '../../templates/components/polaris-resource-list/bulk-actions';
 import deprecateClassArgument from '../../utils/deprecate-class-argument';
-import { throttleTask } from 'ember-lifeline';
 
 const MAX_PROMOTED_ACTIONS = 2;
 
 @deprecateClassArgument
 @tagName('')
 @templateLayout(layout)
-export default class PolarisResourceListBulkActions extends Component {
+export default class PolarisResourceListBulkActions extends Component.extend(
+  ContextBoundEventListenersMixin,
+  ContextBoundTasksMixin,
+) {
   /**
    * Visually hidden text for screen readers
    *
@@ -313,7 +317,15 @@ export default class PolarisResourceListBulkActions extends Component {
   }
 
   handleResize() {
-    throttleTask(this, 'setContainerWidth', 50);
+    this.throttleTask('setContainerWidth', 50);
+  }
+
+  addResizeEventListener() {
+    let { largeScreenGroupNode } = this;
+
+    if (largeScreenGroupNode) {
+      this.addEventListener(largeScreenGroupNode, 'resize', this.handleResize);
+    }
   }
 
   @action
@@ -337,9 +349,7 @@ export default class PolarisResourceListBulkActions extends Component {
       );
     }
 
-    if (largeScreenButtonsNode) {
-      largeScreenButtonsNode.addEventListener('resize', this.handleResize);
-    }
+    this.addResizeEventListener();
 
     if (promotedActions && !actionsCollection && moreActionsNode) {
       addedMoreActionsWidthForMeasuring =

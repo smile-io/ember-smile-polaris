@@ -4,6 +4,8 @@ import { action, get, computed } from '@ember/object';
 import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
+import ContextBoundEventListenersMixin from 'ember-lifeline/mixins/dom';
+import ContextBoundTasksMixin from 'ember-lifeline/mixins/run';
 import createContext from 'ember-context';
 import layout from '../templates/components/polaris-resource-list';
 import { computedIdVariation } from '@smile-io/ember-smile-polaris/utils/id';
@@ -28,7 +30,10 @@ const LARGE_SPINNER_HEIGHT = 45;
  */
 @tagName('')
 @templateLayout(layout)
-export default class PolarisResourceList extends Component {
+export default class PolarisResourceList extends Component.extend(
+  ContextBoundEventListenersMixin,
+  ContextBoundTasksMixin,
+) {
   /**
    * Item data; each item is passed to renderItem
    *
@@ -655,7 +660,7 @@ export default class PolarisResourceList extends Component {
 
   @action
   insertResourceList() {
-    window.addEventListener('resize', this.handleResize);
+    this.addEventListener(window, 'resize', this.handleResize);
 
     if (this.loading) {
       this.setLoadingPosition();

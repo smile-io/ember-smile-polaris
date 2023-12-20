@@ -6,10 +6,11 @@ import { scheduleOnce } from '@ember/runloop';
 import { assign } from '@ember/polyfills';
 import { isEqual } from '@ember/utils';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
+import ContextBoundEventListenersMixin from 'ember-lifeline/mixins/dom';
+import ContextBoundTasksMixin from 'ember-lifeline/mixins/run';
 import layout from '../templates/components/polaris-data-table';
 import { measureColumn, getPrevAndCurrentColumns } from '../utils/data-table';
 import deprecateClassArgument from '../utils/deprecate-class-argument';
-import { debounceTask } from 'ember-lifeline';
 
 function elementLookup(selector) {
   return computed('dataTableElement', function () {
@@ -24,7 +25,10 @@ function elementLookup(selector) {
 @deprecateClassArgument
 @tagName('')
 @templateLayout(layout)
-export default class PolarisDataTable extends Component.extend() {
+export default class PolarisDataTable extends Component.extend(
+  ContextBoundEventListenersMixin,
+  ContextBoundTasksMixin,
+) {
   /**
    * List of data types, which determines content alignment for each column.
    * Data types are "text," which aligns left, or "numeric," which aligns right.
@@ -271,12 +275,12 @@ export default class PolarisDataTable extends Component.extend() {
     };
   }
 
-  handleResize = () => {
+  handleResize() {
     // This is needed to replicate the React implementation's `@debounce` decorator.
-    debounceTask(this, 'debouncedHandleResize', 0);
-  };
+    this.debounceTask('debouncedHandleResize', 0);
+  }
 
-  debouncedHandleResize = () => {
+  debouncedHandleResize() {
     let { footerContent, truncate, table, scrollContainer } = this;
 
     let collapsed = false;
@@ -299,15 +303,15 @@ export default class PolarisDataTable extends Component.extend() {
     if (footerContent || !truncate) {
       scheduleOnce('afterRender', this, this.setHeightsAndScrollPosition);
     }
-  };
+  }
 
-  scrollListener = () => {
+  scrollListener() {
     if (this.isDestroying || this.isDestroyed) {
       return;
     }
 
     this.setProperties(this.calculateColumnVisibilityData(this.collapsed));
-  };
+  }
 
   tallestCellHeights() {
     let { footerContent, truncate, heights, table } = this;
@@ -332,8 +336,8 @@ export default class PolarisDataTable extends Component.extend() {
   }
 
   addEventHandlers() {
-    window.addEventListener('resize', this.handleResize);
-    window.addEventListener('scroll', this.scrollListener, {
+    this.addEventListener(window, 'resize', this.handleResize);
+    this.addEventListener(window, 'scroll', this.scrollListener, {
       capture: true,
     });
   }
