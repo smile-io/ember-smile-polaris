@@ -38,6 +38,7 @@
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
+    "preinstall": "npx only-allow pnpm",
     "prettier": "prettier --write '{addon,app,blueprints,config,lib,tests,mirage}/**/*.js' *.js",
     "prepare": "husky install",
     "start": "ember serve",
@@ -138,7 +139,7 @@
   },
   "volta": {
     "node": "16.20.2",
-    "yarn": "1.22.19"
+    "pnpm": "8.14.0"
   },
   "lintTodo": {
     "ember-template-lint": {
