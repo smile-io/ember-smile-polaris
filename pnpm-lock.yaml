@@ -18,8 +18,8 @@ dependencies:
     specifier: ^3.1.1
     version: 3.1.1
   "@marianoggf/ember-context":
-    specifier: marianoggf/ember-context#509fea3e74d093cbc1661648f727cb3802324880
-    version: github.com/marianoggf/ember-context/509fea3e74d093cbc1661648f727cb3802324880
+    specifier: marianoggf/ember-context#bbf0dfd9e38d3451b36a8d7a96df24a095cfded4
+    version: github.com/marianoggf/ember-context/bbf0dfd9e38d3451b36a8d7a96df24a095cfded4
   "@shopify/javascript-utilities":
     specifier: ^2.4.0
     version: 2.4.1
@@ -18206,10 +18206,10 @@ packages:
     engines: { node: ">=12.20" }
     dev: true
 
-  github.com/marianoggf/ember-context/509fea3e74d093cbc1661648f727cb3802324880:
+  github.com/marianoggf/ember-context/bbf0dfd9e38d3451b36a8d7a96df24a095cfded4:
     resolution:
       {
-        tarball: https://codeload.github.com/marianoggf/ember-context/tar.gz/509fea3e74d093cbc1661648f727cb3802324880,
+        tarball: https://codeload.github.com/marianoggf/ember-context/tar.gz/bbf0dfd9e38d3451b36a8d7a96df24a095cfded4,
       }
     name: ember-context
     version: 0.1.0
