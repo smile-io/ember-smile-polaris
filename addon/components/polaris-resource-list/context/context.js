@@ -45,6 +45,7 @@ export default function createContext(defaultValue) {
     },
   });
 
+  // eslint-disable-next-line ember/no-new-mixins
   const ConsumerMixin = Mixin.create({
     _providerInstance: computed(function () {
       return findProviderAncestorView(this, providerId);
