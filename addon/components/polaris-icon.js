@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { equal } from '@ember/object/computed';
 import { classify } from '@ember/string';
+import { tracked } from '@glimmer/tracking';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import layout from '../templates/components/polaris-icon';
 import SvgHandling from '../mixins/components/svg-handling';
@@ -72,7 +73,7 @@ export default class PolarisIcon extends Component.extend(SvgHandling) {
    *
    * @type {Boolean}
    */
-  _keepFills;
+  @tracked _keepFills;
 
   /**
    * Shopify removes all SVG fills from icons. In order to use this component
@@ -107,7 +108,7 @@ export default class PolarisIcon extends Component.extend(SvgHandling) {
   }
   set keepFills(value) {
     // Update the internal state instead of directly setting the computed property
-    this.set(this, '_keepFills', value);
+    this._keepFills = value;
   }
 
   /**
