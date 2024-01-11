@@ -10,5 +10,4 @@ import layout from '../../templates/components/polaris-resource-list/loading-ove
 export default class PolarisResourceListLoadingOverlay extends Component {
   loading = false;
   spinnerStyle = null;
-  spinnerSize = null;
 }

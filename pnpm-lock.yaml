@@ -14,6 +14,9 @@ dependencies:
   "@ember/render-modifiers":
     specifier: ^2.1.0
     version: 2.1.0(ember-source@3.28.8)
+  "@ember/string":
+    specifier: ^3.1.1
+    version: 3.1.1
   "@shopify/javascript-utilities":
     specifier: ^2.4.0
     version: 2.4.1
@@ -50,9 +53,6 @@ dependencies:
   ember-composable-helpers:
     specifier: ^5.0.0
     version: 5.0.0
-  ember-context:
-    specifier: ^0.1.0
-    version: 0.1.0
   ember-decorators:
     specifier: ^6.1.1
     version: 6.1.1
@@ -1958,6 +1958,18 @@ packages:
       ember-source: 3.28.8
     transitivePeerDependencies:
       - "@babel/core"
+      - supports-color
+    dev: false
+
+  /@ember/string@3.1.1:
+    resolution:
+      {
+        integrity: sha512-UbXJ+k3QOrYN4SRPHgXCqYIJ+yWWUg1+vr0H4DhdQPTy8LJfyqwZ2tc5uqpSSnEXE+/1KopHBE5J8GDagAg5cg==,
+      }
+    engines: { node: 12.* || 14.* || >= 16 }
+    dependencies:
+      ember-cli-babel: 7.26.11
+    transitivePeerDependencies:
       - supports-color
     dev: false
 
@@ -7489,21 +7501,6 @@ packages:
         integrity: sha512-k47TDwcJ2zPideBCZE8sCiShSxQSpebY2BHcX2DdipMmBox5gsfyVrbKJWIHeSTTKyEUgmBIvQkqTOozEziCZA==,
       }
 
-  /ember-cli-htmlbars@3.1.0:
-    resolution:
-      {
-        integrity: sha512-cgvRJM73IT0aePUG7oQ/afB7vSRBV3N0wu9BrWhHX2zkR7A7cUBI7KC9VPk6tbctCXoM7BRGsCC4aIjF7yrfXA==,
-      }
-    engines: { node: 6.* || 8.* || >= 10.* }
-    dependencies:
-      broccoli-persistent-filter: 2.3.1
-      hash-for-dep: 1.5.1
-      json-stable-stringify: 1.1.0
-      strip-bom: 3.0.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /ember-cli-htmlbars@5.7.2:
     resolution:
       {
@@ -8035,19 +8032,6 @@ packages:
       broccoli-funnel: 2.0.1
       ember-cli-babel: 7.26.11
       resolve: 1.22.8
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /ember-context@0.1.0:
-    resolution:
-      {
-        integrity: sha512-HrH3tUiVpFE/8pFbtFLoViVqhKD1gWUBYN1W367Eqt2pkLReOo01Cv45fAyX0Cs1U4dmguXTu7LEsgSGyZi0+g==,
-      }
-    engines: { node: 6.* || 8.* || >= 10.* }
-    dependencies:
-      ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 3.1.0
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -16492,6 +16476,7 @@ packages:
         integrity: sha512-vavAMRXOgBVNF6nyEEmL3DBK19iRpDcoIwW+swQ+CbGiu7lju6t+JklA1MHweoWtadgt4ISVUsXLyDq34ddcwA==,
       }
     engines: { node: ">=4" }
+    dev: true
 
   /strip-bom@4.0.0:
     resolution:

@@ -25,7 +25,7 @@ export default Component.extend({
     let { componentName, propsString } = this;
 
     return compile(`
-      {{#if hasBlock}}
+      {{#if (has-block)}}
         {{#component "${componentName}"${propsString}}}
           {{yield}}
         {{/component}}
@@ -63,7 +63,7 @@ export default Component.extend({
   propsString: computed('propNames.[]', function () {
     let propNames = this.propNames || [];
     return propNames.reduce((propsString, propName) => {
-      return `${propsString} ${propName}=${propName}`;
+      return `${propsString} ${propName}=this.${propName}`;
     }, '');
   }).readOnly(),
 

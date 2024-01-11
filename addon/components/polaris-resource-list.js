@@ -6,7 +6,7 @@ import { assert } from '@ember/debug';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import ContextBoundEventListenersMixin from 'ember-lifeline/mixins/dom';
 import ContextBoundTasksMixin from 'ember-lifeline/mixins/run';
-import createContext from 'ember-context';
+import createContext from './polaris-resource-list/context/context';
 import layout from '../templates/components/polaris-resource-list';
 import { computedIdVariation } from '@smile-io/ember-smile-polaris/utils/id';
 
@@ -439,11 +439,6 @@ export default class PolarisResourceList extends Component.extend(
     let defaultTopPadding = 8;
     let topPadding = loadingPosition > 0 ? loadingPosition : defaultTopPadding;
     return htmlSafe(`padding-top: ${topPadding}px`);
-  }
-
-  @(computed('items.length').readOnly())
-  get spinnerSize() {
-    return this.items.length < 2 ? 'small' : 'large';
   }
 
   @(computed(
