@@ -87,7 +87,7 @@ export default class PolarisIcon extends Component.extend(SvgHandling) {
   @computed('_keepFills', 'sourcePath', 'source')
   get keepFills() {
     // If the value was previously set manually return that value
-    if (this._keepFills) {
+    if (this._keepFills !== null && this._keepFills !== undefined) {
       return this._keepFills;
     }
 
