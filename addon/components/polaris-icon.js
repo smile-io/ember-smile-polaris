@@ -84,10 +84,10 @@ export default class PolarisIcon extends Component.extend(SvgHandling) {
    * @public
    * @extends emmber-polaris
    */
-  @computed('sourcePath', 'source')
+  @computed('_keepFills', 'sourcePath', 'source')
   get keepFills() {
     // If the value was previously set manually return that value
-    if (this._keepFills) {
+    if (this._keepFills !== null && this._keepFills !== undefined) {
       return this._keepFills;
     }
 
@@ -107,7 +107,7 @@ export default class PolarisIcon extends Component.extend(SvgHandling) {
   }
   set keepFills(value) {
     // Update the internal state instead of directly setting the computed property
-    this._keepFills = value;
+    this.set(this, '_keepFills', value);
   }
 
   /**
