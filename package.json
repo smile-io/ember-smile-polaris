@@ -55,7 +55,6 @@
     "@ember-decorators/component": "^6.0.1",
     "@ember/render-modifiers": "^2.1.0",
     "@ember/string": "^3.1.1",
-    "@marianoggf/ember-context": "marianoggf/ember-context#9ea86a4141cd2ee9bd06b7a3dc70eb6abd7ad820",
     "@shopify/javascript-utilities": "^2.4.0",
     "@shopify/polaris": "3.10.0",
     "@shopify/polaris-tokens": "^1.3.1",

@@ -6,7 +6,7 @@ import { assert } from '@ember/debug';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import ContextBoundEventListenersMixin from 'ember-lifeline/mixins/dom';
 import ContextBoundTasksMixin from 'ember-lifeline/mixins/run';
-import createContext from 'ember-context';
+import createContext from './polaris-resource-list/context/context';
 import layout from '../templates/components/polaris-resource-list';
 import { computedIdVariation } from '@smile-io/ember-smile-polaris/utils/id';
 
