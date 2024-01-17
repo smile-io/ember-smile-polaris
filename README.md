@@ -1,5 +1,5 @@
-ember-smile-polaris
-==============================================================================
+# ember-smile-polaris
+
 [![](https://github.com/smile-io/ember-smile-polaris/workflows/CI/badge.svg)](https://github.com/smile-io/ember-smile-polaris/actions)
 
 ![image](https://user-images.githubusercontent.com/5737342/26935493-c8c81c76-4c74-11e7-90dd-ff8b0fdc434e.png)
@@ -10,30 +10,26 @@ ember-smile-polaris
 
 **NOTE:** _this addon is still in development. As such, not all of the components available in the React component library have been built yet, and some features of those which have been built are currently unimplemented. Check the [component list](#components) for a list of those which are currently available._
 
+## Compatibility
 
-Compatibility
-------------------------------------------------------------------------------
+- Ember.js v3.24 or above
+- Ember CLI v3.24 or above
+- Node.js v12 or above
 
-* Ember.js v3.24 or above
-* Ember CLI v3.24 or above
-* Node.js v12 or above
-
-
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
 ember install @smile-io/ember-smile-polaris
 ```
 
-
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
+## Releasing
 
-License
-------------------------------------------------------------------------------
+See the [Release](RELEASE.md) guide for details.
+
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).
