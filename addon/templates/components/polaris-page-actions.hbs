@@ -5,17 +5,17 @@
   >
     {{#if this.showSecondaryActions}}
       <PolarisButtonGroup>
-        {{#each @secondaryActions as |secondaryAction|}}
-          {{#if (is-component-definition secondaryAction)}}
-            {{component secondaryAction}}
+        {{#each @secondaryActions as |SecondaryAction|}}
+          {{#if (is-component-definition SecondaryAction)}}
+            <SecondaryAction />
           {{else}}
             <PolarisButton
-              @text={{secondaryAction.text}}
-              @disabled={{secondaryAction.disabled}}
-              @loading={{secondaryAction.loading}}
-              @destructive={{secondaryAction.destructive}}
-              @icon={{secondaryAction.icon}}
-              @onClick={{secondaryAction.onAction}}
+              @text={{SecondaryAction.text}}
+              @disabled={{SecondaryAction.disabled}}
+              @loading={{SecondaryAction.loading}}
+              @destructive={{SecondaryAction.destructive}}
+              @icon={{SecondaryAction.icon}}
+              @onClick={{SecondaryAction.onAction}}
             />
           {{/if}}
         {{/each}}
