@@ -1,20 +1,18 @@
-<PolarisPopover
-  @sectioned={{true}}
-  @fullHeight={{true}}
-  as |popover|
->
-  {{#component (if @disabled
-    (component "wrapper-element" tagName="")
-    popover.activator
-  )}}
-    <PolarisButton
-      @dataTestId="filter-activator"
-      @text="Filter"
-      @disclosure={{true}}
-      @disabled={{@disabled}}
-      @onFocus={{fn this.handleButtonFocus}}
-    />
-  {{/component}}
+<PolarisPopover @sectioned={{true}} @fullHeight={{true}} as |popover|>
+  {{#let
+    (if @disabled (component "wrapper-element" tagName="") popover.activator)
+    as |Wrapper|
+  }}
+    <Wrapper>
+      <PolarisButton
+        @dataTestId="filter-activator"
+        @text="Filter"
+        @disclosure={{true}}
+        @disabled={{@disabled}}
+        @onFocus={{this.handleButtonFocus}}
+      />
+    </Wrapper>
+  {{/let}}
 
   <popover.content>
     <PolarisForm @onSubmit={{fn this.handleAddFilter popover}}>
@@ -24,7 +22,7 @@
           @label={{this.selectLabel}}
           @options={{this.filterOptions}}
           @value={{or this.selectedFilter.key ""}}
-          @onChange={{fn this.handleFilterKeyChange}}
+          @onChange={{this.handleFilterKeyChange}}
         />
 
         {{#if this.selectedFilter}}
@@ -33,8 +31,8 @@
               @filter={{this.selectedFilter}}
               @filterKey={{this.selectedFilterKey}}
               @value={{this.selectedFilterValue}}
-              @onFilterKeyChange={{fn this.handleFilterKeyChange}}
-              @onChange={{action (mut this.selectedFilterValue)}}
+              @onFilterKeyChange={{this.handleFilterKeyChange}}
+              @onChange={{fn (mut this.selectedFilterValue)}}
             />
           </formLayout.item>
 
