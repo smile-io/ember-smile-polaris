@@ -1,5 +1,4 @@
 import Component from '@ember/component';
-import { readOnly } from '@ember/object/computed';
 import { action, get, computed } from '@ember/object';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import layout from '../../templates/components/polaris-resource-list/item';
