@@ -26,20 +26,15 @@
     <ul data-test-choice-list-choices class="Polaris-ChoiceList__Choices">
       {{#each this.checkedChoices as |choice|}}
         <li data-test-choice-list-item>
-          {{#let
-            (component (or @controlComponent this.controlComponent))
-            as |Control|
-          }}
-            <Control
-              @label={{choice.label}}
-              @value={{choice.value}}
-              @helpText={{choice.helpText}}
-              @disabled={{choice.disabled}}
-              @checked={{choice.isSelected}}
-              @name={{this.finalName}}
-              @onChange={{fn this.updateSelectedChoices choice}}
-            />
-          {{/let}}
+          <this.controlComponent
+            @label={{choice.label}}
+            @value={{choice.value}}
+            @helpText={{choice.helpText}}
+            @disabled={{choice.disabled}}
+            @checked={{choice.isSelected}}
+            @name={{this.finalName}}
+            @onChange={{fn this.updateSelectedChoices choice}}
+          />
 
           {{#if
             (and
@@ -48,7 +43,7 @@
             )
           }}
             <div class="Polaris-ChoiceList__ChoiceChildren">
-              {{component choice.childComponent}}
+              <choice.childComponent />
             </div>
           {{/if}}
         </li>

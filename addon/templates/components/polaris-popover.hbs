@@ -9,8 +9,11 @@
 >
   {{yield
     (hash
-      activator=(component dd.Trigger style=this.triggerStyle)
-      content=(component "polaris-popover/content"
+      activator=(component
+        (ensure-safe-component dd.Trigger) style=this.triggerStyle
+      )
+      content=(component
+        "polaris-popover/content"
         contentComponent=dd.Content
         contentClass=@contentClass
         uniqueId=dd.uniqueId

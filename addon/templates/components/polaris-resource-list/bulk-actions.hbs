@@ -19,7 +19,9 @@
       <div class="Polaris-ResourceList-BulkActions__Popover">
         <PolarisPopover as |popover|>
           <popover.activator>
-            <PolarisResourceList::BulkActions::BulkActionButton @content="Actions" />
+            <PolarisResourceList::BulkActions::BulkActionButton
+              @content="Actions"
+            />
           </popover.activator>
 
           <popover.content>
@@ -42,7 +44,12 @@
     </button>
   </div>
 
-  {{#if (or @paginatedSelectAllAction (and @paginatedSelectAllText @paginatedSelectAllAction))}}
+  {{#if
+    (or
+      @paginatedSelectAllAction
+      (and @paginatedSelectAllText @paginatedSelectAllAction)
+    )
+  }}
     <div class="Polaris-ResourceList-BulkActions__PaginatedSelectAll">
       {{#if (and @paginatedSelectAllText @paginatedSelectAllAction)}}
         <span aria-live="polite">{{@paginatedSelectAllText}}</span>
@@ -63,14 +70,14 @@
 </div>
 
 <div
-  class="Polaris-ResourceList-BulkActions__Group
-    Polaris-ResourceList-BulkActions__Group--largeScreen
-    {{if this.measuring "Polaris-ResourceList-BulkActions__Group--measuring"}}
-    {{if @selectMode
-      "Polaris-ResourceList-BulkActions__Group--entered"
-      "Polaris-ResourceList-BulkActions__Group--exited"
+  class="Polaris-ResourceList-BulkActions__Group Polaris-ResourceList-BulkActions__Group--largeScreen
+    {{if this.measuring 'Polaris-ResourceList-BulkActions__Group--measuring'}}
+    {{if
+      @selectMode
+      'Polaris-ResourceList-BulkActions__Group--entered'
+      'Polaris-ResourceList-BulkActions__Group--exited'
     }}
-  "
+    "
 >
   <div class="Polaris-ResourceList-BulkActions__ButtonGroup">
     <PolarisResourceList::CheckableButton
@@ -94,15 +101,21 @@
     {{#if this.shouldRenderActionsPopover}}
       <div class="Polaris-ResourceList-BulkActions__Popover">
         <PolarisPopover as |popover|>
-          {{#component (if @disabled
-            (component "wrapper-element" tagName="")
-            popover.activator
-          )}}
-            <PolarisResourceList::BulkActions::BulkActionButton
-              @content={{this.activatorLabel}}
-              @disabled={{@disabled}}
-            />
-          {{/component}}
+          {{#let
+            (if
+              @disabled
+              (component "wrapper-element" tagName="")
+              popover.activator
+            )
+            as |Wrapper|
+          }}
+            <Wrapper>
+              <PolarisResourceList::BulkActions::BulkActionButton
+                @content={{this.activatorLabel}}
+                @disabled={{@disabled}}
+              />
+            </Wrapper>
+          {{/let}}
 
           <popover.content>
             <PolarisActionList
@@ -115,10 +128,12 @@
     {{/if}}
   </div>
 
-  {{#if (or
-    @paginatedSelectAllAction
-    (and @paginatedSelectAllText @paginatedSelectAllAction)
-  )}}
+  {{#if
+    (or
+      @paginatedSelectAllAction
+      (and @paginatedSelectAllText @paginatedSelectAllAction)
+    )
+  }}
     <div class="Polaris-ResourceList-BulkActions__PaginatedSelectAll">
       {{#if (and @paginatedSelectAllText @paginatedSelectAllAction)}}
         <span aria-live="polite">{{@paginatedSelectAllText}}</span>

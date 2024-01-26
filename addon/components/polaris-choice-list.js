@@ -3,10 +3,13 @@ import { get, action, computed } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { isEmpty } from '@ember/utils';
 import ObjectProxy from '@ember/object/proxy';
+import { ensureSafeComponent } from '@embroider/util';
 import { tagName, layout } from '@ember-decorators/component';
 import { errorId } from '../utils/id';
 import template from '../templates/components/polaris-choice-list';
 import deprecateClassArgument from '../utils/deprecate-class-argument';
+import PolarisCheckbox from './polaris-checkbox';
+import PolarisRadioButton from './polaris-radio-button';
 
 // Wrapper class to add an `isSelected` flag to the supplied choices.
 class CheckedChoice extends ObjectProxy {
@@ -130,7 +133,9 @@ export default class PolarisChoiceList extends Component {
    */
   @computed('allowMultiple')
   get controlComponent() {
-    return this.allowMultiple ? 'polaris-checkbox' : 'polaris-radio-button';
+    return this.allowMultiple
+      ? ensureSafeComponent(PolarisCheckbox, this)
+      : ensureSafeComponent(PolarisRadioButton, this);
   }
 
   @computed('name', 'allowMultiple')
