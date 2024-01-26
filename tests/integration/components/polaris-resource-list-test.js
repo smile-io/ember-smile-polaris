@@ -4,6 +4,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, click, find, triggerEvent } from '@ember/test-helpers';
 import Component from '@glimmer/component';
 import { setComponentTemplate } from '@ember/component';
+import templateOnly from '@ember/component/template-only';
 import BulkActionsComponent from '@smile-io/ember-smile-polaris/components/polaris-resource-list/bulk-actions';
 import SelectComponent from '@smile-io/ember-smile-polaris/components/polaris-select';
 import { setUpAttributeCaptureOnComponent } from '../../helpers/component-attribute-capture';
@@ -57,11 +58,11 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
       idForItem,
     });
 
-    class ShallowItemComponent extends Component {}
+    const ShallowItemComponent = templateOnly();
     setComponentTemplate(hbs`{{@item}}`, ShallowItemComponent);
     this.shallowItemComponent = ShallowItemComponent;
 
-    class CustomMarkupComponent extends Component {}
+    const CustomMarkupComponent = templateOnly();
     setComponentTemplate(hbs`<p>{{@item.title}}</p>`, CustomMarkupComponent);
     this.customMarkupComponent = CustomMarkupComponent;
 
