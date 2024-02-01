@@ -1,9 +1,7 @@
 import Component from '@ember/component';
-import { readOnly } from '@ember/object/computed';
 import { action, get, computed } from '@ember/object';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import layout from '../../templates/components/polaris-resource-list/item';
-import { context } from '@smile-io/ember-smile-polaris/components/polaris-resource-list';
 import { computedIdVariation } from '@smile-io/ember-smile-polaris/utils/id';
 import { SELECT_ALL_ITEMS } from '../polaris-resource-list';
 import deprecateClassArgument from '../../utils/deprecate-class-argument';
@@ -11,9 +9,7 @@ import deprecateClassArgument from '../../utils/deprecate-class-argument';
 @deprecateClassArgument
 @tagName('')
 @templateLayout(layout)
-export default class PolarisResourceListItem extends Component.extend(
-  context.ConsumerMixin,
-) {
+export default class PolarisResourceListItem extends Component {
   /**
    * Unique identifier for the item
    *
@@ -106,14 +102,17 @@ export default class PolarisResourceListItem extends Component.extend(
 
   stopPropagation = stopPropagation;
 
-  @readOnly('context.selectable')
-  selectable;
+  get selectable() {
+    return this.context.selectable;
+  }
 
-  @readOnly('context.selectMode')
-  selectMode;
+  get selectMode() {
+    return this.context.selectMode;
+  }
 
-  @readOnly('context.loading')
-  loading;
+  get loading() {
+    return this.context.loading;
+  }
 
   @(computedIdVariation('itemId', 'ResourceListItemCheckbox').readOnly())
   checkboxId;

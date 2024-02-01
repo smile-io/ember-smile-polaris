@@ -2,14 +2,12 @@ import Component from '@ember/component';
 import { action, get, computed } from '@ember/object';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import layout from '../../templates/components/polaris-resource-list/filter-control';
-import { context } from '@smile-io/ember-smile-polaris/components/polaris-resource-list';
+
 import { FilterType } from '@smile-io/ember-smile-polaris/components/polaris-resource-list/filter-control/filter-value-selector';
 
 @tagName('')
 @templateLayout(layout)
-export default class PolarisResourceListFilterControl extends Component.extend(
-  context.ConsumerMixin,
-) {
+export default class PolarisResourceListFilterControl extends Component {
   /**
    * @type {String}
    * @default null
