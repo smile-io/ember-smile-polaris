@@ -2,8 +2,9 @@ import { hbs } from 'ember-cli-htmlbars';
 import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click, find, triggerEvent } from '@ember/test-helpers';
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
+import { setComponentTemplate } from '@ember/component';
+import templateOnly from '@ember/component/template-only';
 import BulkActionsComponent from '@smile-io/ember-smile-polaris/components/polaris-resource-list/bulk-actions';
 import SelectComponent from '@smile-io/ember-smile-polaris/components/polaris-select';
 import { setUpAttributeCaptureOnComponent } from '../../helpers/component-attribute-capture';
@@ -42,34 +43,6 @@ function idForItem(item) {
   return JSON.stringify(item);
 }
 
-const ShallowItemComponent = Component.extend({
-  tagName: '',
-  layout: hbs`{{item}}`,
-});
-
-const CustomMarkupComponent = Component.extend({
-  tagName: 'p',
-  layout: hbs`{{item.title}}`,
-});
-
-const ItemComponent = Component.extend({
-  tagName: '',
-  layout: hbs`
-    {{#polaris-resource-list/item
-      url=item.url
-      accessibilityLabel=accessibilityLabel
-      itemId=itemId
-    }}
-      <div>Item {{itemId}}</div>
-      <div>{{item.title}}</div>
-    {{/polaris-resource-list/item}}
-  `,
-
-  accessibilityLabel: computed('item.title', function () {
-    return `View details for ${this.get('item.title')}`;
-  }).readOnly(),
-});
-
 module('Integration | Component | polaris-resource-list', function (hooks) {
   setupRenderingTest(hooks);
 
@@ -85,15 +58,34 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
       idForItem,
     });
 
-    this.owner.register(
-      'component:shallow-item-component',
-      ShallowItemComponent,
+    const ShallowItemComponent = templateOnly();
+    setComponentTemplate(hbs`{{@item}}`, ShallowItemComponent);
+    this.shallowItemComponent = ShallowItemComponent;
+
+    const CustomMarkupComponent = templateOnly();
+    setComponentTemplate(hbs`<p>{{@item.title}}</p>`, CustomMarkupComponent);
+    this.customMarkupComponent = CustomMarkupComponent;
+
+    class ItemComponent extends Component {
+      get accessibilityLabel() {
+        return `View details for ${this.args.item.title}`;
+      }
+    }
+    setComponentTemplate(
+      hbs`
+      <PolarisResourceList::Item
+        @context={{@context}}
+        @url={{@item.url}}
+        @accessibilityLabel={{this.accessibilityLabel}}
+        @itemId={{@itemId}}
+      >
+        <div>Item {{@itemId}}</div>
+        <div>{{@item.title}}</div>
+      </PolarisResourceList::Item>
+    `,
+      ItemComponent,
     );
-    this.owner.register(
-      'component:custom-markup-component',
-      CustomMarkupComponent,
-    );
-    this.owner.register('component:item-component', ItemComponent);
+    this.itemComponent = ItemComponent;
   });
 
   module('itemComponent', function () {
@@ -101,7 +93,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
       await render(hbs`
         {{polaris-resource-list
           items=itemsWithID
-          itemComponent="shallow-item-component"
+          itemComponent=this.shallowItemComponent
         }}
       `);
       assert.dom('li').exists({ count: 3 });
@@ -111,7 +103,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
       await render(hbs`
         {{polaris-resource-list
           items=itemsWithID
-          itemComponent="custom-markup-component"
+          itemComponent=this.customMarkupComponent
         }}
       `);
       assert.dom('li:first-of-type > p').hasText('title 1');
@@ -121,7 +113,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
   module('Selectable', function () {
     test('does not render bulk actions if the promotedBulkActions and the bulkActions props are not provided', async function (assert) {
       await render(hbs`
-        {{polaris-resource-list items=itemsWithID itemComponent="item-component"}}
+        {{polaris-resource-list items=itemsWithID itemComponent=this.itemComponent}}
       `);
       assert.dom('[data-test-bulk-actions]').doesNotExist();
     });
@@ -130,7 +122,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
       await render(hbs`
         {{polaris-resource-list
           items=itemsWithID
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
           promotedBulkActions=promotedBulkActions
         }}
       `);
@@ -141,7 +133,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
       await render(hbs`
         {{polaris-resource-list
           items=itemsWithID
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
           bulkActions=bulkActions
         }}
       `);
@@ -166,7 +158,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         await render(hbs`
         {{polaris-resource-list
           items=itemsNoID
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
           bulkActions=bulkActions
         }}
       `);
@@ -178,7 +170,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         {{polaris-resource-list
           items=itemsNoID
           hasMoreItems=true
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
           bulkActions=bulkActions
         }}
       `);
@@ -194,7 +186,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
           {{polaris-resource-list
             showHeader=true
             items=singleItemNoID
-            itemComponent="item-component"
+            itemComponent=this.itemComponent
           }}
         `);
         assert
@@ -206,7 +198,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         await render(hbs`
           {{polaris-resource-list
             items=singleItemNoID
-            itemComponent="item-component"
+            itemComponent=this.itemComponent
             resourceName=(hash singular="product" plural="products")
             showHeader=true
           }}
@@ -220,7 +212,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
     module('resoureName.plural', function () {
       test('renders default plural resource name when resourceName isn’t provided', async function (assert) {
         await render(hbs`
-          {{polaris-resource-list items=itemsNoID itemComponent="item-component" showHeader=true}}
+          {{polaris-resource-list items=itemsNoID itemComponent=this.itemComponent showHeader=true}}
         `);
         assert
           .dom('[data-test-id="header-title-wrapper"]')
@@ -231,7 +223,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         await render(hbs`
           {{polaris-resource-list
             items=itemsNoID
-            itemComponent="item-component"
+            itemComponent=this.itemComponent
             resourceName=(hash singular="product" plural="products")
             showHeader=true
           }}
@@ -248,7 +240,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
       await render(hbs`
         {{polaris-resource-list
           items=singleItemWithID
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
           bulkActions=bulkActions
           loading=true
         }}
@@ -277,7 +269,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         await render(hbs`
         {{polaris-resource-list
           items=singleItemWithID
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
           bulkActions=bulkActions
         }}
       `);
@@ -288,7 +280,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         await render(hbs`
         {{polaris-resource-list
           items=singleItemWithID
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
           bulkActions=bulkActions
           selectedItems=(array "1")
         }}
@@ -300,7 +292,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         await render(hbs`
         {{polaris-resource-list
           items=itemsWithID
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
           bulkActions=bulkActions
           selectedItems=(array "5" "6" "7")
         }}
@@ -315,7 +307,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         await render(hbs`
         {{polaris-resource-list
           items=itemsWithID
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
           bulkActions=bulkActions
         }}
       `);
@@ -330,14 +322,14 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
   module('idForItem()', function () {
     test('generates a key using the index if there’s no idForItem prop and no ID in data', async function (assert) {
       await render(hbs`
-        {{polaris-resource-list items=itemsNoID itemComponent="shallow-item-component"}}
+        {{polaris-resource-list items=itemsNoID itemComponent=this.shallowItemComponent}}
       `);
       assert.dom('li:first-of-type').hasAttribute('data-test-item-id', '0');
     });
 
     test('generates a key using the ID if there’s no idForItem prop but there and ID key in the data', async function (assert) {
       await render(hbs`
-        {{polaris-resource-list items=itemsWithID itemComponent="shallow-item-component"}}
+        {{polaris-resource-list items=itemsWithID itemComponent=this.shallowItemComponent}}
       `);
       assert.dom('li:first-of-type').hasAttribute('data-test-item-id', '5');
     });
@@ -347,7 +339,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         {{polaris-resource-list
           idForItem=(action idForItem)
           items=itemsWithID
-          itemComponent="shallow-item-component"
+          itemComponent=this.shallowItemComponent
         }}
       `);
       assert
@@ -363,7 +355,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
           items=itemsWithID
           selectedItems=(array)
           promotedBulkActions=promotedBulkActions
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
           onSelectionChange=(action (mut wasOnSelectionChangeCalled) true)
         }}
       `);
@@ -377,14 +369,14 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
   module('header markup', function () {
     test('renders header markup if the list isn’t selectable but the showHeader prop is true', async function (assert) {
       await render(hbs`
-        {{polaris-resource-list showHeader=true items=itemsWithID itemComponent="item-component"}}
+        {{polaris-resource-list showHeader=true items=itemsWithID itemComponent=this.itemComponent}}
       `);
       assert.dom('[data-test-id="resource-list-header"]').exists();
     });
 
     test('does not render when items is empty', async function (assert) {
       await render(hbs`
-        {{polaris-resource-list items=(array) itemComponent="item-component"}}
+        {{polaris-resource-list items=(array) itemComponent=this.itemComponent}}
       `);
       assert.dom('[data-test-id="resource-list-header"]').doesNotExist();
     });
@@ -394,7 +386,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         {{polaris-resource-list
           sortOptions=sortOptions
           items=itemsWithID
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
         }}
       `);
       assert.dom('[data-test-id="resource-list-header"]').exists();
@@ -405,7 +397,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         {{polaris-resource-list
           alternateTool=(component "wrapper-element" class="AlternateTool")
           items=itemsWithID
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
         }}
       `);
       assert.dom('[data-test-id="resource-list-header"]').exists();
@@ -416,7 +408,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         {{polaris-resource-list
           bulkActions=bulkActions
           items=itemsWithID
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
         }}
       `);
       assert.dom('[data-test-id="resource-list-header"]').exists();
@@ -427,7 +419,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         {{polaris-resource-list
           promotedBulkActions=promotedBulkActions
           items=itemsWithID
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
         }}
       `);
       assert.dom('[data-test-id="resource-list-header"]').exists();
@@ -435,7 +427,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
 
     test('does not render when sort options, bulkActions and promotedBulkActions are not given', async function (assert) {
       await render(hbs`
-        {{polaris-resource-list items=itemsWithID itemComponent="item-component"}}
+        {{polaris-resource-list items=itemsWithID itemComponent=this.itemComponent}}
       `);
       assert.dom('[data-test-id="resource-list-header"]').doesNotExist();
     });
@@ -446,7 +438,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         {{polaris-resource-list
           bulkActions=bulkActions
           items=items
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
         }}
       `);
       assert.dom('[data-test-id="resource-list-header"]').doesNotExist();
@@ -461,7 +453,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
       await render(hbs`
         {{polaris-resource-list
           items=itemsNoID
-          itemComponent="shallow-item-component"
+          itemComponent=this.shallowItemComponent
           filterControl=(component "wrapper-element" id="test123")
         }}
       `);
@@ -477,7 +469,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
       await render(hbs`
         {{polaris-resource-list
           items=(array)
-          itemComponent="shallow-item-component"
+          itemComponent=this.shallowItemComponent
           filterControl="wrapper-element"
         }}
       `);
@@ -486,7 +478,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
 
     test('does not render when filterControl does not exist', async function (assert) {
       await render(hbs`
-        {{polaris-resource-list items=(array) itemComponent="shallow-item-component"}}
+        {{polaris-resource-list items=(array) itemComponent=this.shallowItemComponent}}
       `);
       assert.dom('.Polaris-EmptySearchResult').doesNotExist();
     });
@@ -495,7 +487,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
       await render(hbs`
         {{polaris-resource-list
           items=itemsNoID
-          itemComponent="shallow-item-component"
+          itemComponent=this.shallowItemComponent
           filterControl=(component "wrapper-element" id="test123")
         }}
       `);
@@ -506,7 +498,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
       await render(hbs`
         {{polaris-resource-list
           items=(array)
-          itemComponent="shallow-item-component"
+          itemComponent=this.shallowItemComponent
           filterControl=(component "wrapper-element")
         }}
       `);
@@ -517,7 +509,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
   module('Sorting', function () {
     test('does not render a sort select if sortOptions aren’t provided', async function (assert) {
       await render(hbs`
-        {{polaris-resource-list items=itemsWithID itemComponent="item-component"}}
+        {{polaris-resource-list items=itemsWithID itemComponent=this.itemComponent}}
       `);
       assert.dom('.Polaris-Select').doesNotExist();
     });
@@ -527,7 +519,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         {{polaris-resource-list
           items=itemsWithID
           sortOptions=sortOptions
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
         }}
       `);
       assert.dom('.Polaris-Select').exists();
@@ -538,7 +530,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         {{polaris-resource-list
           items=itemsWithID
           sortOptions=sortOptions
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
           alternateTool=(component "wrapper-element" class="AlternateTool")
         }}
       `);
@@ -550,7 +542,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         await render(hbs`
           {{polaris-resource-list
             items=itemsWithID
-            itemComponent="item-component"
+            itemComponent=this.itemComponent
           }}
         `);
         assert.dom('.AlternateTool').doesNotExist();
@@ -560,7 +552,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         await render(hbs`
           {{polaris-resource-list
             items=itemsWithID
-            itemComponent="item-component"
+            itemComponent=this.itemComponent
             alternateTool=(component "wrapper-element" class="AlternateTool")
           }}
         `);
@@ -571,7 +563,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         await render(hbs`
           {{polaris-resource-list
             items=itemsWithID
-            itemComponent="item-component"
+            itemComponent=this.itemComponent
             sortOptions=sortOptions
             alternateTool=(component "wrapper-element" class="AlternateTool")
           }}
@@ -598,7 +590,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
           {{polaris-resource-list
             items=itemsWithID
             sortOptions=sortOptions
-            itemComponent="item-component"
+            itemComponent=this.itemComponent
           }}
         `);
           assert.deepEqual(this.get('options'), sortOptions);
@@ -626,7 +618,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
             sortOptions=sortOptions
             sortValue="sortValue"
             onSortChange=(action (mut dummy))
-            itemComponent="item-component"
+            itemComponent=this.itemComponent
           }}
         `);
           assert.strictEqual(this.get('value'), 'sortValue');
@@ -641,7 +633,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
             items=itemsWithID
             onSortChange=(action (mut sortChangeParam))
             sortOptions=sortOptions
-            itemComponent="item-component"
+            itemComponent=this.itemComponent
           }}
         `);
         find('.Polaris-Select select').value = 'PRODUCT_TITLE_DESC';
@@ -657,7 +649,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         {{polaris-resource-list
           items=itemsWithID
           sortOptions=sortOptions
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
           loading=true
         }}
       `);
@@ -672,7 +664,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
         {{polaris-resource-list
           items=(array)
           sortOptions=sortOptions
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
           loading=true
         }}
       `);
@@ -686,7 +678,7 @@ module('Integration | Component | polaris-resource-list', function (hooks) {
       await render(hbs`
         {{polaris-resource-list
           items=singleItemWithID
-          itemComponent="item-component"
+          itemComponent=this.itemComponent
           bulkActions=bulkActions
           selectedItems=(array "1")
         }}

@@ -1,5 +1,15 @@
 # Changelog
 
+## v4.0.0 (2024-02-01)
+
+#### :boom: Breaking Change
+
+- [#73](https://github.com/smile-io/ember-smile-polaris/pull/73) Remove ember context ([@vladucu](https://github.com/vladucu))
+
+#### Committers: 1
+
+- vladucu ([@vladucu](https://github.com/vladucu))
+
 ## v3.0.0-alpha.0 (2024-01-17)
 
 ## [v6.2.2](https://github.com/smile-io/ember-polaris/tree/v6.2.1) (December 16, 2020)

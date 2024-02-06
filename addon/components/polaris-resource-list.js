@@ -6,19 +6,10 @@ import { assert } from '@ember/debug';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import ContextBoundEventListenersMixin from 'ember-lifeline/mixins/dom';
 import ContextBoundTasksMixin from 'ember-lifeline/mixins/run';
-import createContext from './polaris-resource-list/context/context';
 import layout from '../templates/components/polaris-resource-list';
 import { computedIdVariation } from '@smile-io/ember-smile-polaris/utils/id';
 
 export const SELECT_ALL_ITEMS = 'All';
-
-export const context = createContext({
-  selectMode: false,
-  resourceName: {
-    singular: 'item',
-    plural: 'items',
-  },
-});
 
 const SMALL_SCREEN_WIDTH = 458;
 const SMALL_SPINNER_HEIGHT = 28;
@@ -452,11 +443,15 @@ export default class PolarisResourceList extends Component.extend(
   get context() {
     let { selectedItems, resourceName, loading, selectMode, selectable } = this;
     resourceName = resourceName || this.defaultResourceName;
+
     return {
       selectable,
       selectedItems,
-      selectMode,
-      resourceName,
+      selectMode: selectMode || false,
+      resourceName: resourceName || {
+        singular: 'item',
+        plural: 'items',
+      },
       loading,
       onSelectionChange: (...args) => {
         return this.handleSelectionChange(...args);

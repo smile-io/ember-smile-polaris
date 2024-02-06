@@ -96,9 +96,7 @@ module(
     module('searchValue', function () {
       test('renders with TextField by default', async function (assert) {
         await render(hbs`
-          {{#polaris-resource-list/provider value=mockDefaultContext}}
-            {{polaris-resource-list/filter-control}}
-          {{/polaris-resource-list/provider}}
+          {{polaris-resource-list/filter-control context=mockDefaultContext}}
         `);
 
         assert.dom('.Polaris-TextField').exists();
@@ -108,11 +106,10 @@ module(
         const searchValue = 'search value';
         this.set('searchValue', searchValue);
         await render(hbs`
-          {{#polaris-resource-list/provider value=mockDefaultContext}}
-            {{polaris-resource-list/filter-control
-              searchValue=searchValue
-            }}
-          {{/polaris-resource-list/provider}}
+          {{polaris-resource-list/filter-control
+            context=mockDefaultContext
+            searchValue=searchValue
+          }}
         `);
 
         assert.dom('.Polaris-TextField input').hasValue(searchValue);
@@ -129,11 +126,10 @@ module(
       function () {
         test('renders the same number of Tag as appliedFilters', async function (assert) {
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
               {{polaris-resource-list/filter-control
+                context=mockDefaultContext
                 appliedFilters=mockAppliedFilters
               }}
-            {{/polaris-resource-list/provider}}
           `);
 
           assert
@@ -143,12 +139,11 @@ module(
 
         test('calls onFiltersChange without the applied filter when user clicks remove on the appliedFilter', async function (assert) {
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
               {{polaris-resource-list/filter-control
+                context=mockDefaultContext
                 appliedFilters=mockAppliedFilters
                 onFiltersChange=(action (mut newAppliedFilters))
               }}
-            {{/polaris-resource-list/provider}}
           `);
 
           await click('[data-test-tag-button]');
@@ -181,12 +176,11 @@ module(
             appliedFilters: [appliedFilters],
           });
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
-              {{polaris-resource-list/filter-control
-                filters=filter
-                appliedFilters=appliedFilters
-              }}
-            {{/polaris-resource-list/provider}}
+            {{polaris-resource-list/filter-control
+              context=mockDefaultContext
+              filters=filter
+              appliedFilters=appliedFilters
+            }}
           `);
 
           assert
@@ -214,12 +208,11 @@ module(
             appliedFilters: [appliedFilters],
           });
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
-              {{polaris-resource-list/filter-control
-                filters=filter
-                appliedFilters=appliedFilters
-              }}
-            {{/polaris-resource-list/provider}}
+            {{polaris-resource-list/filter-control
+              context=mockDefaultContext
+              filters=filter
+              appliedFilters=appliedFilters
+            }}
           `);
 
           assert
@@ -250,12 +243,11 @@ module(
             appliedFilters: [appliedFilters],
           });
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
-              {{polaris-resource-list/filter-control
-                filters=filter
-                appliedFilters=appliedFilters
-              }}
-            {{/polaris-resource-list/provider}}
+            {{polaris-resource-list/filter-control
+              context=mockDefaultContext
+              filters=filter
+              appliedFilters=appliedFilters
+            }}
           `);
 
           assert
@@ -281,12 +273,11 @@ module(
             appliedFilters: [appliedFilters],
           });
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
-              {{polaris-resource-list/filter-control
-                filters=filter
-                appliedFilters=appliedFilters
-              }}
-            {{/polaris-resource-list/provider}}
+            {{polaris-resource-list/filter-control
+              context=mockDefaultContext
+              filters=filter
+              appliedFilters=appliedFilters
+            }}
           `);
 
           assert
@@ -313,12 +304,11 @@ module(
             appliedFilters: [appliedFilters],
           });
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
-              {{polaris-resource-list/filter-control
-                filters=filter
-                appliedFilters=appliedFilters
-              }}
-            {{/polaris-resource-list/provider}}
+            {{polaris-resource-list/filter-control
+              context=mockDefaultContext
+              filters=filter
+              appliedFilters=appliedFilters
+            }}
           `);
 
           assert
@@ -348,12 +338,11 @@ module(
             appliedFilters: [appliedFilters],
           });
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
-              {{polaris-resource-list/filter-control
-                filters=filter
-                appliedFilters=appliedFilters
-              }}
-            {{/polaris-resource-list/provider}}
+            {{polaris-resource-list/filter-control
+              context=mockDefaultContext
+              filters=filter
+              appliedFilters=appliedFilters
+            }}
           `);
 
           const expectedLocalizedLabel = 'in the last week';
@@ -384,12 +373,11 @@ module(
             appliedFilters: [appliedFilters],
           });
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
-              {{polaris-resource-list/filter-control
-                filters=filter
-                appliedFilters=appliedFilters
-              }}
-            {{/polaris-resource-list/provider}}
+            {{polaris-resource-list/filter-control
+              context=mockDefaultContext
+              filters=filter
+              appliedFilters=appliedFilters
+            }}
           `);
 
           const expectedLocalizedLabel = `after ${new Date(
@@ -420,12 +408,11 @@ module(
             appliedFilters: [appliedFilters],
           });
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
-              {{polaris-resource-list/filter-control
-                filters=filter
-                appliedFilters=appliedFilters
-              }}
-            {{/polaris-resource-list/provider}}
+            {{polaris-resource-list/filter-control
+              context=mockDefaultContext
+              filters=filter
+              appliedFilters=appliedFilters
+            }}
           `);
 
           const expectedLocalizedLabel = `before ${new Date(
@@ -456,12 +443,11 @@ module(
             appliedFilters: [appliedFilters],
           });
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
-              {{polaris-resource-list/filter-control
-                filters=filter
-                appliedFilters=appliedFilters
-              }}
-            {{/polaris-resource-list/provider}}
+            {{polaris-resource-list/filter-control
+              context=mockDefaultContext
+              filters=filter
+              appliedFilters=appliedFilters
+            }}
           `);
 
           const expectedLocalizedLabel = `before ${selectedDate}`;
@@ -502,12 +488,11 @@ module(
             appliedFilters: [appliedFilters],
           });
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
-              {{polaris-resource-list/filter-control
-                filters=filter
-                appliedFilters=appliedFilters
-              }}
-            {{/polaris-resource-list/provider}}
+            {{polaris-resource-list/filter-control
+              context=mockDefaultContext
+              filters=filter
+              appliedFilters=appliedFilters
+            }}
           `);
 
           assert
@@ -546,12 +531,11 @@ module(
             appliedFilters: [appliedFilters],
           });
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
-              {{polaris-resource-list/filter-control
-                filters=filter
-                appliedFilters=appliedFilters
-              }}
-            {{/polaris-resource-list/provider}}
+            {{polaris-resource-list/filter-control
+              context=mockDefaultContext
+              filters=filter
+              appliedFilters=appliedFilters
+            }}
           `);
 
           assert
@@ -569,12 +553,11 @@ module(
           };
           this.set('appliedFilters', [appliedFilters]);
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
-              {{polaris-resource-list/filter-control
-                filters=(array)
-                appliedFilters=appliedFilters
-              }}
-            {{/polaris-resource-list/provider}}
+            {{polaris-resource-list/filter-control
+              context=mockDefaultContext
+              filters=(array)
+              appliedFilters=appliedFilters
+            }}
           `);
 
           assert.dom('.Polaris-Tag').hasText(appliedFilterValue);
@@ -588,12 +571,11 @@ module(
           };
           this.set('appliedFilters', [appliedFilters]);
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
-              {{polaris-resource-list/filter-control
-                filters=(array)
-                appliedFilters=appliedFilters
-              }}
-            {{/polaris-resource-list/provider}}
+            {{polaris-resource-list/filter-control
+              context=mockDefaultContext
+              filters=(array)
+              appliedFilters=appliedFilters
+            }}
           `);
           assert.dom('ul').exists({ count: 1 });
           assert.dom('li').exists({ count: 1 });
@@ -604,9 +586,7 @@ module(
     module('additionalAction', function () {
       test('renders no connectedRight prop on TextField if there is no additionalAction', async function (assert) {
         await render(hbs`
-          {{#polaris-resource-list/provider value=mockDefaultContext}}
-            {{polaris-resource-list/filter-control}}
-          {{/polaris-resource-list/provider}}
+          {{polaris-resource-list/filter-control context=mockDefaultContext}}
         `);
 
         assert.dom('[data-test-connected-item="right"]').doesNotExist();
@@ -614,14 +594,13 @@ module(
 
       test('renders Button if there is additionalAction', async function (assert) {
         await render(hbs`
-          {{#polaris-resource-list/provider value=mockDefaultContext}}
-            {{polaris-resource-list/filter-control
-              additionalAction=(hash
-                text="button label"
-                onAction=(action (mut wasAdditionalActionClicked) true)
-              )
-            }}
-          {{/polaris-resource-list/provider}}
+          {{polaris-resource-list/filter-control
+            context=mockDefaultContext
+            additionalAction=(hash
+              text="button label"
+              onAction=(action (mut wasAdditionalActionClicked) true)
+            )
+          }}
         `);
 
         assert.dom('.Polaris-Button').exists();
@@ -634,11 +613,10 @@ module(
     module('focused', () => {
       test('passes its value to focus of TextField', async function (assert) {
         await render(hbs`
-          {{#polaris-resource-list/provider value=mockDefaultContext}}
-            {{polaris-resource-list/filter-control
-              focused=true
-            }}
-          {{/polaris-resource-list/provider}}
+          {{polaris-resource-list/filter-control
+            context=mockDefaultContext
+            focused=true
+          }}
         `);
 
         // Using qunit-dom's `isFocused` assertion on the text field's input
@@ -660,9 +638,7 @@ module(
       function () {
         test('renders no <FilterCreator/> if there are no filters', async function (assert) {
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
-              {{polaris-resource-list/filter-control}}
-            {{/polaris-resource-list/provider}}
+            {{polaris-resource-list/filter-control context=mockDefaultContext}}
           `);
 
           assert.dom('[data-test-connected-item="left"]').doesNotExist();
@@ -670,11 +646,10 @@ module(
 
         test('renders <FilterCreator/> if there is filters', async function (assert) {
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
-              {{polaris-resource-list/filter-control
-                filters=mockFilters
-              }}
-            {{/polaris-resource-list/provider}}
+            {{polaris-resource-list/filter-control
+              context=mockDefaultContext
+              filters=mockFilters
+            }}
           `);
 
           assert.dom('[data-test-id="filter-activator"]').exists();
@@ -692,11 +667,10 @@ module(
             }),
           );
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
-              {{polaris-resource-list/filter-control
-                filters=mockFilters
-              }}
-            {{/polaris-resource-list/provider}}
+            {{polaris-resource-list/filter-control
+              context=mockDefaultContext
+              filters=mockFilters
+            }}
           `);
 
           assert.strictEqual(receivedFilters, mockFilters);
@@ -707,11 +681,10 @@ module(
     module('onSearchBlur()', function () {
       test('calls onSearchBlur when onBlur is triggered', async function (assert) {
         await render(hbs`
-          {{#polaris-resource-list/provider value=mockDefaultContext}}
-            {{polaris-resource-list/filter-control
-              onSearchBlur=(action (mut wasOnSearchBlurCalled) true)
-            }}
-          {{/polaris-resource-list/provider}}
+          {{polaris-resource-list/filter-control
+            context=mockDefaultContext
+            onSearchBlur=(action (mut wasOnSearchBlurCalled) true)
+          }}
         `);
 
         await focus('[data-test-text-field-input]');
@@ -725,11 +698,10 @@ module(
       test('calls onSearchChange with the new searchValue when onChange is triggered', async function (assert) {
         const newSearchValue = 'new search value';
         await render(hbs`
-          {{#polaris-resource-list/provider value=mockDefaultContext}}
-            {{polaris-resource-list/filter-control
-              onSearchChange=(action (mut newSearchValue))
-            }}
-          {{/polaris-resource-list/provider}}
+          {{polaris-resource-list/filter-control
+            context=mockDefaultContext
+            onSearchChange=(action (mut newSearchValue))
+          }}
         `);
 
         await fillIn('.Polaris-TextField input', newSearchValue);
@@ -756,13 +728,12 @@ module(
           };
 
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
-              {{polaris-resource-list/filter-control
-                filters=mockFilters
-                appliedFilters=mockAppliedFilters
-                onFiltersChange=(action (mut newAppliedFilters))
-              }}
-            {{/polaris-resource-list/provider}}
+            {{polaris-resource-list/filter-control
+              context=mockDefaultContext
+              filters=mockFilters
+              appliedFilters=mockAppliedFilters
+              onFiltersChange=(action (mut newAppliedFilters))
+            }}
           `);
 
           await triggerAddFilter(newFilter);
@@ -776,13 +747,12 @@ module(
         test('does not get call if the new filter already exist when FilterCreator.onAddFilter is triggered', async function (assert) {
           const newFilter = mockAppliedFilters[0];
           await render(hbs`
-            {{#polaris-resource-list/provider value=mockDefaultContext}}
-              {{polaris-resource-list/filter-control
-                filters=mockFilters
-                appliedFilters=mockAppliedFilters
-                onFiltersChange=(action (mut wasOnFiltersChangeCalled) true)
-              }}
-            {{/polaris-resource-list/provider}}
+            {{polaris-resource-list/filter-control
+              context=mockDefaultContext
+              filters=mockFilters
+              appliedFilters=mockAppliedFilters
+              onFiltersChange=(action (mut wasOnFiltersChangeCalled) true)
+            }}
           `);
 
           await triggerAddFilter(newFilter);
