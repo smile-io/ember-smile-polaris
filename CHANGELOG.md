@@ -1,5 +1,16 @@
 # Changelog
 
+## v5.0.0 (2024-02-07)
+
+#### :boom: Breaking Change
+
+- [#72](https://github.com/smile-io/ember-smile-polaris/pull/72) [embroider] Handle unsafe dynamic components ([@vladucu](https://github.com/vladucu))
+
+#### Committers: 2
+
+- Mariano González ([@marianoggf](https://github.com/marianoggf))
+- vladucu ([@vladucu](https://github.com/vladucu))
+
 ## v4.0.0 (2024-02-01)
 
 #### :boom: Breaking Change
