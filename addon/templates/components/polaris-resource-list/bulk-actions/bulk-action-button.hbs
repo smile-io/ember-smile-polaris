@@ -1,4 +1,4 @@
-{{#component
+{{#let
   (if
     @url
     (component
@@ -6,12 +6,16 @@
       class="Polaris-ResourceList-BulkActions__Button"
       external=@external
       url=@url
+      ariaLabel=@accessibilityLabel
+      onMouseUp=this.handleMouseUpByBlurring
     )
     (component
       "wrapper-element"
       tagName="button"
       type="button"
       disabled=@disabled
+      ariaLabel=@accessibilityLabel
+      onMouseUp=this.handleMouseUpByBlurring
       class=(concat
         "Polaris-ResourceList-BulkActions__Button"
         (if @disabled " Polaris-ResourceList-BulkActions--disabled")
@@ -19,26 +23,27 @@
       click=(fn (or @onAction this.onAction))
     )
   )
-  ariaLabel=@accessibilityLabel
-  onMouseUp=this.handleMouseUpByBlurring
+  as |Button|
 }}
-  {{#let (element (if @disclosure "span" "")) as |OuterWrapper|}}
-    <OuterWrapper class="Polaris-ResourceList-BulkActions__ActionContent">
-      {{#let (element (if @disclosure "span" "")) as |InnerWrapper|}}
-        <InnerWrapper>
-          {{#if (has-block)}}
-            {{yield}}
-          {{else}}
-            {{render-content @content}}
-          {{/if}}
-        </InnerWrapper>
-      {{/let}}
+  <Button>
+    {{#let (element (if @disclosure "span" "")) as |OuterWrapper|}}
+      <OuterWrapper class="Polaris-ResourceList-BulkActions__ActionContent">
+        {{#let (element (if @disclosure "span" "")) as |InnerWrapper|}}
+          <InnerWrapper>
+            {{#if (has-block)}}
+              {{yield}}
+            {{else}}
+              {{render-content @content}}
+            {{/if}}
+          </InnerWrapper>
+        {{/let}}
 
-      {{#if @disclosure}}
-        <span class="Polaris-ResourceList-BulkActions__ActionIcon">
-          <PolarisIcon @source="caret-down" />
-        </span>
-      {{/if}}
-    </OuterWrapper>
-  {{/let}}
-{{/component}}
+        {{#if @disclosure}}
+          <span class="Polaris-ResourceList-BulkActions__ActionIcon">
+            <PolarisIcon @source="caret-down" />
+          </span>
+        {{/if}}
+      </OuterWrapper>
+    {{/let}}
+  </Button>
+{{/let}}

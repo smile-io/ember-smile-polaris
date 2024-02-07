@@ -4,7 +4,7 @@
     loading=@loading
     spinnerStyle=this.spinnerStyle
   )
-  as |loadingOverlay|
+  as |LoadingOverlay|
 }}
   <div
     class="Polaris-ResourceList__ResourceListWrapper"
@@ -146,7 +146,7 @@
         aria-busy={{@loading}}
         {{did-insert this.insertListNode}}
       >
-        {{component loadingOverlay}}
+        {{component LoadingOverlay}}
 
         {{#each this.itemsWithId as |itemWithId|}}
           <li
@@ -178,7 +178,7 @@
           "
         tabIndex="-1"
       >
-        {{component loadingOverlay}}
+        {{component LoadingOverlay}}
       </div>
     {{/if}}
   </div>

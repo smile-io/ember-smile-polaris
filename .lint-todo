@@ -1459,3 +1459,11 @@ remove|ember-template-lint|no-curly-component-invocation|550|8|550|8|5085cab5c41
 remove|ember-template-lint|no-curly-component-invocation|551|10|551|10|20c64a75f66dd8c57f68394c0a8d80b77b50f0a4|1694649600000|||tests/integration/components/polaris-resource-list/item-test.js
 remove|ember-template-lint|no-curly-component-invocation|565|8|565|8|5a4efc7b3cf611a300a0a273f9cfcdaea187960d|1694649600000|||tests/integration/components/polaris-resource-list/item-test.js
 remove|ember-template-lint|no-curly-component-invocation|566|10|566|10|20c64a75f66dd8c57f68394c0a8d80b77b50f0a4|1694649600000|||tests/integration/components/polaris-resource-list/item-test.js
+add|ember-template-lint|no-unsupported-role-attributes|1|0|1|0|95e3f4cc79232330f8a170d41035e6d54a9aef20|1707177600000|||addon/templates/components/polaris-choice-list.hbs
+remove|ember-template-lint|no-unsupported-role-attributes|1|0|1|0|682367b886a432d81ab3ce62479c228ac29f695e|1695859200000|||addon/templates/components/polaris-choice-list.hbs
+remove|ember-template-lint|no-curly-component-invocation|2|2|2|2|b25abf89532373f83e7b248c35a7ed2b81e8c594|1702598400000|||addon/templates/components/render-content.hbs
+remove|ember-template-lint|no-curly-component-invocation|694|8|694|8|afd573f85087c834ee0f85fe3194c04d22d5a9ab|1694649600000|||tests/integration/components/polaris-choice-list-test.js
+remove|ember-template-lint|no-action|37|24|37|24|9dd1bc3105f7a737d0d42ec69c877411709355f0|1702598400000|||addon/templates/components/polaris-resource-list/filter-control/filter-creator.hbs
+remove|ember-template-lint|no-redundant-fn|15|15|15|15|be1bb247f02f9dabbe7caa6dcafd141e71493f6f|1702598400000|||addon/templates/components/polaris-resource-list/filter-control/filter-creator.hbs
+remove|ember-template-lint|no-redundant-fn|27|20|27|20|71a0044ea8e8c865f8c20179320fefaad8ba5c6e|1702598400000|||addon/templates/components/polaris-resource-list/filter-control/filter-creator.hbs
+remove|ember-template-lint|no-redundant-fn|36|33|36|33|71a0044ea8e8c865f8c20179320fefaad8ba5c6e|1702598400000|||addon/templates/components/polaris-resource-list/filter-control/filter-creator.hbs
