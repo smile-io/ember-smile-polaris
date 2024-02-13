@@ -1,5 +1,15 @@
 # Changelog
 
+## v5.0.1 (2024-02-13)
+
+#### :bug: Bug Fix
+
+- [#75](https://github.com/smile-io/ember-smile-polaris/pull/75) Fix missed unsafe components ([@vladucu](https://github.com/vladucu))
+
+#### Committers: 1
+
+- vladucu ([@vladucu](https://github.com/vladucu))
+
 ## v5.0.0 (2024-02-07)
 
 #### :boom: Breaking Change
