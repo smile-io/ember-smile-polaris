@@ -146,7 +146,7 @@
         aria-busy={{@loading}}
         {{did-insert this.insertListNode}}
       >
-        {{component LoadingOverlay}}
+        <LoadingOverlay />
 
         {{#each this.itemsWithId as |itemWithId|}}
           <li
@@ -178,7 +178,7 @@
           "
         tabIndex="-1"
       >
-        {{component LoadingOverlay}}
+        <LoadingOverlay />
       </div>
     {{/if}}
   </div>
