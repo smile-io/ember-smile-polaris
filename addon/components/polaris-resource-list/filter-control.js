@@ -114,7 +114,7 @@ export default class PolarisResourceListFilterControl extends Component {
     });
   }
 
-  @computed('context.resourceName.plural')
+  @computed('context.resourceName.plural', '_textFieldLabel')
   get textFieldLabel() {
     if (this._textFieldLabel) {
       return this._textFieldLabel;

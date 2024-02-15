@@ -55,7 +55,7 @@ export default class PolarisOptionListCheckbox extends Component {
    * @type {String}
    * @public
    */
-  @computed
+  @computed('_checkboxId')
   get checkboxId() {
     if (this._checkboxId) {
       return this._checkboxId;
