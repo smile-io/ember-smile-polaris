@@ -116,7 +116,15 @@ export default class PolarisResourceListFilterControl extends Component {
 
   @computed('context.resourceName.plural')
   get textFieldLabel() {
+    if (this._textFieldLabel) {
+      return this._textFieldLabel;
+    }
+
     return `Search ${this.context.resourceName.plural.toLocaleLowerCase()}`;
+  }
+
+  set textFieldLabel(value) {
+    this._textFieldLabel = value;
   }
 
   @action
