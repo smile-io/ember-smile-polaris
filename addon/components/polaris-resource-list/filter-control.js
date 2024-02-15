@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { action, get, computed } from '@ember/object';
+import { action, get, computed, set } from '@ember/object';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import layout from '../../templates/components/polaris-resource-list/filter-control';
 
@@ -124,7 +124,7 @@ export default class PolarisResourceListFilterControl extends Component {
   }
 
   set textFieldLabel(value) {
-    this._textFieldLabel = value;
+    set(this, '_textFieldLabel', value);
   }
 
   @action
