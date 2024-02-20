@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computed } from '@ember/object';
+import { computed, set } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import layout from '../../templates/components/polaris-option-list/checkbox';
@@ -55,9 +55,17 @@ export default class PolarisOptionListCheckbox extends Component {
    * @type {String}
    * @public
    */
-  @computed
+  @computed('_checkboxId')
   get checkboxId() {
+    if (this._checkboxId) {
+      return this._checkboxId;
+    }
+
     return guidFor(this);
+  }
+
+  set checkboxId(value) {
+    set(this, '_checkboxId', value);
   }
 
   /**

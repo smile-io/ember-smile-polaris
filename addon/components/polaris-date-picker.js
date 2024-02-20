@@ -1,4 +1,4 @@
-import { action, computed } from '@ember/object';
+import { action, computed, set } from '@ember/object';
 import Component from '@ember/component';
 import { isNone } from '@ember/utils';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
@@ -92,9 +92,17 @@ export default class PolarisDatePicker extends Component {
    * @type {Boolean}
    * @public
    */
-  @computed('selected')
+  @computed('selected', '_allowRange')
   get allowRange() {
+    if (this._allowRange) {
+      return this._allowRange;
+    }
+
     return this.selected !== null && !(this.selected instanceof Date);
+  }
+
+  set allowRange(value) {
+    set(this, '_allowRange', value);
   }
 
   /**

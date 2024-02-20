@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { action, get, computed } from '@ember/object';
+import { action, get, computed, set } from '@ember/object';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import layout from '../../templates/components/polaris-resource-list/filter-control';
 
@@ -114,9 +114,17 @@ export default class PolarisResourceListFilterControl extends Component {
     });
   }
 
-  @computed('context.resourceName.plural')
+  @computed('context.resourceName.plural', '_textFieldLabel')
   get textFieldLabel() {
+    if (this._textFieldLabel) {
+      return this._textFieldLabel;
+    }
+
     return `Search ${this.context.resourceName.plural.toLocaleLowerCase()}`;
+  }
+
+  set textFieldLabel(value) {
+    set(this, '_textFieldLabel', value);
   }
 
   @action
