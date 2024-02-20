@@ -1,5 +1,25 @@
 # Changelog
 
+## v6.0.0 (2024-02-20)
+
+#### :boom: Breaking Change
+
+- [#72](https://github.com/smile-io/ember-smile-polaris/pull/72) [embroider] Handle unsafe dynamic components ([@vladucu](https://github.com/vladucu))
+
+#### :bug: Bug Fix
+
+- [#75](https://github.com/smile-io/ember-smile-polaris/pull/75) Fix missed unsafe components ([@vladucu](https://github.com/vladucu))
+
+#### :house: Internal
+
+- [#76](https://github.com/smile-io/ember-smile-polaris/pull/76) AS-406 Handle computed-property.override deprecation ([@diegonakamashi](https://github.com/diegonakamashi))
+
+#### Committers: 3
+
+- Diego Nakamashi ([@diegonakamashi](https://github.com/diegonakamashi))
+- Mariano González ([@marianoggf](https://github.com/marianoggf))
+- vladucu ([@vladucu](https://github.com/vladucu))
+
 ## v5.0.1 (2024-02-13)
 
 #### :bug: Bug Fix
