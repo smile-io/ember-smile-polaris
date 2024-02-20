@@ -92,7 +92,7 @@ export default class PolarisDatePicker extends Component {
    * @type {Boolean}
    * @public
    */
-  @computed('selected', '_allowRange')
+  @computed('selected')
   get allowRange() {
     if (this._allowRange) {
       return this._allowRange;
