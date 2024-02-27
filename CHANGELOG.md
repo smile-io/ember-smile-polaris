@@ -1,5 +1,15 @@
 # Changelog
 
+## v6.1.0 (2024-02-27)
+
+#### :house: Internal
+
+- [#77](https://github.com/smile-io/ember-smile-polaris/pull/77) update ember-basic-dropdown pkg ([@diegonakamashi](https://github.com/diegonakamashi))
+
+#### Committers: 1
+
+- Diego Nakamashi ([@diegonakamashi](https://github.com/diegonakamashi))
+
 ## v6.0.0 (2024-02-20)
 
 #### :boom: Breaking Change
