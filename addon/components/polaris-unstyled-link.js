@@ -125,7 +125,9 @@ export default class PolarisUnstyledLink extends Component {
       !this.dataTestId,
       {
         id: 'ember-polaris.polaris-unstyled-link.dataTestId-arg',
+        since: '6.2.2',
         until: '7.0.0',
+        for: 'ember-polaris',
       },
     );
     deprecate(
@@ -133,7 +135,9 @@ export default class PolarisUnstyledLink extends Component {
       !this.dataPolarisUnstyled,
       {
         id: 'ember-polaris.polaris-unstyled-link.dataPolarisUnstyled-arg',
+        since: '6.2.2',
         until: '7.0.0',
+        for: 'ember-polaris',
       },
     );
     deprecate(
@@ -141,7 +145,9 @@ export default class PolarisUnstyledLink extends Component {
       !this.id,
       {
         id: 'ember-polaris.polaris-unstyled-link.id-arg',
+        since: '6.2.2',
         until: '7.0.0',
+        for: 'ember-polaris',
       },
     );
   }
