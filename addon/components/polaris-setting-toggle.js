@@ -52,7 +52,9 @@ export default class PolarisSettingToggle extends Component {
       !this.action,
       {
         id: 'ember-polaris.polaris-seting-toggle.action-arg',
+        since: '6.2.2',
         until: '7.0.0',
+        for: 'ember-polaris',
       },
     );
   }

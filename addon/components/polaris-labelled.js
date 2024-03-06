@@ -110,7 +110,9 @@ export default class PolarisLabelled extends Component {
       !this.action,
       {
         id: 'ember-polaris.polaris-labelled.action-arg',
+        since: '6.2.2',
         until: '7.0.0',
+        for: 'ember-polaris',
       },
     );
     deprecate(
@@ -118,7 +120,9 @@ export default class PolarisLabelled extends Component {
       this.dataTestLabelled === true,
       {
         id: 'ember-polaris.polaris-labelled.dataTestLabelled-arg',
+        since: '6.2.2',
         until: '7.0.0',
+        for: 'ember-polaris',
       },
     );
     this.dataTestLabelled = this.dataTestLabelled || true;

@@ -90,7 +90,9 @@ export default class PolarisTextStyle extends Component {
       !this.classes,
       {
         id: 'ember-polaris.polaris-text-style.classes-arg',
+        since: '6.2.2',
         until: '7.0.0',
+        for: 'ember-polaris',
       },
     );
     deprecate(
@@ -98,7 +100,9 @@ export default class PolarisTextStyle extends Component {
       !this.dataTestTextStyle,
       {
         id: 'ember-polaris.polaris-text-style.dataTestTextStyle-arg',
+        since: '6.2.2',
         until: '7.0.0',
+        for: 'ember-polaris',
       },
     );
   }

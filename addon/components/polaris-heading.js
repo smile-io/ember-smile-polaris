@@ -53,7 +53,9 @@ export default class PolarisHeading extends Component {
       !this.tagName,
       {
         id: 'ember-polaris.polaris-heading.tagName-arg',
+        since: '6.2.2',
         until: '7.0.0',
+        for: 'ember-polaris',
       },
     );
   }
