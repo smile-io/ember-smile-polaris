@@ -1,6 +1,5 @@
 import Component from '@ember/component';
 import { action, computed } from '@ember/object';
-import { bool } from '@ember/object/computed';
 import { guidFor } from '@ember/object/internals';
 import { htmlSafe } from '@ember/template';
 import { typeOf, isPresent } from '@ember/utils';
@@ -356,8 +355,14 @@ export default class PolarisTextField extends Component {
   wasFocused = false;
   dataTestTextField = 'text-field';
 
-  @bool('error')
-  ariaInvalid;
+  @computed('error', '_ariaInvalid')
+  get ariaInvalid() {
+    return this._ariaInvalid ?? !!this.error;
+  }
+
+  set ariaInvalid(value) {
+    this.set('_ariaInvalid', value);
+  }
 
   @normalizeAutoCompleteProperty('autoComplete')
   autoCompleteInputs;
