@@ -1,5 +1,16 @@
 # Changelog
 
+## v6.1.1 (2024-03-12)
+
+#### :house: Internal
+
+- [#79](https://github.com/smile-io/ember-smile-polaris/pull/79) Refactor ariaInvalid property ([@marianoggf](https://github.com/marianoggf))
+- [#78](https://github.com/smile-io/ember-smile-polaris/pull/78) Modify deprecate calls for Ember 4 compatibility ([@marianoggf](https://github.com/marianoggf))
+
+#### Committers: 1
+
+- Mariano González ([@marianoggf](https://github.com/marianoggf))
+
 ## v6.1.0 (2024-02-27)
 
 #### :house: Internal
