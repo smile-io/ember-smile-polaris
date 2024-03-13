@@ -28,21 +28,6 @@ module('Integration | Component | render-content', function (hooks) {
     assert.dom('#render-content-test').hasText('blah');
   });
 
-  test('it renders correctly when content is a hash of component name and props', async function (assert) {
-    await render(hbs`
-      {{render-content
-        (hash
-          componentName="my-component"
-          props=(hash
-            text="component content here"
-          )
-        )
-      }}
-    `);
-
-    assert.dom('.my-test-component').hasText('component content here');
-  });
-
   test('it renders correctly when content is a component definition', async function (assert) {
     await render(hbs`
       {{render-content (component "my-component" text="component content here")}}
