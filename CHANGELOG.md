@@ -1,5 +1,15 @@
 # Changelog
 
+## v6.2.0 (2024-03-14)
+
+#### :rocket: Enhancement
+
+- [#81](https://github.com/smile-io/ember-smile-polaris/pull/81) PolarisDataTable yield rows ([@vladucu](https://github.com/vladucu))
+
+#### Committers: 1
+
+- vladucu ([@vladucu](https://github.com/vladucu))
+
 ## v6.1.1 (2024-03-12)
 
 #### :house: Internal
