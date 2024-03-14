@@ -60,17 +60,25 @@
         </thead>
 
         <tbody>
-          {{#each @rows as |row index|}}
-            <PolarisDataTable::Row
-              @row={{row}}
-              @index={{index}}
-              @totals={{@totals}}
-              @heights={{this.heights}}
-              @footerContent={{@footerContent}}
-              @contentTypes={{@columnContentTypes}}
-              @truncate={{@truncate}}
-            />
-          {{/each}}
+          {{#let
+            (component
+              "polaris-data-table/row"
+              totals=@totals
+              heights=this.heights
+              footerContent=@footerContent
+              contentTypes=@columnContentTypes
+              truncate=@truncate
+            )
+            as |Row|
+          }}
+            {{#if (has-block "rows")}}
+              {{yield Row to="rows"}}
+            {{else}}
+              {{#each @rows as |row index|}}
+                <Row @row={{row}} @index={{index}} />
+              {{/each}}
+            {{/if}}
+          {{/let}}
         </tbody>
 
         {{#if @footerContent}}
