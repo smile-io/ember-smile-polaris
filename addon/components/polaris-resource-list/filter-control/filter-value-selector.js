@@ -62,21 +62,16 @@ export default class PolarisResourceListFilterControlFilterValueSelector extends
     );
   }
 
-  @(computed('filter.{label,operatorText}', 'filterKey').readOnly())
-  get operatorOptionsMarkup() {
-    let { filter, filterKey } = this;
+  @computed('filter.operatorText')
+  get operatorOptions() {
+    const { operatorText } = this.filter;
+    if (!operatorText || typeof operatorText === 'string') {
+      return [];
+    }
 
-    return {
-      componentName: 'polaris-select',
-      props: {
-        labelHidden: true,
-        dataTestSelect: 'operator',
-        label: get(filter, 'label'),
-        options: buildOperatorOptions(get(filter, 'operatorText')),
-        value: filterKey,
-        onChange: (...args) => this.handleOperatorOptionChange(...args),
-      },
-    };
+    return operatorText.map(({ key, optionLabel }) => {
+      return { value: key, label: optionLabel };
+    });
   }
 
   @(computed('filter.operatorText').readOnly())
@@ -85,6 +80,7 @@ export default class PolarisResourceListFilterControlFilterValueSelector extends
     return typeof operatorText === 'string' ? operatorText : '';
   }
 
+  @action
   handleOperatorOptionChange(operatorKey) {
     let { value, onChange, onFilterKeyChange } = this;
 
@@ -114,14 +110,4 @@ export default class PolarisResourceListFilterControlFilterValueSelector extends
 
     this.handleOperatorOptionChange(operatorText[0].key);
   }
-}
-
-function buildOperatorOptions(operatorText) {
-  if (!operatorText || typeof operatorText === 'string') {
-    return [];
-  }
-
-  return operatorText.map(({ key, optionLabel }) => {
-    return { value: key, label: optionLabel };
-  });
 }
