@@ -1,5 +1,15 @@
 # Changelog
 
+## v6.2.1 (2024-03-15)
+
+#### :bug: Bug Fix
+
+- [#82](https://github.com/smile-io/ember-smile-polaris/pull/82) Fix PolarisTextField multiline same computation error ([@vladucu](https://github.com/vladucu))
+
+#### Committers: 1
+
+- vladucu ([@vladucu](https://github.com/vladucu))
+
 ## v6.2.0 (2024-03-14)
 
 #### :rocket: Enhancement
