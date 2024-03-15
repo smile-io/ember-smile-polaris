@@ -4,6 +4,7 @@ import { htmlSafe } from '@ember/template';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import layout from '../../templates/components/polaris-text-field/resizer';
 import deprecateClassArgument from '../../utils/deprecate-class-argument';
+import { scheduleOnce } from '@ember/runloop';
 
 const REPLACE_REGEX = /[\n&<>]/g;
 
@@ -93,7 +94,7 @@ export default class PolarisTextFieldResizer extends Component {
     let { currentHeight, onHeightChange } = this;
 
     if (newHeight !== currentHeight) {
-      onHeightChange(newHeight);
+      scheduleOnce('afterRender', this, onHeightChange, newHeight);
     }
   }
 
