@@ -33,10 +33,9 @@ export default class PolarisChoiceList extends Component {
   /**
    * Label for list of choices
    *
-   * This is just a string in `ember-polaris` but here we also accept a component definition or hash
-   * of `componentName` and `props`
+   * This is just a string in `ember-polaris` but here we also accept a component definition
    *
-   * @type {String|Component|Object}
+   * @type {String|Component}
    * @default null
    * @public
    * @extends ember-polaris
