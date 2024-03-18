@@ -18,7 +18,7 @@ export default class PolarisLayoutAnnotatedSection extends Component {
   /**
    * Description for the section
    *
-   * @type {String|Component|Object}
+   * @type {String|Component}
    * @public
    */
   description;

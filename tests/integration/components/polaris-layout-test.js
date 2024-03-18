@@ -477,29 +477,4 @@ module('Integration | Component | polaris layout', function (hooks) {
     );
     assert.dom(descriptionSelector).exists({ count: 1 });
   });
-
-  test('it renders the correct HTML when description hash is passed to annotated section', async function (assert) {
-    this.owner.register(
-      'template:components/dummy-component',
-      hbs`<div data-test-annotation-description-content></div>`,
-    );
-
-    await render(hbs`
-      {{#polaris-layout as |layout|}}
-        {{layout.annotatedSection
-          description=(hash
-            componentName="dummy-component"
-            props=(hash)
-          )
-        }}
-      {{/polaris-layout}}
-    `);
-
-    const descriptionSelector = buildNestedSelector(
-      '[data-test-annotation-description]',
-      '[data-test-annotation-description-content]',
-    );
-
-    assert.dom(descriptionSelector).exists({ count: 1 });
-  });
 });

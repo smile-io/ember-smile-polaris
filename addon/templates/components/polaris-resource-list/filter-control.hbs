@@ -1,15 +1,25 @@
 <PolarisFormLayout>
   <PolarisTextField
     @labelHidden={{true}}
-    @connectedLeft={{if @filters
-      (component "polaris-resource-list/filter-control/filter-creator"
+    @connectedLeft={{if
+      @filters
+      (component
+        "polaris-resource-list/filter-control/filter-creator"
         resourceName=this.context.resourceName
         filters=@filters
         disabled=this.context.selectMode
         onAddFilter=(fn this.handleAddFilter)
       )
     }}
-    @connectedRight={{this.additionalActionButton}}
+    @connectedRight={{if
+      @additionalAction
+      (component
+        "polaris-button"
+        text=@additionalAction.text
+        disabled=@context.selectMode
+        onClick=@additionalAction.onAction
+      )
+    }}
     @label={{this.textFieldLabel}}
     @placeholder={{this.textFieldLabel}}
     @prefix={{component "polaris-icon" source="search" color="skyDark"}}

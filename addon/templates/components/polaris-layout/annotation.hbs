@@ -3,7 +3,10 @@
     <PolarisHeading @text={{@title}} />
 
     {{#if @description}}
-      <div data-test-annotation-description class="Polaris-Layout__AnnotationDescription">
+      <div
+        data-test-annotation-description
+        class="Polaris-Layout__AnnotationDescription"
+      >
         {{#if this.hasStringDescription}}
           <p>
             {{@description}}

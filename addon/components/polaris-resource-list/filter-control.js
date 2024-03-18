@@ -65,40 +65,6 @@ export default class PolarisResourceListFilterControl extends Component {
   onFiltersChange() {}
 
   /**
-   * Button details for `additionalAction`. This is here
-   * instead of in the template because handlebars
-   * always evaluates both branches of an `if`-statement
-   * so will try creating an action from `additionalAction.onAction`
-   * even if it doesn't exist, which leads to an error.
-   *
-   * @type {Object}
-   */
-  @(computed(
-    'additionalAction.{text,accessibilityLabel,url,external,destructive,icon,loading,onAction}',
-    'context.selectMode',
-  ).readOnly())
-  get additionalActionButton() {
-    let { additionalAction, context } = this;
-
-    if (!additionalAction) {
-      return null;
-    }
-
-    let props = Object.assign({}, additionalAction, {
-      disabled: get(context, 'selectMode'),
-    });
-
-    // Rename onAction to onClick.
-    props.onClick = props.onAction;
-    delete props.onAction;
-
-    return {
-      componentName: 'polaris-button',
-      props,
-    };
-  }
-
-  /**
    * List of appliedFilters in a format
    * for rendering in the template
    *
