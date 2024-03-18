@@ -1,5 +1,15 @@
 # Changelog
 
+## v7.0.0 (2024-03-18)
+
+#### :boom: Breaking Change
+
+- [#80](https://github.com/smile-io/ember-smile-polaris/pull/80) Remove component proxy usage ([@vladucu](https://github.com/vladucu))
+
+#### Committers: 1
+
+- vladucu ([@vladucu](https://github.com/vladucu))
+
 ## v6.2.1 (2024-03-15)
 
 #### :bug: Bug Fix
