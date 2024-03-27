@@ -4,7 +4,6 @@ import { guidFor } from '@ember/object/internals';
 import { htmlSafe } from '@ember/template';
 import { dasherize } from '@ember/string';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
-import { assign } from '@ember/polyfills';
 import { errorId, helpTextId } from '@smile-io/ember-smile-polaris/utils/id';
 import layout from '../templates/components/polaris-range-slider';
 
@@ -210,7 +209,7 @@ export default class PolarisRangeSlider extends Component {
   get rangeWrapperStyle() {
     let { min, max, value: current, sliderProgress } = this;
 
-    let styleProps = assign(
+    let styleProps = Object.assign(
       { min, max, current },
       {
         progress: `${sliderProgress}%`,

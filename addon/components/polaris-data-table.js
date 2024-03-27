@@ -3,7 +3,6 @@ import { action, computed } from '@ember/object';
 import { isBlank, isNone } from '@ember/utils';
 import { htmlSafe } from '@ember/template';
 import { scheduleOnce } from '@ember/runloop';
-import { assign } from '@ember/polyfills';
 import { isEqual } from '@ember/utils';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import ContextBoundEventListenersMixin from 'ember-lifeline/mixins/dom';
@@ -256,7 +255,7 @@ export default class PolarisDataTable extends Component.extend(
 
       let lastColumn = columnVisibilityData[columnVisibilityData.length - 1];
 
-      return assign(
+      return Object.assign(
         {
           fixedColumnWidth,
           columnVisibilityData,
@@ -291,7 +290,7 @@ export default class PolarisDataTable extends Component.extend(
     }
 
     this.setProperties(
-      assign(
+      Object.assign(
         {
           collapsed,
           heights: [],
