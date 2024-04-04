@@ -1,5 +1,24 @@
 # Changelog
 
+## v7.0.1 (2024-04-04)
+
+#### :rocket: Enhancement
+
+- [#81](https://github.com/smile-io/ember-smile-polaris/pull/81) PolarisDataTable yield rows ([@vladucu](https://github.com/vladucu))
+
+#### :bug: Bug Fix
+
+- [#82](https://github.com/smile-io/ember-smile-polaris/pull/82) Fix PolarisTextField multiline same computation error ([@vladucu](https://github.com/vladucu))
+
+#### :house: Internal
+
+- [#83](https://github.com/smile-io/ember-smile-polaris/pull/83) AS-452 use Object.assign instead of ember assign ([@diegonakamashi](https://github.com/diegonakamashi))
+
+#### Committers: 3
+
+- Diego Nakamashi ([@diegonakamashi](https://github.com/diegonakamashi))
+- vladucu ([@vladucu](https://github.com/vladucu))
+
 ## v7.0.0 (2024-03-18)
 
 #### :boom: Breaking Change
