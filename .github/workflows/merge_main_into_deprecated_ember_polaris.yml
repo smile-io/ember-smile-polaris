@@ -1,0 +1,20 @@
+name: Merge main into deprecated-ember-polaris
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  merge_into_deprecated_ember_polaris:
+    name: Smile CI merge main to dev.
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Merge ${{ github.ref }} into deprecated-ember-polaris"
+        id: merge
+        uses: devmasx/merge-branch@854d3ac71ed1e9deb668e0074781b81fdd6e771f # 1.4.0
+        with:
+          type: now
+          from_branch: ${{ github.ref }}
+          target_branch: deprecated-ember-polaris
+          github_token: ${{ secrets.CI_GITHUB_OAUTH_TOKEN }}
