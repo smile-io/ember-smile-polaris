@@ -7,7 +7,7 @@ on:
 
 jobs:
   merge_into_deprecated_ember_polaris:
-    name: Smile CI merge main to dev.
+    name: Smile CI merge main into deprecated-ember-polaris.
     runs-on: ubuntu-latest
     steps:
       - name: "Merge ${{ github.ref }} into deprecated-ember-polaris"
