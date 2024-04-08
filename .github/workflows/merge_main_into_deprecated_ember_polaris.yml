@@ -17,4 +17,4 @@ jobs:
           type: now
           from_branch: ${{ github.ref }}
           target_branch: deprecated-ember-polaris
-          github_token: ${{ secrets.CI_GITHUB_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
