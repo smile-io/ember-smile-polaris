@@ -1,9 +1,10 @@
 $min-height: control-height();
-$vertical-padding: ($min-height - line-height(body) - rem(2px)) / 2;
+$vertical-padding: ($min-height - line-height(body) - rem(2px)) * 0.5;
 $slim-min-height: rem(30px);
-$slim-vertical-padding: ($slim-min-height - line-height(body) - rem(2px)) / 2;
+$slim-vertical-padding: ($slim-min-height - line-height(body) - rem(2px)) * 0.5;
 $large-min-height: rem(44px);
-$large-vertical-padding: ($large-min-height - line-height(body) - rem(2px)) / 2;
+$large-vertical-padding: ($large-min-height - line-height(body) - rem(2px)) *
+  0.5;
 $spinner-size: rem(20px);
 
 .Polaris-Button {
@@ -50,39 +51,39 @@ $spinner-size: rem(20px);
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -($spinner-size / 2);
-  margin-left: -($spinner-size / 2);
+  margin-top: -($spinner-size * 0.5);
+  margin-left: -($spinner-size * 0.5);
 }
 
 .Polaris-Button--primary {
-  @include button-filled(color('indigo'), color('indigo', 'dark'));
-  @include recolor-icon(color('white'));
+  @include button-filled(color("indigo"), color("indigo", "dark"));
+  @include recolor-icon(color("white"));
 
   &.Polaris-Button--disabled {
-    @include button-filled-disabled(color('indigo'));
+    @include button-filled-disabled(color("indigo"));
   }
 }
 
 .Polaris-Button--destructive {
-  @include button-filled(color('red'), color('red', 'dark'));
-  @include recolor-icon(color('white'));
+  @include button-filled(color("red"), color("red", "dark"));
+  @include recolor-icon(color("white"));
 
   &.Polaris-Button--disabled {
-    @include button-filled-disabled(color('red'));
+    @include button-filled-disabled(color("red"));
   }
 }
 
 .Polaris-Button--outline {
-  @include button-outline(color('ink', 'lighter'));
+  @include button-outline(color("ink", "lighter"));
 
   &.Polaris-Button--disabled {
-    @include button-outline-disabled(color('ink', 'lighter'));
+    @include button-outline-disabled(color("ink", "lighter"));
   }
 }
 
 .Polaris-Button--destructive.Polaris-Button--outline {
-  @include button-outline(color('red'));
-  @include recolor-icon(color('red', 'dark'));
+  @include button-outline(color("red"));
+  @include recolor-icon(color("red", "dark"));
 }
 
 .Polaris-Button--disabled {
@@ -113,23 +114,23 @@ $spinner-size: rem(20px);
 // stylelint-disable selector-max-specificity
 
 .Polaris-Button--plain {
-  @include recolor-icon(color('blue'));
+  @include recolor-icon(color("blue"));
   margin: (-1 * $vertical-padding) rem(-8px);
   padding-left: rem(8px);
   padding-right: rem(8px);
   background: transparent;
   border: 0;
   box-shadow: none;
-  color: color('blue');
+  color: color("blue");
 
   &:hover,
   &:focus,
   &:active {
-    @include recolor-icon(color('blue', 'dark'));
+    @include recolor-icon(color("blue", "dark"));
     background: transparent;
     border: 0;
     box-shadow: none;
-    color: color('blue', 'dark');
+    color: color("blue", "dark");
   }
 
   &:focus {
@@ -163,18 +164,18 @@ $spinner-size: rem(20px);
   }
 
   &.Polaris-Button--iconOnly {
-    @include recolor-icon(color('ink', 'lighter'));
+    @include recolor-icon(color("ink", "lighter"));
     margin: -0.5 * ($min-height - icon-size());
 
     &:focus,
     &:active {
-      @include recolor-icon(color('ink', 'lighter'));
+      @include recolor-icon(color("ink", "lighter"));
       background: plain-button-background();
     }
 
     &:hover,
     &:active {
-      @include recolor-icon(color('ink'));
+      @include recolor-icon(color("ink"));
     }
 
     // stylelint-disable-next-line selector-max-class
@@ -183,7 +184,7 @@ $spinner-size: rem(20px);
     }
 
     &.Polaris-Button--disabled {
-      @include recolor-icon(color('sky', 'dark'));
+      @include recolor-icon(color("sky", "dark"));
     }
   }
 
@@ -292,7 +293,7 @@ $spinner-size: rem(20px);
     border-color: currentColor;
 
     &::before {
-      content: '';
+      content: "";
       transition: opacity duration() easing();
       position: absolute;
       top: 0;
