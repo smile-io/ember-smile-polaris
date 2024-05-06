@@ -1,6 +1,6 @@
 $image-size: rem(20px);
 $item-min-height: rem(40px);
-$item-vertical-padding: ($item-min-height - line-height(body)) / 2;
+$item-vertical-padding: ($item-min-height - line-height(body)) * 0.5;
 
 .Polaris-ActionList {
   list-style: none;
@@ -75,7 +75,7 @@ $item-vertical-padding: ($item-min-height - line-height(body)) / 2;
   }
 
   &.Polaris-ActionList--destructive {
-    color: color('red', 'dark');
+    color: color("red", "dark");
 
     &:active {
       @include state(active-destructive);
@@ -111,11 +111,11 @@ $item-vertical-padding: ($item-min-height - line-height(body)) / 2;
 
   &.Polaris-ActionList--disabled {
     @include state(disabled);
-    color: color('ink', 'lightest');
+    color: color("ink", "lightest");
     pointer-events: none;
 
     .Polaris-ActionList__Image {
-      @include recolor-icon(color('ink', 'lightest'), color('white'));
+      @include recolor-icon(color("ink", "lightest"), color("white"));
     }
   }
 
@@ -130,7 +130,7 @@ $item-vertical-padding: ($item-min-height - line-height(body)) / 2;
 }
 
 .Polaris-ActionList__Image {
-  @include recolor-icon(color('ink', 'light'), color('white'));
+  @include recolor-icon(color("ink", "light"), color("white"));
   display: flex;
   flex: 0 0 auto;
   justify-content: center;

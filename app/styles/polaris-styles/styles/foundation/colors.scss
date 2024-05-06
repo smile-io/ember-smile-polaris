@@ -1,4 +1,6 @@
-@import '../polaris-tokens/colors.color-map';
+@use "sass:math";
+
+@import "../polaris-tokens/colors.color-map";
 
 ///
 /// Color data
@@ -12,16 +14,16 @@ $color-palette-data: $polaris-colors;
 $color-palette-data: map-extend(
   $color-palette-data,
   (
-    'state': (
-      'hover': rgba(223, 227, 232, 0.3),
-      'focused': rgba(223, 227, 232, 0.3),
-      'active': rgba(179, 188, 245, 0.1),
-      'selected': rgba(179, 188, 245, 0.15),
-      'subdued': rgba(249, 250, 251, 1),
-      'disabled': rgba(249, 250, 251, 1),
-      'hover-destructive': rgba(251, 234, 229, 0.4),
-      'focused-destructive': rgba(251, 234, 229, 0.4),
-      'active-destructive': rgba(220, 56, 37, 0.03),
+    "state": (
+      "hover": rgba(223, 227, 232, 0.3),
+      "focused": rgba(223, 227, 232, 0.3),
+      "active": rgba(179, 188, 245, 0.1),
+      "selected": rgba(179, 188, 245, 0.15),
+      "subdued": rgba(249, 250, 251, 1),
+      "disabled": rgba(249, 250, 251, 1),
+      "hover-destructive": rgba(251, 234, 229, 0.4),
+      "focused-destructive": rgba(251, 234, 229, 0.4),
+      "active-destructive": rgba(220, 56, 37, 0.03),
     ),
   )
 );
@@ -70,9 +72,9 @@ $color-palette-data: map-extend(
     $background: rgb(255, 255, 255);
   }
 
-  $red: red($background) * red($foreground) / 255;
-  $green: green($background) * green($foreground) / 255;
-  $blue: blue($background) * blue($foreground) / 255;
+  $red: math.div(red($background) * red($foreground), 255);
+  $green: math.div(green($background) * green($foreground), 255);
+  $blue: math.div(blue($background) * blue($foreground), 255);
 
   $opacity: opacity($foreground);
   $background-opacity: opacity($background);
@@ -95,13 +97,13 @@ $color-palette-data: map-extend(
 /// @type map
 
 $ms-high-contrast-color-data: (
-  'text': windowText,
-  'disabled-text': grayText,
-  'selected-text': highlightText,
-  'selected-text-background': highlight,
-  'button-text': buttonText,
-  'button-text-background': buttonFace,
-  'background': window,
+  "text": windowText,
+  "disabled-text": grayText,
+  "selected-text": highlightText,
+  "selected-text-background": highlight,
+  "button-text": buttonText,
+  "button-text-background": buttonFace,
+  "background": window,
 );
 
 ///

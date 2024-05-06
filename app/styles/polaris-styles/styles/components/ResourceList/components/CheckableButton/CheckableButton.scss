@@ -1,8 +1,8 @@
-@import '../../variables';
+@import "../../variables";
 
 $button-vertical-padding: (
     resource-list(button-min-height) - line-height(body) - rem(2px)
-  ) / 2;
+  ) * 0.5;
 $control-size: rem(16px);
 $chekbox-label-margin: rem(20px);
 
@@ -20,7 +20,7 @@ $chekbox-label-margin: rem(20px);
   text-decoration: none;
   flex: 1 1 0;
   text-align: left;
-  background: color('white');
+  background: color("white");
   border: border(dark);
   border-radius: border-radius() 0 0 border-radius();
   border-right-color: transparent;
@@ -31,7 +31,7 @@ $chekbox-label-margin: rem(20px);
 
     // simulates measuring with an additional digit (e.g. 00 instead of 0)
     &::before {
-      content: '';
+      content: "";
       display: inline-block;
       width: font-size(button);
     }
@@ -66,10 +66,10 @@ $chekbox-label-margin: rem(20px);
   }
 
   &.Polaris-ResourceList-CheckableButton__CheckableButton--selected {
-    color: color('indigo');
+    color: color("indigo");
 
     @include breakpoint-after(resource-list(breakpoint-small)) {
-      border-color: color('sky', 'dark');
+      border-color: color("sky", "dark");
     }
   }
 }
