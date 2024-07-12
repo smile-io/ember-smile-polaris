@@ -1,5 +1,21 @@
 # Changelog
 
+## v8.0.0 (2024-07-12)
+
+#### :boom: Breaking Change
+
+- [#90](https://github.com/smile-io/ember-smile-polaris/pull/90) Fix is component helper issue ([@vladucu](https://github.com/vladucu))
+  - Marked as breaking because potentially it needs ember-source@4
+
+#### :house: Internal
+
+- [#85](https://github.com/smile-io/ember-smile-polaris/pull/85) Add GA workflow to merge main into deprecated-ember-polaris ([@vladucu](https://github.com/vladucu))
+
+#### Committers: 2
+
+- Natalia Hashimoto ([@nahrivera7](https://github.com/nahrivera7))
+- vladucu ([@vladucu](https://github.com/vladucu))
+
 ## v7.0.1 (2024-04-04)
 
 #### :rocket: Enhancement
