@@ -1,20 +1,34 @@
 import { helper } from '@ember/component/helper';
-import runtime from '@glimmer/runtime';
+import * as glimmerRuntime from '@glimmer/runtime';
 
-let { isCurriedComponentDefinition, CurriedValue } = runtime;
+/**
+ * Checks if a value is a curried component definition.
+ *
+ * Example: value={{component ...}}
+ */
+const isCurriedComponentDefinition = function (value) {
+  return value instanceof glimmerRuntime.CurriedValue;
+};
 
-// TODO look into getting rid of this concept
-export function isComponentDefinition(content) {
-  // Older embers have isCurriedComponentDefinition, new ones have CurriedValue
-  // and instanceof CurriedValue seems good enough.
-  // NOTE This is just copy/pasta from  @embroider/util
-  // https://github.com/embroider-build/embroider/blob/main/packages/util/addon/ember-private-api.js#L21C1-L34C2
-  if (!isCurriedComponentDefinition) {
-    isCurriedComponentDefinition = function (content) {
-      return content instanceof CurriedValue;
-    };
+const isComponentClass = function (value) {
+  return (
+    // If it's a Glimmer component class
+    typeof value === 'function' ||
+    // If it's a template-only component class
+    value instanceof glimmerRuntime.TemplateOnlyComponent
+  );
+};
+
+export function isComponent(value) {
+  if (typeof value === 'string' || value == null) {
+    return false;
   }
-  return isCurriedComponentDefinition(content);
+
+  if (isCurriedComponentDefinition(value)) {
+    return true;
+  }
+
+  return isComponentClass(value);
 }
 
-export default helper(([content]) => isComponentDefinition(content));
+export default helper(([content]) => isComponent(content));
