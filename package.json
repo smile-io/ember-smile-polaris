@@ -90,6 +90,7 @@
     "@glimmer/component": "1.1.2",
     "@glimmer/tracking": "1.1.2",
     "@release-it-plugins/lerna-changelog": "6.0.0",
+    "@smile-io/ember-shopify-polaris": "0.16.0",
     "broccoli-asset-rev": "3.0.0",
     "concurrently": "^8.2.1",
     "ember-array-helper": "5.1.0",
@@ -131,6 +132,9 @@
   },
   "resolutions": {
     "ember-cli-babel": "^7.26.10"
+  },
+  "peerDependencies": {
+    "@smile-io/ember-shopify-polaris": ">=0.10.2 <1.0.0"
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
