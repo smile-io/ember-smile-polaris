@@ -38,12 +38,7 @@ export default Component.extend({
   itemId=itemId
   url=item.url
   accessibilityLabel=accessibilityLabel
-  media=(component
-    "polaris-avatar"
-    customer=true
-    size="medium"
-    name=item.name
-  )
+
 }}
   <h3>
     {{polaris-text-style

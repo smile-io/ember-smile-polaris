@@ -2,13 +2,8 @@
   @itemId={{itemId}}
   @url={{item.url}}
   @accessibilityLabel={{accessibilityLabel}}
-  @media={{component
-    "polaris-avatar"
-    customer=true
-    size="medium"
-    name=item.name
-  }}
-  @shortcutActions={{if item.latestOrderUrl
+  @shortcutActions={{if
+    item.latestOrderUrl
     (array (hash text="View latest order" url=item.latestOrderUrl))
   }}
   @persistActions={{true}}
