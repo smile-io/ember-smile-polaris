@@ -14,7 +14,7 @@
             {{#if (is-component-definition @title)}}
               {{render-content @title}}
             {{else}}
-              <PolarisHeading @text={{@title}} />
+              <Text @variant="headingMd" @as="h2" @text={{@title}} />
             {{/if}}
           </stack.item>
 
@@ -37,7 +37,7 @@
         {{#if (is-component-definition @title)}}
           {{render-content @title}}
         {{else}}
-          <PolarisHeading @text={{@title}} />
+          <Text @variant="headingMd" @as="h2" @text={{@title}} />
         {{/if}}
       </div>
     {{/if}}
