@@ -119,7 +119,7 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
   const fileUploadCaptionSelector = buildNestedSelector(
     fileUploadStackItemSelector,
     '.Polaris-Caption',
-    '.Polaris-TextStyle--variationSubdued',
+    '[data-test-text]',
   );
 
   test('it renders in inline form', async function (assert) {
@@ -465,7 +465,7 @@ module('Integration | Component | polaris-drop-zone', function (hooks) {
     module('when size is extraLarge', function () {
       const fileUploadTextSelector = buildNestedSelector(
         fileUploadStackItemSelector,
-        '.Polaris-TextStyle--variationSubdued',
+        '[data-test-text]',
       );
 
       test('it renders properly with FileUpload', async function (assert) {

@@ -402,7 +402,7 @@ module('Integration | Component | polaris action list', function (hooks) {
       );
 
     assert
-      .dom('.Polaris-ActionList__Text [data-test-text-style]', items[1])
+      .dom('.Polaris-ActionList__Text [data-test-text]', items[1])
       .hasText(
         'Helpful stuff',
         "second section's second item renders the correct help text",
@@ -480,7 +480,7 @@ module('Integration | Component | polaris action list', function (hooks) {
     `);
 
     assert
-      .dom(`${actionListItemSelector} [data-test-text-style]`)
+      .dom(`${actionListItemSelector} [data-test-text]`)
       .hasText(`Yay I'm helping!`);
   });
 
