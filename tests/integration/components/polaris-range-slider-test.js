@@ -245,7 +245,7 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
       {{polaris-range-slider
         label="RangeSlider"
         value=50
-        prefix=(component "polaris-badge" text=text)
+        prefix=(component "badge" text=text)
       }}
     `);
 
@@ -268,7 +268,7 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
       {{polaris-range-slider
         label="RangeSlider"
         value=50
-        suffix=(component "polaris-badge" text=text)
+        suffix=(component "badge" text=text)
       }}
     `);
 

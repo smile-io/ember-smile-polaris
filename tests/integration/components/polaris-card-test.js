@@ -232,11 +232,11 @@ module('Integration | Component | polaris card', function (hooks) {
 
   test('it supports card title property as a component or a string', async function (assert) {
     await render(
-      hbs` {{polaris-card title=(component "polaris-badge" text="My title")}} `,
+      hbs` {{polaris-card title=(component "badge" text="My title")}} `,
     );
 
     assert
-      .dom('.Polaris-Card__Header > .Polaris-Badge')
+      .dom('.Polaris-Card__Header > [data-test-badge]')
       .hasText('My title', 'as a component - renders correctly');
     assert
       .dom('Polaris-Heading')
