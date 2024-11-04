@@ -19,17 +19,17 @@ module('Integration | Component | polaris tag', function (hooks) {
   const tagButtonIconSelector = '[data-test-tag-button-icon]';
 
   const usageTests = {
-    inline: hbs`{{polaris-tag text=text}}`,
+    inline: hbs`{{polaris-tag text=tagText}}`,
     block: hbs`
       {{#polaris-tag}}
-        {{text}}
+        {{tagText}}
       {{/polaris-tag}}
     `,
   };
 
   Object.keys(usageTests).forEach((usage) => {
     test(`it renders the correct HTML in ${usage} usage`, async function (assert) {
-      this.set('text', tag);
+      this.set('tagText', tag);
       await render(usageTests[usage]);
 
       assert.dom(tagSelector).exists('renders the tag component');
@@ -48,7 +48,7 @@ module('Integration | Component | polaris tag', function (hooks) {
         .dom(buildNestedSelector(tagSelector, tagButtonSelector))
         .doesNotExist('does not render a tag button');
 
-      this.set('text', 'Retail');
+      this.set('tagText', 'Retail');
       await settled();
 
       assert

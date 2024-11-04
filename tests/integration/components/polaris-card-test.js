@@ -40,17 +40,17 @@ module('Integration | Component | polaris card', function (hooks) {
 
     const headingSelector = buildNestedSelector(
       headerSelector,
-      'h2.Polaris-Heading',
+      'h2[data-test-text]',
     );
-    const heading = assert.dom(headingSelector);
-    heading.exists(
-      { count: 1 },
-      'one section, basic usage - renders one heading',
-    );
-    heading.hasText(
-      'This is the card title',
-      'one section, basic usage - renders correct heading text',
-    );
+
+    const heading = assert
+      .dom(headingSelector)
+      .exists({ count: 1 }, 'one section, basic usage - renders one heading')
+      .hasText(
+        'This is the card title',
+        'one section, basic usage - renders correct heading text',
+      )
+      .hasClass(/Text--headingMd/);
 
     const unsectionedParagraphSelector = buildNestedSelector(cardSelector, 'p');
     const unsectionedParagraphs = assert.dom(unsectionedParagraphSelector);
@@ -232,14 +232,18 @@ module('Integration | Component | polaris card', function (hooks) {
 
   test('it supports card title property as a component or a string', async function (assert) {
     await render(
-      hbs` {{polaris-card title=(component "badge" text="My title")}} `,
+      hbs`
+        <AppProvider>
+          {{polaris-card title=(component "text" as="h3" text="My title")}}
+        </AppProvider>
+      `,
     );
 
     assert
-      .dom('.Polaris-Card__Header > [data-test-badge]')
+      .dom('.Polaris-Card__Header > h3[data-test-text]')
       .hasText('My title', 'as a component - renders correctly');
     assert
-      .dom('Polaris-Heading')
+      .dom('h2[data-test-text]')
       .doesNotExist(
         'as a component - does not wrap the title in a heading component',
       );
@@ -247,7 +251,7 @@ module('Integration | Component | polaris card', function (hooks) {
     await render(hbs` {{polaris-card title="My title"}} `);
 
     assert
-      .dom('.Polaris-Card__Header > .Polaris-Heading')
+      .dom('.Polaris-Card__Header > h2[data-test-text]')
       .hasText('My title', 'renders title as a component');
   });
 
@@ -291,14 +295,15 @@ module('Integration | Component | polaris card', function (hooks) {
     const headingSelector = buildNestedSelector(
       headerStackSelector,
       'div.Polaris-Stack__Item.Polaris-Stack__Item--fill',
-      'h2.Polaris-Heading',
+      'h2[data-test-text]',
     );
-    const headings = assert.dom(headingSelector);
-    headings.exists({ count: 1 }, 'renders one heading');
-    headings.hasText(
-      'This is a card with actions',
-      'renders correct heading content',
-    );
+    const headings = assert
+      .dom(headingSelector)
+      .exists({ count: 1 }, 'renders one heading')
+      .hasText(
+        'This is a card with actions',
+        'renders correct heading content',
+      );
 
     // Check the actions rendered.
     const actionButtonSelector = buildNestedSelector(

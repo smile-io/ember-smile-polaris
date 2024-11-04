@@ -43,17 +43,17 @@ module('Integration | Component | polaris-button', function (hooks) {
 
     module('children', function () {
       test('renders the given children into the button', async function (assert) {
-        this.set('label', 'Click me!');
-        await render(hbs`{{#polaris-button}}{{label}}{{/polaris-button}}`);
-        assert.dom('button').hasText(this.get('label'));
+        this.set('labelText', 'Click me!');
+        await render(hbs`{{#polaris-button}}{{labelText}}{{/polaris-button}}`);
+        assert.dom('button').hasText(this.get('labelText'));
       });
 
       test('renders the given children into the link', async function (assert) {
-        this.set('label', 'Click me!');
+        this.set('labelText', 'Click me!');
         await render(
-          hbs`{{#polaris-button url="http://google.com"}}{{label}}{{/polaris-button}}`,
+          hbs`{{#polaris-button url="http://google.com"}}{{labelText}}{{/polaris-button}}`,
         );
-        assert.dom('a').hasText(this.get('label'));
+        assert.dom('a').hasText(this.get('labelText'));
       });
     });
 

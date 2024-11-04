@@ -11,7 +11,7 @@ const TestLabelComponent = Component.extend({
   tagName: 'div',
   classNames: ['test-label-component'],
 
-  layout: hbs`{{text}}`,
+  layout: hbs`{{this.text}}`,
 
   text: 'test label component',
 });

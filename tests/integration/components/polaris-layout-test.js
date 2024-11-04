@@ -21,7 +21,7 @@ const textContainerSelector = buildNestedSelector(
 );
 const headerSelector = `${layoutAnnotationWrapperSelector} ${buildNestedSelector(
   textContainerSelector,
-  'h2.Polaris-Heading',
+  'h2[data-test-text]',
 )}`;
 
 const contentSelector = `${layoutAnnotationWrapperSelector} div.Polaris-Layout__AnnotationContent`;

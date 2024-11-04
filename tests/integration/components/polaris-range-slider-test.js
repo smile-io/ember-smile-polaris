@@ -239,20 +239,22 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
   });
 
   test('it support prefix', async function (assert) {
-    this.set('text', 'prefix text');
+    this.set('prefixText', 'prefix text');
 
     await render(hbs`
       {{polaris-range-slider
         label="RangeSlider"
         value=50
-        prefix=(component "badge" text=text)
+        prefix=(component "badge" text=prefixText)
       }}
     `);
 
     assert
       .dom(buildNestedSelector(sliderWrapperSelector, sliderPrefixSelector))
       .exists('renders the prefix element correctly');
-    assert.dom(sliderPrefixSelector).hasText(this.text, 'renders prefix text');
+    assert
+      .dom(sliderPrefixSelector)
+      .hasText(this.prefixText, 'renders prefix text');
     assert
       .dom(sliderPrefixSelector)
       .hasClass(
@@ -262,20 +264,22 @@ module('Integration | Component | polaris-range-slider', function (hooks) {
   });
 
   test('it support suffix', async function (assert) {
-    this.set('text', 'suffix text');
+    this.set('suffixText', 'suffix text');
 
     await render(hbs`
       {{polaris-range-slider
         label="RangeSlider"
         value=50
-        suffix=(component "badge" text=text)
+        suffix=(component "badge" text=suffixText)
       }}
     `);
 
     assert
       .dom(buildNestedSelector(sliderWrapperSelector, sliderSuffixSelector))
       .exists('renders the suffix element correctly');
-    assert.dom(sliderSuffixSelector).hasText(this.text, 'renders suffix text');
+    assert
+      .dom(sliderSuffixSelector)
+      .hasText(this.suffixText, 'renders suffix text');
     assert
       .dom(sliderSuffixSelector)
       .hasClass(
