@@ -23,9 +23,6 @@ dependencies:
   '@shopify/polaris':
     specifier: 3.10.0
     version: 3.10.0
-  '@shopify/polaris-tokens':
-    specifier: ^1.3.1
-    version: 1.3.1
   broccoli-funnel:
     specifier: ^3.0.8
     version: 3.0.8
@@ -115,9 +112,12 @@ devDependencies:
   '@release-it-plugins/lerna-changelog':
     specifier: 6.0.0
     version: 6.0.0(release-it@16.3.0)
+  '@shopify/polaris-tokens':
+    specifier: 8.9.0
+    version: 8.9.0
   '@smile-io/ember-shopify-polaris':
     specifier: 0.16.0
-    version: 0.16.0(@babel/core@7.23.7)(@ember/test-helpers@2.9.4)(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(@shopify/polaris-tokens@1.3.1)(ember-source@3.28.12)
+    version: 0.16.0(@babel/core@7.23.7)(@ember/test-helpers@2.9.4)(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(@shopify/polaris-tokens@8.9.0)(ember-source@3.28.12)
   broccoli-asset-rev:
     specifier: 3.0.0
     version: 3.0.0
@@ -2252,15 +2252,19 @@ packages:
     resolution: {integrity: sha512-2mFVSasVkZ6N7J5jOfnl4F83Ws6Q3xLef/k1pz3iV2osw0vUyJN0U4+E1H/8MFpY0hpBshTZYa1nHLwx9ORlPQ==}
     dev: false
 
-  /@shopify/polaris-tokens@1.3.1:
-    resolution: {integrity: sha512-f12PjjCDBxHyT063aPLnWi/PVslCfRAdhaAlFGu0IXxdZE5C6tw5P8w/uYHaPxxLpZS0K/WBFXgsRJDo20Dy8w==}
-
   /@shopify/polaris-tokens@2.21.1:
     resolution: {integrity: sha512-v4gQQashbv+3bUZ14wPVyomUhdmDDhhyx0BJKagQUC6vu1KWWnrXKC3Li2VgPHYTN5v+B+/0vAfNvSIxR+FArw==}
     dependencies:
       hsluv: 0.1.0
       tslib: 1.14.1
     dev: false
+
+  /@shopify/polaris-tokens@8.9.0:
+    resolution: {integrity: sha512-ilhVAe7AYVg7TJ5MbvI+jLzynpoKJHbYzlE5kaUrecRVliOximdgqc3/GdBKiFt2dAVgOcjG8C/T7c48d5dR2w==}
+    engines: {node: ^16.17.0 || >=18.12.0}
+    dependencies:
+      deepmerge: 4.3.1
+    dev: true
 
   /@shopify/polaris@3.10.0:
     resolution: {integrity: sha512-O6pHiFvuZZv5+UzI20qDeD0lUYFoCVyv9ZI+Di36VnpFcG6aBZuzbrCdxInAznHaZoVk+IlUUY2De/Yc7QNw5g==}
@@ -2322,16 +2326,19 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /@smile-io/ember-shopify-polaris@0.16.0(@babel/core@7.23.7)(@ember/test-helpers@2.9.4)(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(@shopify/polaris-tokens@1.3.1)(ember-source@3.28.12):
+  /@smile-io/ember-shopify-polaris@0.16.0(@babel/core@7.23.7)(@ember/test-helpers@2.9.4)(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(@shopify/polaris-tokens@8.9.0)(ember-source@3.28.12):
     resolution: {integrity: sha512-j++Cxu/0blTe2wJsaDMOtfOU7zj7tXWrW8UhYPsKHXEjoCuaavL5mlWYhf6B0J5OiuA4QsBhnka1foirJ7LzzA==, tarball: https://npm.pkg.github.com/download/@smile-io/ember-shopify-polaris/0.16.0/763284efcb1382a9136b5a0bc891e56e59bb7b49}
     peerDependencies:
       '@shopify/polaris-tokens': 8.9.0
+    peerDependenciesMeta:
+      '@shopify/polaris-tokens':
+        optional: true
     dependencies:
       '@ember/render-modifiers': 2.1.0(@babel/core@7.23.7)(ember-source@3.28.12)
       '@embroider/addon-shim': 1.8.9
       '@embroider/macros': 1.16.9
       '@embroider/util': 1.13.2(ember-source@3.28.12)
-      '@shopify/polaris-tokens': 1.3.1
+      '@shopify/polaris-tokens': 8.9.0
       '@smile-io/polaris-icons': 0.1.7(@babel/core@7.23.7)
       decorator-transforms: 2.2.2(@babel/core@7.23.7)
       ember-animated: 2.1.0(@babel/core@7.23.7)(@ember/test-helpers@2.9.4)(ember-source@3.28.12)
@@ -5659,6 +5666,11 @@ packages:
 
   /deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
+    dev: true
+
+  /deepmerge@4.3.1:
+    resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
+    engines: {node: '>=0.10.0'}
     dev: true
 
   /default-browser-id@3.0.0:
