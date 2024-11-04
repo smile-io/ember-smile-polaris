@@ -14,7 +14,7 @@
             {{#if (is-component-definition @title)}}
               {{render-content @title}}
             {{else}}
-              <PolarisHeading @text={{@title}} />
+              <Text @variant="headingMd" @as="h2" @text={{@title}} />
             {{/if}}
           </stack.item>
 
@@ -34,11 +34,11 @@
       </div>
     {{else}}
       <div class="Polaris-Card__Header">
-        {{#if (is-component-definition @title)}}
-          {{render-content @title}}
-        {{else}}
-          <PolarisHeading @text={{@title}} />
-        {{/if}}
+        <MaybeRender @value={{@title}}>
+          <:asString as |titleAsString|>
+            <Text @variant="headingMd" @as="h2" @text={{titleAsString}} />
+          </:asString>
+        </MaybeRender>
       </div>
     {{/if}}
   {{/if}}

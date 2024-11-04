@@ -4,7 +4,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 
 const titleSelector = '.Polaris-DisplayText';
-const descriptionSelector = '.Polaris-TextStyle--variationSubdued';
+const descriptionSelector = '[data-test-text]';
 const illustrationSelector = '.Polaris-EmptySearchResult__Image';
 
 module(

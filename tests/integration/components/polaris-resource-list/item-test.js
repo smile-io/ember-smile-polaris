@@ -416,19 +416,6 @@ module(
           assert.dom('[data-test-checkbox-input]').hasAttribute('disabled');
         });
 
-        test('includes an <Avatar /> if one is provided', async function (assert) {
-          await render(hbs`
-            {{polaris-resource-list/item
-              context=mockDefaultContext
-              itemId=itemId
-              url=url
-              media=(component "polaris-avatar")
-            }}
-        `);
-
-          assert.dom(`${mediaSelector} > .Polaris-Avatar`).exists();
-        });
-
         test('includes a <Thumbnail /> if one is provided', async function (assert) {
           await render(hbs`
             {{polaris-resource-list/item

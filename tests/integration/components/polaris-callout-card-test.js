@@ -20,7 +20,7 @@ module('Integration | Component | polaris callout card', function (hooks) {
   const calloutCardContentHeadingSelector = buildNestedSelector(
     calloutCardContentSelector,
     'div.Polaris-CalloutCard__Title',
-    'h2.Polaris-Heading',
+    'h2[data-test-text]',
   );
   const calloutCardContentTextSelector = buildNestedSelector(
     calloutCardContentSelector,

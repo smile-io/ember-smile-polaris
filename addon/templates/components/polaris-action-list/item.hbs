@@ -1,4 +1,4 @@
-{{!-- TODO: add scroll support here when `polaris-scrollable` is available. --}}
+{{! TODO: add scroll support here when `polaris-scrollable` is available. }}
 <li role={{@role}} aria-selected={{this.active}}>
   <button
     type="button"
@@ -24,7 +24,7 @@
         {{#if @helpText}}
           <div>
             <div>{{@text}}</div>
-            <PolarisTextStyle @variation="subdued" @text={{@helpText}} />
+            <Text @as="span" @tone="subdued" @text={{@helpText}} />
           </div>
         {{else}}
           {{@text}}

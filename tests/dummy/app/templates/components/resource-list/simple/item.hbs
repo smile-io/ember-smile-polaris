@@ -3,15 +3,9 @@
   @itemId={{itemId}}
   @url={{item.url}}
   @accessibilityLabel={{accessibilityLabel}}
-  @media={{component
-    "polaris-avatar"
-    customer=true
-    size="medium"
-    name=item.name
-  }}
 >
   <h3>
-    <PolarisTextStyle @variation="strong" @text={{item.name}} />
+    <Text @as="span" @tone="strong" @text={{item.name}} />
   </h3>
   <div>{{item.location}}</div>
 </PolarisResourceList::Item>

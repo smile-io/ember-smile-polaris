@@ -14,11 +14,14 @@
   >
     {{#if @prefix}}
       <div data-test-range-slider-prefix class="Polaris-RangeSlider__Prefix">
-        {{render-content @prefix}}
+        <MaybeRender @value={{@prefix}} />
       </div>
     {{/if}}
 
-    <div data-test-range-slider-input-wrapper class="Polaris-RangeSlider__InputWrapper">
+    <div
+      data-test-range-slider-input-wrapper
+      class="Polaris-RangeSlider__InputWrapper"
+    >
       <input
         data-test-range-slider-input
         type="range"
@@ -38,7 +41,7 @@
         aria-valuenow={{@value}}
         aria-invalid={{this.hasError}}
         aria-describedby={{this.ariaDescribedBy}}
-      >
+      />
 
       {{#if this.shouldShowOutput}}
         <output
@@ -55,7 +58,7 @@
 
     {{#if @suffix}}
       <div data-test-range-slider-suffix class="Polaris-RangeSlider__Suffix">
-        {{render-content @suffix}}
+        <MaybeRender @value={{@suffix}} />
       </div>
     {{/if}}
   </div>

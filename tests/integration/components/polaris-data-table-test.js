@@ -100,7 +100,7 @@ module('Integration | Component | polaris-data-table', function (hooks) {
         )
         headings=(array
           "Product"
-          (component "polaris-badge" text="Status")
+          (component "badge" text="Status")
         )
         rows=(array
           (array
@@ -122,7 +122,10 @@ module('Integration | Component | polaris-data-table', function (hooks) {
     const lastHeadingCell = headingCells[headingCells.length - 1];
     assert
       .dom(lastHeadingCell.firstElementChild)
-      .hasClass('Polaris-Badge', 'last heading cell renders badge component');
+      .hasClass(
+        '[data-test-badge]',
+        'last heading cell renders badge component',
+      );
     assert
       .dom(lastHeadingCell)
       .hasText('Status', 'last heading cell renders correct text');
