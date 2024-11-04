@@ -122,7 +122,7 @@ module('Integration | Component | polaris skeleton page', function (hooks) {
     assert
       .dom(titleTextSelector)
       .hasClass(
-        'Polaris-SkeletonDisplayText--sizeLarge',
+        /SkeletonDisplayText--sizeLarge/,
         'unspecified title - renders large skeleton title',
       );
 
