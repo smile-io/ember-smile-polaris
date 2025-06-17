@@ -41,7 +41,6 @@
     "preinstall": "npx only-allow pnpm",
     "prettier": "prettier --write '{addon,app,blueprints,config,lib,tests,mirage}/**/*.js' *.js",
     "prepare": "husky install",
-    "release": "release-it",
     "start": "ember serve",
     "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
     "test:ember": "ember test",
@@ -89,7 +88,6 @@
     "@embroider/util": "1.12.1",
     "@glimmer/component": "1.1.2",
     "@glimmer/tracking": "1.1.2",
-    "@release-it-plugins/lerna-changelog": "7.0.0",
     "broccoli-asset-rev": "3.0.0",
     "concurrently": "^8.2.1",
     "ember-array-helper": "5.1.0",
@@ -124,7 +122,6 @@
     "prettier": "^3.0.2",
     "qunit": "^2.17.2",
     "qunit-dom": "2.0.0",
-    "release-it": "17.0.0",
     "sass": "^1.67.0",
     "webpack": "^5.88.2"
   },
@@ -139,24 +136,6 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
-  },
-  "release-it": {
-    "plugins": {
-      "@release-it-plugins/lerna-changelog": {
-        "infile": "CHANGELOG.md",
-        "launchEditor": true
-      }
-    },
-    "git": {
-      "tagName": "v${version}"
-    },
-    "github": {
-      "release": true,
-      "tokenRef": "GITHUB_AUTH"
-    },
-    "npm": {
-      "publish": false
-    }
   },
   "volta": {
     "node": "16.20.2",
