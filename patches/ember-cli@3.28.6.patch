@@ -1,0 +1,37 @@
+diff --git a/lib/tasks/git-init.js b/lib/tasks/git-init.js
+index a120906c43ff7884146b04046520907c43086c1b..9e198621ed01a874037a3f88bbee8dd23a699124 100644
+--- a/lib/tasks/git-init.js
++++ b/lib/tasks/git-init.js
+@@ -47,7 +47,7 @@ module.exports = class GitInitTask extends Task {
+   }
+ 
+   async _gitCommit() {
+-    const template = require('lodash.template');
++    const template = require('lodash/template');
+     let commitTemplate = fs.readFileSync(path.join(__dirname, '../utilities/COMMIT_MESSAGE.txt'));
+     let commitMessage = template(commitTemplate)(pkg);
+     let env = this.buildGitEnvironment();
+diff --git a/lib/utilities/process-template.js b/lib/utilities/process-template.js
+index c07b82169e292f04c7842f19f33a5618a37fce89..7f888ac9dd02eaf6a7fb6dd3eab8f06a0da52991 100644
+--- a/lib/utilities/process-template.js
++++ b/lib/utilities/process-template.js
+@@ -6,5 +6,5 @@ module.exports = function processTemplate(content, context) {
+     interpolate: /<%=([\s\S]+?)%>/g,
+     escape: /<%-([\s\S]+?)%>/g,
+   };
+-  return require('lodash.template')(content, options)(context);
++  return require('lodash/template')(content, options)(context);
+ };
+diff --git a/package.json b/package.json
+index ae33c31cc9c7d30aff9a6e4948dc2d57e40bba4f..e9b4ea5ab49797e68ff178d35abc59797fe9e40b 100644
+--- a/package.json
++++ b/package.json
+@@ -100,7 +100,7 @@
+     "js-yaml": "^3.14.0",
+     "json-stable-stringify": "^1.0.1",
+     "leek": "0.0.24",
+-    "lodash.template": "^4.5.0",
++    "lodash": "^4.17.21",
+     "markdown-it": "^12.0.4",
+     "markdown-it-terminal": "0.2.1",
+     "minimatch": "^3.0.4",
