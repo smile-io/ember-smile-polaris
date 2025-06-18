@@ -161,6 +161,9 @@
       "@octokit/plugin-paginate-rest@>=1.0.0 <9.2.2": "9.2.2",
       "cookie@<0.7.0": "0.7.0",
       "@babel/runtime@<7.26.10": "7.26.10"
+    },
+    "patchedDependencies": {
+      "ember-cli@3.28.6": "patches/ember-cli@3.28.6.patch"
     }
   }
 }
