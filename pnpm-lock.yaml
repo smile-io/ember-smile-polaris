@@ -6,25 +6,21 @@ settings:
 
 overrides:
   ember-cli-babel: ^7.26.10
-  got@<11.8.5: 11.8.5
-  clean-css@<4.1.11: 4.1.11
-  markdown-it@<12.3.2: 12.3.2
-  nth-check@<2.0.1: 2.0.1
-  json5@<1.0.2: 1.0.2
-  braces@<3.0.3: 3.0.3
-  ws@>=8.0.0 <8.17.1: 8.17.1
-  micromatch@<4.0.8: 4.0.8
-  '@octokit/request-error@>=1.0.0 <5.1.1': 5.1.1
-  ansi-html@<0.0.8: 0.0.8
-  '@octokit/request@>=1.0.0 <8.4.1': 8.4.1
-  '@octokit/plugin-paginate-rest@>=1.0.0 <9.2.2': 9.2.2
-  cookie@<0.7.0: 0.7.0
   '@babel/runtime@<7.26.10': 7.26.10
-
-patchedDependencies:
-  ember-cli@3.28.6:
-    hash: hcazluh2iess3y3ga2uuprdoae
-    path: patches/ember-cli@3.28.6.patch
+  '@octokit/plugin-paginate-rest@>=1.0.0 <9.2.2': 9.2.2
+  '@octokit/request-error@>=1.0.0 <5.1.1': 5.1.1
+  '@octokit/request@>=1.0.0 <8.4.1': 8.4.1
+  ansi-html@<0.0.8: 0.0.8
+  braces@<3.0.3: 3.0.3
+  clean-css@<4.1.11: 4.1.11
+  cookie@<0.7.0: 0.7.0
+  got@<11.8.5: 11.8.5
+  json5@<1.0.2: 1.0.2
+  markdown-it@<12.3.2: 12.3.2
+  micromatch@<4.0.8: 4.0.8
+  nth-check@<2.0.1: 2.0.1
+  ws@>=8.0.0 <8.17.1: 8.17.1
+  lodash.template: npm:lodash@^4.17.21
 
 dependencies:
   '@ember-decorators/component':
@@ -142,7 +138,7 @@ devDependencies:
     version: 5.1.0
   ember-cli:
     specifier: 3.28.6
-    version: 3.28.6(patch_hash=hcazluh2iess3y3ga2uuprdoae)
+    version: 3.28.6(lodash@4.17.21)
   ember-cli-deprecation-workflow:
     specifier: 2.1.0
     version: 2.1.0
@@ -4015,7 +4011,7 @@ packages:
       ora: 3.4.0
       through2: 3.0.2
 
-  /consolidate@0.16.0(mustache@4.2.0):
+  /consolidate@0.16.0(lodash@4.17.21)(mustache@4.2.0):
     resolution: {integrity: sha512-Nhl1wzCslqXYTJVDyJCu3ODohy9OfBMB5uD2BiBTzd7w+QY0lBzafkR8y8755yMYHAaMD4NuzbAw03/xzfw+eQ==}
     engines: {node: '>= 0.10.0'}
     deprecated: Please upgrade to consolidate v1.0.0+ as it has been modernized with several long-awaited fixes implemented. Maintenance is supported by Forward Email at https://forwardemail.net ; follow/watch https://github.com/ladjs/consolidate for updates and release changelog
@@ -4182,6 +4178,7 @@ packages:
         optional: true
     dependencies:
       bluebird: 3.7.2
+      lodash: 4.17.21
       mustache: 4.2.0
     dev: true
 
@@ -5017,7 +5014,7 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /ember-cli@3.28.6(patch_hash=hcazluh2iess3y3ga2uuprdoae):
+  /ember-cli@3.28.6(lodash@4.17.21):
     resolution: {integrity: sha512-aGHIDXM5KujhU+tHyfp1X5bUp3yj47sIWI0zgybyIw6vv6ErAu/eKWWMSib5PF8cQDdXG9vttBcXnvQ4QBNIPQ==}
     engines: {node: '>= 12'}
     hasBin: true
@@ -5085,7 +5082,7 @@ packages:
       js-yaml: 3.14.1
       json-stable-stringify: 1.1.0
       leek: 0.0.24
-      lodash.template: 4.5.0
+      lodash.template: /lodash@4.17.21
       markdown-it: 12.3.2
       markdown-it-terminal: 0.2.1
       minimatch: 3.1.2
@@ -5105,7 +5102,7 @@ packages:
       sort-package-json: 1.57.0
       symlink-or-copy: 1.3.1
       temp: 0.9.4
-      testem: 3.11.0
+      testem: 3.11.0(lodash@4.17.21)
       tiny-lr: 2.0.0
       tree-sync: 2.1.0
       uuid: 8.3.2
@@ -5172,7 +5169,6 @@ packages:
       - walrus
       - whiskers
     dev: true
-    patched: true
 
   /ember-compatibility-helpers@1.2.7(@babel/core@7.23.7):
     resolution: {integrity: sha512-BtkjulweiXo9c3yVWrtexw2dTmBrvavD/xixNC6TKOBdrixUwU+6nuOO9dufDWsMxoid7MvtmDpzc9+mE8PdaA==}
@@ -7862,10 +7858,6 @@ packages:
     resolution: {integrity: sha512-De+ZbrMu6eThFti/CSzhRvTKMgQToLxbij58LMfM8JnYDNSOjkjTCIaa8ixglOeGh2nyPlakbt5bJWJ7gvpYlQ==}
     dev: true
 
-  /lodash._reinterpolate@3.0.0:
-    resolution: {integrity: sha512-xYHt68QRoYGjeeM/XOE1uJtvXQAgvszfBhjV4yvsQH0u2i9I6cI6c6/eG4Hh3UAOVn0y/xAXwmTzEay49Q//HA==}
-    dev: true
-
   /lodash.assign@3.2.0:
     resolution: {integrity: sha512-/VVxzgGBmbphasTg51FrztxQJ/VgAUpol6zmJuSVSGcNg4g7FA4z7rQV8Ovr9V3vFBNWZhvKWHfpAytjTVUfFA==}
     dependencies:
@@ -7942,19 +7934,6 @@ packages:
 
   /lodash.restparam@3.6.1:
     resolution: {integrity: sha512-L4/arjjuq4noiUJpt3yS6KIKDtJwNe2fIYgMqyYYKoeIfV1iEqvPwhCx23o+R9dzouGihDAPN1dTIRWa7zk8tw==}
-    dev: true
-
-  /lodash.template@4.5.0:
-    resolution: {integrity: sha512-84vYFxIkmidUiFxidA/KjjH9pAycqW+h980j7Fuz5qxRtO9pgB7MDFTdys1N7A5mcucRiDyEq4fusljItR1T/A==}
-    dependencies:
-      lodash._reinterpolate: 3.0.0
-      lodash.templatesettings: 4.2.0
-    dev: true
-
-  /lodash.templatesettings@4.2.0:
-    resolution: {integrity: sha512-stgLz+i3Aa9mZgnjr/O+v9ruKZsPsndy7qPZOchbqk2cnTU1ZaldKK+v7m54WoKIyxiuMZTKT2H81F8BeAc3ZQ==}
-    dependencies:
-      lodash._reinterpolate: 3.0.0
     dev: true
 
   /lodash.uniq@4.5.0:
@@ -10193,7 +10172,7 @@ packages:
       commander: 2.20.3
       source-map-support: 0.5.21
 
-  /testem@3.11.0:
+  /testem@3.11.0(lodash@4.17.21):
     resolution: {integrity: sha512-q0U126/nnRH54ZDrr6j1Ai5zK6vOm2rdY/5VJrbqcEPQgOWoLB6zrymWUs7BqN2/yRsdorocl9E9ZEwm7LLIZQ==}
     engines: {node: '>= 7.*'}
     hasBin: true
@@ -10204,7 +10183,7 @@ packages:
       charm: 1.0.2
       commander: 2.20.3
       compression: 1.7.4
-      consolidate: 0.16.0(mustache@4.2.0)
+      consolidate: 0.16.0(lodash@4.17.21)(mustache@4.2.0)
       execa: 1.0.0
       express: 4.21.2
       fireworm: 0.7.2
