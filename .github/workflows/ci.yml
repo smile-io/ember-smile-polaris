@@ -18,11 +18,15 @@ jobs:
   test:
     name: "Tests"
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     timeout-minutes: 10
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          persist-credentials: false
       - uses: wyvox/action-setup-pnpm@dec4af68ac0a63b2f3cce8ee6d3e9ec5b0e75cec # v3
         with:
           node-version: 16
@@ -34,11 +38,15 @@ jobs:
   floating:
     name: "Floating Dependencies"
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     timeout-minutes: 10
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          persist-credentials: false
       - uses: wyvox/action-setup-pnpm@dec4af68ac0a63b2f3cce8ee6d3e9ec5b0e75cec # v3
         with:
           node-version: 16
@@ -50,6 +58,8 @@ jobs:
     name: ${{ matrix.try-scenario }}
     runs-on: ubuntu-latest
     needs: "test"
+    permissions:
+      contents: read
     timeout-minutes: 10
 
     strategy:
@@ -67,6 +77,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          persist-credentials: false
       - uses: wyvox/action-setup-pnpm@dec4af68ac0a63b2f3cce8ee6d3e9ec5b0e75cec # v3
         with:
           node-version: 16
