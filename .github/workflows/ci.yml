@@ -14,6 +14,9 @@ concurrency:
   group: ci-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   test:
     name: "Tests"
@@ -23,6 +26,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          persist-credentials: false
       - uses: wyvox/action-setup-pnpm@dec4af68ac0a63b2f3cce8ee6d3e9ec5b0e75cec # v3
         with:
           node-version: 16
@@ -39,6 +44,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          persist-credentials: false
       - uses: wyvox/action-setup-pnpm@dec4af68ac0a63b2f3cce8ee6d3e9ec5b0e75cec # v3
         with:
           node-version: 16
@@ -67,6 +74,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          persist-credentials: false
       - uses: wyvox/action-setup-pnpm@dec4af68ac0a63b2f3cce8ee6d3e9ec5b0e75cec # v3
         with:
           node-version: 16
