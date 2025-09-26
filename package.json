@@ -137,8 +137,8 @@
     "configPath": "tests/dummy/config"
   },
   "volta": {
-    "node": "16.20.2",
-    "pnpm": "8.14.0"
+    "node": "18.20.8",
+    "pnpm": "10.16.0"
   },
   "lintTodo": {
     "ember-template-lint": {
