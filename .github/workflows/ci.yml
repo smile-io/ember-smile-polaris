@@ -30,7 +30,7 @@ jobs:
           persist-credentials: false
       - uses: wyvox/action-setup-pnpm@dec4af68ac0a63b2f3cce8ee6d3e9ec5b0e75cec # v3
         with:
-          node-version: 16
+          node-version: 18
       - name: Lint
         run: pnpm lint
       - name: Run Tests
@@ -48,7 +48,7 @@ jobs:
           persist-credentials: false
       - uses: wyvox/action-setup-pnpm@dec4af68ac0a63b2f3cce8ee6d3e9ec5b0e75cec # v3
         with:
-          node-version: 16
+          node-version: 18
           args: "--no-lockfile"
       - name: Run Tests
         run: pnpm test:ember
@@ -78,6 +78,6 @@ jobs:
           persist-credentials: false
       - uses: wyvox/action-setup-pnpm@dec4af68ac0a63b2f3cce8ee6d3e9ec5b0e75cec # v3
         with:
-          node-version: 16
+          node-version: 18
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
