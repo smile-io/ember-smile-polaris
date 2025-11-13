@@ -33,6 +33,6 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Publish release
-        run: npm publish
+        run: npm publish # zizmor: ignore[use-trusted-publishing]
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
