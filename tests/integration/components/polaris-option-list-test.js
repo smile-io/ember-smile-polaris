@@ -745,9 +745,11 @@ module('Integration | Component | polaris-option-list', function (hooks) {
 
 function firstOption(options, sections) {
   const firstOptionsValue =
-    options == null || options === [] ? '' : options[0].value;
+    options == null || options.length === 0 ? '' : options[0].value;
   const firstSectionOptionsValue =
-    sections == null || sections === [] || sections[0].options === []
+    sections == null ||
+    sections.length === 0 ||
+    sections[0].options.length === 0
       ? ''
       : sections[0].options[0].value;
   return firstOptionsValue || firstSectionOptionsValue;
