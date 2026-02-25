@@ -1,0 +1,35 @@
+diff --git a/dist/commonjs/index.js b/dist/commonjs/index.js
+index 5a0ba2a87fb0365a959223919e82e6ac32dc49f8..2f9612ef4c21925b2d17df5ee3d3c84b679200b3 100644
+--- a/dist/commonjs/index.js
++++ b/dist/commonjs/index.js
+@@ -1032,4 +1032,8 @@ exports.minimatch.AST = ast_js_1.AST;
+ exports.minimatch.Minimatch = Minimatch;
+ exports.minimatch.escape = escape_js_1.escape;
+ exports.minimatch.unescape = unescape_js_1.unescape;
++// Backward compatibility for call sites expecting require('minimatch') to be callable.
++const legacyDefault = Object.assign(exports.minimatch, exports);
++legacyDefault.default = exports.minimatch;
++module.exports = legacyDefault;
+ //# sourceMappingURL=index.js.map
+\ No newline at end of file
+diff --git a/dist/esm/index.d.ts b/dist/esm/index.d.ts
+index 1556f330559c1ec17e0e7ad43bb49fe8337034c9..770ade788b6172236080e24f1c0c1a3086f578e4 100644
+--- a/dist/esm/index.d.ts
++++ b/dist/esm/index.d.ts
+@@ -141,4 +141,5 @@ export declare class Minimatch {
+ export { AST } from './ast.js';
+ export { escape } from './escape.js';
+ export { unescape } from './unescape.js';
++export default minimatch;
+ //# sourceMappingURL=index.d.ts.map
+\ No newline at end of file
+diff --git a/dist/esm/index.js b/dist/esm/index.js
+index 3175327db5efbf7e59e6294a767bec9835f1e4cf..fcc9ed553271e6234a9d42a8b0c4be27f87f4504 100644
+--- a/dist/esm/index.js
++++ b/dist/esm/index.js
+@@ -1019,4 +1019,5 @@ minimatch.AST = AST;
+ minimatch.Minimatch = Minimatch;
+ minimatch.escape = escape;
+ minimatch.unescape = unescape;
++export default minimatch;
+ //# sourceMappingURL=index.js.map
