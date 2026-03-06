@@ -179,7 +179,9 @@
       "ajv@<6.14.0": "^6.14.0",
       "ajv@>=7.0.0-alpha.0 <8.18.0": "^8.18.0",
       "minimatch@<10.2.3": "^10.2.3",
-      "serialize-javascript@<=7.0.2": "^7.0.3"
+      "serialize-javascript@<=7.0.2": "^7.0.3",
+      "underscore@<1.13.8": "^1.13.8",
+      "immutable@<5.1.5": "^5.1.5"
     },
     "patchedDependencies": {
       "minimatch@10.2.4": "patches/minimatch@10.2.4.patch"
