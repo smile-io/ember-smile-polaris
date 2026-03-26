@@ -39,6 +39,9 @@ overrides:
   flatted@<3.4.0: ^3.4.0
   undici@>=7.0.0 <7.24.0: ^7.24.0
   socket.io-parser@>=4.0.0 <4.2.6: ^4.2.6
+  yaml@>=2.0.0 <2.8.3: ^2.8.3
+  picomatch@<2.3.2: ^2.3.2
+  picomatch@>=4.0.0 <4.0.4: ^4.0.4
 
 patchedDependencies:
   minimatch@10.2.4:
@@ -8068,17 +8071,17 @@ packages:
         integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==,
       }
 
-  picomatch@2.3.1:
+  picomatch@2.3.2:
     resolution:
       {
-        integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==,
+        integrity: sha512-V7+vQEJ06Z+c5tSye8S+nHUfI51xoXIXjHQ99cQtKUkQqqO1kO/KCJUfZXuB47h/YBlDhah2H3hdUGXn8ie0oA==,
       }
     engines: { node: ">=8.6" }
 
-  picomatch@4.0.3:
+  picomatch@4.0.4:
     resolution:
       {
-        integrity: sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==,
+        integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==,
       }
     engines: { node: ">=12" }
 
@@ -10252,12 +10255,13 @@ packages:
       }
     engines: { node: ^4.5 || 6.* || >= 7.* }
 
-  yaml@2.3.1:
+  yaml@2.8.3:
     resolution:
       {
-        integrity: sha512-2eHWfjaoXgTBC2jNM1LRef62VQa0umtvRiDSk6HSzW7RvS5YtkabJrwYLLEKWBc8a5U2PTSCs+dJjUTJdlHsWQ==,
+        integrity: sha512-AvbaCLOO2Otw/lW5bmh9d/WEdcDFdQp2Z2ZUH3pX9U2ihyUY0nvLv7J6TrWowklRGPYbB/IuIMfYgxaCPg5Bpg==,
       }
-    engines: { node: ">= 14" }
+    engines: { node: ">= 14.6" }
+    hasBin: true
 
   yargs-parser@21.1.1:
     resolution:
@@ -15488,7 +15492,7 @@ snapshots:
       micromatch: 4.0.8
       pidtree: 0.6.0
       string-argv: 0.3.2
-      yaml: 2.3.1
+      yaml: 2.8.3
     transitivePeerDependencies:
       - enquirer
       - supports-color
@@ -15725,7 +15729,7 @@ snapshots:
   micromatch@4.0.8:
     dependencies:
       braces: 3.0.3
-      picomatch: 2.3.1
+      picomatch: 2.3.2
 
   mime-db@1.52.0: {}
 
@@ -16137,9 +16141,9 @@ snapshots:
 
   picocolors@1.1.1: {}
 
-  picomatch@2.3.1: {}
+  picomatch@2.3.2: {}
 
-  picomatch@4.0.3: {}
+  picomatch@4.0.4: {}
 
   pidtree@0.3.1: {}
 
@@ -17188,7 +17192,7 @@ snapshots:
 
   ts-declaration-location@1.0.7:
     dependencies:
-      picomatch: 4.0.3
+      picomatch: 4.0.4
 
   tslib@1.14.1: {}
 
@@ -17569,7 +17573,7 @@ snapshots:
       fs-extra: 4.0.3
       lodash.merge: 4.6.2
 
-  yaml@2.3.1: {}
+  yaml@2.8.3: {}
 
   yargs-parser@21.1.1: {}
 
