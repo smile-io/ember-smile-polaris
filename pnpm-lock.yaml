@@ -22,7 +22,6 @@ overrides:
   ws@>=8.0.0 <8.17.1: 8.17.1
   lodash.template: npm:lodash@^4.17.23
   on-headers@<1.1.0: 1.1.0
-  qs@<6.14.1: ^6.14.1
   tmp@<=0.2.3: ">=0.2.4"
   js-yaml@<3.14.2 <4.0.0: ">=3.14.2 <4.0.0"
   js-yaml@>=4.0.0 <4.1.1: ">=4.1.1"
@@ -33,7 +32,6 @@ overrides:
   ajv@<6.14.0: ^6.14.0
   ajv@>=7.0.0-alpha.0 <8.18.0: ^8.18.0
   minimatch@<10.2.3: ^10.2.3
-  serialize-javascript@<=7.0.2: ^7.0.3
   underscore@<1.13.8: ^1.13.8
   immutable@<5.1.5: ^5.1.5
   flatted@<3.4.0: ^3.4.0
@@ -42,6 +40,10 @@ overrides:
   yaml@>=2.0.0 <2.8.3: ^2.8.3
   picomatch@<2.3.2: ^2.3.2
   picomatch@>=4.0.0 <4.0.4: ^4.0.4
+  path-to-regexp@<1.0.0: ^0.1.13
+  handlebars: ^4.7.9
+  serialize-javascript: ^7.0.5
+  brace-expansion: ^5.0.5
 
 patchedDependencies:
   minimatch@10.2.4:
@@ -171,7 +173,7 @@ importers:
         version: 5.1.0
       ember-cli:
         specifier: 3.28.6
-        version: 3.28.6(handlebars@4.7.8)(underscore@1.13.8)
+        version: 3.28.6(handlebars@4.7.9)(underscore@1.13.8)
       ember-cli-deprecation-workflow:
         specifier: 2.1.0
         version: 2.1.0
@@ -1677,6 +1679,7 @@ packages:
     engines: { node: ">= 10.0.0" }
     cpu: [arm]
     os: [linux]
+    libc: [glibc]
 
   "@parcel/watcher-linux-arm-musl@2.5.1":
     resolution:
@@ -1686,6 +1689,7 @@ packages:
     engines: { node: ">= 10.0.0" }
     cpu: [arm]
     os: [linux]
+    libc: [musl]
 
   "@parcel/watcher-linux-arm64-glibc@2.5.1":
     resolution:
@@ -1695,6 +1699,7 @@ packages:
     engines: { node: ">= 10.0.0" }
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   "@parcel/watcher-linux-arm64-musl@2.5.1":
     resolution:
@@ -1704,6 +1709,7 @@ packages:
     engines: { node: ">= 10.0.0" }
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   "@parcel/watcher-linux-x64-glibc@2.5.1":
     resolution:
@@ -1713,6 +1719,7 @@ packages:
     engines: { node: ">= 10.0.0" }
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   "@parcel/watcher-linux-x64-musl@2.5.1":
     resolution:
@@ -1722,6 +1729,7 @@ packages:
     engines: { node: ">= 10.0.0" }
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   "@parcel/watcher-win32-arm64@2.5.1":
     resolution:
@@ -2829,10 +2837,10 @@ packages:
       }
     engines: { node: ">=0.8.0" }
 
-  brace-expansion@5.0.3:
+  brace-expansion@5.0.5:
     resolution:
       {
-        integrity: sha512-fy6KJm2RawA5RcHkLa1z/ScpBeA762UF9KmZQxwIbDtRJrgLzM10depAiEQ+CXYcoiqW1/m96OAAoke2nE9EeA==,
+        integrity: sha512-VZznLgtwhn+Mact9tfiwx64fA9erHH/MCXEUfB/0bX/6Fz6ny5EGTXYltMocqg4xFAQZtnO3DHWWXi8RiuN7cQ==,
       }
     engines: { node: 18 || 20 || >=22 }
 
@@ -3674,7 +3682,7 @@ packages:
       haml-coffee: ^1.14.1
       hamlet: ^0.3.3
       hamljs: ^0.6.2
-      handlebars: ^4.7.6
+      handlebars: ^4.7.9
       hogan.js: ^3.0.2
       htmling: ^0.0.8
       jade: ^1.11.0
@@ -5946,10 +5954,10 @@ packages:
         integrity: sha512-+xGQY0YyAWCnqy7Cd++hc2JqMYzlm0dG30Jd0beaA64sROr8C4nt8Yc9V5Ro3avlSUDTN0ulqP/VBKi1/lLygw==,
       }
 
-  handlebars@4.7.8:
+  handlebars@4.7.9:
     resolution:
       {
-        integrity: sha512-vafaFqs8MZkRrSX7sFVUdo3ap/eNiLnb4IakshzvP56X5Nr1iGKAIqdX6tMlm6HcNRIkr6AxO5jFEoJzzpT8aQ==,
+        integrity: sha512-4E71E0rpOaQuJR2A3xDZ+GM1HyWYv1clR58tC8emQNeQe3RH7MAzSbat+V0wG78LQBo6m6bzSG/L4pBuCsgnUQ==,
       }
     engines: { node: ">=0.4.7" }
     hasBin: true
@@ -8045,10 +8053,10 @@ packages:
       }
     engines: { node: ">=0.10.0" }
 
-  path-to-regexp@0.1.12:
+  path-to-regexp@0.1.13:
     resolution:
       {
-        integrity: sha512-RA1GjUVMnvYFxuqovrEqZoxxW5NUZqbwKtYz/Tt7nXerk0LbLblQmrsgdeOxV5SFHf0UDggjS/bSeOZwt1pmEQ==,
+        integrity: sha512-A/AGNMFN3c8bOlvV9RreMdrv7jsmF9XIfDeCd87+I8RNg6s78BhJxMu69NEMHBSJFxKidViTEdruRwEk/WIKqA==,
       }
 
   path-type@3.0.0:
@@ -8910,10 +8918,10 @@ packages:
       }
     engines: { node: ">= 0.8.0" }
 
-  serialize-javascript@7.0.4:
+  serialize-javascript@7.0.5:
     resolution:
       {
-        integrity: sha512-DuGdB+Po43Q5Jxwpzt1lhyFSYKryqoNjQSA9M92tyw0lyHIOur+XCalOUe0KTJpyqzT8+fQ5A0Jf7vCx/NKmIg==,
+        integrity: sha512-F4LcB0UqUl1zErq+1nYEEzSHJnIwb3AF2XWB94b+afhrekOUijwooAYqFyRbjYkm2PAKBabx6oYv/xDxNi8IBw==,
       }
     engines: { node: ">=20.0.0" }
 
@@ -12189,7 +12197,7 @@ snapshots:
 
   bower-endpoint-parser@0.2.2: {}
 
-  brace-expansion@5.0.3:
+  brace-expansion@5.0.5:
     dependencies:
       balanced-match: 4.0.4
 
@@ -12417,7 +12425,7 @@ snapshots:
   broccoli-middleware@2.1.1:
     dependencies:
       ansi-html: 0.0.8
-      handlebars: 4.7.8
+      handlebars: 4.7.9
       has-ansi: 3.0.0
       mime-types: 2.1.35
 
@@ -12613,7 +12621,7 @@ snapshots:
       console-ui: 3.1.2
       esm: 3.2.25
       findup-sync: 4.0.0
-      handlebars: 4.7.8
+      handlebars: 4.7.9
       heimdalljs: 0.2.6
       heimdalljs-logger: 0.1.10
       https: 1.0.0
@@ -12941,11 +12949,11 @@ snapshots:
       ora: 3.4.0
       through2: 3.0.2
 
-  consolidate@0.16.0(handlebars@4.7.8)(lodash@4.17.23)(mustache@4.2.0)(underscore@1.13.8):
+  consolidate@0.16.0(handlebars@4.7.9)(lodash@4.17.23)(mustache@4.2.0)(underscore@1.13.8):
     dependencies:
       bluebird: 3.7.2
     optionalDependencies:
-      handlebars: 4.7.8
+      handlebars: 4.7.9
       lodash: 4.17.23
       mustache: 4.2.0
       underscore: 1.13.8
@@ -13261,7 +13269,7 @@ snapshots:
       debug: 4.4.3
       fs-extra: 10.1.0
       fs-tree-diff: 2.0.1
-      handlebars: 4.7.8
+      handlebars: 4.7.9
       is-subdir: 1.2.0
       js-string-escape: 1.0.1
       lodash: 4.17.23
@@ -13544,7 +13552,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-cli@3.28.6(handlebars@4.7.8)(underscore@1.13.8):
+  ember-cli@3.28.6(handlebars@4.7.9)(underscore@1.13.8):
     dependencies:
       "@babel/core": 7.23.7
       "@babel/plugin-transform-modules-amd": 7.27.1(@babel/core@7.23.7)
@@ -13629,7 +13637,7 @@ snapshots:
       sort-package-json: 1.57.0
       symlink-or-copy: 1.3.1
       temp: 0.9.4
-      testem: 3.16.0(handlebars@4.7.8)(underscore@1.13.8)
+      testem: 3.16.0(handlebars@4.7.9)(underscore@1.13.8)
       tiny-lr: 2.0.0
       tree-sync: 2.1.0
       uuid: 8.3.2
@@ -14483,7 +14491,7 @@ snapshots:
       methods: 1.1.2
       on-finished: 2.4.1
       parseurl: 1.3.3
-      path-to-regexp: 0.1.12
+      path-to-regexp: 0.1.13
       proxy-addr: 2.0.7
       qs: 6.14.2
       range-parser: 1.2.1
@@ -14971,7 +14979,7 @@ snapshots:
 
   growly@1.3.0: {}
 
-  handlebars@4.7.8:
+  handlebars@4.7.9:
     dependencies:
       minimist: 1.2.8
       neo-async: 2.6.2
@@ -15759,7 +15767,7 @@ snapshots:
 
   minimatch@10.2.4(patch_hash=48f09d0f09e3ad1219341a20b95c67fc9367f25c541837f7e50ba40202b363ba):
     dependencies:
-      brace-expansion: 5.0.3
+      brace-expansion: 5.0.5
 
   minimist@0.2.4: {}
 
@@ -16131,7 +16139,7 @@ snapshots:
     dependencies:
       path-root-regex: 0.1.2
 
-  path-to-regexp@0.1.12: {}
+  path-to-regexp@0.1.13: {}
 
   path-type@3.0.0:
     dependencies:
@@ -16629,7 +16637,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  serialize-javascript@7.0.4: {}
+  serialize-javascript@7.0.5: {}
 
   serve-static@1.16.2:
     dependencies:
@@ -17036,7 +17044,7 @@ snapshots:
       "@jridgewell/trace-mapping": 0.3.31
       jest-worker: 27.5.1
       schema-utils: 4.3.3
-      serialize-javascript: 7.0.4
+      serialize-javascript: 7.0.5
       terser: 5.44.0
       webpack: 5.105.2
 
@@ -17047,7 +17055,7 @@ snapshots:
       commander: 2.20.3
       source-map-support: 0.5.21
 
-  testem@3.16.0(handlebars@4.7.8)(underscore@1.13.8):
+  testem@3.16.0(handlebars@4.7.9)(underscore@1.13.8):
     dependencies:
       "@xmldom/xmldom": 0.8.11
       backbone: 1.6.1
@@ -17055,7 +17063,7 @@ snapshots:
       charm: 1.0.2
       commander: 2.20.3
       compression: 1.8.1
-      consolidate: 0.16.0(handlebars@4.7.8)(lodash@4.17.23)(mustache@4.2.0)(underscore@1.13.8)
+      consolidate: 0.16.0(handlebars@4.7.9)(lodash@4.17.23)(mustache@4.2.0)(underscore@1.13.8)
       execa: 1.0.0
       express: 4.21.2
       fireworm: 0.7.2
