@@ -186,7 +186,10 @@
       "socket.io-parser@>=4.0.0 <4.2.6": "^4.2.6",
       "yaml@>=2.0.0 <2.8.3": "^2.8.3",
       "picomatch@<2.3.2": "^2.3.2",
-      "picomatch@>=4.0.0 <4.0.4": "^4.0.4"
+      "picomatch@>=4.0.0 <4.0.4": "^4.0.4",
+      "handlebars": ">=4.7.9",
+      "serialize-javascript": ">=7.0.5",
+      "brace-expansion": ">=5.0.5"
     },
     "patchedDependencies": {
       "minimatch@10.2.4": "patches/minimatch@10.2.4.patch"
