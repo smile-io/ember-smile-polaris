@@ -26,7 +26,6 @@ overrides:
   js-yaml@<3.14.2 <4.0.0: ">=3.14.2 <4.0.0"
   js-yaml@>=4.0.0 <4.1.1: ">=4.1.1"
   diff@<8.0.3: ">=8.0.3"
-  lodash@>=4.0.0 <=4.17.22: ^4.17.23
   webpack@>=5.49.0 <5.104.1: ^5.104.1
   qs@<=6.14.1: ^6.14.2
   ajv@<6.14.0: ^6.14.0
@@ -44,6 +43,8 @@ overrides:
   handlebars: ^4.7.9
   serialize-javascript: ^7.0.5
   brace-expansion: ^5.0.5
+  "@xmldom/xmldom@<0.8.12": ^0.8.12
+  lodash@<=4.17.23: ">=4.18.0"
 
 patchedDependencies:
   minimatch@10.2.4:
@@ -2211,10 +2212,10 @@ packages:
         integrity: sha512-kPSSXE6De1XOR820C90RIo2ogvZG+c3KiHzqUoO/F34Y2shGzesfqv7o57xrxovZJH/MetF5UjroJ/R/3isoiw==,
       }
 
-  "@xmldom/xmldom@0.8.11":
+  "@xmldom/xmldom@0.8.12":
     resolution:
       {
-        integrity: sha512-cQzWCtO6C8TQiYl1ruKNn2U6Ao4o4WBBcbL61yJl84x+j5sOWWFU9X7DpND8XZG3daDppSsigMdfAIl2upQBRw==,
+        integrity: sha512-9k/gHF6n/pAi/9tqr3m3aqkuiNosYTurLLUtc7xQ9sxB/wm7WPygCv8GYa6mS0fLJEHhqMC1ATYhz++U/lRHqg==,
       }
     engines: { node: ">=10.0.0" }
 
@@ -3691,7 +3692,7 @@ packages:
       just: ^0.1.8
       liquid-node: ^3.0.1
       liquor: ^0.0.5
-      lodash: ^4.17.23
+      lodash: ">=4.18.0"
       marko: ^3.14.4
       mote: ^0.2.0
       mustache: ^4.0.1
@@ -6956,7 +6957,7 @@ packages:
       }
     engines: { node: ">=0.12.0" }
     peerDependencies:
-      lodash: ^4.17.23
+      lodash: ">=4.18.0"
 
   lodash._baseassign@3.2.0:
     resolution:
@@ -7085,10 +7086,10 @@ packages:
         integrity: sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==,
       }
 
-  lodash@4.17.23:
+  lodash@4.18.1:
     resolution:
       {
-        integrity: sha512-LgVTMpQtIopCi79SJeDiP0TfWi5CNEc/L/aRdTh3yIvmZXTnheWpKjSZhnvMl8iXbC1tFg9gdHHDMLoV7CnG+w==,
+        integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==,
       }
 
   log-symbols@2.2.0:
@@ -11202,7 +11203,7 @@ snapshots:
       babel-import-util: 3.0.1
       ember-cli-babel: 7.26.11
       find-up: 5.0.0
-      lodash: 4.17.23
+      lodash: 4.18.1
       resolve: 1.22.10
       semver: 7.7.2
     transitivePeerDependencies:
@@ -11216,7 +11217,7 @@ snapshots:
       fs-extra: 9.1.0
       is-subdir: 1.2.0
       js-string-escape: 1.0.1
-      lodash: 4.17.23
+      lodash: 4.18.1
       minimatch: 10.2.4(patch_hash=48f09d0f09e3ad1219341a20b95c67fc9367f25c541837f7e50ba40202b363ba)
       pkg-entry-points: 1.1.1
       resolve-package-path: 4.0.3
@@ -11233,7 +11234,7 @@ snapshots:
       fs-extra: 9.1.0
       is-subdir: 1.2.0
       js-string-escape: 1.0.1
-      lodash: 4.17.23
+      lodash: 4.18.1
       minimatch: 10.2.4(patch_hash=48f09d0f09e3ad1219341a20b95c67fc9367f25c541837f7e50ba40202b363ba)
       pkg-entry-points: 1.1.1
       resolve-package-path: 4.0.3
@@ -11245,7 +11246,7 @@ snapshots:
 
   "@embroider/test-setup@0.48.1":
     dependencies:
-      lodash: 4.17.23
+      lodash: 4.18.1
       resolve: 1.22.10
 
   "@embroider/util@1.12.1(ember-source@3.28.12(@babel/core@7.23.7))":
@@ -11528,8 +11529,8 @@ snapshots:
     dependencies:
       "@types/lodash": 4.17.20
       "@types/react": 16.14.66
-      lodash: 4.17.23
-      lodash-decorators: 4.5.0(lodash@4.17.23)
+      lodash: 4.18.1
+      lodash-decorators: 4.5.0(lodash@4.18.1)
 
   "@shopify/polaris-icons@3.12.0": {}
 
@@ -11556,7 +11557,7 @@ snapshots:
       "@types/react-transition-group": 2.9.2
       core-js: 2.6.12
       hoist-non-react-statics: 2.5.5
-      lodash: 4.17.23
+      lodash: 4.18.1
       prop-types: 15.8.1
       react-transition-group: 2.9.0
       tslib: 1.14.1
@@ -11817,7 +11818,7 @@ snapshots:
       "@webassemblyjs/ast": 1.14.1
       "@xtuc/long": 4.2.2
 
-  "@xmldom/xmldom@0.8.11": {}
+  "@xmldom/xmldom@0.8.12": {}
 
   "@xtuc/ieee754@1.2.0": {}
 
@@ -11921,7 +11922,7 @@ snapshots:
 
   applause@2.0.4:
     dependencies:
-      lodash: 4.17.23
+      lodash: 4.18.1
       optional-require: 1.1.10
     optionalDependencies:
       cson-parser: 4.0.9
@@ -12021,7 +12022,7 @@ snapshots:
 
   async@2.6.4:
     dependencies:
-      lodash: 4.17.23
+      lodash: 4.18.1
 
   async@3.2.6: {}
 
@@ -12072,7 +12073,7 @@ snapshots:
   babel-plugin-filter-imports@4.0.0:
     dependencies:
       "@babel/types": 7.28.4
-      lodash: 4.17.23
+      lodash: 4.18.1
 
   babel-plugin-htmlbars-inline-precompile@5.3.1:
     dependencies:
@@ -12913,7 +12914,7 @@ snapshots:
     dependencies:
       chalk: 4.1.2
       date-fns: 2.30.0
-      lodash: 4.17.23
+      lodash: 4.18.1
       rxjs: 7.8.2
       shell-quote: 1.8.3
       spawn-command: 0.0.2
@@ -12949,12 +12950,12 @@ snapshots:
       ora: 3.4.0
       through2: 3.0.2
 
-  consolidate@0.16.0(handlebars@4.7.9)(lodash@4.17.23)(mustache@4.2.0)(underscore@1.13.8):
+  consolidate@0.16.0(handlebars@4.7.9)(lodash@4.18.1)(mustache@4.2.0)(underscore@1.13.8):
     dependencies:
       bluebird: 3.7.2
     optionalDependencies:
       handlebars: 4.7.9
-      lodash: 4.17.23
+      lodash: 4.18.1
       mustache: 4.2.0
       underscore: 1.13.8
 
@@ -13272,7 +13273,7 @@ snapshots:
       handlebars: 4.7.9
       is-subdir: 1.2.0
       js-string-escape: 1.0.1
-      lodash: 4.17.23
+      lodash: 4.18.1
       mini-css-extract-plugin: 2.9.4(webpack@5.105.2)
       minimatch: 10.2.4(patch_hash=48f09d0f09e3ad1219341a20b95c67fc9367f25c541837f7e50ba40202b363ba)
       parse5: 6.0.1
@@ -13617,7 +13618,7 @@ snapshots:
       js-yaml: 3.14.2
       json-stable-stringify: 1.3.0
       leek: 0.0.24
-      lodash.template: lodash@4.17.23
+      lodash.template: lodash@4.18.1
       markdown-it: 12.3.2
       markdown-it-terminal: 0.2.1
       minimatch: 10.2.4(patch_hash=48f09d0f09e3ad1219341a20b95c67fc9367f25c541837f7e50ba40202b363ba)
@@ -13964,7 +13965,7 @@ snapshots:
       console-ui: 3.1.2
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 5.7.2
-      lodash: 4.17.23
+      lodash: 4.18.1
       safe-stable-stringify: 2.5.0
     transitivePeerDependencies:
       - "@glint/template"
@@ -14042,7 +14043,7 @@ snapshots:
   ember-try-config@4.0.0:
     dependencies:
       ember-source-channel-url: 3.0.0
-      lodash: 4.17.23
+      lodash: 4.18.1
       package-json: 6.5.0
       remote-git-tags: 3.0.0
       semver: 7.7.2
@@ -15181,7 +15182,7 @@ snapshots:
       cli-width: 2.2.1
       external-editor: 3.1.0
       figures: 2.0.0
-      lodash: 4.17.23
+      lodash: 4.18.1
       mute-stream: 0.0.7
       run-async: 2.4.1
       rxjs: 6.6.7
@@ -15197,7 +15198,7 @@ snapshots:
       cli-width: 3.0.0
       external-editor: 3.1.0
       figures: 3.2.0
-      lodash: 4.17.23
+      lodash: 4.18.1
       mute-stream: 0.0.8
       run-async: 2.4.1
       rxjs: 6.6.7
@@ -15555,9 +15556,9 @@ snapshots:
     dependencies:
       p-locate: 6.0.0
 
-  lodash-decorators@4.5.0(lodash@4.17.23):
+  lodash-decorators@4.5.0(lodash@4.18.1):
     dependencies:
-      lodash: 4.17.23
+      lodash: 4.18.1
       tslib: 1.14.1
 
   lodash._baseassign@3.2.0:
@@ -15625,7 +15626,7 @@ snapshots:
 
   lodash.uniq@4.5.0: {}
 
-  lodash@4.17.23: {}
+  lodash@4.18.1: {}
 
   log-symbols@2.2.0:
     dependencies:
@@ -17057,20 +17058,20 @@ snapshots:
 
   testem@3.16.0(handlebars@4.7.9)(underscore@1.13.8):
     dependencies:
-      "@xmldom/xmldom": 0.8.11
+      "@xmldom/xmldom": 0.8.12
       backbone: 1.6.1
       bluebird: 3.7.2
       charm: 1.0.2
       commander: 2.20.3
       compression: 1.8.1
-      consolidate: 0.16.0(handlebars@4.7.9)(lodash@4.17.23)(mustache@4.2.0)(underscore@1.13.8)
+      consolidate: 0.16.0(handlebars@4.7.9)(lodash@4.18.1)(mustache@4.2.0)(underscore@1.13.8)
       execa: 1.0.0
       express: 4.21.2
       fireworm: 0.7.2
       glob: 7.2.3
       http-proxy: 1.18.1
       js-yaml: 3.14.2
-      lodash: 4.17.23
+      lodash: 4.18.1
       mkdirp: 3.0.1
       mustache: 4.2.0
       node-notifier: 10.0.1
