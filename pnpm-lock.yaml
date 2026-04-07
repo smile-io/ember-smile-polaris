@@ -26,7 +26,6 @@ overrides:
   js-yaml@<3.14.2 <4.0.0: ">=3.14.2 <4.0.0"
   js-yaml@>=4.0.0 <4.1.1: ">=4.1.1"
   diff@<8.0.3: ">=8.0.3"
-  lodash@>=4.0.0 <=4.17.22: ^4.17.23
   webpack@>=5.49.0 <5.104.1: ^5.104.1
   qs@<=6.14.1: ^6.14.2
   ajv@<6.14.0: ^6.14.0
@@ -44,9 +43,8 @@ overrides:
   handlebars: ^4.7.9
   serialize-javascript: ^7.0.5
   brace-expansion: ^5.0.5
-  lodash@>=4.0.0 <=4.17.23: ^4.18.0
-  lodash@<=4.17.23: ^4.18.0
   "@xmldom/xmldom@<0.8.12": ^0.8.12
+  lodash@<=4.17.23: ">=4.18.0"
 
 patchedDependencies:
   minimatch@10.2.4:
@@ -3694,7 +3692,7 @@ packages:
       just: ^0.1.8
       liquid-node: ^3.0.1
       liquor: ^0.0.5
-      lodash: ^4.18.0
+      lodash: ">=4.18.0"
       marko: ^3.14.4
       mote: ^0.2.0
       mustache: ^4.0.1
@@ -6959,7 +6957,7 @@ packages:
       }
     engines: { node: ">=0.12.0" }
     peerDependencies:
-      lodash: ^4.18.0
+      lodash: ">=4.18.0"
 
   lodash._baseassign@3.2.0:
     resolution:
@@ -7086,12 +7084,6 @@ packages:
     resolution:
       {
         integrity: sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==,
-      }
-
-  lodash@4.17.23:
-    resolution:
-      {
-        integrity: sha512-LgVTMpQtIopCi79SJeDiP0TfWi5CNEc/L/aRdTh3yIvmZXTnheWpKjSZhnvMl8iXbC1tFg9gdHHDMLoV7CnG+w==,
       }
 
   lodash@4.18.1:
@@ -13626,7 +13618,7 @@ snapshots:
       js-yaml: 3.14.2
       json-stable-stringify: 1.3.0
       leek: 0.0.24
-      lodash.template: lodash@4.17.23
+      lodash.template: lodash@4.18.1
       markdown-it: 12.3.2
       markdown-it-terminal: 0.2.1
       minimatch: 10.2.4(patch_hash=48f09d0f09e3ad1219341a20b95c67fc9367f25c541837f7e50ba40202b363ba)
@@ -15633,8 +15625,6 @@ snapshots:
   lodash.restparam@3.6.1: {}
 
   lodash.uniq@4.5.0: {}
-
-  lodash@4.17.23: {}
 
   lodash@4.18.1: {}
 
