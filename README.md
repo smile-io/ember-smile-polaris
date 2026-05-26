@@ -1,6 +1,8 @@
-# ember-smile-polaris
+> [!WARNING]
+> **This repository is no longer maintained.**
+> It is kept available for reference only. Issues and pull requests will not be reviewed.
 
-[![](https://github.com/smile-io/ember-smile-polaris/workflows/CI/badge.svg)](https://github.com/smile-io/ember-smile-polaris/actions)
+# ember-smile-polaris
 
 ![image](https://user-images.githubusercontent.com/5737342/26935493-c8c81c76-4c74-11e7-90dd-ff8b0fdc434e.png)
 
