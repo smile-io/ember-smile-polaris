@@ -1,9 +1,7 @@
 name: Merge main into deprecate-ember-polaris
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   merge_into_deprecate_ember_polaris:

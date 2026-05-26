@@ -1,14 +1,7 @@
 name: CI
 
 on:
-  push:
-    branches:
-      - main
-      - "v*"
-  pull_request: {}
-  merge_group:
-  schedule:
-    - cron: "0 3 * * *" # daily, at 3am
+  workflow_dispatch:
 
 concurrency:
   group: ci-${{ github.head_ref || github.ref }}
