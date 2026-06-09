@@ -50,6 +50,9 @@ overrides:
   postcss@<8.5.10: ^8.5.10
   fast-uri@<=3.1.0: ^3.1.2
   "@babel/plugin-transform-modules-systemjs@>=7.12.0 <=7.29.3": ^7.29.4
+  qs@>=6.11.1 <=6.15.1: ^6.15.2
+  tmp@<0.2.6: ^0.2.6
+  shell-quote@>=1.1.0 <=1.8.3: ^1.8.4
 
 patchedDependencies:
   minimatch@10.2.4:
@@ -1758,6 +1761,7 @@ packages:
     engines: { node: ">= 10.0.0" }
     cpu: [arm]
     os: [linux]
+    libc: [glibc]
 
   "@parcel/watcher-linux-arm-musl@2.5.1":
     resolution:
@@ -1767,6 +1771,7 @@ packages:
     engines: { node: ">= 10.0.0" }
     cpu: [arm]
     os: [linux]
+    libc: [musl]
 
   "@parcel/watcher-linux-arm64-glibc@2.5.1":
     resolution:
@@ -1776,6 +1781,7 @@ packages:
     engines: { node: ">= 10.0.0" }
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   "@parcel/watcher-linux-arm64-musl@2.5.1":
     resolution:
@@ -1785,6 +1791,7 @@ packages:
     engines: { node: ">= 10.0.0" }
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   "@parcel/watcher-linux-x64-glibc@2.5.1":
     resolution:
@@ -1794,6 +1801,7 @@ packages:
     engines: { node: ">= 10.0.0" }
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   "@parcel/watcher-linux-x64-musl@2.5.1":
     resolution:
@@ -1803,6 +1811,7 @@ packages:
     engines: { node: ">= 10.0.0" }
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   "@parcel/watcher-win32-arm64@2.5.1":
     resolution:
@@ -8405,10 +8414,10 @@ packages:
 
       (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
 
-  qs@6.14.2:
+  qs@6.15.2:
     resolution:
       {
-        integrity: sha512-V/yCWTTF7VJ9hIh18Ugr2zhJMP01MY7c5kh4J870L7imm6/DIzBsNLTXzMwUA3yZ5b/KBqLx8Kp3uRvd7xSe3Q==,
+        integrity: sha512-Rzq0KEyX/w/tEybncDgdkZrJgVUsUMk3xjh3t5bv3S1HTAtg+uOYt72+ZfwiQwKdysThkTBdL/rTi6HDmX9Ddw==,
       }
     engines: { node: ">=0.6" }
 
@@ -9072,10 +9081,10 @@ packages:
       }
     engines: { node: ">=8" }
 
-  shell-quote@1.8.3:
+  shell-quote@1.8.4:
     resolution:
       {
-        integrity: sha512-ObmnIF4hXNg1BqhnHmgbDETF8dLPCggZWBjkQfhZpbszZnYur5DUljTcCHii5LC3J5E0yeO/1LIMyH+UvHQgyw==,
+        integrity: sha512-VsC6n6vz1ihYYyZZwX7YZSF5l5x36ca17OC+a69h94YqB7X6XLwf+5MOgynYir2SLFUbl8gIYvBo8K8RoNQ6bQ==,
       }
     engines: { node: ">= 0.4" }
 
@@ -9685,10 +9694,10 @@ packages:
         integrity: sha512-f6nh0VMRvhGx4KCeK1lQ/jaL0Zdb5WdR+Jk8q9OSUQnaSDxAEGH1fgqLZ+cMl5EW3F2MGnCsalBO1IsnnogW1Q==,
       }
 
-  tmp@0.2.5:
+  tmp@0.2.7:
     resolution:
       {
-        integrity: sha512-voyz6MApa1rQGUxT3E+BK7/ROe8itEx7vD8/HEvt4xwXucvQ5G5oeEiHkmHZJuBO21RpOf+YYm9MOivj709jow==,
+        integrity: sha512-e0votIpp4Uo2AJYSzVHV6xCcawuiez3DzqDAbrTc3YxBkplN6e+dM13ZeIcZnDg/QpSuU2zfZ3rzwY8ukEnaXw==,
       }
     engines: { node: ">=14.14" }
 
@@ -12304,7 +12313,7 @@ snapshots:
       http-errors: 2.0.0
       iconv-lite: 0.4.24
       on-finished: 2.4.1
-      qs: 6.14.2
+      qs: 6.15.2
       raw-body: 2.5.2
       type-is: 1.6.18
       unpipe: 1.0.0
@@ -12763,7 +12772,7 @@ snapshots:
       resolve-path: 1.4.0
       rimraf: 3.0.2
       sane: 4.1.0
-      tmp: 0.2.5
+      tmp: 0.2.7
       tree-sync: 2.1.0
       underscore.string: 3.3.6
       watch-detector: 1.0.2
@@ -12840,7 +12849,7 @@ snapshots:
 
   can-symlink@1.0.0:
     dependencies:
-      tmp: 0.2.5
+      tmp: 0.2.7
 
   caniuse-lite@1.0.30001745: {}
 
@@ -13049,7 +13058,7 @@ snapshots:
       date-fns: 2.30.0
       lodash: 4.18.1
       rxjs: 7.8.2
-      shell-quote: 1.8.3
+      shell-quote: 1.8.4
       spawn-command: 0.0.2
       supports-color: 8.1.1
       tree-kill: 1.2.2
@@ -14152,7 +14161,7 @@ snapshots:
       globby: 11.1.0
       ora: 5.4.1
       slash: 3.0.0
-      tmp: 0.2.5
+      tmp: 0.2.7
       workerpool: 6.5.1
     transitivePeerDependencies:
       - supports-color
@@ -14627,7 +14636,7 @@ snapshots:
       parseurl: 1.3.3
       path-to-regexp: 0.1.13
       proxy-addr: 2.0.7
-      qs: 6.14.2
+      qs: 6.15.2
       range-parser: 1.2.1
       safe-buffer: 5.2.1
       send: 0.19.0
@@ -14644,7 +14653,7 @@ snapshots:
     dependencies:
       chardet: 0.7.0
       iconv-lite: 0.4.24
-      tmp: 0.2.5
+      tmp: 0.2.7
 
   extract-stack@2.0.0: {}
 
@@ -14794,12 +14803,12 @@ snapshots:
   fixturify-project@1.10.0:
     dependencies:
       fixturify: 1.3.0
-      tmp: 0.2.5
+      tmp: 0.2.7
 
   fixturify-project@2.1.1:
     dependencies:
       fixturify: 2.1.1
-      tmp: 0.2.5
+      tmp: 0.2.7
       type-fest: 0.11.0
 
   fixturify@1.3.0:
@@ -16021,7 +16030,7 @@ snapshots:
       minimatch: 10.2.4(patch_hash=48f09d0f09e3ad1219341a20b95c67fc9367f25c541837f7e50ba40202b363ba)
       pidtree: 0.3.1
       read-pkg: 3.0.0
-      shell-quote: 1.8.3
+      shell-quote: 1.8.4
       string.prototype.padend: 3.1.6
 
   npm-run-path@2.0.2:
@@ -16406,7 +16415,7 @@ snapshots:
 
   q@1.5.1: {}
 
-  qs@6.14.2:
+  qs@6.15.2:
     dependencies:
       side-channel: 1.1.0
 
@@ -16822,7 +16831,7 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
-  shell-quote@1.8.3: {}
+  shell-quote@1.8.4: {}
 
   shellwords@0.1.1: {}
 
@@ -17215,7 +17224,7 @@ snapshots:
       spawn-args: 0.2.0
       styled_string: 0.0.1
       tap-parser: 7.0.0
-      tmp: 0.2.5
+      tmp: 0.2.7
     transitivePeerDependencies:
       - arc-templates
       - atpl
@@ -17294,11 +17303,11 @@ snapshots:
       faye-websocket: 0.11.4
       livereload-js: 3.4.1
       object-assign: 4.1.1
-      qs: 6.14.2
+      qs: 6.15.2
     transitivePeerDependencies:
       - supports-color
 
-  tmp@0.2.5: {}
+  tmp@0.2.7: {}
 
   tmpl@1.0.5: {}
 
@@ -17540,7 +17549,7 @@ snapshots:
     dependencies:
       heimdalljs-logger: 0.1.10
       silent-error: 1.1.1
-      tmp: 0.2.5
+      tmp: 0.2.7
     transitivePeerDependencies:
       - supports-color
 
